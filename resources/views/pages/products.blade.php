@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-3 col-12">
                 <!-- Start offcanvas filter -->
-                <div class="col-12 d-md-none mb-4">
+                <div class="col-12 d-md-none mb-4 mx-2">
                     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#off-canvas-filter" aria-controls="off-canvas-filter">
                         Filter
