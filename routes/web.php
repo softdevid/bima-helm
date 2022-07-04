@@ -18,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/helm/details', function() {
+    return view('products.product-detail', [
+        "category" => "Helm Full Face",
+        "title" => "KYT TT COURSE PLAIN MATT BLACK"
+    ]);
+});

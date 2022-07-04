@@ -76,7 +76,6 @@
                     </div>
                     <!-- End Single Widget -->
                     <!-- Start Single Widget -->
-                    @if ($category !== 'All')
                     <div class="single-widget condition mt-md-3">
                         <h3>Berdasarkan Merek</h3>
                         <div class="form-check">
@@ -92,7 +91,6 @@
                             </label>
                         </div>
                     </div>
-                    @endif
                     <!-- End Single Widget -->
                 </div>
                 <!-- End Product Sidebar -->
@@ -124,163 +122,36 @@
                                         <div class="row align-items-center">
                                             <div class="col-lg-12 col-md-12 col-4">
                                                 <div class="product-image">
-                                                    <img src="https://via.placeholder.com/335x335" alt="#">
+                                                    <img src="/img/kyt-tt-course-plain-mat-black.jpeg" alt="#">
                                                     <div class="button">
-                                                        <a href="product-details.html" class="btn"><i
-                                                                class="lni lni-cart"></i> Add to
-                                                            Cart</a>
+                                                        <a href="product-details.html" class="btn">
+                                                            <i class="fa-regular fa-cart-shopping"></i></i> Add to Cart
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-8">
                                                 <div class="product-info">
-                                                    <span class="category">Watches</span>
+                                                    <span class="category">Helm Full Face</span>
                                                     <h4 class="title">
-                                                        <a href="product-grids.html">Xiaomi Mi Band 5</a>
+                                                        <a href="/products/helm/details">KYT TT COURSE PLAIN MATT BLACK</a>
                                                     </h4>
-                                                    <ul class="review">
+                                                    {{-- <ul class="review">
                                                         <li><i class="lni lni-star-filled"></i></li>
                                                         <li><i class="lni lni-star-filled"></i></li>
                                                         <li><i class="lni lni-star-filled"></i></li>
                                                         <li><i class="lni lni-star-filled"></i></li>
                                                         <li><i class="lni lni-star"></i></li>
                                                         <li><span>4.0 Review(s)</span></li>
-                                                    </ul>
+                                                    </ul> --}}
                                                     <div class="price">
-                                                        <span>$199.00</span>
+                                                        <span>Rp1.700.000</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- End Single Product -->
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                    <!-- Start Single Product -->
-                                    <div class="single-product">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-12 col-md-12 col-4">
-                                                <div class="product-image">
-                                                    <img src="https://via.placeholder.com/335x335" alt="#">
-                                                    <div class="button">
-                                                        <a href="product-details.html" class="btn"><i
-                                                                class="lni lni-cart"></i> Add to
-                                                            Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 col-8">
-                                                <div class="product-info">
-                                                    <span class="category">Watches</span>
-                                                    <h4 class="title">
-                                                        <a href="product-grids.html">Xiaomi Mi Band 5</a>
-                                                    </h4>
-                                                    <ul class="review">
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star"></i></li>
-                                                        <li><span>4.0 Review(s)</span></li>
-                                                    </ul>
-                                                    <div class="price">
-                                                        <span>$199.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                    <!-- Start Single Product -->
-                                    <div class="single-product">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-12 col-md-12 col-4">
-                                                <div class="product-image">
-                                                    <img src="https://via.placeholder.com/335x335" alt="#">
-                                                    <div class="button">
-                                                        <a href="product-details.html" class="btn"><i
-                                                                class="lni lni-cart"></i> Add to
-                                                            Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 col-8">
-                                                <div class="product-info">
-                                                    <span class="category">Watches</span>
-                                                    <h4 class="title">
-                                                        <a href="product-grids.html">Xiaomi Mi Band 5</a>
-                                                    </h4>
-                                                    <ul class="review">
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star"></i></li>
-                                                        <li><span>4.0 Review(s)</span></li>
-                                                    </ul>
-                                                    <div class="price">
-                                                        <span>$199.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                    <!-- Start Single Product -->
-                                    <div class="single-product">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-12 col-md-12 col-4">
-                                                <div class="product-image">
-                                                    <img src="https://via.placeholder.com/335x335" alt="#">
-                                                    <div class="button">
-                                                        <a href="product-details.html" class="btn"><i
-                                                                class="lni lni-cart"></i> Add to
-                                                            Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 col-8">
-                                                <div class="product-info">
-                                                    <span class="category">Watches</span>
-                                                    <h4 class="title">
-                                                        <a href="product-grids.html">Xiaomi Mi Band 5</a>
-                                                    </h4>
-                                                    <ul class="review">
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star"></i></li>
-                                                        <li><span>4.0 Review(s)</span></li>
-                                                    </ul>
-                                                    <div class="price">
-                                                        <span>$199.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <!-- Pagination -->
-                                    <div class="pagination left">
-                                        <ul class="pagination-list">
-                                            <li class="active"><a href="javascript:void(0)">1</a></li>
-                                            <li><a href="javascript:void(0)">2</a></li>
-                                            <li><a href="javascript:void(0)">3</a></li>
-                                            <li><a href="javascript:void(0)">4</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa-solid fa-angle-right"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--/ End Pagination -->
                                 </div>
                             </div>
                         </div>

@@ -25,7 +25,7 @@
                                 </a>
                                 <ul class="sub-menu collapse" id="submenu-1-2">
                                     <li class="nav-item">
-                                        <a href="/products/all" aria-label="Toggle navigation">Selengkapnya</a>
+                                        <a href="/products" aria-label="Toggle navigation">Selengkapnya</a>
                                     </li>
                                     <li class="nav-item dropend">
                                         <a href="#" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown">

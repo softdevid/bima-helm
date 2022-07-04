@@ -5319,6 +5319,10 @@ blockquote span {
     margin-top: 20px;
 }
 
+.item-details .product-info .quantity {
+    margin-top: 20px;
+}
+
 .item-details .product-info .form-group.color-option .title-label {
     display: block !important;
 }
@@ -5340,89 +5344,6 @@ blockquote span {
     bottom: -2px;
 }
 
-.item-details .product-info .form-group.color-option .single-checkbox input[type="checkbox"] {
-    display: none;
-}
-
-.item-details .product-info .form-group.color-option .single-checkbox input[type="checkbox"]+label span {
-    border-color: #0167F3;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    cursor: pointer;
-    position: relative;
-    display: inline-block;
-    margin: 0 5px -3px 0;
-    border: 1px solid #d5d5d5;
-}
-
-.item-details .product-info .form-group.color-option .single-checkbox input[type="checkbox"]+label span::before {
-    position: absolute;
-    content: '';
-    top: 50%;
-    left: 50%;
-    width: 18px;
-    height: 18px;
-    -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-    font-size: 10px;
-    line-height: 1.2;
-    background-color: #0167F3;
-    font-family: "Lineicons";
-    content: "\ea5b";
-    padding-left: 0px;
-    padding-top: 3px;
-    border-radius: 50%;
-    margin-top: -9px;
-    margin-left: -9px;
-    text-align: center;
-}
-
-.item-details .product-info .form-group.color-option .single-checkbox.checkbox-style-1 input[type="checkbox"]+label span {
-    border: 2px solid #081828;
-}
-
-.item-details .product-info .form-group.color-option .single-checkbox.checkbox-style-1 input[type="checkbox"]+label span::before {
-    background-color: #081828;
-}
-
-.item-details .product-info .form-group.color-option .single-checkbox.checkbox-style-2 input[type="checkbox"]+label span {
-    border: 2px solid #0167F3;
-}
-
-.item-details .product-info .form-group.color-option .single-checkbox.checkbox-style-2 input[type="checkbox"]+label span::before {
-    background-color: #0167F3;
-}
-
-.item-details .product-info .form-group.color-option .single-checkbox.checkbox-style-3 input[type="checkbox"]+label span {
-    border: 2px solid #ca0f05;
-}
-
-.item-details .product-info .form-group.color-option .single-checkbox.checkbox-style-3 input[type="checkbox"]+label span::before {
-    background-color: #ca0f05;
-}
-
-.item-details .product-info .form-group.color-option .single-checkbox.checkbox-style-4 input[type="checkbox"]+label span {
-    border: 2px solid #029c07;
-}
-
-.item-details .product-info .form-group.color-option .single-checkbox.checkbox-style-4 input[type="checkbox"]+label span::before {
-    background-color: #029c07;
-}
-
-.item-details .product-info .form-group.color-option .single-checkbox input[type="checkbox"]:checked+label span {
-    border-color: transparent;
-}
-
-.item-details .product-info .form-group.color-option .single-checkbox input[type="checkbox"]:checked+label span::before {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    border-radius: 50%;
-    color: #fff;
-}
-
 .item-details .product-info .form-group input:focus {
     outline: 0;
 }
@@ -5435,6 +5356,12 @@ blockquote span {
 }
 
 .item-details .product-info .form-group label {
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.item-details .product-info .quantity label {
     margin-bottom: 8px;
     font-size: 13px;
     font-weight: 500;
@@ -5523,17 +5450,12 @@ blockquote span {
 
 .item-details .product-info .wish-button .btn {
     display: inline-block;
-    margin-right: 7px;
     border: 1px solid #eee;
     border-radius: 4px;
     color: #555;
-    padding: 10px 18px;
-    font-size: 13px;
-    font-weight: 600;
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
     height: 46px;
-    width: 100%;
 }
 
 .item-details .product-info .wish-button .btn:hover {
@@ -5549,9 +5471,7 @@ blockquote span {
 .item-details .product-info .wish-button .btn i {
     font-size: 16px;
     display: inline-block;
-    margin-right: 5px;
     position: relative;
-    top: 2px;
 }
 
 .item-details .product-info .list-info {
