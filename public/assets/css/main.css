@@ -6026,12 +6026,6 @@ blockquote span {
     padding-right: 15px;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px),
-(max-width: 767px) {
-    .product-grids .product-grid-topbar {
-        margin-top: 30px;
-    }
-}
 
 .product-grids .product-grid-topbar .product-sorting label {
     display: inline-block;

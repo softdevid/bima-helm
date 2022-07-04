@@ -16,7 +16,7 @@
                     <div class="offcanvas offcanvas-start" tabindex="-1" id="off-canvas-filter"
                         aria-labelledby="off-canvas-filterLabel">
                         <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="off-canvas-filterLabel">Offcanvas</h5>
+                            <h5 class="offcanvas-title" id="off-canvas-filterLabel">Produk</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
@@ -37,7 +37,7 @@
                 </div>
                 <!-- End offcanvas filter -->
                 <!-- Start Single Widget -->
-                <div class="single-widget search">
+                <div class="single-widget search mb-3 mb-md-0">
                     <h3>Cari Produk</h3>
                     <form action="#">
                         <input type="text" placeholder="Cari...">
@@ -46,13 +46,13 @@
                 </div>
                 <!-- End Single Widget -->
                 <!-- Start Product Sidebar -->
-                <div class="product-sidebar d-none d-md-block">
+                <div class="product-sidebar my-md-3 d-none d-md-block">
                     <!-- Start Single Widget -->
                     <div class="single-widget">
                         <h3>Kategori</h3>
                         <ul class="list">
                             <li>
-                                <a href="#">Semua Produk</a>
+                                <a href="#" class="text-primary">Semua Produk</a>
                             </li>
                             <li>
                                 <a href="#">Helm Full Face</a>
@@ -76,7 +76,8 @@
                     </div>
                     <!-- End Single Widget -->
                     <!-- Start Single Widget -->
-                    <div class="single-widget condition">
+                    @if ($category !== 'All')
+                    <div class="single-widget condition mt-md-3">
                         <h3>Berdasarkan Merek</h3>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault11">
@@ -91,6 +92,7 @@
                             </label>
                         </div>
                     </div>
+                    @endif
                     <!-- End Single Widget -->
                 </div>
                 <!-- End Product Sidebar -->
