@@ -44,11 +44,11 @@
                                 <div class="d-block quantity">
                                     <label for="quantity">Kuantitas</label>
                                     <div class="input-group ">
-                                        <button class="btn btn-outline-primary" type="button">
+                                        <button class="btn btn-outline-primary quantity-minus" type="button">
                                             <i class="fa-solid fa-minus"></i>
                                         </button>
                                         <input type="number" id="quantity" name="quantity" class="form-control text-center" value="1" min="1" max="100">
-                                        <button class="btn btn-outline-primary" type="button">
+                                        <button class="btn btn-outline-primary quantity-plus" type="button">
                                             <i class="fa-solid fa-plus"></i>
                                         </button>
                                     </div>
@@ -86,7 +86,7 @@
                             <h4>Detail</h4>
                             <ul class="normal-list">
                                 <li><span>Merek:</span> KYT</li>
-                                <li><span>Jenis Helm:</span> 35 mph (15 m/s)</li>
+                                <li><span>Jenis Helm:</span> Full Face</li>
                                 <li><span>Dikirim Dari:</span> Kab. Purbalingga</li>
                             </ul>
                             <h4>Spesifikasi</h4>

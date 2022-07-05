@@ -18,6 +18,10 @@
                                 <a href="/" aria-label="Toggle navigation">Home</a>
                             </li>
                             <li class="nav-item">
+                                <a href="/products" aria-label="Toggle navigation">Produk</a>
+                            </li>
+
+                            {{-- <li class="nav-item">
                                 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
                                     data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"
                                     aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +52,7 @@
                                         <a href="#" aria-label="Toggle navigation">Lainnya</a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a href="#" aria-label="Toggle navigation">Cara Belanja</a>
                             </li>

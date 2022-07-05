@@ -1,12 +1,5 @@
 @extends('layouts.main')
 @section('content')
-
-<div class="row">
-    <div class="col-12">
-
-    </div>
-</div>
-
 <!-- Start Hero Area -->
 <section class="hero-area">
     <div class="container">
@@ -14,37 +7,43 @@
             <div class="col-12 mb-2">
                 <!-- Start Banner -->
                 <div class="single-banner right">
-                    <img src="https://via.placeholder.com/900x200" class="img-fluid w-100" alt="">
+                    <img src="/img/tampak-depan.jpg" class="img-fluid w-100" alt="">
                 </div>
                 <!-- End Banner -->
             </div>
-            <div class="col-lg-8 col-12 custom-padding-right">
-                <div class="slider-head">
-                    <!-- Start Hero Slider -->
-                    <div class="hero-slider">
-                        <!-- Start Single Slider -->
-                        <div class="single-slider"
-                            style="background-image: url(https://via.placeholder.com/800x400);">
-                            <div class="content">
-                                <h2>
-                                    KYT
-                                </h2>
-                                <h3><span>Harga</span> Rp.600.000,00</h3>
-                                <div class="button">
-                                    <a href="product-grids.html" class="btn">Beli</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Slider -->
+            <div class="col-lg-7 col-12 custom-padding-right">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
-                    <!-- End Hero Slider -->
-                </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="/img/HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="/img/HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="/img/HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
             </div>
-            <div class="col-lg-4 col-12">
+            <div class="col-lg-5 col-12">
                 <div class="row">
                     <div class="col-lg-12 col-md-6 col-12 md-custom-padding">
                         <!-- Start Small Banner -->
-                        <div class="hero-small-banner d-flex align-items-end" style="background-image: url('https://via.placeholder.com/370x250');">
+                        <div class="hero-small-banner d-flex align-items-end" style="background-image: url('/img/Spoiler-KYT-K2R.jpeg');">
                             <div class="flex-fill">
                                 <button class="btn btn-primary w-100" type="button">Aksesoris</button>
                             </div>
@@ -53,7 +52,7 @@
                     </div>
                     <div class="col-lg-12 col-md-6 col-12 mt-2 mt-md-0 mt-lg-2">
                         <!-- Start Small Banner -->
-                        <div class="hero-small-banner d-flex align-items-end" style="background-image: url('https://via.placeholder.com/370x250');">
+                        <div class="hero-small-banner d-flex align-items-end" style="background-image: url('/img/BUSA-FULLSET-HELM-INK-CX-22.jpeg');">
                             <div class="flex-fill">
                                 <button class="btn btn-primary w-100" type="button">Spare Parts</button>
                             </div>

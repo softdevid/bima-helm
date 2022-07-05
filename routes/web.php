@@ -24,3 +24,15 @@ Route::get('/products/helm/details', function() {
         "title" => "KYT TT COURSE PLAIN MATT BLACK"
     ]);
 });
+
+Route::get('/cart', function() {
+    return view('pages.cart', [
+        "title" => "Cart"
+    ]);
+});
+
+Route::get('/checkout', function() {
+    return view('pages.checkout', [
+        "title" => "Checkout"
+    ]);
+});
