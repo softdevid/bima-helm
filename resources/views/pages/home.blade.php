@@ -515,17 +515,17 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-3 d-flex justify-content-end align-items-center">
-                <a href="https://shopee.co.id/bimahelm">
+                <a href="https://shopee.co.id/bimahelm" target="_blank" rel="noopener noreferrer">
                     <img src="/img/icons/shopee.png" class="img-fluid" alt="shopee">
                 </a>
             </div>
             <div class="col-3 d-flex justify-content-center align-items-center">
-                <a href="https://www.bukalapak.com/bimahelm">
+                <a href="https://www.bukalapak.com/bimahelm" target="_blank" rel="noopener noreferrer">
                     <img src="/img/icons/bukalapak.png" class="img-fluid" alt="bukalapak">
                 </a>
             </div>
             <div class="col-3 d-flex justify-content-start align-items-center">
-                <a href="https://www.tokopedia.com/bimahelm">
+                <a href="https://www.tokopedia.com/bimahelm" target="_blank" rel="noopener noreferrer">
                     <img src="/img/icons/tokped.png" class="img-fluid" alt="tokped">
                 </a>
             </div>
