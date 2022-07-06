@@ -5644,6 +5644,7 @@ blockquote span {
 }
 
 .product-details-info .info-body .features li {
+    font-size: 12px;
     display: block;
     margin-bottom: 12px;
     position: relative;

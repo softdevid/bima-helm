@@ -24,7 +24,7 @@
                             <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#coll-category" aria-expanded="false" aria-controls="coll-category">
                                 Kategori
                             </button>
-                            <div class="collapse my-1" id="coll-category">
+                            <div class="collapse show my-1" id="coll-category">
                                 <ul class="list-group">
                                     <li class="list-group-item active">Semua Produk</li>
                                     <li class="list-group-item">Helm Full Face</li>

@@ -14,9 +14,9 @@
                             </div>
                             <div class="images">
                                 <img src="/img/kyt-tt-course-plain-mat-black.jpeg" class="img" alt="#">
-                                <img src="/img/kyt-tt-course-plain-mat-black.jpeg" class="img" alt="#">
-                                <img src="/img/kyt-tt-course-plain-mat-black.jpeg" class="img" alt="#">
-                                <img src="/img/kyt-tt-course-plain-mat-black.jpeg" class="img" alt="#">
+                                <img src="/img/KYT-C5-IANONE-WHITE.jpeg" class="img" alt="#">
+                                <img src="/img/HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg" class="img" alt="#">
+                                <img src="/img/KYT-RC-SEVEN-17-BLACK-DOFT-GOLD.jpeg" class="img" alt="#">
                             </div>
                         </main>
                     </div>
@@ -28,7 +28,7 @@
                         <h3 class="price">Rp1.700.000</h3>
                         <p class="info-text">Stok: <span>10</span></p>
                         <div class="row">
-                            <div class="col-lg-4 col-md-4 col-12">
+                            <div class="col-5 col-sm-6 col-md-3 col-lg-4">
                                 <div class="form-group">
                                     <label for="size">Pilih Ukuran</label>
                                     <select class="form-control" id="size">
@@ -40,7 +40,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-12">
+                            <div class="col-7 col-sm-6 col-md-4 col-lg-5">
                                 <div class="d-block quantity">
                                     <label for="quantity">Kuantitas</label>
                                     <div class="input-group ">
@@ -57,7 +57,7 @@
                         </div>
                         <div class="bottom-content">
                             <div class="row align-items-end">
-                                <div class="col-lg-4 col-md-4 col-12">
+                                <div class="col-10 col-sm-6 col-md-4 col-lg-6 col-xl-4">
                                     <div class="button cart-button">
                                         <button class="btn" style="width: 100%;">
                                             <i class="fa-regular fa-cart-shopping"></i>
@@ -65,7 +65,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-lg-2 col-md-4 col-12">
+                                <div class="col-2">
                                     <div class="wish-button">
                                         <button class="btn">
                                             <i class="fa-regular fa-heart"></i>
@@ -81,34 +81,40 @@
         <div class="product-details-info">
             <div class="single-block">
                 <div class="row">
-                    <div class="col-lg-6 col-12">
-                        <div class="info-body">
-                            <h4>Detail</h4>
-                            <ul class="normal-list">
-                                <li><span>Merek:</span> KYT</li>
-                                <li><span>Jenis Helm:</span> Full Face</li>
-                                <li><span>Dikirim Dari:</span> Kab. Purbalingga</li>
-                            </ul>
-                            <h4>Spesifikasi</h4>
-                            <ul class="normal-list">
-                                <li>Terdapat barcode original</li>
-                                <li>Original SNI berlogo asli</li>
-                                <li>Busa Tebal, Empuk & dapat di cuci</li>
-                                <li>Model & warna Best Seller</li>
-                                <li>Free sarung helm</li>
-                            </ul>
+                    <div class="col-lg-6 col-12 mb-3">
+                        <div class="row info-body">
+                            <div class="col-12 col-md-6 mb-3 mb-md-0">
+                                <h4>Detail</h4>
+                                <ul class="normal-list">
+                                    <li><span>Merek:</span> KYT</li>
+                                    <li><span>Jenis Helm:</span> Full Face</li>
+                                    <li><span>Dikirim Dari:</span> Kab. Purbalingga</li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h4>Spesifikasi</h4>
+                                <ul class="normal-list">
+                                    <li>Terdapat barcode original</li>
+                                    <li>Original SNI berlogo asli</li>
+                                    <li>Busa Tebal, Empuk & dapat di cuci</li>
+                                    <li>Model & warna Best Seller</li>
+                                    <li>Free sarung helm</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="info-body custom-responsive-margin">
                             <h4>NB :</h4>
-                            <li>SEBELUM ORDER WAJIB MENANYAKAN KETERSEDIAAN BARANG TERLEBIH DAHULU KEPADA PENJUAL</li>
-                            <li>SEBELUM ORDER WAJIB MENGIKUTI PERATURAN TOKO, ONGKIR RETUR FULL DI TANGGUNG PEMBELI</li>
-                            <li>MEMBELI/ATC DIANGGAP SUDAH SETUJU & MEMBACA DESKRIPSI DENGAN LENGKAP</li>
-                            <li>PASTIKAN UKURAN DAN WARNA</li>
-                            <li>SEBELUM BARANG DIKIRIM AKAN KAMI CEK TERLEBIH DAHULU, KARENA KAMI TIDAK INGIN MENGECEWAKAN KONSUMEN</li>
-                            <li>PACKING MENGGUNAKAN BUBBLE DAN KARDUS BOX HELM, dijamin barang aman saat pengiriman</li>
-                            <li>TERIMAKASIH :D</li>
+                            <ul class="features">
+                                <li>SEBELUM ORDER WAJIB MENANYAKAN KETERSEDIAAN BARANG TERLEBIH DAHULU KEPADA PENJUAL</li>
+                                <li>SEBELUM ORDER WAJIB MENGIKUTI PERATURAN TOKO, ONGKIR RETUR FULL DI TANGGUNG PEMBELI</li>
+                                <li>MEMBELI/ATC DIANGGAP SUDAH SETUJU & MEMBACA DESKRIPSI DENGAN LENGKAP</li>
+                                <li>PASTIKAN UKURAN DAN WARNA</li>
+                                <li>SEBELUM BARANG DIKIRIM AKAN KAMI CEK TERLEBIH DAHULU, KARENA KAMI TIDAK INGIN MENGECEWAKAN KONSUMEN</li>
+                                <li>PACKING MENGGUNAKAN BUBBLE DAN KARDUS BOX HELM, dijamin barang aman saat pengiriman</li>
+                                <li>TERIMAKASIH :D</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
