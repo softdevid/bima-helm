@@ -11,53 +11,42 @@
                 </div>
                 <!-- End Banner -->
             </div>
-            <div class="col-lg-7 col-12 custom-padding-right">
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-                    <div class="carousel-indicators">
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
+            <div class="col-md-4 col-12 custom-padding-right">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img src="/img/HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg" class="d-block w-100" alt="...">
+                        <img src="/img/KYT-C5-IANONE-WHITE.jpeg" class="d-block w-100" alt="">
                       </div>
                       <div class="carousel-item">
-                        <img src="/img/HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg" class="d-block w-100" alt="...">
+                        <img src="/img/KYT-RC-SEVEN-17-BLACK-DOFT-GOLD.jpeg" class="d-block w-100" alt="">
                       </div>
                       <div class="carousel-item">
-                        <img src="/img/HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg" class="d-block w-100" alt="...">
+                        <img src="/img/kyt-tt-course-plain-mat-black.jpeg" class="d-block w-100" alt="">
                       </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.4);"></span>
                       <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.4);"></span>
                       <span class="visually-hidden">Next</span>
                     </button>
                   </div>
-            </div>
-            <div class="col-lg-5 col-12">
-                <div class="row">
-                    <div class="col-lg-12 col-md-6 col-12 md-custom-padding">
-                        <!-- Start Small Banner -->
-                        <div class="hero-small-banner d-flex align-items-end" style="background-image: url('/img/Spoiler-KYT-K2R.jpeg');">
-                            <div class="flex-fill">
-                                <button class="btn btn-primary w-100" type="button">Aksesoris</button>
-                            </div>
-                        </div>
-                        <!-- End Small Banner -->
+                </div>
+            <div class="col-md-4 col-12">
+                <div class="card">
+                    <img src="/img/Spoiler-KYT-K2R.jpeg" class="card-img" alt="...">
+                    <div class="card-img-overlay d-flex align-items-end p-0">
+                      <h5 class="card-title text-center text-white flex-fill p-2 mb-0" style="background-color: rgba(0, 0, 0, 0.4);">Aksesoris</h5>
                     </div>
-                    <div class="col-lg-12 col-md-6 col-12 mt-2 mt-md-0 mt-lg-2">
-                        <!-- Start Small Banner -->
-                        <div class="hero-small-banner d-flex align-items-end" style="background-image: url('/img/BUSA-FULLSET-HELM-INK-CX-22.jpeg');">
-                            <div class="flex-fill">
-                                <button class="btn btn-primary w-100" type="button">Spare Parts</button>
-                            </div>
-                        </div>
-                        <!-- End Small Banner -->
+                </div>
+            </div>
+            <div class="col-md-4 col-12">
+                <div class="card">
+                    <img src="/img/BUSA-FULLSET-HELM-INK-CX-22.jpeg" class="card-img" alt="...">
+                    <div class="card-img-overlay d-flex align-items-end p-0">
+                      <h5 class="card-title text-center text-white flex-fill p-2 mb-0" style="background-color: rgba(0, 0, 0, 0.4);">Sparepart</h5>
                     </div>
                 </div>
             </div>
@@ -67,7 +56,7 @@
 <!-- End Hero Area -->
 
 <!-- Start Featured Categories Area -->
-<section class="featured-categories section">
+{{-- <section class="featured-categories section">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -111,7 +100,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- End Features Area -->
 
 <!-- Start Trending Product Area -->
