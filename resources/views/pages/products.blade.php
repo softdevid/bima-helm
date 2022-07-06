@@ -21,15 +21,28 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
-                            <div class="dropdown mt-3">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-bs-toggle="dropdown">
-                                    Dropdown button
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#coll-category" aria-expanded="false" aria-controls="coll-category">
+                                Kategori
+                            </button>
+                            <div class="collapse my-1" id="coll-category">
+                                <ul class="list-group">
+                                    <li class="list-group-item active">Semua Produk</li>
+                                    <li class="list-group-item">Helm Full Face</li>
+                                    <li class="list-group-item">Helm Half Face</li>
+                                    <li class="list-group-item">Spoiler</li>
+                                    <li class="list-group-item">Visor</li>
+                                    <li class="list-group-item">Spare Parts</li>
+                                    <li class="list-group-item">Lainnya</li>
+                                </ul>
+                            </div>
+                            <div class="my-2"></div>
+                            <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#coll-merk-helm" aria-expanded="false" aria-controls="coll-merk-helm">
+                                Merek
+                            </button>
+                            <div class="collapse my-1" id="coll-merk-helm">
+                                <ul class="list-group">
+                                    <li class="list-group-item">KYT</li>
+                                    <li class="list-group-item">INK</li>
                                 </ul>
                             </div>
                         </div>

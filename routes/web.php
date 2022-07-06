@@ -19,7 +19,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/helm/details', function() {
-    return view('products.product-detail', [
+    return view('pages.product-detail', [
         "category" => "Helm Full Face",
         "title" => "KYT TT COURSE PLAIN MATT BLACK"
     ]);
