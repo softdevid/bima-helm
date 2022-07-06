@@ -82,7 +82,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/bimahelmet">
+                        <a href="https://www.instagram.com/bimahelmet" target="_blank" rel="noopener noreferrer">
                             <span class="fa-stack">
                                 <i class="fa-regular fa-circle fa-stack-2x"></i>
                                 <i class="fa-brands fa-instagram fa-stack-1x"></i>
