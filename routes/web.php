@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+
 Route::get('/faq', [HomeController::class, 'faq']);
+
+Route::get('/tentang-kami', [HomeController::class, 'tentangkami']);
 
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/helm/details', function () {

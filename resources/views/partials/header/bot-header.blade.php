@@ -60,7 +60,7 @@
                                 <a href="/faq" aria-label="Toggle navigation">FAQ</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" aria-label="Toggle navigation">Tentang Kami</a>
+                                <a href="/tentang-kami" aria-label="Toggle navigation">Tentang Kami</a>
                             </li>
                         </ul>
                     </div> <!-- navbar collapse -->

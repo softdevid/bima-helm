@@ -12,10 +12,18 @@ class HomeController extends Controller
             "title" => "Home"
         ]);
     }
+
     public function faq()
     {
         return view('pages.faq', [
             "title" => "Frequently Asked Question"
+        ]);
+    }
+
+    public function tentangkami()
+    {
+        return view('pages.tentang-kami', [
+            "title" => "Tentang Kami"
         ]);
     }
 }
