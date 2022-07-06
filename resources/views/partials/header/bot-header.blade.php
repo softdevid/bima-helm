@@ -74,7 +74,7 @@
                 <h5 class="title">Follow Kami:</h5>
                 <ul>
                     <li>
-                        <a href="javascript:void(0)">
+                        <a href="https://www.facebook.com/BIMA-HELM-416037581861230/" target="_blank" rel="noopener noreferrer">
                             <span class="fa-stack">
                                 <i class="fa-regular fa-circle fa-stack-2x"></i>
                                 <i class="fa-brands fa-facebook fa-stack-1x"></i>
