@@ -16,22 +16,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/faq', [HomeController::class, 'faq']);
 
 Route::get('/products', [ProductController::class, 'index']);
-Route::get('/products/helm/details', function() {
+Route::get('/products/helm/details', function () {
     return view('pages.product-detail', [
         "category" => "Helm Full Face",
         "title" => "KYT TT COURSE PLAIN MATT BLACK"
     ]);
 });
 
-Route::get('/cart', function() {
+Route::get('/cart', function () {
     return view('pages.cart', [
         "title" => "Cart"
     ]);
 });
 
-Route::get('/checkout', function() {
+Route::get('/checkout', function () {
     return view('pages.checkout', [
         "title" => "Checkout"
     ]);
