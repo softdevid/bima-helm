@@ -5,7 +5,7 @@
 <div class="shopping-cart section">
     <div class="container">
         <div class="cart-list-head">
-            <div class="table-responsive">
+            <div class="table-responsive text-nowrap">
                 <table class="table table-striped align-middle">
                     <thead class="table-light text-center">
                         <tr>
@@ -25,12 +25,12 @@
                                 <h6 class="product-name"><a href="#">KYT C5 IANONE WHITE</a></h6>
                             </td>
                             <td>
-                                <div class="d-block quantity">
-                                    <div class="input-group ">
+                                <div class="quantity">
+                                    <div class="input-group flex-nowrap">
                                         <button class="btn btn-outline-primary quantity-minus p-0 px-1" type="button">
                                             <i class="fa-solid fa-minus"></i>
                                         </button>
-                                        <input type="number" id="quantity" name="quantity" class="form-control text-center p-0" value="1" min="1" max="100">
+                                        <input type="number" id="quantity" name="quantity" class="form-control text-center p-0" style="width: 50px" value="1" min="1" max="100">
                                         <button class="btn btn-outline-primary quantity-plus p-0 px-1" type="button">
                                             <i class="fa-solid fa-plus"></i>
                                         </button>

@@ -11,7 +11,7 @@
                         <li>
                             <h6 class="title collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFour"
                                 aria-expanded="false" aria-controls="collapseFour">Shipping Address</h6>
-                            <section class="checkout-steps-form-content collapse" id="collapseFour"
+                            <section class="checkout-steps-form-content collapse show" id="collapseFour"
                                 aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -43,14 +43,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="single-form form-default">
-                                            <label>Mailing Address</label>
-                                            <div class="form-input form">
-                                                <input type="text" placeholder="Mailing Address">
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="col-md-6">
                                         <div class="single-form form-default">
                                             <label>City</label>
@@ -64,29 +56,6 @@
                                             <label>Post Code</label>
                                             <div class="form-input form">
                                                 <input type="text" placeholder="Post Code">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="single-form form-default">
-                                            <label>Country</label>
-                                            <div class="form-input form">
-                                                <input type="text" placeholder="Country">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="single-form form-default">
-                                            <label>Region/State</label>
-                                            <div class="select-items">
-                                                <select class="form-control">
-                                                    <option value="0">select</option>
-                                                    <option value="1">select option 01</option>
-                                                    <option value="2">select option 02</option>
-                                                    <option value="3">select option 03</option>
-                                                    <option value="4">select option 04</option>
-                                                    <option value="5">select option 05</option>
-                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -134,18 +103,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    {{-- <div class="col-md-12">
                                         <div class="steps-form-btn button">
                                             <button class="btn" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseThree" aria-expanded="false"
-                                                aria-controls="collapseThree">previous</button>
-                                            <a href="javascript:void(0)" class="btn btn-alt">Save & Continue</a>
+                                                data-bs-target="#collapsefive" aria-expanded="false"
+                                                aria-controls="collapsefive">Lanjut</button>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </section>
                         </li>
-                        <li>
+                        {{-- <li>
                             <h6 class="title collapsed" data-bs-toggle="collapse" data-bs-target="#collapsefive"
                                 aria-expanded="false" aria-controls="collapsefive">Payment Info</h6>
                             <section class="checkout-steps-form-content collapse" id="collapsefive"
@@ -194,26 +162,26 @@
                                     </div>
                                 </div>
                             </section>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="checkout-sidebar">
-                    <div class="checkout-sidebar-coupon">
-                        <p>Appy Coupon to get discount!</p>
+                    {{-- <div class="checkout-sidebar-coupon">
+                        <p></p>
                         <form action="#">
                             <div class="single-form form-default">
                                 <div class="form-input form">
-                                    <input type="text" placeholder="Coupon Code">
+                                    <input type="text" placeholder="Kode Kupon">
                                 </div>
                                 <div class="button">
-                                    <button class="btn">apply</button>
+                                    <button class="btn">Gunakan</button>
                                 </div>
                             </div>
                         </form>
-                    </div>
-                    <div class="checkout-sidebar-price-table mt-30">
+                    </div> --}}
+                    <div class="checkout-sidebar-price-table mt-0">
                         <h5 class="title">Tabel Harga</h5>
 
                         <div class="sub-total-price">
@@ -237,7 +205,7 @@
                             </div>
                         </div>
                         <div class="price-table-btn button">
-                            <a href="javascript:void(0)" class="btn btn-alt">Checkout</a>
+                            <a href="javascript:void(0)" class="btn btn-alt">Beli</a>
                         </div>
                     </div>
                 </div>
