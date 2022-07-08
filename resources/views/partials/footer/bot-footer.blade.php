@@ -5,7 +5,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12 col-12">
                     <div class="copyright">
-                        <p>Made With <i class="fa-regular fa-heart"></i></p>
+                        <p>Made With <a href="#" class="fw-bold">SOFTDEV COMMUNITY</a></p>
                     </div>
                 </div>
             </div>
