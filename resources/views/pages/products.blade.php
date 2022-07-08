@@ -12,7 +12,7 @@
                             data-bs-target="#off-canvas-filter" aria-controls="off-canvas-filter">
                             Filter
                         </button>
-
+                    </div>
                     <div class="offcanvas offcanvas-start" tabindex="-1" id="off-canvas-filter"
                         aria-labelledby="off-canvas-filterLabel">
                         <div class="offcanvas-header">
@@ -143,16 +143,15 @@
                             </div>
                         </div>
                         <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-list" role="tabpanel"
-                                aria-labelledby="nav-list-tab">
+                            <div class="tab-pane fade show active" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="col-lg-4 col-md-3 col-6">
                                         <!-- Start Single Product -->
                                         <div class="single-product">
                                             <div class="row align-items-center">
-                                                <div class="col-lg-12 col-md-12 col-4">
+                                                <div class="col-12">
                                                     <div class="product-image">
-                                                        <img src="/img/kyt-tt-course-plain-mat-black.jpeg" alt="#">
+                                                        <img src="/img/kyt-tt-course-plain-mat-black.jpeg" alt="#" class="img-thumbnail">
                                                         <div class="button">
                                                             <a href="product-details.html" class="btn">
                                                                 <i class="fa-regular fa-cart-shopping"></i></i> Add to Cart
@@ -160,21 +159,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-12 col-md-12 col-8">
+                                                <div class="col-12">
                                                     <div class="product-info">
                                                         <span class="category">Helm Full Face</span>
-                                                        <h4 class="title">
+                                                        <p class="title">
                                                             <a href="/products/helm/details">KYT TT COURSE PLAIN MATT
                                                                 BLACK</a>
-                                                        </h4>
-                                                        {{-- <ul class="review">
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star"></i></li>
-                                                        <li><span>4.0 Review(s)</span></li>
-                                                    </ul> --}}
+                                                        </p>
                                                         <div class="price">
                                                             <span>Rp1.700.000</span>
                                                         </div>

@@ -3432,7 +3432,7 @@ ol {
 }
 
 .single-product .product-info {
-    padding: 20px;
+    padding: 5px;
     background-color: #fff;
 }
 
@@ -3452,7 +3452,8 @@ ol {
 @media only screen and (min-width: 768px) and (max-width: 991px),
 (max-width: 767px) {
     .single-product .product-info .title a {
-        font-size: 15px;
+        font-size: 12px;
+        line-height: 15px;
     }
 }
 
@@ -3481,7 +3482,7 @@ ol {
 }
 
 .single-product .product-info .price {
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .single-product .product-info .price span {
