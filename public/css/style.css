@@ -41,3 +41,8 @@
 
     left: calc(50% - 20px);
 }
+
+.accordion-item button {
+    background-color: black;
+    color: black;
+}

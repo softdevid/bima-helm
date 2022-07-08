@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +13,10 @@
     <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/css/style.css">
+
     <script src="/js/3c4037c9eb.js"></script>
 </head>
+
 <body>
 
     <!-- Preloader -->
@@ -54,7 +57,7 @@
     <script src="/assets/js/glightbox.min.js"></script>
     <script src="/assets/js/main.js"></script>
     <script type="text/javascript">
-        $('.tabs-carousel').click(function (e) {
+        $('.tabs-carousel').click(function(e) {
             if ($('.carousel-tab').hasClass('active')) {
                 let href = $('.tab-content>.active').children().attr('id');
                 $('.btn-carousel').attr('href', `#${href}`);
@@ -100,7 +103,6 @@
                 }
             }
         });
-
     </script>
     <script>
         const finaleDate = new Date("February 15, 2023 00:00:00").getTime();
@@ -135,4 +137,5 @@
     </script>
     <script src="/js/script.js"></script>
 </body>
+
 </html>
