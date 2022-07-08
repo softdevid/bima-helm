@@ -20,6 +20,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/faq', [HomeController::class, 'faq']);
 
 Route::get('/tentang-kami', [HomeController::class, 'tentangkami']);
+Route::get('/cara-belanja', [HomeController::class, 'carabelanja']);
 
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/helm/details', function () {

@@ -26,4 +26,10 @@ class HomeController extends Controller
             "title" => "Tentang Kami"
         ]);
     }
+    public function carabelanja()
+    {
+        return view('pages.cara-belanja', [
+            "title" => "Cara Belanja"
+        ]);
+    }
 }

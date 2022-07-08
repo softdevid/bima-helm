@@ -56,7 +56,8 @@
                                 </ul>
                             </li> --}}
                             <li class="nav-item">
-                                <a href="#" aria-label="Toggle navigation">Cara Belanja</a>
+                                <a class="nav-link {{ $title === 'Cara Belanja' ? 'active text-primary fade-in' : '' }}"
+                                    href="/cara-belanja" aria-label="Toggle navigation">Cara Belanja</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ $title === 'Frequently Asked Question' ? 'active text-primary fade-in' : '' }}"

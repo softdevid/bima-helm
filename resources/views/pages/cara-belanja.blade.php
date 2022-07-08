@@ -8,7 +8,7 @@
 
 <div class="container">
     <div class="pt-5" id="judul">
-        <h2 class="text-center">Tentang Bima Helm</h2>
+        <h2 class="text-center">Cara Belanja</h2>
     </div>
     <article class="pt-3 mb-5">
         Bima Helm adalah perusahaan helm yang berbasis di Purbalingga, Jawa Tengah. Bima Helm adalah toko Helm terkemuka
