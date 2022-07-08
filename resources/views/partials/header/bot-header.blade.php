@@ -15,10 +15,12 @@
                     <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                         <ul id="nav" class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a href="/" aria-label="Toggle navigation">Home</a>
+                                <a class="nav-link {{ $title === 'Home' ? 'active text-primary fade-in' : '' }}"
+                                    href="/" aria-label="Toggle navigation">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/products" aria-label="Toggle navigation">Produk</a>
+                                <a class="nav-link {{ $title === 'Produk' ? 'active text-primary fade-in' : '' }}"
+                                    href="/products" aria-label="Toggle navigation">Produk</a>
                             </li>
 
                             {{-- <li class="nav-item">
@@ -57,10 +59,12 @@
                                 <a href="#" aria-label="Toggle navigation">Cara Belanja</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/faq" aria-label="Toggle navigation">FAQ</a>
+                                <a class="nav-link {{ $title === 'Frequently Asked Question' ? 'active text-primary fade-in' : '' }}"
+                                    href="/faq" aria-label="Toggle navigation">FAQ</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/tentang-kami" aria-label="Toggle navigation">Tentang Kami</a>
+                                <a class="nav-link {{ $title === 'Tentang Kami' ? 'active text-primary fade-in' : '' }}"
+                                    href="/tentang-kami" aria-label="Toggle navigation">Tentang Kami</a>
                             </li>
                         </ul>
                     </div> <!-- navbar collapse -->
