@@ -14,15 +14,16 @@
         <div class="row">
             <article class="pt-3 mb-5">
                 <ol start="1">
-                    <span><b>Beli dan checkout segera</b></span>
+                    <span class="fs-4 text-capitalize mb-2"><b>Beli dan checkout segera</b></span>
                 </ol>
                 <p>Pada halaman utama, kalian bisa milih barang mana yang ingin kalian beli. Lalu kalian akan masuk
                     kehalaman checkout dan tekan tombol checkout. Setelah itu kalian akan mengisi alamat anda dan
                     memilih tipe pengiriman mau itu reguler atau express atau yang lain. Setelah itu tinggal klik tombol
-                    beli.</p>
+                    beli. Habis itu kalian tunggu sampai paket kalian datang.</p>
                 <br>
                 <ol start="2">
-                    <span><b>Masukan Keranjang dan checkout dengan produk lain</b></span>
+                    <span class="fs-4 text-capitalize mb-2"><b>Masukan keranjang dan checkout dengan produk
+                            lain</b></span>
                 </ol>
                 <p>Pada halaman utama, kalian memilih produk yang kalian ingin beli. Jika sudah memilihnya, kalian klik
                     tombol masukkan keranjang. Lalu, kalian pergi ke icon keranjang lalu tekan. Habis itu, kalian pilih
