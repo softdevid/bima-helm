@@ -9,6 +9,7 @@
                 <table class="table table-striped align-middle">
                     <thead class="table-light text-center">
                         <tr>
+                            <th style="width: 5%">No</th>
                             <th style="width: 15%">Gambar</th>
                             <th style="width: 30%">Nama</th>
                             <th style="width: 15%">Jumlah</th>
@@ -18,6 +19,9 @@
                     </thead>
                     <tbody class="text-center">
                         <tr>
+                            <td>
+                                1
+                            </td>
                             <td>
                                 <img src="/img/KYT-C5-IANONE-WHITE.jpeg" alt="" class="img-thumbnail" style="max-height: 100px; max-width: 100px;">
                             </td>
@@ -56,10 +60,8 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="right">
                                 <ul>
-                                    <li>Cart Subtotal<span>$2560.00</span></li>
-                                    <li>Shipping<span>Free</span></li>
-                                    <li>You Save<span>$29.00</span></li>
-                                    <li class="last">You Pay<span>$2531.00</span></li>
+                                    <li>Subtotal<span>Rp.1.700.000</span></li>
+                                    <li>Total<span>Rp.1.700.000</span></li>
                                 </ul>
                                 <div class="button">
                                     <a href="/checkout" class="btn">Checkout</a>
