@@ -11,7 +11,7 @@
 
 #judul {
     /* font-size: 32px; */
-    color: #111;
+    color: rgb(0, 0, 0);
     text-transform: uppercase;
     text-align: center;
     font-weight: 700;
@@ -42,7 +42,7 @@
     left: calc(50% - 20px);
 }
 
-.accordion-item button {
-    background-color: black;
-    color: black;
+.accordion .accordion-item button {
+    background-color: blue;
+    color: white;
 }
