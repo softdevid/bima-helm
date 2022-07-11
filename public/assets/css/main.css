@@ -6515,9 +6515,9 @@ blockquote span {
     margin-bottom: 20px;
 }
 
-.checkout-steps-form-style-1 #accordionExample li:last-child {
+/* .checkout-steps-form-style-1 #accordionExample li:last-child {
     margin: 0;
-}
+} */
 
 .checkout-steps-form-style-1 .title {
     font-size: 15px;
@@ -6543,8 +6543,9 @@ blockquote span {
     right: 16px;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-    font-family: "Lineicons";
-    content: "\ea5e";
+    font-family: "Font Awesome 6 Pro";
+    font-weight: 900;
+    content: "\f107";
     font-size: 13px;
     color: #7D7D7D;
     -webkit-transition: all 0.3s linear;

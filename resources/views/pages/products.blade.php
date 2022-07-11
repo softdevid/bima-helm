@@ -153,7 +153,7 @@
                                                     <div class="product-image">
                                                         <img src="/img/kyt-tt-course-plain-mat-black.jpeg" alt="#" class="img-thumbnail">
                                                         <div class="button">
-                                                            <a href="product-details.html" class="btn">
+                                                            <a href="/cart" class="btn">
                                                                 <i class="fa-regular fa-cart-shopping"></i></i> Add to Cart
                                                             </a>
                                                         </div>
