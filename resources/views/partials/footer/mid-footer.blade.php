@@ -8,7 +8,7 @@
                     <div class="single-footer f-link">
                         <h3>Layanan Konsumen</h3>
                         <ul>
-                            <li><a href="javascript:void(0)">Cara Belanja</a></li>
+                            <li><a href="/cara-belanja">Cara Belanja</a></li>
                             <li><a href="javascript:void(0)">Pengiriman Produk</a></li>
                             <li><a href="javascript:void(0)">Pengembalian Produk</a></li>
                         </ul>

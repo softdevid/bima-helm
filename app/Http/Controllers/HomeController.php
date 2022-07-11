@@ -32,4 +32,10 @@ class HomeController extends Controller
             "title" => "Cara Belanja"
         ]);
     }
+    public function contact()
+    {
+        return view('pages.contact', [
+            "title" => "Kontak"
+        ]);
+    }
 }

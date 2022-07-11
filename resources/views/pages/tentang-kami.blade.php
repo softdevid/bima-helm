@@ -7,7 +7,7 @@
     </div>
 
     <div class="container">
-        <div class="pt-5" id="judul">
+        <div class="pt-5 section-title">
             <h2 class="text-center">Tentang Bima Helm</h2>
         </div>
         <article class="pt-3 mb-5 fs-6 text-center">
@@ -24,8 +24,8 @@
 
 
         <div class="mb-5">
-            <div class="pt-3" id="judul">
-                <h3 class="text-center">Beberapa Produk Kami</h3>
+            <div class="pt-3 section-title">
+                <h2 class="text-center">Beberapa Produk Kami</h2>
             </div>
 
             <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
@@ -66,8 +66,8 @@
         </div>
 
         <div class="mb-5">
-            <div class="pt-3" id="judul">
-                <h3 class="text-center">Mitra Kami</h3>
+            <div class="pt-3 section-title">
+                <h2 class="text-center">Mitra Kami</h2>
             </div>
 
             <div class="row row-cols-1 row-cols-md-3 g-4 mt-2 justify-content-center align-items-center">
