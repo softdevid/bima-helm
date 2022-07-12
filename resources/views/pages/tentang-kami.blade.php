@@ -10,7 +10,7 @@
         <div class="pt-5 section-title">
             <h2 class="text-center">Tentang Bima Helm</h2>
         </div>
-        <article class="pt-3 mb-5 fs-6 text-center">
+        <article class="pt-3 mb-5 fs-6 text-center text-dark">
             <b>Bima Helm</b> adalah perusahaan helm yang berbasis di Purbalingga, Jawa Tengah. <b>Bima Helm</b> adalah toko
             Helm
             terkemuka
@@ -71,11 +71,13 @@
             </div>
 
             <div class="row row-cols-1 row-cols-md-3 g-4 mt-2 justify-content-center align-items-center">
-                <div class="col">
-                    <div class="h-100">
-                        <img src="/img/icons/mekar.png" alt="">
+                <a href="https://akriliklasercutting.com" target="_blank">
+                    <div class="col">
+                        <div class="h-100">
+                            <img src="/img/icons/mekar.png" alt="">
+                        </div>
                     </div>
-                </div>
+                </a>
                 <div class="col">
                     <div class="h-100">
                         <img src="/img/icons/fcs.png" alt="">
