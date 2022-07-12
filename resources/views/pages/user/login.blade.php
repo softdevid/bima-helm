@@ -12,7 +12,7 @@
                                 <h3>Login Now</h3>
                             </div>
                             <div class="form-group input-group">
-                                <label for="reg-fn">Email</label>
+                                <label for="reg-fn">Email / Username</label>
                                 <input class="form-control" type="email" id="reg-email" required>
                             </div>
                             <div class="form-group input-group">
