@@ -25,10 +25,10 @@
                     </div>
                     <ul class="user-login">
                         <li>
-                            <a href="login.html">Sign In</a>
+                            <a href="/login">Login</a>
                         </li>
                         <li>
-                            <a href="register.html">Register</a>
+                            <a href="/register">Register</a>
                         </li>
                     </ul>
                 </div>

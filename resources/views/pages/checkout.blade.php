@@ -11,7 +11,7 @@
                         <li>
                             <h6 class="title collapsed" data-bs-toggle="collapse" data-bs-target="#coll-address"
                                 aria-expanded="false" aria-controls="coll-address">Alamat Pengiriman</h6>
-                            <section class="checkout-steps-form-content collapse" id="coll-address"
+                            <section class="checkout-steps-form-content collapse show" id="coll-address"
                                 aria-labelledby="heading-address" data-bs-parent="#accordion-checkout">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -67,24 +67,24 @@
                                             <h6 class="heading-6 font-weight-400 payment-title">Pilih Metode Pengiriman</h6>
                                             <div class="payment-option-wrapper justify-content-center">
                                                 <div class="single-payment-option">
-                                                    <input type="radio" name="jne-oke" id="jne-oke">
+                                                    <input type="radio" name="jne-oke" class="check-shipp" checked id="jne-oke">
                                                     <label for="jne-oke">
-                                                        <img src="/img/icons/jne.png" style="height: 32px" alt="Sipping">
+                                                        <img src="/img/icons/jne.png" style="height: 32px" alt="">
                                                         <p>JNE OKE</p>
                                                         <span class="price">Rp.46.000</span>
                                                     </label>
                                                 </div>
                                                 <div class="single-payment-option">
-                                                    <input type="radio" name="jne-oke" id="jne-oke">
-                                                    <label for="jne-oke">
+                                                    <input type="radio" name="jne-reg" class="check-shipp" id="jne-reg">
+                                                    <label for="jne-reg">
                                                         <img src="/img/icons/jne.png" style="height: 32px" alt="Sipping">
                                                         <p>JNE REG</p>
                                                         <span class="price">Rp.54.000</span>
                                                     </label>
                                                 </div>
                                                 <div class="single-payment-option">
-                                                    <input type="radio" name="jne-oke" id="jne-oke">
-                                                    <label for="jne-oke">
+                                                    <input type="radio" name="jnt-ex" class="check-shipp" id="jnt-ex">
+                                                    <label for="jnt-ex">
                                                         <img src="/img/icons/jnt.png" style="height: 32px" alt="Sipping">
                                                         <p>J&T EXPRESS</p>
                                                         <span class="price">Rp.42.000</span>

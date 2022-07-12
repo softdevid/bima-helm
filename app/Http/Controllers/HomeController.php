@@ -38,4 +38,16 @@ class HomeController extends Controller
             "title" => "Kontak"
         ]);
     }
+    public function register()
+    {
+        return view('pages.user.register', [
+            "title" => "Registrasi"
+        ]);
+    }
+    public function login()
+    {
+        return view('pages.user.login', [
+            "title" => "Login"
+        ]);
+    }
 }

@@ -21,3 +21,7 @@ $(document).ready(function () {
     });
 
 });
+
+$(".check-shipp").change(function () {
+    $('.check-shipp').not(this).prop('checked', false);
+});
