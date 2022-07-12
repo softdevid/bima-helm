@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <!-- Single Widget -->
-                    <div class="single-footer f-link icons">
+                    <div class="single-footer icons">
                         <h3>Metode Pembayaran</h3>
                         <ul>
                             <li><a href="javascript:void(0)">
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <!-- Single Widget -->
-                    <div class="single-footer f-link icons">
+                    <div class="single-footer icons">
                         <h3>Jasa Pengiriman</h3>
                         <ul>
                             <li><a href="javascript:void(0)">
