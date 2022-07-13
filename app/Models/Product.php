@@ -10,6 +10,16 @@ class Product extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $with = ['category'];
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['category'] ?? false, function($query, $category) {
+            return $query->whereHas('category', function($query) use($category) {
+                $query->where('slug', $category);
+            });
+        });
+    }
 
     public function category()
     {
@@ -18,6 +28,6 @@ class Product extends Model
 
     public function size()
     {
-        return $this->hasMany(Size::class);
+        return $this->belongsTo(Size::class);
     }
 }

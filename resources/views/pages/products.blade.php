@@ -82,26 +82,13 @@
                             <h3>Kategori</h3>
                             <ul class="list">
                                 <li>
-                                    <a href="#" class="text-primary">Semua Produk</a>
+                                    <a href="/products" class="{{ is_null(request()->input('category')) ? 'text-primary' : '' }}">Semua Produk</a>
                                 </li>
+                                @foreach ($categories as $category)
                                 <li>
-                                    <a href="#">Helm Full Face</a>
+                                    <a href="/products?category={{ $category->slug }}" class="{{ (request()->input('category') === $category->slug) ? 'text-primary' : '' }}">{{ $category->name }}</a>
                                 </li>
-                                <li>
-                                    <a href="#">Helm Half Face</a>
-                                </li>
-                                <li>
-                                    <a href="#">Spoiler</a>
-                                </li>
-                                <li>
-                                    <a href="#">Visor</a>
-                                </li>
-                                <li>
-                                    <a href="#">Spare Parts</a>
-                                </li>
-                                <li>
-                                    <a href="#">Lainnya</a>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <!-- End Single Widget -->
@@ -145,13 +132,14 @@
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
                                 <div class="row">
+                                    @foreach ($products as $product)
                                     <div class="col-lg-4 col-md-3 col-6">
                                         <!-- Start Single Product -->
                                         <div class="single-product">
                                             <div class="row align-items-center">
                                                 <div class="col-12">
                                                     <div class="product-image">
-                                                        <img src="/img/kyt-tt-course-plain-mat-black.jpeg" alt="#" class="img-thumbnail">
+                                                        <img src="/img/{{ $product->image }}" alt="#" class="img-thumbnail">
                                                         <div class="button">
                                                             <a href="/cart" class="btn">
                                                                 <i class="fa-regular fa-cart-shopping"></i></i> Add to Cart
@@ -161,13 +149,12 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="product-info">
-                                                        <span class="category">Helm Full Face</span>
+                                                        <span class="category">{{ $product->category->name }}</span>
                                                         <p class="title">
-                                                            <a href="/products/helm/details">KYT TT COURSE PLAIN MATT
-                                                                BLACK</a>
+                                                            <a href="/products/details/{{ $product->slug }}">{{ $product->name }}</a>
                                                         </p>
                                                         <div class="price">
-                                                            <span>Rp1.700.000</span>
+                                                            <span>Rp{{ $product->price }}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -175,6 +162,7 @@
                                         </div>
                                         <!-- End Single Product -->
                                     </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
