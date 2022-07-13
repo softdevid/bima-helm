@@ -16,13 +16,12 @@ class ProductFactory extends Factory
         $merk = $this->faker->randomElement(['KYT', 'INK']);
         static $size = 1;
         return [
-            "category_id" => mt_rand(1,2),
+            "category_id" => mt_rand(1, 2),
             "merk" => $merk,
             "name" => "Helm" . ($merk === 'KYT') ? "TT COURSE PLAIN MATT BLACK" : "CL MAX #5 WHITE YELLOW FLUO",
             "slug" => $this->faker->slug(5),
             "price" => $this->faker->randomNumber(6, true),
             "size_id" => $size++,
-            // "stock" => mt_rand(3,8),
             "image" => (($merk === 'KYT') ? "kyt-tt-course-plain-mat-black" : "INK-CL-MAX-WHITE-YELLOW-FLUO") . ".jpeg"
         ];
     }

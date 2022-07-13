@@ -39,3 +39,20 @@ Route::get('/checkout', function () {
         "title" => "Checkout"
     ]);
 });
+
+//route admin
+Route::get('/admin/dashboard', function () {
+    return view('admin.pages.index', [
+        "title" => "Dashboard"
+    ]);
+});
+Route::get('/admin/product', function () {
+    return view('admin.pages.product', [
+        "title" => "Produk"
+    ]);
+});
+Route::get('/admin/users', function () {
+    return view('admin.pages.users', [
+        "title" => "Users"
+    ]);
+});
