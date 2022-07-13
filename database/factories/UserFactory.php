@@ -20,9 +20,8 @@ class UserFactory extends Factory
             'first_name' => $this->faker->firstName($gender = 'male'|'female'),
             'last_name' => $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
             'phone_number' => $this->faker->phoneNumber(),
-            'address' => $this->faker->townState(),
+            'address' => $this->faker->address(),
             'level' => $this->faker->randomElement(['admin', 'user']),
             'remember_token' => Str::random(10),
         ];
