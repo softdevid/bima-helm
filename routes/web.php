@@ -44,3 +44,10 @@ Route::get('/checkout', function () {
         "title" => "Checkout"
     ]);
 });
+
+
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard', [
+        "title" => "Dashboard"
+    ]);
+});
