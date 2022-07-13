@@ -59,8 +59,13 @@ Route::get('/admin/users', function () {
 
 
 //KASIR
-Route::get('/kasir', function () {
+Route::get('/kasir/dashboard', function () {
     return view('kasir.pages.index', [
-        "title" => "Users"
+        "title" => "Dashboard"
+    ]);
+});
+Route::get('/kasir/laporan', function () {
+    return view('kasir.pages.laporan', [
+        "title" => "Laporan"
     ]);
 });
