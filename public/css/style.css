@@ -46,3 +46,9 @@
     background-color: #0d6efd;
     color: white;
 }
+
+@media (max-width: 768px) {
+    button {
+        bottom: 15px;
+    }
+}

@@ -45,9 +45,19 @@ Route::get('/checkout', function () {
     ]);
 });
 
-
+//route admin
 Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard', [
+    return view('admin.pages.index', [
         "title" => "Dashboard"
+    ]);
+});
+Route::get('/admin/product', function () {
+    return view('admin.pages.product', [
+        "title" => "Produk"
+    ]);
+});
+Route::get('/admin/users', function () {
+    return view('admin.pages.users', [
+        "title" => "Users"
     ]);
 });

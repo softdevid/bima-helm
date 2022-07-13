@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/css/style.css">
 
-    <script src="/js/3c4037c9eb.js"></script>
+    <script src="/js/fas.js"></script>
 </head>
 
 <body>

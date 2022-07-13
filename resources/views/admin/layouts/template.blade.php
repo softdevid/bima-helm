@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 -{{ $title }}</title>
+    <title>{{ $title }} - ADMIN BIMA HELM</title>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
@@ -19,13 +19,20 @@
     </script>
 
     <!-- Custom fonts for this template-->
-    <link href="/template_admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    {{-- <link href="/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> --}}
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="/template_admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="/js/fas.js"></script>
+    <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css" />
+
+    <script type="text/javascript" src="/datatables/datatables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
 
 </head>
 
@@ -39,10 +46,11 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    {{-- <i class="fas fa-laugh-wink"></i> --}}
+                    <i class="fa-regular fa-shop"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Bima Helm</div>
             </a>
 
             <!-- Divider -->
@@ -55,24 +63,24 @@
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/admin/services">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Services</span></a>
+                <a class="nav-link" href="/admin/product">
+                    <i class="fa-duotone fa-cubes"></i>
+                    <span>Produk</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/admin/portfolio">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Portfolio</span></a>
+                <a class="nav-link" href="/admin/orders">
+                    <i class="fa-regular fa-box-check"></i>
+                    <span>Orders</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/admin/team">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Team</span></a>
+                <a class="nav-link" href="/admin/users">
+                    <i class="fa-duotone fa-users"></i>
+                    <span>Users</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>E-Mail</span></a>
+                <a class="nav-link" href="/admin/laporan">
+                    <i class="fa-duotone fa-book-open-cover"></i>
+                    <span>Laporan</span></a>
             </li>
 
         </ul>
@@ -310,7 +318,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Bima Helm 2022</span>
                     </div>
                 </div>
             </footer>
@@ -348,21 +356,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="/template_admin/vendor/jquery/jquery.min.js"></script>
-    <script src="/template_admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/admin/vendor/jquery/jquery.min.js"></script>
+    <script src="/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="/template_admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="/template_admin/vendor/chart.js/Chart.min.js"></script>
+    <script src="/admin/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="/template_admin/js/demo/chart-area-demo.js"></script>
-    <script src="/template_admin/js/demo/chart-pie-demo.js"></script>
+    <script src="/admin/js/demo/chart-area-demo.js"></script>
+    <script src="/admin/js/demo/chart-pie-demo.js"></script>
 
 </body>
 
