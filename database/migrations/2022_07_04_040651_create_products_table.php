@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('slug')->unique();
             $table->integer('price');
             $table->foreignId('size_id')->nullable();
-            $table->integer('stock');
+            $table->integer('stock')->default(0);
             $table->string('image');
             $table->timestamps();
         });

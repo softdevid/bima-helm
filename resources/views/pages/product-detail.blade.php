@@ -10,7 +10,7 @@
                     <div class="product-images">
                         <main id="gallery">
                             <div class="main-img">
-                                <img src="/img/kyt-tt-course-plain-mat-black.jpeg" id="current" alt="#">
+                                <img src="/img/{{ $product->image }}" id="current" alt="#">
                             </div>
                             <div class="images">
                                 <img src="/img/kyt-tt-course-plain-mat-black.jpeg" class="img" alt="#">
@@ -23,10 +23,10 @@
                 </div>
                 <div class="col-lg-7 col-md-12 col-12">
                     <div class="product-info">
-                        <h2 class="title">KYT TT COURSE PLAIN MATT BLACK</h2>
-                        <p class="category"><i class="lni lni-tag"></i>Helm Full Face</p>
-                        <h3 class="price">Rp1.700.000</h3>
-                        <p class="info-text">Stok: <span>10</span></p>
+                        <h2 class="title">{{ $product->name }}</h2>
+                        <p class="category"><i class="lni lni-tag"></i>{{ $product->category->name }}</p>
+                        <h3 class="price">Rp{{ $product->price }}</h3>
+                        <p class="info-text">Stok: <span></span></p>
                         <div class="row">
                             <div class="col-5 col-sm-6 col-md-3 col-lg-4">
                                 <div class="form-group">
@@ -86,8 +86,8 @@
                             <div class="col-12 col-md-6 mb-3 mb-md-0">
                                 <h4>Detail</h4>
                                 <ul class="normal-list">
-                                    <li><span>Merek:</span> KYT</li>
-                                    <li><span>Jenis Helm:</span> Full Face</li>
+                                    <li><span>Merek: </span>{{ $product->merk }}</li>
+                                    <li><span>Jenis: </span>{{ $product->category->name }}</li>
                                     <li><span>Dikirim Dari:</span> Kab. Purbalingga</li>
                                 </ul>
                             </div>

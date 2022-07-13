@@ -14,12 +14,12 @@ class SizeFactory extends Factory
     public function definition()
     {
         return [
-            "xs" => mt_rand(1,3),
-            "s" => mt_rand(1,3),
-            "m" => mt_rand(1,3),
-            "lg" => mt_rand(1,3),
-            "xl" => mt_rand(1,3),
-            "xxl" => mt_rand(1,3),
+            "xs" => mt_rand(0,3),
+            "s" => mt_rand(0,3),
+            "m" => mt_rand(0,3),
+            "lg" => mt_rand(0,3),
+            "xl" => mt_rand(0,3),
+            "xxl" => mt_rand(0,3),
         ];
     }
 }

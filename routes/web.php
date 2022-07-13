@@ -26,12 +26,7 @@ Route::get('/cara-belanja', [HomeController::class, 'carabelanja']);
 Route::get('/contact', [HomeController::class, 'contact']);
 
 Route::get('/products', [ProductController::class, 'index']);
-Route::get('/products/helm/details', function () {
-    return view('pages.product-detail', [
-        "category" => "Helm Full Face",
-        "title" => "KYT TT COURSE PLAIN MATT BLACK"
-    ]);
-});
+Route::get('/products/details/{product:slug}', [ProductController::class, 'detail']);
 
 Route::get('/cart', function () {
     return view('pages.cart', [
