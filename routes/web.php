@@ -61,3 +61,11 @@ Route::get('/admin/users', function () {
         "title" => "Users"
     ]);
 });
+
+
+//KASIR
+Route::get('/kasir', function () {
+    return view('kasir.pages.index', [
+        "title" => "Users"
+    ]);
+});

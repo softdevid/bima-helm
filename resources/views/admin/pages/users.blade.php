@@ -17,6 +17,10 @@
             <button class="nav-link" id="pills-tambahadmin-tab" data-bs-toggle="pill" data-bs-target="#pills-tambahadmin"
                 type="button" role="tab" aria-controls="pills-tambahadmin" aria-selected="false">Tambah Admin</button>
         </li>
+        <li class="nav-item" role="presentation" style="margin: 10px;">
+            <button class="nav-link" id="pills-tambahkasir-tab" data-bs-toggle="pill" data-bs-target="#pills-tambahkasir"
+                type="button" role="tab" aria-controls="pills-tambahkasir" aria-selected="false">Tambah Kasir</button>
+        </li>
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-list" role="tabpanel" aria-labelledby="pills-list-tab"
@@ -77,7 +81,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="tab-pane fade show" id="pills-admin" role="tabpanel" aria-labelledby="pills-admin-tab" tabindex="0">
+        <div class="tab-pane fade show" id="pills-admin" role="tabpanel" aria-labelledby="pills-admin-tab"
+            tabindex="0">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -103,6 +108,30 @@
             </div>
         </div>
         <div class="tab-pane fade" id="pills-tambahadmin" role="tabpanel" aria-labelledby="pills-tambahadmin-tab"
+            tabindex="0">
+            <form action="" method="post">
+                <div class="mb-3 row">
+                    <label for="username" class="col-sm-2 col-form-label">Username</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="username" placeholder="Username">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="password" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                </div>
+
+                {{-- level --}}
+                <input type="hidden" name="level" value="admin">
+                <div class="mb-5 row">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-danger" style="margin-left: 5px;">Reset</button>
+                </div>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="pills-tambahkasir" role="tabpanel" aria-labelledby="pills-tambahkasir-tab"
             tabindex="0">
             <form action="" method="post">
                 <div class="mb-3 row">
