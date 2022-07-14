@@ -27,4 +27,12 @@ class AdminController extends Controller
             "admin" => User::where('level', 'admin')->get(),
         ]);
     }
+
+    public function orders()
+    {
+        $title = 'Orders';
+        return view('admin.pages.orders', [
+            "title" => $title,
+        ]);
+    }
 }

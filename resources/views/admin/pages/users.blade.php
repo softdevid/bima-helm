@@ -1,23 +1,24 @@
 @extends('admin.layouts.template')
 @section('content')
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item ms-3" role="presentation" style="border:0; margin: 10px;">
+
+        <li class="nav-item ms-3" role="presentation" style="border:0; margin: 5px;">
             <button class="nav-link active" id="pills-list-tab" data-bs-toggle="pill" data-bs-target="#pills-list"
                 type="button" role="tab" aria-controls="pills-list" aria-selected="true">Customers</button>
         </li>
-        <li class="nav-item ms-3" role="presentation" style="margin: 10px;">
+        <li class="nav-item ms-3" role="presentation" style="margin: 5px;">
             <button class="nav-link" id="pills-kasir-tab" data-bs-toggle="pill" data-bs-target="#pills-kasir" type="button"
                 role="tab" aria-controls="pills-kasir" aria-selected="false">Kasir</button>
         </li>
-        <li class="nav-item ms-3" role="presentation" style="margin: 10px;">
+        <li class="nav-item ms-3" role="presentation" style="margin: 5px;">
             <button class="nav-link" id="pills-admin-tab" data-bs-toggle="pill" data-bs-target="#pills-admin" type="button"
                 role="tab" aria-controls="pills-admin" aria-selected="false">Admin</button>
         </li>
-        <li class="nav-item" role="presentation" style="margin: 10px;">
+        <li class="nav-item" role="presentation" style="margin: 5px;">
             <button class="nav-link" id="pills-tambahadmin-tab" data-bs-toggle="pill" data-bs-target="#pills-tambahadmin"
                 type="button" role="tab" aria-controls="pills-tambahadmin" aria-selected="false">Tambah Admin</button>
         </li>
-        <li class="nav-item" role="presentation" style="margin: 10px;">
+        <li class="nav-item" role="presentation" style="margin: 5px;">
             <button class="nav-link" id="pills-tambahkasir-tab" data-bs-toggle="pill" data-bs-target="#pills-tambahkasir"
                 type="button" role="tab" aria-controls="pills-tambahkasir" aria-selected="false">Tambah Kasir</button>
         </li>

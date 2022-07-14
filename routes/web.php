@@ -49,6 +49,7 @@ Route::get('/admin/dashboard', function () {
 });
 Route::get('/admin/product', [AdminController::class, 'product']);
 Route::get('/admin/users', [AdminController::class, 'users']);
+Route::get('/admin/orders', [AdminController::class, 'orders']);
 
 
 
