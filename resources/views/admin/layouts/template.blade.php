@@ -19,7 +19,7 @@
     </script>
 
     <!-- Custom fonts for this template-->
-    {{-- <link href="/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> --}}
+    <link href="/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -57,24 +57,28 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link " href="/admin/dashboard">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+            <li class="nav-item">
+                <a class="nav-link {{ $title === 'Dashboard' ? 'active text-white fade-in' : '' }}"
+                    href="/admin/dashboard">
+                    <i
+                        class="fas fa-fw fa-tachometer-alt {{ $title === 'Dashboard' ? 'active text-white fade-in' : '' }}"></i>
                     <span>Dashboard</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/admin/product">
-                    <i class="fa-duotone fa-cubes"></i>
+            <li class="nav-item">
+                <a class="nav-link {{ $title === 'Produk' ? 'active text-white fade-in' : '' }}"
+                    href="/admin/product">
+                    <i class="fa-duotone fa-cubes {{ $title === 'Produk' ? 'active text-white fade-in' : '' }}"></i>
                     <span>Produk</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/admin/orders">
-                    <i class="fa-regular fa-box-check"></i>
+            <li class="nav-item">
+                <a class="nav-link {{ $title === 'Orders' ? 'active text-white fade-in' : '' }}" href="/admin/orders">
+                    <i
+                        class="fa-regular fa-box-check {{ $title === 'Orders' ? 'active text-white fade-in' : '' }}"></i>
                     <span>Orders</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/admin/users">
-                    <i class="fa-duotone fa-users"></i>
+            <li class="nav-item">
+                <a class="nav-link {{ $title === 'Users' ? 'active text-white fade-in' : '' }}" href="/admin/users">
+                    <i class="fa-duotone fa-users {{ $title === 'Users' ? 'active text-white fade-in' : '' }}"></i>
                     <span>Users</span></a>
             </li>
             <li class="nav-item">
@@ -103,7 +107,7 @@
                     </button>
 
                     <div>
-                        <h2>Halaman Admin</h2>
+                        <h2>Admin</h2>
                     </div>
                     <!-- Topbar Search -->
                     {{-- <form
