@@ -36,24 +36,29 @@
                             <th scope="col">Email</th>
                             <th scope="col">No Hp</th>
                             <th scope="col">Alamat</th>
-                            <th scope="col">Region</th>
+                            {{-- <th scope="col">Region</th> --}}
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                        <tr class="text-center">
-                            <th scope="row">1</th>
-                            <td>Ardianto</td>
-                            <td>Putra</td>
-                            <td>ardianto</td>
-                            <td>ardianto@gmail.com</td>
-                            <td>0888888888</td>
-                            <td>Selabaya RT 2 / 5</td>
-                            <td>Purbalingga, Jawa Tengah</td>
-                            <td>
-                                <a href="/hapus" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
+                        @php
+                            $no = 1;
+                        @endphp
+                        @foreach ($users as $users)
+                            <tr class="text-center">
+                                <th scope="row">{{ $no++ }}</th>
+                                <td>{{ $users->first_name }}</td>
+                                <td>{{ $users->last_name }}</td>
+                                <td>{{ $users->username }}</td>
+                                <td>{{ $users->email }}</td>
+                                <td>{{ $users->phone_number }}</td>
+                                <td>{{ $users->address }}</td>
+                                {{-- <td>Purbalingga, Jawa Tengah</td> --}}
+                                <td>
+                                    <a href="/hapus" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -94,15 +99,20 @@
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                        <tr class="text-center">
-                            <th scope="row">1</th>
-                            <td>Admin 1</td>
-                            <td>admin1</td>
-                            <td>
-                                <a href="/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-                                <a href="/hapus" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
+                        @php
+                            $no = 1;
+                        @endphp
+                        @foreach ($admin as $admin)
+                            <tr class="text-center">
+                                <th scope="row">{{ $no++ }}</th>
+                                <td>{{ $admin->username }}</td>
+                                <td>{{ $admin->password }}</td>
+                                <td>
+                                    <a href="/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                    <a href="/hapus" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
