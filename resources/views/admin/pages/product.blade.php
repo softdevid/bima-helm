@@ -41,7 +41,8 @@
                             <td>XL</td>
                             <td>10</td>
                             <td>
-                                <a href="/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                    data-bs-target="#edit"><i class="fa fa-edit"></i></button>
                                 <a href="/hapus" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
@@ -50,58 +51,132 @@
             </div>
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-            <form action="" method="post">
-                <div class="mb-3 row">
-                    <label for="name" class="col-sm-2 col-form-label">Nama Produk</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="name" placeholder="Nama Produk">
+            <div class="container">
+                <form action="" method="post">
+                    <div class="mb-3 row">
+                        <label for="name" class="col-sm-2 col-form-label">Nama Produk</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" placeholder="Nama Produk">
+                        </div>
                     </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="merk" class="col-sm-2 col-form-label">Merk</label>
-                    <div class="col-sm-10">
-                        <select class="form-select form-control" aria-label="Default select example">
-                            <option selected>Pilih Merk</option>
-                            <option value="kyt">KYT</option>
-                            <option value="ink">INK</option>
-                        </select>
+                    <div class="mb-3 row">
+                        <label for="merk" class="col-sm-2 col-form-label">Merk</label>
+                        <div class="col-sm-10">
+                            <select class="form-select form-control" aria-label="Default select example">
+                                <option selected>Pilih Merk</option>
+                                <option value="kyt">KYT</option>
+                                <option value="ink">INK</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="price" class="col-sm-2 col-form-label">Harga</label>
-                    <div class="col-sm-10">
-                        <input type="number" class="form-control" id="harga" placeholder="125000">
+                    <div class="mb-3 row">
+                        <label for="price" class="col-sm-2 col-form-label">Harga</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="harga" placeholder="125000">
+                        </div>
                     </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="size" class="col-sm-2 col-form-label">Ukuran</label>
-                    <div class="col-sm-10">
-                        <select class="form-select form-control" aria-label="Default select example">
-                            <option selected>Pilih Ukuran</option>
-                            <option value="s">S</option>
-                            <option value="xl">XL</option>
-                        </select>
+                    <div class="mb-3 row">
+                        <label for="size" class="col-sm-2 col-form-label">Ukuran</label>
+                        <div class="col-sm-10">
+                            <select class="form-select form-control" aria-label="Default select example">
+                                <option selected>Pilih Ukuran</option>
+                                <option value="s">S</option>
+                                <option value="xl">XL</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="stock" class="col-sm-2 col-form-label">Stok</label>
-                    <div class="col-sm-10">
-                        <input type="number" class="form-control" id="stok" placeholder="10">
+                    <div class="mb-3 row">
+                        <label for="stock" class="col-sm-2 col-form-label">Stok</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="stok" placeholder="10">
+                        </div>
                     </div>
-                </div>
 
-                {{-- gambar --}}
-                <div class="mb-3 row">
-                    <label for="name" class="col-sm-2 col-form-label">Gambar</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="file" id="formFile">
+                    {{-- gambar --}}
+                    <div class="mb-3 row">
+                        <label for="name" class="col-sm-2 col-form-label">Gambar</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
                     </div>
+                    <div class="mb-5 row">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-danger" style="margin-left: 5px;">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{-- Modal edit --}}
+
+    <!-- Modal -->
+    <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="mb-5 row">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-danger" style="margin-left: 5px;">Reset</button>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="mb-3 row">
+                            <label for="name" class="col-sm-2 col-form-label">Nama Produk</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name" placeholder="Nama Produk">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="merk" class="col-sm-2 col-form-label">Merk</label>
+                            <div class="col-sm-10">
+                                <select class="form-select form-control" aria-label="Default select example">
+                                    <option selected>Pilih Merk</option>
+                                    <option value="kyt">KYT</option>
+                                    <option value="ink">INK</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="price" class="col-sm-2 col-form-label">Harga</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" id="harga" placeholder="125000">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="size" class="col-sm-2 col-form-label">Ukuran</label>
+                            <div class="col-sm-10">
+                                <select class="form-select form-control" aria-label="Default select example">
+                                    <option selected>Pilih Ukuran</option>
+                                    <option value="s">S</option>
+                                    <option value="xl">XL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="stock" class="col-sm-2 col-form-label">Stok</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" id="stok" placeholder="10">
+                            </div>
+                        </div>
+
+                        {{-- gambar --}}
+                        <div class="mb-3 row">
+                            <label for="name" class="col-sm-2 col-form-label">Gambar</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="file" id="formFile">
+                            </div>
+                        </div>
+                        <div class="mb-5 row">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn btn-danger" style="margin-left: 5px;">Reset</button>
+                        </div>
                 </div>
-            </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Simpan</button>
+                </div>
+                </form>
+            </div>
         </div>
     </div>
 @endsection
