@@ -10,10 +10,17 @@ class ProductController extends Controller
 {
     public function index()
     {
+        $title = "Produk";
+
+        if(request('category')) {
+            $category = Category::firstWhere('slug', request('category'));
+            $title = $category->name;
+        }
+
         return view('pages.products', [
-            "title" => "Produk",
+            "title" => $title,
             "categories" => Category::all(),
-            "products" => Product::filter(request(['search', 'category']))->get(),
+            "products" => Product::filter(request(['search', 'category']))->paginate(10)->withQueryString(),
         ]);
     }
 

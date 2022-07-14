@@ -30,9 +30,15 @@ class DatabaseSeeder extends Seeder
             "slug" => "helm-half-face"
         ]);
 
-        Product::factory(3)->create();
+        Category::create([
+            "name" => "Lainnya",
+            "slug" => "lainnya"
+        ]);
 
-        Size::factory(3)->create();
+        Product::factory(15)->create();
+
+        Size::factory(15)->create();
         DB::update('UPDATE products p INNER JOIN (SELECT sizes.id, SUM(xs+s+m+lg+xl+xxl) as total FROM sizes GROUP BY sizes.id) s ON p.size_id = s.id SET p.stock = s.total');
+        // 'SELECT size_id, total FROM products as p INNER JOIN (SELECT sizes.id, SUM(xs+s+m+lg+xl+xxl) as total FROM sizes GROUP BY sizes.id) s ON p.size_id = s.id'
     }
 }
