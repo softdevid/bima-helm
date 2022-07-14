@@ -127,6 +127,7 @@
                                             <option>Murah - Mahal</option>
                                             <option>Mahal - Murah</option>
                                         </select>
+                                        <h3 class="total-show-product">Menampilkan: <span>{{ $products->firstItem() }} - {{ $products->lastItem() }} produk dari total {{ $products->total() }}</span></h3>
                                     </div>
                                 </div>
                             </div>
@@ -155,8 +156,11 @@
                                                         <p class="title">
                                                             <a href="/products/details/{{ $product->slug }}">{{ $product->name }}</a>
                                                         </p>
+                                                        @if ($product->sold >0)
+                                                        <span>{{ $product->sold }} Terjual</span>
+                                                        @endif
                                                         <div class="price">
-                                                            <span>Rp{{ $product->price }}</span>
+                                                            <span>Rp{{ number_format($product->price,0,',','.') }}</span>
                                                         </div>
                                                     </div>
                                                 </div>
