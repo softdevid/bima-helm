@@ -20,7 +20,7 @@ class ProductController extends Controller
         return view('pages.products', [
             "title" => $title,
             "categories" => Category::all(),
-            "products" => Product::filter(request(['search', 'category']))->paginate(10)->withQueryString(),
+            "products" => Product::filter(request(['search', 'category']))->paginate(9)->withQueryString(),
         ]);
     }
 

@@ -69,8 +69,11 @@
                     <!-- Start Single Widget -->
                     <div class="single-widget search mb-3 mb-md-0">
                         <h3>Cari Produk</h3>
-                        <form action="#">
-                            <input type="text" placeholder="Cari...">
+                        <form action="/products" method="GET">
+                            @if (request('category'))
+                            <input type="hidden" name="category" value="{{ request('category') }}">
+                            @endif
+                            <input type="text" name="search" placeholder="Cari...">
                             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </div>
@@ -124,7 +127,6 @@
                                             <option>Murah - Mahal</option>
                                             <option>Mahal - Murah</option>
                                         </select>
-                                        <h3 class="total-show-product">Showing: <span>1 - 12 items</span></h3>
                                     </div>
                                 </div>
                             </div>

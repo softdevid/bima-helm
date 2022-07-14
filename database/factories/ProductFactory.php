@@ -14,14 +14,15 @@ class ProductFactory extends Factory
     public function definition()
     {
         $merk = $this->faker->randomElement(['KYT', 'INK']);
-        static $size = 1;
+        static $size = 6;
         return [
             "category_id" => mt_rand(1, 2),
-            "merk" => $merk,
-            "name" => "HELM " . (($merk === 'KYT') ? "KYT TT COURSE PLAIN MATT BLACK" : "INK CL MAX #5 WHITE YELLOW FLUO"),
+            "name" => "HELM " . (($merk === 'KYT') ? "KYT TT COURSE PLAIN MATT BLACK" : "INK CL MAX #5 WHITE YELLOW FLUO") . $size++,
             "slug" => $this->faker->slug(5),
+            "merk" => $merk,
             "price" => $this->faker->randomNumber(6, true),
             "size_id" => $size++,
+            "sold" => mt_rand(1, 5),
             "image" => (($merk === 'KYT') ? "kyt-tt-course-plain-mat-black" : "INK-CL-MAX-WHITE-YELLOW-FLUO") . ".jpeg"
         ];
     }
