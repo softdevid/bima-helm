@@ -25,8 +25,8 @@
                     <div class="product-info">
                         <h2 class="title">{{ $product->name }}</h2>
                         <p class="category"><i class="lni lni-tag"></i>{{ $product->category->name }}</p>
-                        <h3 class="price">Rp{{ $product->price }}</h3>
-                        <p class="info-text">Stok: <span></span></p>
+                        <h3 class="price">Rp{{ number_format($product->price,0,',','.') }}</h3>
+                        <p class="info-text">Stok: {{ $product->stock }}<span></span></p>
                         <div class="row">
                             <div class="col-5 col-sm-6 col-md-3 col-lg-4">
                                 <div class="form-group">

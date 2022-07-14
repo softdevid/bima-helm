@@ -21,7 +21,8 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
-                            <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#coll-category" aria-expanded="false" aria-controls="coll-category">
+                            <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#coll-category" aria-expanded="false" aria-controls="coll-category">
                                 Kategori
                             </button>
                             <div class="collapse show my-1" id="coll-category">
@@ -71,7 +72,7 @@
                         <h3>Cari Produk</h3>
                         <form action="/products" method="GET">
                             @if (request('category'))
-                            <input type="hidden" name="category" value="{{ request('category') }}">
+                                <input type="hidden" name="category" value="{{ request('category') }}">
                             @endif
                             <input type="text" name="search" placeholder="Cari...">
                             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -85,12 +86,15 @@
                             <h3>Kategori</h3>
                             <ul class="list">
                                 <li>
-                                    <a href="/products" class="{{ is_null(request()->input('category')) ? 'text-primary' : '' }}">Semua Produk</a>
+                                    <a href="/products"
+                                        class="{{ is_null(request()->input('category')) ? 'text-primary' : '' }}">Semua
+                                        Produk</a>
                                 </li>
                                 @foreach ($categories as $category)
-                                <li>
-                                    <a href="/products?category={{ $category->slug }}" class="{{ (request()->input('category') === $category->slug) ? 'text-primary' : '' }}">{{ $category->name }}</a>
-                                </li>
+                                    <li>
+                                        <a href="/products?category={{ $category->slug }}"
+                                            class="{{ request()->input('category') === $category->slug ? 'text-primary' : '' }}">{{ $category->name }}</a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
@@ -133,20 +137,24 @@
                             </div>
                         </div>
                         <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
+                            <div class="tab-pane fade show active" id="nav-list" role="tabpanel"
+                                aria-labelledby="nav-list-tab">
                                 <div class="row">
                                     @foreach ($products as $product)
-                                    <div class="col-lg-4 col-md-3 col-6">
-                                        <!-- Start Single Product -->
-                                        <div class="single-product">
-                                            <div class="row align-items-center">
-                                                <div class="col-12">
-                                                    <div class="product-image">
-                                                        <img src="/img/{{ $product->image }}" alt="#" class="img-thumbnail">
-                                                        <div class="button">
-                                                            <a href="/cart" class="btn">
-                                                                <i class="fa-regular fa-cart-shopping"></i></i> Add to Cart
-                                                            </a>
+                                        <div class="col-lg-4 col-md-3 col-6">
+                                            <!-- Start Single Product -->
+                                            <div class="single-product">
+                                                <div class="row align-items-center">
+                                                    <div class="col-12">
+                                                        <div class="product-image">
+                                                            <img src="/img/{{ $product->image }}" alt="#"
+                                                                class="img-thumbnail">
+                                                            <div class="button">
+                                                                <a href="/cart" class="btn">
+                                                                    <i class="fa-regular fa-cart-shopping"></i></i> Add to
+                                                                    Cart
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -165,9 +173,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- End Single Product -->
                                         </div>
-                                        <!-- End Single Product -->
-                                    </div>
                                     @endforeach
                                 </div>
                             </div>

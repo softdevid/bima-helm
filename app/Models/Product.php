@@ -16,8 +16,7 @@ class Product extends Model
     {
         $query->when($filters['search'] ?? false, fn($query, $search) =>
             $query->where(fn($query) =>
-                $query->where('name', 'like', '%' . $search . '%')->
-                orWhere('price', 'like', '%' . $search . '%')
+                $query->where('name', 'like', '%' . $search . '%')
             )
         );
 
@@ -37,5 +36,10 @@ class Product extends Model
     public function size()
     {
         return $this->belongsTo(Size::class);
+    }
+
+    public function image()
+    {
+        return $this->hasMany(Image::class);
     }
 }
