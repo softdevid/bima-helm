@@ -9,7 +9,7 @@
                         <div class="row align-items-center">
                             <div class="col-12">
                                 <div class="product-image">
-                                    <img src="/img/{{ $product->image }}" alt="#"
+                                    <img src="/img/{{ $product->image_main }}" alt="#"
                                         class="img-thumbnail">
                                     <div class="button">
                                         <a href="/cart" class="btn">

@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
             "size_id" => 1,
             "sold" => 3,
             'image_id' => 1,
-            "image" => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg"
+            "image_main" => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg"
         ]);
 
         Product::create([
@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
             "size_id" => 2,
             "sold" => 2,
             'image_id' => 2,
-            "image" => "INK-CL-MAX-WHITE-YELLOW-FLUO.jpeg"
+            "image_main" => "INK-CL-MAX-WHITE-YELLOW-FLUO.jpeg"
         ]);
 
         Product::create([
