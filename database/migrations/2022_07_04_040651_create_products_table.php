@@ -23,8 +23,8 @@ class CreateProductsTable extends Migration
             $table->foreignId('size_id')->unsigned()->nullable();
             $table->integer('stock')->unsigned()->default(0);
             $table->integer('sold')->unsigned()->default(0);
-            $table->foreignId('image_id');
-            $table->string('image');
+            $table->foreignId('image_id')->unsigned()->nullable();;
+            $table->string('image_main');
             $table->timestamps();
         });
     }

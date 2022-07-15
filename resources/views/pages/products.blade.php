@@ -126,10 +126,10 @@
                                 <div class="col-12">
                                     <div class="product-sorting">
                                         <label for="sorting">Berdasarkan:</label>
-                                        <select class="form-control" id="sorting">
-                                            <option>Terlaris</option>
-                                            <option>Murah - Mahal</option>
-                                            <option>Mahal - Murah</option>
+                                        <select class="form-control" id="sorting" name="sort_by">
+                                            <option value="sold">Terlaris</option>
+                                            <option value="asc">Murah - Mahal</option>
+                                            <option value="desc">Mahal - Murah</option>
                                         </select>
                                         <h3 class="total-show-product">Menampilkan: <span>{{ $products->firstItem() }} -
                                                 {{ $products->lastItem() }} produk dari total
@@ -138,53 +138,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-list" role="tabpanel"
-                                aria-labelledby="nav-list-tab">
-                                <div class="row">
-                                    @foreach ($products as $product)
-                                        <div class="col-lg-4 col-md-3 col-6">
-                                            <!-- Start Single Product -->
-                                            <div class="single-product">
-                                                <div class="row align-items-center">
-                                                    <div class="col-12">
-                                                        <div class="product-image">
-                                                            <img src="/img/{{ $product->image }}" alt="#"
-                                                                class="img-thumbnail">
-                                                            <div class="button">
-                                                                <a href="/cart" class="btn">
-                                                                    <i class="fa-regular fa-cart-shopping"></i></i> Add to
-                                                                    Cart
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="product-info">
-                                                        <span class="category">{{ $product->category->name }}</span>
-                                                        <p class="title">
-                                                            <a
-                                                                href="/products/details/{{ $product->slug }}">{{ $product->name }}</a>
-                                                        </p>
-                                                        @if ($product->sold > 0)
-                                                            <span>{{ $product->sold }} Terjual</span>
-                                                        @endif
-                                                        <div class="price">
-                                                            <span>Rp.
-                                                                {{ number_format($product->price, 0, ',', '.') }}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- End Single Product -->
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            {{ $products->links() }}
+                        <div class="data-products">
+                            @include('pages.product-grids')
                         </div>
                     </div>
                 </div>

@@ -15,7 +15,7 @@
                             <div class="images">
                                 <img src="/img/kyt-tt-course-plain-mat-black.jpeg" class="img" alt="#">
                                 <img src="/img/KYT-C5-IANONE-WHITE.jpeg" class="img" alt="#">
-                                <img src="/img/HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg" class="img" alt="#">
+                                <img src="/img/{{ $product->image->img_dt_3 }}" class="img" alt="#">
                                 <img src="/img/KYT-RC-SEVEN-17-BLACK-DOFT-GOLD.jpeg" class="img" alt="#">
                             </div>
                         </main>

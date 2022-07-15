@@ -27,14 +27,13 @@ Route::get('/cara-belanja', [HomeController::class, 'carabelanja']);
 Route::get('/contact', [HomeController::class, 'contact']);
 
 Route::get('/products', [ProductController::class, 'index']);
-Route::get('/products/details/{product:slug}', [ProductController::class, 'detail']);
 
+Route::get('/products/details/{product:slug}', [ProductController::class, 'detail']);
 Route::get('/cart', function () {
     return view('pages.cart', [
         "title" => "Cart"
     ]);
 });
-
 Route::get('/checkout', function () {
     return view('pages.checkout', [
         "title" => "Checkout"
