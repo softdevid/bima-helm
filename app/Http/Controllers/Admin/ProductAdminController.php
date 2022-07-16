@@ -6,7 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ProductAdminController extends Controller
 {
     public function index()
     {
@@ -41,6 +41,24 @@ class ProductController extends Controller
         return view('pages.product-detail', [
             "title" => "$product->name",
             "product" => $product
+        ]);
+    }
+
+    public function create()
+    {
+        return view('admin.pages.product');
+    }
+
+    public function store(Request $request)
+    {
+        Product::create([
+            "name" => $request->name,
+            "slug" => $request->slug,
+            "merk" => $request->merk,
+            "price" => $request->price,
+            "stock" => $request->stock,
+            // "image" => url,
+            // "public_id" => pid
         ]);
     }
 }
