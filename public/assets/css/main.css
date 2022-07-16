@@ -1323,7 +1323,7 @@ ol {
     -webkit-transition: 0.2s;
     transition: 0.2s;
     border-radius: 3px;
-    position: relative;
+    /* position: relative; */
     z-index: 1;
     margin-right: 7px;
     overflow: hidden;
@@ -5190,9 +5190,15 @@ blockquote span {
 
 .item-details .top-area {
     background-color: #fff;
-    padding: 30px;
+    padding: 10px;
     border: 1px solid #eee;
     border-radius: 4px;
+}
+
+@media (min-width: 767px) {
+    .item-details .top-area {
+        padding: 30px;
+    }
 }
 
 .item-details .product-images img {
@@ -5207,15 +5213,9 @@ blockquote span {
 .item-details .product-images .images {
     display: -ms-grid;
     display: grid;
-    Grid-template-columns: repeat(5, 1fr);
+    Grid-template-columns: repeat(4, 1fr);
     Grid-gap: 1em 1em;
     Margin-top: 1em;
-}
-
-@media (max-width: 767px) {
-    .item-details .product-images .images {
-        Grid-template-columns: repeat(3, 1fr);
-    }
 }
 
 @-webkit-keyframes fadeIn {
@@ -5242,7 +5242,7 @@ blockquote span {
 @media only screen and (min-width: 768px) and (max-width: 991px),
 (max-width: 767px) {
     .item-details .product-info {
-        padding: 0;
+        padding: 5px;
         margin-top: 30px;
     }
 }
@@ -5378,7 +5378,7 @@ blockquote span {
 }
 
 .item-details .product-info .form-group select.form-control:not([size]):not([multiple]) {
-    height: 46px;
+    height: 40px;
     font-size: 14px;
     font-weight: 500;
     border: 1px solid #e1e1e1;
@@ -5621,10 +5621,16 @@ blockquote span {
 /* Product Details Info */
 .product-details-info .single-block {
     background-color: #fff;
-    padding: 30px;
+    padding: 15px;
     border: 1px solid #eee;
     border-radius: 4px;
     margin-top: 30px;
+}
+
+@media (min-width: 768px) {
+    .product-details-info .single-block {
+        padding: 30px;
+    }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px),

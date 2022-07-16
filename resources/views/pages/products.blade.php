@@ -131,9 +131,9 @@
                                             <option value="asc">Murah - Mahal</option>
                                             <option value="desc">Mahal - Murah</option>
                                         </select>
-                                        <h3 class="total-show-product">Menampilkan: <span>{{ $products->firstItem() }} -
-                                                {{ $products->lastItem() }} produk dari total
-                                                {{ $products->total() }}</span></h3>
+                                        <h3 class="total-show-product">
+                                            Menampilkan: <span>{{ $products->firstItem() }} - {{ $products->lastItem() }} produk dari total {{ $products->total() }}</span>
+                                        </h3>
                                     </div>
                                 </div>
                             </div>

@@ -10,13 +10,13 @@
                     <div class="product-images">
                         <main id="gallery">
                             <div class="main-img">
-                                <img src="/img/{{ $product->image }}" id="current" alt="#">
+                                <img src="/img/{{ $product->image->img_dt_1 }}" id="current" alt="#">
                             </div>
                             <div class="images">
-                                <img src="/img/kyt-tt-course-plain-mat-black.jpeg" class="img" alt="#">
-                                <img src="/img/KYT-C5-IANONE-WHITE.jpeg" class="img" alt="#">
+                                <img src="/img/{{ $product->image->img_dt_1 }}" class="img" alt="#">
+                                <img src="/img/{{ $product->image->img_dt_2 }}" class="img" alt="#">
                                 <img src="/img/{{ $product->image->img_dt_3 }}" class="img" alt="#">
-                                <img src="/img/KYT-RC-SEVEN-17-BLACK-DOFT-GOLD.jpeg" class="img" alt="#">
+                                <img src="/img/{{ $product->image->img_dt_4 }}" class="img" alt="#">
                             </div>
                         </main>
                     </div>
@@ -26,17 +26,26 @@
                         <h2 class="title">{{ $product->name }}</h2>
                         <p class="category"><i class="lni lni-tag"></i>{{ $product->category->name }}</p>
                         <h3 class="price">Rp{{ number_format($product->price,0,',','.') }}</h3>
-                        <p class="info-text">Stok: {{ $product->stock }}<span></span></p>
+                        <p class="info-text">Stok total: <span>{{ $product->stock }}</span> <br>
+                            XS:<span id="xs">{{ $product->size->xs }}</span> |
+                            S:<span id="s">{{ $product->size->s }}</span> |
+                            M:<span id="m">{{ $product->size->m }}</span> |
+                            L:<span id="l">{{ $product->size->lg }}</span> |
+                            XL:<span id="xl">{{ $product->size->xl }}</span> |
+                            XXL:<span id="xxl">{{ $product->size->xxl }}</span>
+                        </p>
                         <div class="row">
                             <div class="col-5 col-sm-6 col-md-3 col-lg-4">
                                 <div class="form-group">
                                     <label for="size">Pilih Ukuran</label>
                                     <select class="form-control" id="size">
-                                        <option value="xs">XS</option>
-                                        <option value="xs">S</option>
-                                        <option value="xs" selected>M</option>
-                                        <option value="xs">L</option>
-                                        <option value="xs">XL</option>
+                                        <option value="">Ukuran</option>
+                                        <option value="xs" @if($product->size->xs == 0) {{ 'disabled' }} @endif>XS</option>
+                                        <option value="s" @if($product->size->s == 0) {{ 'disabled' }} @endif>S</option>
+                                        <option value="m" @if($product->size->m == 0) {{ 'disabled' }} @endif>M</option>
+                                        <option value="l" @if($product->size->lg == 0) {{ 'disabled' }} @endif>L</option>
+                                        <option value="xl" @if($product->size->xl == 0) {{ 'disabled' }} @endif>XL</option>
+                                        <option value="xxl" @if($product->size->xxl == 0) {{ 'disabled' }} @endif>XXL</option>
                                     </select>
                                 </div>
                             </div>
@@ -44,11 +53,11 @@
                                 <div class="d-block quantity">
                                     <label for="quantity">Kuantitas</label>
                                     <div class="input-group ">
-                                        <button class="btn btn-outline-primary quantity-minus" type="button">
+                                        <button class="btn btn-outline-primary quantity-minus" type="button" style="position: initial">
                                             <i class="fa-solid fa-minus"></i>
                                         </button>
-                                        <input type="number" id="quantity" name="quantity" class="form-control text-center" value="1" min="1" max="100">
-                                        <button class="btn btn-outline-primary quantity-plus" type="button">
+                                        <input type="text" id="quantity" name="quantity" class="form-control text-center" value="1" min="1" max="1">
+                                        <button class="btn btn-outline-primary quantity-plus" type="button" style="position: initial">
                                             <i class="fa-solid fa-plus"></i>
                                         </button>
                                     </div>
@@ -57,7 +66,7 @@
                         </div>
                         <div class="bottom-content">
                             <div class="row align-items-end">
-                                <div class="col-10 col-sm-6 col-md-4 col-lg-6 col-xl-4">
+                                <div class="col-lg-5 col-md-4 col-10">
                                     <div class="button cart-button">
                                         <button class="btn" style="width: 100%;">
                                             <i class="fa-regular fa-cart-shopping"></i>
@@ -65,7 +74,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-lg-4 col-md-4 col-2">
                                     <div class="wish-button">
                                         <button class="btn">
                                             <i class="fa-regular fa-heart"></i>

@@ -1,18 +1,26 @@
 $(document).ready(function () {
-    // increment and decrement quantity start
-    var quantity = 1;
+    // increment and decrement quantity
     $('.quantity-plus').click(function (e) {
         e.preventDefault();
+        var max = parseInt($('#quantity').attr('max'));
         var quantity = parseInt($('#quantity').val());
-        $('#quantity').val(quantity + 1);
+        if(quantity < max) {
+            $('#quantity').val(quantity + 1);
+        }
     });
     $('.quantity-minus').click(function (e) {
         e.preventDefault();
         var quantity = parseInt($('#quantity').val());
-
         if(quantity > 1) {
             $('#quantity').val(quantity - 1);
         }
+    });
+
+    // on change size
+    $('#size').on('change', function () {
+        var size = $(this).val();
+        var id = $('#'+size).text();
+        $('#quantity').attr('max', id);
     });
 
     // change image on click
