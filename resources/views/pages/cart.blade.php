@@ -9,9 +9,8 @@
                 <table class="table table-striped align-middle">
                     <thead class="table-light text-center">
                         <tr>
-                            <th style="width: 5%">No</th>
                             <th style="width: 15%">Gambar</th>
-                            <th style="width: 30%">Nama</th>
+                            <th style="width: 35%">Nama</th>
                             <th style="width: 15%">Jumlah</th>
                             <th style="width: 15%">Harga</th>
                             <th style="width: 10%">Hapus</th>
@@ -20,9 +19,7 @@
                     <tbody class="text-center">
                         <tr>
                             <td>
-                                1
-                            </td>
-                            <td>
+
                                 <img src="/img/KYT-C5-IANONE-WHITE.jpeg" alt="" class="img-thumbnail" style="max-height: 100px; max-width: 100px;">
                             </td>
                             <td>

@@ -2,13 +2,16 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cart;
 use App\Models\Size;
 use App\Models\User;
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\Image;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,6 +23,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory(2)->create();
+        User::create([
+            'username' => 'zafl',
+            'password' => Hash::make('dzaky654'),
+            'first_name' => 'Dzaky',
+            'last_name' => 'Fadli Firmansyah',
+            'email' => 'zaaaafl654@gmail.com',
+            'phone_number' => '085225041144',
+            'address' => 'Manduraga RT02 RW02, Kalimanah, Purbalingga',
+            'level' => 3,
+            'remember_token' => Str::random(10),
+        ]);
 
         //category
         Category::create([
