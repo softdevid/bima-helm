@@ -22,7 +22,7 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'phone_number' => $this->faker->phoneNumber(),
             'address' => $this->faker->address(),
-            'level' => $this->faker->randomElement(['admin', 'user']),
+            'level' => 1,
             'remember_token' => Str::random(10),
         ];
     }

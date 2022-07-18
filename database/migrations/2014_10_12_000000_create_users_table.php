@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('phone_number');
             $table->string('address');
             // $table->foreignId('region_id');
-            $table->string('level');
+            $table->smallInteger('level');
             $table->rememberToken();
             $table->timestamps();
         });

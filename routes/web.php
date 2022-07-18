@@ -3,7 +3,11 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
+<<<<<<< HEAD
 use App\Http\Controllers\ProductAdminController;
+=======
+use App\Http\Controllers\CartController;
+>>>>>>> b7037e6bfd5f4a8fc900fb7b292c4fef162554fc
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,13 +33,12 @@ Route::get('/cara-belanja', [HomeController::class, 'carabelanja']);
 Route::get('/contact', [HomeController::class, 'contact']);
 
 Route::get('/products', [ProductController::class, 'index']);
-
 Route::get('/products/details/{product:slug}', [ProductController::class, 'detail']);
-Route::get('/cart', function () {
-    return view('pages.cart', [
-        "title" => "Cart"
-    ]);
-});
+
+Route::get('/cart', fn() => view('pages.cart', [
+    "title" => "Keranjang"
+]));
+
 Route::get('/checkout', function () {
     return view('pages.checkout', [
         "title" => "Checkout"
