@@ -18,6 +18,7 @@
         <div class="tab-pane fade show active" id="pills-list" role="tabpanel" aria-labelledby="pills-list-tab"
             tabindex="0">
             <div class="table-responsive">
+                <a href="/admin/product/create" class="btn btn-primary">Tambah</a>
                 <table class="table">
                     <thead>
                         <tr class="text-center">
@@ -57,11 +58,12 @@
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
             <div class="container">
-                <form action="" method="post">
+                <form action="/admin/product/create" method="post" multipart="form-data">
                     <div class="mb-3 row">
                         <label for="name" class="col-sm-2 col-form-label">Nama Produk</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="name" placeholder="Nama Produk">
+                            <input type="text" class="form-control" id="name" placeholder="Nama Produk"
+                                name="name">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -77,7 +79,7 @@
                     <div class="mb-3 row">
                         <label for="price" class="col-sm-2 col-form-label">Harga</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="harga" placeholder="125000">
+                            <input type="number" class="form-control" id="harga" placeholder="125000" name="price">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -93,7 +95,7 @@
                     <div class="mb-3 row">
                         <label for="stock" class="col-sm-2 col-form-label">Stok</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="stok" placeholder="10">
+                            <input type="number" class="form-control" id="stok" placeholder="10" name="stock">
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@
                     <div class="mb-3 row">
                         <label for="name" class="col-sm-2 col-form-label">Gambar</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" type="file" id="formFile" name="image">
                         </div>
                     </div>
                     <div class="mb-5 row">

@@ -3,7 +3,9 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductAdminController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,9 +48,12 @@ Route::get('/admin/dashboard', function () {
         "title" => "Dashboard"
     ]);
 });
-Route::get('/admin/product', [AdminController::class, 'product']);
+Route::get('/admin/product', [ProductAdminController::class, 'index']);
 Route::get('/admin/users', [AdminController::class, 'users']);
 Route::get('/admin/orders', [AdminController::class, 'orders']);
+Route::post('/admin/product/create', [ProductAdminController::class, 'store']);
+Route::get('/admin/product/create', [ProductAdminController::class, 'create']);
+// Route::resource('productadmin', ProductAdminController::class);
 
 
 
