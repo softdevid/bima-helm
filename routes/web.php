@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductAdminController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 
 /*
@@ -67,4 +68,11 @@ Route::get('/kasir/laporan', function () {
     return view('kasir.pages.laporan', [
         "title" => "Laporan"
     ]);
+});
+
+
+//route slug generate
+Route::get('check_slug', function () {
+    $slug = SlugService::createSlug(App\Models\Product::class, 'slug', request('name'));
+    return response()->json(['slug' => $slug]);
 });

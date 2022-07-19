@@ -20,6 +20,12 @@
             </div>
         </div>
         <div class="mb-3 row">
+            <label for="name" class="col-sm-2 col-form-label">Slug</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="slug" placeholder="Slug" name="slug">
+            </div>
+        </div>
+        <div class="mb-3 row">
             <label for="merk" class="col-sm-2 col-form-label">Merk</label>
             <div class="col-sm-10">
                 <select class="form-select form-control" name="merk" aria-label="Default select example">
@@ -82,12 +88,6 @@
                 </div>
             </div>
         </div>
-        <div class="mb-3 row">
-            <label for="stock" class="col-sm-2 col-form-label">Stok</label>
-            <div class="col-sm-10">
-                <input type="number" class="form-control" id="stok" placeholder="10" name="stock">
-            </div>
-        </div>
 
         <div class="mb-3 row">
             <label for="size" class="col-sm-2 col-form-label mt-4">Gambar</label>
@@ -126,4 +126,21 @@
                     class="fa-solid fa-angles-left"></i> Kembali</a>
         </div>
     </form>
+
+    {{-- jQuery Script --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    {{-- Check Slug --}}
+    <script>
+        $('#name').change(function(e) {
+            $.get('{{ url('check_slug') }}', {
+                    'name': $(this).val()
+                },
+                function(data) {
+                    $('#slug').val(data.slug);
+                    console.log(data.slug);
+                }
+            );
+        });
+    </script>
 @endsection

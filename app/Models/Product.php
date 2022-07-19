@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Product extends Model
 {
     use HasFactory;
+    use Sluggable;
+
     protected $guarded = ['id'];
     protected $with = ['category'];
     protected $fillable = ['category_id', 'name', 'slug', 'merk', 'price', 'stock', 'image_id', 'image_main', 'size_id'];
@@ -48,5 +51,14 @@ class Product extends Model
     public function image()
     {
         return $this->belongsTo(Image::class);
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
     }
 }

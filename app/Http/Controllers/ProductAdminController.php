@@ -69,20 +69,22 @@ class ProductAdminController extends Controller
             'xxl' => $request->xxl,
         ]);
 
-        $stoct = 'xs' + 's' + 'm' + 'lg' + 'xl' + 'xxl';
+        $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
 
         $product = Product::create([
             "category_id" => $request->category_id,
             "name" => $request->name,
-            "slug" => Str::slug($request->name, '-'),
+            "slug" => Str::slug($request->name),
+            // "slug" => Str::slug($request->name + $slug++, '-'),
+            // "slug" => Str::of($request->name)->slug('-'),
             "merk" => $request->merk,
             "price" => $request->price,
-            "stock" => $stoct,
+            "stock" => $stock,
             "image_id" => $image->id,
             "image_main" => 'helm.jpeg',
             "size_id" => $sizes->id,
         ]);
-
+        // Str::slug($request->name, '-', 'lowercase');
         // dd($image1, $image2, $image3, $image4, $sizes, $image, $product);
         return redirect()->route('/admin/product')->withSuccess('Berhasil Ditambah!!');
     }
