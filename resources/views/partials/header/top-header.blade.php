@@ -19,10 +19,12 @@
             </div>
             <div class="col-sm-6">
                 <div class="top-end">
+                    @auth
                     <div class="user">
                         <i class="fa-solid fa-user fa-sm"></i>
-                        Hello
+                        Hello, {{ auth()->user()->first_name }}
                     </div>
+                    @else
                     <ul class="user-login">
                         <li>
                             <a href="/login">Login</a>
@@ -31,6 +33,7 @@
                             <a href="/register">Register</a>
                         </li>
                     </ul>
+                    @endauth
                 </div>
             </div>
         </div>

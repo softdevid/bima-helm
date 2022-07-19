@@ -3,8 +3,9 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductAdminController;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\RegionController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,8 +22,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/register', [HomeController::class, 'register']);
-Route::get('/login', [HomeController::class, 'login']);
+Route::get('/login', [HomeController::class, 'login'])->middleware('guest');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [HomeController::class, 'register'])->middleware('guest');
+Route::post('/register', [AuthController::class, 'registration']);
+
+Route::post('/indonesia/provinces', [RegionController::class, 'provinces']);
+Route::post('/indonesia/cities', [RegionController::class, 'cities']);
+Route::post('/indonesia/districts', [RegionController::class, 'districts']);
+Route::post('/indonesia/villages', [RegionController::class, 'villages']);
 
 Route::get('/faq', [HomeController::class, 'faq']);
 Route::get('/tentang-kami', [HomeController::class, 'tentangkami']);
