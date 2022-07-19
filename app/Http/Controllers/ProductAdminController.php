@@ -34,6 +34,7 @@ class ProductAdminController extends Controller
     {
         return view('admin.pages.product.create', [
             "title" => "Tambah data",
+            "category" => Category::all(),
         ]);
         // return view('admin.pages.product.create');
     }
@@ -68,17 +69,21 @@ class ProductAdminController extends Controller
             'xxl' => $request->xxl,
         ]);
 
+        $stoct = 'xs' + 's' + 'm' + 'lg' + 'xl' + 'xxl';
+
         $product = Product::create([
+            "category_id" => $request->category_id,
             "name" => $request->name,
             "slug" => Str::slug($request->name, '-'),
             "merk" => $request->merk,
             "price" => $request->price,
-            "stock" => $request->stock,
+            "stock" => $stoct,
             "image_id" => $image->id,
+            "image_main" => 'helm.jpeg',
             "size_id" => $sizes->id,
         ]);
 
-        ddd($image1, $image2, $image3, $image4, $sizes, $image, $product);
+        // dd($image1, $image2, $image3, $image4, $sizes, $image, $product);
         return redirect()->route('/admin/product')->withSuccess('Berhasil Ditambah!!');
     }
 }
