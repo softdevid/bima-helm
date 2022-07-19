@@ -11,7 +11,7 @@
         <div class="mb-3 row">
             <label for="merk" class="col-sm-2 col-form-label">Merk</label>
             <div class="col-sm-10">
-                <select class="form-select form-control" aria-label="Default select example">
+                <select class="form-select form-control" name="merk" aria-label="Default select example">
                     <option selected>Pilih Merk</option>
                     <option value="spoiler">SPOILER</option>
                     <option value="apd face shield">APD FACE SHIELD</option>
@@ -46,73 +46,72 @@
                 <div class="row">
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">XS</label>
-                        <input type="number" value="0" class="form-control">
-                    </div>
-                    <div class="col">
-                        <label for="size" class="col-sm-2 col-form-label">S</label>
-                        <input type="number" value="0" class="form-control">
-                    </div>
-                    <div class="col">
-                        <label for="size" class="col-sm-2 col-form-label">M</label>
-                        <input type="number" value="0" class="form-control">
-                    </div>
-                    <div class="col">
-                        <label for="size" class="col-sm-2 col-form-label">LG</label>
-                        <input type="number" value="0" class="form-control">
-                    </div>
-                    <div class="col">
-                        <label for="size" class="col-sm-2 col-form-label">XL</label>
-                        <input type="number" value="0" class="form-control">
-                    </div>
-                    <div class="col">
-                        <label for="size" class="col-sm-2 col-form-label">XXL</label>
-                        <input type="number" value="0" class="form-control">
+                        <input type="number" value="0" class="form-control" name="xs" </div>
+                        <div class="col">
+                            <label for="size" class="col-sm-2 col-form-label">S</label>
+                            <input type="number" value="0" class="form-control" name="s">
+                        </div>
+                        <div class="col">
+                            <label for="size" class="col-sm-2 col-form-label">M</label>
+                            <input type="number" value="0" class="form-control" name="m">
+                        </div>
+                        <div class="col">
+                            <label for="size" class="col-sm-2 col-form-label">LG</label>
+                            <input type="number" value="0" class="form-control" name="lg">
+                        </div>
+                        <div class="col">
+                            <label for="size" class="col-sm-2 col-form-label">XL</label>
+                            <input type="number" value="0" class="form-control" name="xl">
+                        </div>
+                        <div class="col">
+                            <label for="size" class="col-sm-2 col-form-label">XXL</label>
+                            <input type="number" value="0" class="form-control" name="xxl">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="mb-3 row">
-            <label for="stock" class="col-sm-2 col-form-label">Stok</label>
-            <div class="col-sm-10">
-                <input type="number" class="form-control" id="stok" placeholder="10" name="stock">
+            <div class="mb-3 row">
+                <label for="stock" class="col-sm-2 col-form-label">Stok</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="stok" placeholder="10" name="stock">
+                </div>
             </div>
-        </div>
 
-        <div class="mb-3 row">
-            <label for="size" class="col-sm-2 col-form-label mt-4">Gambar</label>
-            <div class="col-sm-10">
-                <div class="row">
+            <div class="mb-3 row">
+                <label for="size" class="col-sm-2 col-form-label mt-4">Gambar</label>
+                <div class="col-sm-10">
                     <div class="row">
-                        <div class="col">
-                            <label for="size" class="col-sm-4 col-form-label">Gambar 1</label>
-                            <input class="form-control" type="file" id="formFile" name="image1">
+                        <div class="row">
+                            <div class="col">
+                                <label for="size" class="col-sm-4 col-form-label">Gambar 1</label>
+                                <input class="form-control" type="file" id="formFile" name="image1">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="size" class="col-sm-4 col-form-label">Gambar 2</label>
-                            <input class="form-control" type="file" id="formFile" name="image2">
+                        <div class="row">
+                            <div class="col">
+                                <label for="size" class="col-sm-4 col-form-label">Gambar 2</label>
+                                <input class="form-control" type="file" id="formFile" name="image2">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="size" class="col-sm-4 col-form-label">Gambar 3</label>
-                            <input class="form-control" type="file" id="formFile" name="imag3">
+                        <div class="row">
+                            <div class="col">
+                                <label for="size" class="col-sm-4 col-form-label">Gambar 3</label>
+                                <input class="form-control" type="file" id="formFile" name="image3">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="size" class="col-sm-4 col-form-label">Gambar 4</label>
-                            <input class="form-control" type="file" id="formFile" name="imag4">
+                        <div class="row">
+                            <div class="col">
+                                <label for="size" class="col-sm-4 col-form-label">Gambar 4</label>
+                                <input class="form-control" type="file" id="formFile" name="image4">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="mb-5 mt-3 row">
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="/admin/product/" class="btn btn-danger" style="margin-left: 5px;"><i
-                    class="fa-solid fa-angles-left"></i> Kembali</a>
-        </div>
+            <div class="mb-5 mt-3 row">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="/admin/product/" class="btn btn-danger" style="margin-left: 5px;"><i
+                        class="fa-solid fa-angles-left"></i> Kembali</a>
+            </div>
     </form>
 @endsection

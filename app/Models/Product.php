@@ -10,6 +10,7 @@ class Product extends Model
     use HasFactory;
     protected $guarded = ['id'];
     protected $with = ['category'];
+    protected $fillable = ['name', 'slug', 'merk', 'price', 'stock', 'image_id', 'size_id'];
 
     public function scopeFilter($query, array $filters)
     {
