@@ -7079,7 +7079,7 @@ blockquote span {
     padding: 0 18px;
     -webkit-transition: color .25s, background-color .25s, border-color .25s;
     transition: color .25s, background-color .25s, border-color .25s;
-    border: 1px solid #e0e0e0;
+    /* border: 1px solid #e0e0e0; */
     background-color: #fff;
     color: #505050;
     font-size: 14px;
@@ -7093,7 +7093,7 @@ blockquote span {
 }
 
 .account-login .form-group .form-control:focus {
-    border-color: #0167F3;
+    /* border-color: #0167F3; */
 }
 
 .account-login .lost-pass {
@@ -7165,7 +7165,7 @@ blockquote span {
     padding: 0 18px;
     -webkit-transition: color .25s, background-color .25s, border-color .25s;
     transition: color .25s, background-color .25s, border-color .25s;
-    border: 1px solid #e0e0e0;
+    /* border: 1px solid #e0e0e0; */
     background-color: #fff;
     color: #505050;
     font-size: 14px;
@@ -7181,7 +7181,7 @@ blockquote span {
     padding: 0 18px;
     -webkit-transition: color .25s, background-color .25s, border-color .25s;
     transition: color .25s, background-color .25s, border-color .25s;
-    border: 1px solid #e0e0e0;
+    /* border: 1px solid #e0e0e0; */
     background-color: #fff;
     color: #505050;
     font-size: 14px;

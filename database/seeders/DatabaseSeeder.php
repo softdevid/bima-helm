@@ -20,20 +20,9 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
     public function run()
     {
-        User::factory(2)->create();
-        User::create([
-            'username' => 'zafl',
-            'password' => Hash::make('dzaky654'),
-            'first_name' => 'Dzaky',
-            'last_name' => 'Fadli Firmansyah',
-            'email' => 'zaaaafl654@gmail.com',
-            'phone_number' => '085225041144',
-            'address' => 'Manduraga RT02 RW02, Kalimanah, Purbalingga',
-            'level' => 3,
-            'remember_token' => Str::random(10),
-        ]);
 
         //category
         Category::create([

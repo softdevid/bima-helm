@@ -68,29 +68,23 @@ $(document).ready(function () {
             }
         });
     });
-
-    // bs valid pass
-    $('#regForm').bootstrapValidator({
-        fields: {
-            password: {
-                validators: {
-                    identical: {
-                        field: 'confirmPassword',
-                        message: 'The password and its confirm are not the same'
-                    }
-                }
-            },
-            confirmPassword: {
-                validators: {
-                    identical: {
-                        field: 'password',
-                        message: 'The password and its confirm are not the same'
-                    }
-                }
-            }
-        }
-    });
 });
+
+$("#password").on("focusout", function () {
+    if ($(this).val() != $("#confirmPassword").val()) {
+      $("#confirmPassword").addClass("is-invalid");
+    } else {
+      $("#confirmPassword").removeClass("is-invalid");
+    }
+  });
+
+  $("#confirmPassword").on("keyup", function () {
+    if ($("#password").val() != $(this).val()) {
+      $(this).addClass("is-invalid");
+    } else {
+      $(this).removeClass("is-invalid");
+    }
+  });
 
 $(".check-shipp").change(function () {
     $('.check-shipp').not(this).prop('checked', false);
@@ -127,8 +121,8 @@ function getPostalCode(name) {
         success: function (data) {
             if(data.status == true) {
                 console.log(data.messages);
-                $('#postal-code').val('');
-                $('#postal-code').val(data.data[0].postalcode);
+                $('#postalCode').val('');
+                $('#postalCode').val(data.data[0].postalcode);
                 $('#loading-spinner').empty();
                 $('#loading-spinner-info').empty();
             }

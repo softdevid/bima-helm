@@ -19,10 +19,18 @@
             </div>
             <div class="col-sm-6">
                 <div class="top-end">
+                    <ul class="navbar-nav">
                     @auth
                     <div class="user">
-                        <i class="fa-solid fa-user fa-sm"></i>
-                        Hello, {{ auth()->user()->first_name }}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle link-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hallo, {{ auth()->user()->frontName }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item link-light px-sm-2 py-sm-2" href="/my-account">Akun Saya</a></li>
+                                <li><a class="dropdown-item link-light px-sm-2 py-sm-2" href="/logout">Logout</a></li>
+                            </ul>
+                        </li>
                     </div>
                     @else
                     <ul class="user-login">
@@ -34,6 +42,7 @@
                         </li>
                     </ul>
                     @endauth
+                </ul>
                 </div>
             </div>
         </div>

@@ -41,7 +41,7 @@
                 <div class="middle-right-area">
                     <div class="navbar-cart">
                         <div class="wishlist me-0 me-md-3">
-                            <a href="javascript:void(0)">
+                            <a href="/fav">
                                 <span class="fa-stack me-1 text-white">
                                     <i class="fa-regular fa-circle fa-stack-2x" data-count="8"></i>
                                     <i class="fa-solid fa-heart fa-stack-1x"></i>

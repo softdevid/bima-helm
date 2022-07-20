@@ -25,6 +25,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/login', [HomeController::class, 'login'])->middleware('guest');
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/register', [HomeController::class, 'register'])->middleware('guest');
 Route::post('/register', [AuthController::class, 'registration']);
 
@@ -45,6 +46,10 @@ Route::get('/cart', fn () => view('pages.cart', [
     "title" => "Keranjang"
 ]));
 
+Route::get('/fav', fn () => view('pages.cart', [
+    "title" => "Produk yang disukai"
+]));
+
 Route::get('/checkout', function () {
     return view('pages.checkout', [
         "title" => "Checkout"
@@ -63,8 +68,6 @@ Route::get('/admin/orders', [AdminController::class, 'orders']);
 Route::post('/admin/product/create', [ProductAdminController::class, 'store']);
 Route::get('/admin/product/create', [ProductAdminController::class, 'create']);
 // Route::resource('productadmin', ProductAdminController::class);
-
-
 
 //KASIR
 Route::get('/kasir/dashboard', function () {

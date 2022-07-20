@@ -16,31 +16,56 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="frontName">Nama Depan</label>
-                                    <input class="form-control" type="text" name="frontName" id="frontName" required>
+                                    <input class="form-control @error('frontName') is-invalid @enderror" type="text" name="frontName" id="frontName" value="{{ old('frontName') }}" required>
+                                    @error('frontName')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="lastName">Nama Belakang</label>
-                                    <input class="form-control" type="text" name="lastName" id="lastName" required>
+                                    <input class="form-control @error('lastName') is-invalid @enderror" type="text" name="lastName" id="lastName" value="{{ old('lastName') }}" required>
+                                    @error('lastName')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="email">E-mail</label>
-                                    <input class="form-control" type="email" name="email" id="email" required>
+                                    <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" id="email" value="{{ old('email') }}" required>
+                                    @error('email')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="noTelp">Nomor Telepon</label>
-                                    <input class="form-control" type="text" name="noTelp" id="noTelp" required>
+                                    <input class="form-control @error('noTelp') is-invalid @enderror" type="text" name="noTelp" id="noTelp" value="{{ old('noTelp') }}" required>
+                                    @error('noTelp')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input class="form-control" type="password" name="password" id="password" required>
+                                    <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" id="password" value="{{ old('password') }}" required>
+                                    @error('password')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -68,7 +93,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="city">Kabupaten / Kota</label>
-                                    <select name="city" id="city" class="form-select" disabled required>
+                                    <select name="city" id="city" class="form-select" required>
                                         <option>Pilih Salah Satu</option>
                                     </select>
                                 </div>
@@ -76,7 +101,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="district">Kecamatan</label>
-                                    <select name="district" id="district" class="form-select" disabled required>
+                                    <select name="district" id="district" class="form-select" required>
                                         <option>Pilih Salah Satu</option>
                                     </select>
                                 </div>
@@ -84,24 +109,24 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="village">Desa / Kelurahan</label>
-                                    <select name="village" id="village" class="form-select" disabled required>
+                                    <select name="village" id="village" class="form-select" required>
                                         <option>Pilih Salah Satu</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="postal-code">Kode Pos</label>
-                                    <input class="form-control" type="text" name="postal-code" id="postal-code" disabled required>
+                                    <label for="postalCode">Kode Pos</label>
+                                    <input class="form-control" type="text" name="postalCode" id="postalCode" required>
                                     <div id="loading-spinner"></div>
                                     <div id="loading-spinner-info"></div>
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="reg-address">Alamat</label>
-                                    <textarea name="" id="reg-address" cols="30" rows="10" class="form-control" type="text" required
-                                        style="height: 100px;"></textarea>
+                                    <label for="address">Alamat</label>
+                                    <textarea name="address" id="address" cols="30" rows="10" class="form-control" type="text" required
+                                        style="height: 100px;">{{ old('address') }}</textarea>
                                 </div>
                             </div>
                             <div class="button">
