@@ -1,5 +1,5 @@
 <!-- Start Topbar -->
-<div class="topbar p-sm-3">
+<div class="topbar p-1 p-sm-2">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-sm-6">
@@ -23,7 +23,7 @@
                     @auth
                     <div class="user">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle link-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle link-light justify-content-end" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Hallo, {{ auth()->user()->frontName }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark">

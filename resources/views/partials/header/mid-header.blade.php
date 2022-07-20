@@ -1,5 +1,5 @@
 <!-- Start Header Middle -->
-<div class="header-middle py-2 py-sm-3">
+<div class="header-middle py-1 py-sm-2">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-3 col-md-3 d-xs-none">

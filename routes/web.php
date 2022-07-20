@@ -23,7 +23,7 @@ use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/login', [HomeController::class, 'login'])->middleware('guest');
+Route::get('/login', [HomeController::class, 'login'])->middleware('guest')->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/register', [HomeController::class, 'register'])->middleware('guest');
@@ -44,11 +44,10 @@ Route::get('/products/details/{product:slug}', [ProductController::class, 'detai
 
 Route::get('/cart', fn () => view('pages.cart', [
     "title" => "Keranjang"
-]));
-
+]))->middleware('auth');
 Route::get('/fav', fn () => view('pages.cart', [
     "title" => "Produk yang disukai"
-]));
+]))->middleware('auth');
 
 Route::get('/checkout', function () {
     return view('pages.checkout', [

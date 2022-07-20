@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3",
+        "bumbummen99/shoppingcart": "^4.2",
         "cloudinary-labs/cloudinary-laravel": " 1.0.4",
         "cviebrock/eloquent-sluggable": "^8.0",
         "fruitcake/laravel-cors": "^2.0",

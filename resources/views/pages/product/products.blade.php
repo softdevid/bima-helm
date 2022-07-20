@@ -19,38 +19,24 @@
                         <h5 class="offcanvas-title" id="off-canvas-filterLabel">Produk</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-                    <div class="offcanvas-body">
-                        <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#coll-category" aria-expanded="false" aria-controls="coll-category">
-                            Kategori
-                        </button>
-                        <div class="collapse show my-1" id="coll-category">
-                            <ul class="list-group">
-                                <li class="list-group-item active">Semua Produk</li>
-                                <li class="list-group-item">Helm Full Face</li>
-                                <li class="list-group-item">Helm Half Face</li>
-                                <li class="list-group-item">Spoiler</li>
-                                <li class="list-group-item">Visor</li>
-                                <li class="list-group-item">Spare Parts</li>
-                                <li class="list-group-item">Lainnya</li>
-                            </ul>
-                        </div>
                         <div class="offcanvas-body">
                             <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#coll-category" aria-expanded="false" aria-controls="coll-category">
                                 Kategori
                             </button>
-                            <div class="collapse my-1" id="coll-category">
+                            <div class="collapse my-1 show" id="coll-category">
                                 <ul class="list-group">
-                                    <li class="list-group-item active">Semua Produk</li>
-                                    <li class="list-group-item">Helm Full Face</li>
-                                    <li class="list-group-item">Helm Half Face</li>
-                                    <li class="list-group-item">Spoiler</li>
-                                    <li class="list-group-item">Visor</li>
-                                    <li class="list-group-item">Spare Parts</li>
-                                    <li class="list-group-item">Lainnya</li>
+                                    <li class="list-group-item {{ is_null(request()->input('category')) ? 'active' : '' }}"><a href="/products" class="{{ is_null(request()->input('category')) ? 'text-light' : '' }}">Semua Produk</a></li>
+                                    @foreach ($categories as $category)
+                                    <li class="list-group-item">
+                                        <a href="/products?category={{ $category->slug }}"
+                                            class="{{ request()->input('category') === $category->slug ? 'active' : '' }}">{{
+                                            $category->name }}</a>
+                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
+                            @if (strpos(request()->input('category'), 'helm') !== false)
                             <div class="my-2"></div>
                             <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#coll-merk-helm" aria-expanded="false" aria-controls="coll-merk-helm">
@@ -62,6 +48,7 @@
                                     <li class="list-group-item">INK</li>
                                 </ul>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -99,6 +86,7 @@
                         </ul>
                     </div>
                     <!-- End Single Widget -->
+                    @if (strpos(request()->input('category'), 'helm') !== false)
                     <!-- Start Single Widget -->
                     <div class="single-widget condition mt-md-3">
                         <h3>Berdasarkan Merek</h3>
@@ -116,6 +104,7 @@
                         </div>
                     </div>
                     <!-- End Single Widget -->
+                    @endif
                 </div>
                 <!-- End Product Sidebar -->
             </div>
