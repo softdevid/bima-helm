@@ -40,19 +40,10 @@ class ProductAdminController extends Controller
         // return view('admin.pages.product.create');
     }
 
-    public function messages()
-    {
-        return [
-            'name.required'    => 'Nama Produk harus diisi!',
-            'name.unique'      => 'Nama Produk sudah ada!',
-        ];
-    }
-
     public function store(Request $request)
     {
         Validator::make($request->all(), [
             'name' => 'required|unique:products|max:255',
-            'name.unique' => 'Nama Produk sudah ada!!',
         ])->validate();
 
         $image1  = $request->file('image1');
@@ -60,57 +51,69 @@ class ProductAdminController extends Controller
         $image3  = $request->file('image3');
         $image4  = $request->file('image4');
 
-        if ($request->file('image1')) {
-            $result1 = CloudinaryStorage::upload($image1->getRealPath(), $image1->getClientOriginalName());
-        } elseif ($request->file('image2') === "") {
-            $result2 = CloudinaryStorage::upload($image2->getRealPath(), $image2->getClientOriginalName());
-        } elseif ($request->file('image3') === "") {
-            $result3 = CloudinaryStorage::upload($image3->getRealPath(), $image3->getClientOriginalName());
-        } elseif ($request->file('image4') === "") {
-            $result4 = CloudinaryStorage::upload($image4->getRealPath(), $image4->getClientOriginalName());
-        } else {
-            $result1 = CloudinaryStorage::upload($image1->getRealPath(), $image1->getClientOriginalName());
-            $result2 = CloudinaryStorage::upload($image2->getRealPath(), $image2->getClientOriginalName());
-            $result3 = CloudinaryStorage::upload($image3->getRealPath(), $image3->getClientOriginalName());
-            $result4 = CloudinaryStorage::upload($image4->getRealPath(), $image4->getClientOriginalName());
-        }
+        // if ($request->file('image1')) {
+        //     $result1 = CloudinaryStorage::upload($image1->getRealPath(), $image1->getClientOriginalName());
+        // } elseif ($request->file('image2') === "") {
+        //     $result2 = CloudinaryStorage::upload($image2->getRealPath(), $image2->getClientOriginalName());
+        // } elseif ($request->file('image3') === "") {
+        //     $result3 = CloudinaryStorage::upload($image3->getRealPath(), $image3->getClientOriginalName());
+        // } elseif ($request->file('image4') === "") {
+        //     $result4 = CloudinaryStorage::upload($image4->getRealPath(), $image4->getClientOriginalName());
+        // } else {
+        //     $result1 = CloudinaryStorage::upload($image1->getRealPath(), $image1->getClientOriginalName());
+        //     $result2 = CloudinaryStorage::upload($image2->getRealPath(), $image2->getClientOriginalName());
+        //     $result3 = CloudinaryStorage::upload($image3->getRealPath(), $image3->getClientOriginalName());
+        //     $result4 = CloudinaryStorage::upload($image4->getRealPath(), $image4->getClientOriginalName());
+        // }
 
-        if ($result1) {
-            $image = Image::create([
-                'img_dt_1' => $result1,
-                'img_dt_2' => NULL,
-                'img_dt_3' => NULL,
-                'img_dt_4' => NULL,
-            ]);
-        } elseif ($result2 === "") {
-            $image = Image::create([
-                'img_dt_1' => $result1,
-                'img_dt_2' => NULL,
-                'img_dt_3' => $result3,
-                'img_dt_4' => $result4,
-            ]);
-        } elseif ($result3 === "") {
-            $image = Image::create([
-                'img_dt_3' => NULL,
-                'img_dt_1' => $result1,
-                'img_dt_2' => $result2,
-                'img_dt_4' => $result4,
-            ]);
-        } elseif ($result4 === "") {
-            $image = Image::create([
-                'img_dt_1' => $result1,
-                'img_dt_2' => $result2,
-                'img_dt_3' => $result3,
-                'img_dt_4' => NULL,
-            ]);
-        } else {
-            $image = Image::create([
-                'img_dt_1' => $result1,
-                'img_dt_2' => $result2,
-                'img_dt_3' => $result3,
-                'img_dt_4' => $result4,
-            ]);
-        }
+        // if ($result1) {
+        //     $image = Image::create([
+        //         'img_dt_1' => $result1,
+        //         'img_dt_2' => NULL,
+        //         'img_dt_3' => NULL,
+        //         'img_dt_4' => NULL,
+        //     ]);
+        // } elseif ($result2 === "") {
+        //     $image = Image::create([
+        //         'img_dt_1' => $result1,
+        //         'img_dt_2' => NULL,
+        //         'img_dt_3' => $result3,
+        //         'img_dt_4' => $result4,
+        //     ]);
+        // } elseif ($result3 === "") {
+        //     $image = Image::create([
+        //         'img_dt_3' => NULL,
+        //         'img_dt_1' => $result1,
+        //         'img_dt_2' => $result2,
+        //         'img_dt_4' => $result4,
+        //     ]);
+        // } elseif ($result4 === "") {
+        //     $image = Image::create([
+        //         'img_dt_1' => $result1,
+        //         'img_dt_2' => $result2,
+        //         'img_dt_3' => $result3,
+        //         'img_dt_4' => NULL,
+        //     ]);
+        // } else {
+        //     $image = Image::create([
+        //         'img_dt_1' => $result1,
+        //         'img_dt_2' => $result2,
+        //         'img_dt_3' => $result3,
+        //         'img_dt_4' => $result4,
+        //     ]);
+        // }
+
+        $result1 = CloudinaryStorage::upload($image1->getRealPath(), $image1->getClientOriginalName());
+        $result2 = CloudinaryStorage::upload($image2->getRealPath(), $image2->getClientOriginalName());
+        $result3 = CloudinaryStorage::upload($image3->getRealPath(), $image3->getClientOriginalName());
+        $result4 = CloudinaryStorage::upload($image4->getRealPath(), $image4->getClientOriginalName());
+
+        $image = Image::create([
+            'img_dt_1' => $result1,
+            'img_dt_2' => $result2,
+            'img_dt_3' => $result3,
+            'img_dt_4' => $result4
+        ]);
 
         $sizes = Size::create([
             'xs' => $request->xs,
