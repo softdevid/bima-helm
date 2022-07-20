@@ -3,10 +3,10 @@
     <form action="/admin/product/create" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-3 row">
-            <label for="merk" class="col-sm-2 col-form-label">Merk</label>
+            <label for="merk" class="col-sm-2 col-form-label">Kategori</label>
             <div class="col-sm-10">
                 <select class="form-select form-control" name="category_id" aria-label="Default select example">
-                    <option selected>Pilih Merk</option>
+                    <option selected>Pilih Kategori</option>
                     @foreach ($category as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
@@ -16,7 +16,11 @@
         <div class="mb-3 row">
             <label for="name" class="col-sm-2 col-form-label">Nama Produk</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" placeholder="Nama Produk" name="name">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
+                    placeholder="Nama Produk" name="name" value="{{ old('name') }}">
+                @error('name')
+                    <div class="invalid-feedback">{{ $message->name }}</div>
+                @enderror
             </div>
         </div>
         <div class="mb-3 row">
@@ -28,7 +32,8 @@
         <div class="mb-3 row">
             <label for="merk" class="col-sm-2 col-form-label">Merk</label>
             <div class="col-sm-10">
-                <select class="form-select form-control" name="merk" aria-label="Default select example">
+                <select class="form-select form-control" name="merk" aria-label="Default select example"
+                    value="{{ old('merk') }}">
                     <option selected>Pilih Merk</option>
                     <option value="spoiler">SPOILER</option>
                     <option value="apd face shield">APD FACE SHIELD</option>
