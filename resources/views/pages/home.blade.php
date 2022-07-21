@@ -14,15 +14,11 @@
                 <div class="col-md-4 col-12 custom-padding-right">
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="/img/KYT-C5-IANONE-WHITE.jpeg" class="d-block w-100" alt="">
+                            @foreach ($helmTopSell->take(3) as $index => $helmTop3)
+                            <div class="carousel-item {{ ($index == 0) ? 'active' : '' }}">
+                                <img src="/img/{{ $helmTop3->image }}" class="d-block w-100" alt="">
                             </div>
-                            <div class="carousel-item">
-                                <img src="/img/KYT-RC-SEVEN-17-BLACK-DOFT-GOLD.jpeg" class="d-block w-100" alt="">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="/img/kyt-tt-course-plain-mat-black.jpeg" class="d-block w-100" alt="">
-                            </div>
+                            @endforeach
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
                             data-bs-slide="prev">
@@ -60,55 +56,6 @@
         </div>
     </section>
     <!-- End Hero Area -->
-
-    <!-- Start Featured Categories Area -->
-    {{-- <section class="featured-categories section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-title">
-                    <h2>Kategori Helm</h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                        suffered alteration in some form.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-2 col-md-3 col-6">
-                <div class="card">
-                    <div class="images card-img-top">
-                        <img src="https://via.placeholder.com/200x180" alt="#">
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text fs-5 text-center">Full Face</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-3 col-6">
-                <div class="card">
-                    <div class="images card-img-top">
-                        <img src="https://via.placeholder.com/200x180" alt="#">
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text fs-5 text-center">Half Face</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-3 col-6 mt-3 mt-md-0">
-                <div class="card">
-                    <div class="images card-img-top">
-                        <img src="https://via.placeholder.com/200x180" alt="#">
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text fs-5 text-center">Helm Anak</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> --}}
-    <!-- End Features Area -->
-
     <!-- Start Trending Product Area -->
     <section class="topsell-product section">
         <div class="container">
@@ -147,130 +94,34 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         <div class="row">
+                                            @foreach ($helmTopSell->take(6) as $helmTop)
                                             <div class="col-6 col-md-3 col-lg-2 mb-2">
                                                 <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
+                                                    <img src="/img/{{ $helmTop->image }}" alt=""
                                                         class="img-fluid">
                                                     <div class="card-body">
-                                                        <div class="text-dark card-title">KYT TT Course</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
+                                                        <div class="text-dark card-title">{{ $helmTop->name }}</div>
+                                                        <p class="card-text">Rp.{{ $helmTop->price }}</p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">KYT TT Course</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">KYT TT Course</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">KYT TT Course</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">KYT TT Course</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">KYT TT Course</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <div class="row">
+                                            @foreach ($helmTopSell->skip(6) as $helmTop)
                                             <div class="col-6 col-md-3 col-lg-2 mb-2">
                                                 <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
+                                                    <img src="/img/{{ $helmTop->image }}" alt=""
                                                         class="img-fluid">
                                                     <div class="card-body">
-                                                        <div class="text-dark card-title">KYT TT Course</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
+                                                        <div class="text-dark card-title">{{ $helmTop->name }}</div>
+                                                        <p class="card-text">Rp.{{ $helmTop->price }}</p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">KYT TT Course</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">KYT TT Course</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">KYT TT Course</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">KYT TT Course</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">KYT TT Course</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>

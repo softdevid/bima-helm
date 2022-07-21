@@ -82,6 +82,7 @@ button:focus,
 }
 
 select {
+    writing-mode: horizontal-tb !important;
     -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;
     color: #081828;
@@ -2713,7 +2714,7 @@ ol {
     -webkit-transition: all 0.3s ease-out 0s;
     transition: all 0.3s ease-out 0s;
     position: relative;
-    padding: 20px 0;
+    padding: 15px 0;
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
@@ -7092,9 +7093,9 @@ blockquote span {
     width: 100%;
 }
 
-.account-login .form-group .form-control:focus {
-    /* border-color: #0167F3; */
-}
+/* .account-login .form-group .form-control:focus {
+    border-color: #0167F3;
+} */
 
 .account-login .lost-pass {
     color: #888;

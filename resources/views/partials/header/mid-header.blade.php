@@ -15,23 +15,24 @@
                 <div class="main-menu-search py-2">
                     <!-- navbar search start -->
                     <div class="navbar-search search-style-5">
-                        <div class="search-select d-none d-sm-block">
-                            <div class="select-position">
-                                <select id="select1">
-                                    <option selected>Semua</option>
-                                    <option value="1">Helm</option>
-                                    <option value="2">Aksesoris</option>
-                                    <option value="3">Sparepart</option>
-                                    <option value="4">Lainnya</option>
-                                </select>
+                        <form action="/products" method="get" class="d-flex flex-fill">
+                            <div class="search-select d-none d-sm-block">
+                                <div class="select-position">
+                                    <select id="select1">
+                                        <option selected>Semua</option>
+                                        @foreach (App\Models\Category::oldest()->get() as $category)
+                                        <option value="{{ $category->slug }}">{{ $category->name }}</option>    
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="search-input">
-                            <input type="text" placeholder="Cari produk...">
-                        </div>
-                        <div class="search-btn">
-                            <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </div>
+                            <div class="search-input">
+                                <input type="text" placeholder="Cari produk...">
+                            </div>
+                            <div class="search-btn">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </form>
                     </div>
                     <!-- navbar search Ends -->
                 </div>
@@ -43,7 +44,9 @@
                         <div class="wishlist me-0 me-md-3">
                             <a href="/fav">
                                 <span class="fa-stack me-1 text-white">
+                                    @auth
                                     <i class="fa-regular fa-circle fa-stack-2x" data-count="8"></i>
+                                    @endauth
                                     <i class="fa-solid fa-heart fa-stack-1x"></i>
                                 </span>
                             </a>
@@ -51,7 +54,9 @@
                         <div class="cart-items">
                             <a href="/cart" class="main-btn">
                                 <span class="fa-stack me-1 text-white">
+                                    @auth
                                     <i class="fa-regular fa-circle fa-stack-2x" data-count="2"></i>
+                                    @endauth
                                     <i class="fa-solid fa-cart-shopping fa-stack-1x"></i>
                                 </span>
                             </a>
