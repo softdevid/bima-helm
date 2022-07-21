@@ -41,12 +41,12 @@ class Product extends Model
 
     public function size()
     {
-        return $this->belongsTo(Size::class);
+        return $this->hasOne(Size::class);
     }
 
     public function image()
     {
-        return $this->belongsTo(Image::class);
+        return $this->hasOne(Image::class);
     }
 
     public function sluggable(): array
