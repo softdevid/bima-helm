@@ -65,15 +65,19 @@
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ $title === 'Produk' ? 'active text-white fade-in' : '' }}"
-                    href="/admin/product">
+                <a class="nav-link {{ Request::is('merek') ? 'active' : '' }}" href="/admin/merek">
+                    <i
+                        class="fas fa-fw fa-tachometer-alt {{ $title === 'Merk' ? 'active text-white fade-in' : '' }}"></i>
+                    <span>Merk</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ $title === 'Produk' ? 'active text-white fade-in' : '' }}" href="/admin/product">
                     <i class="fa-duotone fa-cubes {{ $title === 'Produk' ? 'active text-white fade-in' : '' }}"></i>
                     <span>Produk</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ $title === 'Orders' ? 'active text-white fade-in' : '' }}" href="/admin/orders">
-                    <i
-                        class="fa-regular fa-box-check {{ $title === 'Orders' ? 'active text-white fade-in' : '' }}"></i>
+                    <i class="fa-regular fa-box-check {{ $title === 'Orders' ? 'active text-white fade-in' : '' }}"></i>
                     <span>Orders</span></a>
             </li>
             <li class="nav-item">
@@ -82,8 +86,7 @@
                     <span>Users</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ $title === 'Laporan' ? 'active text-white fade-in' : '' }}"
-                    href="/admin/laporan">
+                <a class="nav-link {{ $title === 'Laporan' ? 'active text-white fade-in' : '' }}" href="/admin/laporan">
                     <i
                         class="fa-duotone fa-book-open-cover {{ $title === 'Laporan' ? 'active text-white fade-in' : '' }}"></i>
                     <span>Laporan</span></a>
@@ -113,8 +116,8 @@
                     {{-- <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -253,8 +256,8 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle"
-                                            src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div>
@@ -292,8 +295,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal"
-                                    data-target="#logoutModal">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>

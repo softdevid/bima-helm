@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Merek;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -127,6 +128,9 @@ class DatabaseSeeder extends Seeder
             "stock" => 20,
             "sold" => 1121,
             'image_id' => 7,
+        ]);
+        Merek::create([
+            "merek" => "NHK"
         ]);
 
         Product::create([

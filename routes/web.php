@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductAdminController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\MerekController;
 use Illuminate\Support\Facades\Route;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -61,6 +62,7 @@ Route::get('/admin/dashboard', function () {
         "title" => "Dashboard"
     ]);
 });
+Route::resource('/admin/merek', MerekController::class)->middleware('auth');
 Route::get('/admin/product', [ProductAdminController::class, 'index']);
 Route::get('/admin/users', [AdminController::class, 'users']);
 Route::get('/admin/orders', [AdminController::class, 'orders']);
