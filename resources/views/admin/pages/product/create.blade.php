@@ -5,8 +5,8 @@
         <div class="mb-3 row">
             <label for="merk" class="col-sm-2 col-form-label">Kategori</label>
             <div class="col-sm-10">
-                <select class="form-select form-control" name="category_id" aria-label="Default select example">
-                    <option selected>Pilih Kategori</option>
+                <select class="form-select form-control" name="category_id" aria-label="Default select example" required>
+                    <option selected value="">Pilih Kategori</option>
                     @foreach ($category as $category)
                         <option value="{{ $category->id }}"
                             {{ old('category_id') === $category->id ? 'selected' : '' }}>
@@ -19,24 +19,21 @@
             <label for="name" class="col-sm-2 col-form-label">Nama Produk</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                    placeholder="Nama Produk" name="name" value="{{ old('name') }}">
+                    placeholder="Nama Produk" name="name" value="{{ old('name') }}" required>
                 @error('name')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
         </div>
-        <div class="mb-3 row">
-            <label for="name" class="col-sm-2 col-form-label">Slug</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="slug" placeholder="Slug" name="slug"
-                    value="{{ old('slug') }}">
-            </div>
-        </div>
+        {{-- slug --}}
+        <input type="hidden" class="form-control" id="slug" placeholder="Slug" name="slug"
+            value="{{ old('slug') }}">
+        {{-- end slug --}}
         <div class="mb-3 row">
             <label for="merk" class="col-sm-2 col-form-label">Merk</label>
             <div class="col-sm-10">
                 <select class="form-select form-control" name="merk" aria-label="Default select example"
-                    value="{{ old('merk') }}">
+                    value="{{ old('merk') }}" required>
                     <option selected>Pilih Merk</option>
                     <option value="spoiler">SPOILER</option>
                     <option value="apd face shield">APD FACE SHIELD</option>
@@ -63,7 +60,7 @@
             <label for="price" class="col-sm-2 col-form-label">Harga</label>
             <div class="col-sm-10">
                 <input type="number" class="form-control" id="harga" placeholder="125000" name="price"
-                    value="{{ old('price') }}">
+                    value="{{ old('price') }}" required>
             </div>
         </div>
         <div class="mb-3 row">
@@ -72,32 +69,33 @@
                 <div class="row">
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">XS</label>
-                        <input type="number" value="{{ old('xs') }}" class="form-control" name="xs">
+                        <input type="number" value="{{ old('xs') }}" class="form-control" name="xs" min="0"
+                            placeholder="0">
                     </div>
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">S</label>
-                        <input type="number" value="0" class="form-control" name="s"
-                            value="{{ old('s') }}">
+                        <input type="number" class="form-control" name="s" value="{{ old('s') }}" min="0"
+                            placeholder="0">
                     </div>
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">M</label>
-                        <input type="number" value="0" class="form-control" name="m"
-                            value="{{ old('m') }}">
+                        <input type="number" class="form-control" name="m" value="{{ old('m') }}"
+                            min="0" placeholder="0">
                     </div>
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">LG</label>
-                        <input type="number" value="0" class="form-control" name="lg"
-                            value="{{ old('lg') }}">
+                        <input type="number" class="form-control" name="lg" value="{{ old('lg') }}"
+                            min="0" placeholder="0">
                     </div>
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">XL</label>
-                        <input type="number" value="0" class="form-control" name="xl"
-                            value="{{ old('xl') }}">
+                        <input type="number" class="form-control" name="xl" value="{{ old('xl') }}"
+                            min="0" placeholder="0">
                     </div>
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">XXL</label>
-                        <input type="number" value="0" class="form-control" name="xxl"
-                            value="{{ old('xxl') }}">
+                        <input type="number" class="form-control" name="xxl" value="{{ old('xxl') }}"
+                            min="0" placeholder="0">
                     </div>
                 </div>
             </div>
@@ -110,7 +108,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="size" class="col-sm-4 col-form-label">Gambar 1</label>
-                            <input class="form-control" type="file" id="formFile" name="image1">
+                            <input class="form-control" type="file" id="formFile" name="image1" required>
                         </div>
                     </div>
                     <div class="row">
@@ -134,6 +132,7 @@
                 </div>
             </div>
         </div>
+
         <div class="mb-5 mt-3 row">
             <button type="submit" class="btn btn-primary">Submit</button>
             <a href="/admin/product/" class="btn btn-danger" style="margin-left: 5px;"><i

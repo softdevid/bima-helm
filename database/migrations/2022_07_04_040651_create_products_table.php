@@ -24,7 +24,6 @@ class CreateProductsTable extends Migration
             $table->integer('stock')->unsigned()->default(0);
             $table->integer('sold')->unsigned()->default(0);
             $table->foreignId('image_id')->unsigned();
-            $table->string('image_main');
             $table->timestamps();
         });
     }
