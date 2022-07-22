@@ -1,5 +1,5 @@
 <!-- Start Breadcrumbs -->
-<div class="breadcrumbs p-2 p-sm-3 d-none d-sm-block">
+<div class="breadcrumbs p-1 p-sm-2 d-none d-sm-block">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-6 col-12">

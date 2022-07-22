@@ -53,7 +53,6 @@ class AuthController extends Controller
 
         $validatedUser = $request->only(['frontName', 'lastName', 'email', 'noTelp', 'password']);
         $validatedUser['password'] = Hash::make($validatedUser['password']);
-
         $validatedAddress = $request->only(['province', 'city', 'district', 'village', 'postalCode', 'address']);
 
         $user = User::create($validatedUser);

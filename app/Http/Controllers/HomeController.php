@@ -2,14 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        $helmTopSell = Product::
+            without(['category'])->
+            join('categories', 'products.category_id', '=', 'categories.id')->
+            join('images', 'products.image_id', '=', 'images.id')->
+            where('categories.name', 'like', '%helm%')->
+            orderBy('sold', 'desc')->
+            limit(12)->
+            select('products.name', 'products.price', 'images.img_dt_1 as image')->
+            get();
+
         return view('pages.home', [
-            "title" => "Home"
+            "title" => "Home",
+            'helmTopSell' => $helmTopSell,
+            'accsTopSell' => '',
+            'spTopSell' => ''
         ]);
     }
 
@@ -20,13 +34,13 @@ class HomeController extends Controller
         ]);
     }
 
-    public function tentangkami()
+    public function tentangKami()
     {
         return view('pages.tentang-kami', [
             "title" => "Tentang Kami"
         ]);
     }
-    public function carabelanja()
+    public function caraBelanja()
     {
         return view('pages.cara-belanja', [
             "title" => "Cara Belanja"

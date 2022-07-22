@@ -11,28 +11,24 @@ class Product extends Model
     use HasFactory;
     use Sluggable;
 
+    // choose $guarded or $fillable,
+    // $guarded is only for unfillable columns
+    // but $fillable is only for fillable colums
+
     protected $guarded = ['id'];
     protected $with = ['category'];
     protected $fillable = ['category_id', 'name', 'slug', 'merk', 'price', 'stock', 'image_id', 'image_main', 'size_id'];
 
     public function scopeFilter($query, array $filters)
     {
-        $query->when(
-            $filters['search'] ?? false,
-            fn ($query, $search) =>
-            $query->where(
-                fn ($query) =>
+        $query->when($filters['search'] ?? false, fn($query, $search) =>
+            $query->where(fn($query) =>
                 $query->where('name', 'like', '%' . $search . '%')
             )
         );
 
-
-        $query->when(
-            $filters['category'] ?? false,
-            fn ($query, $category) =>
-            $query->whereHas(
-                'category',
-                fn ($query) =>
+        $query->when($filters['category'] ?? false, fn($query, $category) =>
+            $query->whereHas('category', fn($query) =>
                 $query->where('slug', $category)
             )
         );
@@ -45,20 +41,20 @@ class Product extends Model
 
     public function size()
     {
-        return $this->belongsTo(Size::class);
+        return $this->hasOne(Size::class);
     }
 
     public function image()
     {
-        return $this->belongsTo(Image::class);
+        return $this->hasOne(Image::class);
     }
 
     public function sluggable(): array
     {
         return [
             'slug' => [
-                'source' => 'name'
-            ]
+                'source' => 'name',
+            ],
         ];
     }
 }
