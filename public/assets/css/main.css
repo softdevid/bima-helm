@@ -1312,7 +1312,8 @@ ol {
     text-align: center;
 }
 
-.button .btn {
+
+/* .button .btn {
     display: inline-block;
     text-transform: capitalize;
     font-size: 14px;
@@ -1324,11 +1325,11 @@ ol {
     -webkit-transition: 0.2s;
     transition: 0.2s;
     border-radius: 3px;
-    /* position: relative; */
+    position: relative;
     z-index: 1;
     margin-right: 7px;
     overflow: hidden;
-}
+} */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .button .btn {

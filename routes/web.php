@@ -46,7 +46,7 @@ Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/details/{product:slug}', [ProductController::class, 'detail']);
 
 Route::get('/cart', [CartNWishController::class, 'index']);
-// Route::get('/cart-add' [CartNWishController::class]);
+Route::get('/cart-add', [CartNWishController::class, 'add']);
 Route::get('/fav', fn () => view('pages.cart', [
     "title" => "Produk yang disukai"
 ]))->middleware('auth');

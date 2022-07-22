@@ -19,37 +19,36 @@
                         <h5 class="offcanvas-title" id="off-canvas-filterLabel">Produk</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-                        <div class="offcanvas-body">
-                            <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#coll-category" aria-expanded="false" aria-controls="coll-category">
-                                Kategori
-                            </button>
-                            <div class="collapse my-1 show" id="coll-category">
-                                <ul class="list-group">
-                                    <li class="list-group-item {{ is_null(request()->input('category')) ? 'active' : '' }}"><a href="/products" class="{{ is_null(request()->input('category')) ? 'text-light' : '' }}">Semua Produk</a></li>
-                                    @foreach ($categories as $category)
-                                    <li class="list-group-item">
-                                        <a href="/products?category={{ $category->slug }}"
-                                            class="{{ request()->input('category') === $category->slug ? 'active' : '' }}">{{
-                                            $category->name }}</a>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @if (strpos(request()->input('category'), 'helm') !== false)
-                            <div class="my-2"></div>
-                            <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#coll-merk-helm" aria-expanded="false" aria-controls="coll-merk-helm">
-                                Merek
-                            </button>
-                            <div class="collapse my-1" id="coll-merk-helm">
-                                <ul class="list-group">
-                                    <li class="list-group-item">KYT</li>
-                                    <li class="list-group-item">INK</li>
-                                </ul>
-                            </div>
-                            @endif
+                    <div class="offcanvas-body">
+                        <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#coll-category" aria-expanded="false" aria-controls="coll-category">
+                            Kategori
+                        </button>
+                        <div class="collapse my-1 show" id="coll-category">
+                            <ul class="list-group">
+                                <li class="list-group-item {{ is_null(request()->input('category')) ? 'active' : '' }}"><a href="/products" class="{{ is_null(request()->input('category')) ? 'text-light' : '' }}">Semua Produk</a></li>
+                                @foreach ($categories as $category)
+                                <li class="list-group-item">
+                                    <a href="/products?category={{ $category->slug }}"
+                                        class="{{ request()->input('category') === $category->slug ? 'active' : '' }}">{{
+                                        $category->name }}</a>
+                                </li>
+                                @endforeach
+                            </ul>
                         </div>
+                        @if (strpos(request()->input('category'), 'helm') !== false)
+                        <div class="my-2"></div>
+                        <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#coll-merk-helm" aria-expanded="false" aria-controls="coll-merk-helm">
+                            Merek
+                        </button>
+                        <div class="collapse my-1" id="coll-merk-helm">
+                            <ul class="list-group">
+                                <li class="list-group-item">KYT</li>
+                                <li class="list-group-item">INK</li>
+                            </ul>
+                        </div>
+                        @endif
                     </div>
                 </div>
                 <!-- End offcanvas filter -->

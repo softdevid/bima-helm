@@ -34,6 +34,7 @@
                             XL:<span id="xl">{{ $product->size->xl }}</span> |
                             XXL:<span id="xxl">{{ $product->size->xxl }}</span>
                         </p>
+                        @auth
                         <div class="row">
                             <div class="col-5 col-sm-6 col-md-3 col-lg-4">
                                 <div class="form-group">
@@ -47,6 +48,9 @@
                                         <option value="xl" @if($product->size->xl == 0) {{ 'disabled' }} @endif>XL</option>
                                         <option value="xxl" @if($product->size->xxl == 0) {{ 'disabled' }} @endif>XXL</option>
                                     </select>
+                                    <div id="size" class="invalid-feedback">
+                                        Pilih salah satu ukuran
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-7 col-sm-6 col-md-4 col-lg-5">
@@ -66,23 +70,23 @@
                         </div>
                         <div class="bottom-content">
                             <div class="row align-items-end">
-                                <div class="col-lg-5 col-md-4 col-10">
+                                <div class="col-lg-2 col-md-4 col-2">
                                     <div class="button cart-button">
-                                        <button class="btn" style="width: 100%;">
-                                            <i class="fa-regular fa-cart-shopping"></i>
-                                            Masukkan Keranjang
+                                        <button class="btn btn-outline-primary" id="btnCart" style="width: 100%;" onclick="btnCart({{ $product->id }}, '{{ $product->name }}', {{ $product->price }})">
+                                            <i class="fa-regular fa-cart-plus"></i>
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-2">
+                                <div class="col-lg-2 col-md-4 col-2">
                                     <div class="wish-button">
-                                        <button class="btn">
+                                        <button class="btn btn-outline-primary">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endauth
                     </div>
                 </div>
             </div>
