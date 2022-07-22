@@ -17,18 +17,25 @@ class Product extends Model
 
     protected $guarded = ['id'];
     protected $with = ['category'];
-    protected $fillable = ['category_id', 'name', 'slug', 'merk', 'price', 'stock', 'image_id', 'image_main', 'size_id'];
+    protected $fillable = ['category_id', 'name', 'slug', 'merk', 'price', 'stock', 'image_id', 'size_id'];
 
     public function scopeFilter($query, array $filters)
     {
-        $query->when($filters['search'] ?? false, fn($query, $search) =>
-            $query->where(fn($query) =>
+        $query->when(
+            $filters['search'] ?? false,
+            fn ($query, $search) =>
+            $query->where(
+                fn ($query) =>
                 $query->where('name', 'like', '%' . $search . '%')
             )
         );
 
-        $query->when($filters['category'] ?? false, fn($query, $category) =>
-            $query->whereHas('category', fn($query) =>
+        $query->when(
+            $filters['category'] ?? false,
+            fn ($query, $category) =>
+            $query->whereHas(
+                'category',
+                fn ($query) =>
                 $query->where('slug', $category)
             )
         );

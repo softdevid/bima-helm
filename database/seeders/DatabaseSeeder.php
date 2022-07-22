@@ -60,7 +60,6 @@ class DatabaseSeeder extends Seeder
             "size_id" => 1,
             "sold" => 3,
             'image_id' => 1,
-            "image_main" => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg"
         ]);
 
         Product::create([
@@ -72,7 +71,6 @@ class DatabaseSeeder extends Seeder
             "size_id" => 2,
             "sold" => 2,
             'image_id' => 2,
-            "image_main" => "INK-CL-MAX-WHITE-YELLOW-FLUO.jpeg"
         ]);
 
         Product::create([
@@ -84,7 +82,6 @@ class DatabaseSeeder extends Seeder
             "size_id" => 3,
             "sold" => 2,
             'image_id' => 3,
-            "image_main" => "KYT-C5-IANONE-WHITE.jpeg"
         ]);
 
         Product::create([
@@ -96,7 +93,6 @@ class DatabaseSeeder extends Seeder
             "size_id" => 4,
             "sold" => 1,
             'image_id' => 4,
-            "image_main" => "KYT-DJ-MARU-5-BLACK-RED-MAROON.jpeg"
         ]);
 
         Product::create([
@@ -108,7 +104,6 @@ class DatabaseSeeder extends Seeder
             "size_id" => 5,
             "sold" => 4,
             'image_id' => 5,
-            "image_main" => "KYT-RC-SEVEN-17-BLACK-DOFT-GOLD.jpeg"
         ]);
 
         Product::create([
@@ -120,7 +115,6 @@ class DatabaseSeeder extends Seeder
             "size_id" => 6,
             "sold" => 5,
             'image_id' => 6,
-            "image_main" => "kyt-tt-course-plain-mat-black.jpeg"
         ]);
 
         Product::create([
@@ -133,7 +127,6 @@ class DatabaseSeeder extends Seeder
             "stock" => 20,
             "sold" => 1121,
             'image_id' => 7,
-            "image_main" => "Spoiler-KYT-K2R.jpeg"
         ]);
 
         Product::create([
@@ -146,7 +139,6 @@ class DatabaseSeeder extends Seeder
             "stock" => 5,
             "sold" => 6,
             'image_id' => 8,
-            "image_main" => "BUSA-FULLSET-HELM-INK-CX-22.jpeg"
         ]);
 
         Product::factory(20)->create();

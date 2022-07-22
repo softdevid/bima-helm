@@ -6,7 +6,7 @@
             <thead>
                 <tr class="text-center">
                     <th scope="col">#</th>
-                    <th scope="col">Gambar</th>
+                    {{-- <th scope="col">Gambar</th> --}}
                     <th scope="col">Nama Produk</th>
                     <th scope="col">Merk</th>
                     <th scope="col">Harga</th>
@@ -22,7 +22,7 @@
                 @foreach ($products as $products)
                     <tr class="text-center" style="vertical-align: middle;">
                         <th scope="row">{{ $no++ }}</th>
-                        <td><img src="/img/{{ $products->image }}" alt="" style="width: 100px;"></td>
+                        {{-- <td><img src="/img/{{ $products->image }}" alt="" style="width: 100px;"></td> --}}
                         <td>{{ $products->name }}</td>
                         <td>{{ $products->merk }}</td>
                         <td>Rp. {{ number_format($products->price) }}</td>
@@ -31,7 +31,8 @@
                         <td>
                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit"><i
                                     class="fa fa-edit"></i></button>
-                            <a href="/hapus" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a href="/admin/product/delete{{ $products->id }}" class="btn btn-danger"><i
+                                    class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                 @endforeach

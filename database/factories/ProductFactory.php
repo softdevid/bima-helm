@@ -27,7 +27,7 @@ class ProductFactory extends Factory
             "size_id" => self::$size,
             "sold" => mt_rand(1, 5),
             'image_id' => self::$img++,
-            "image_main" => (($merk === 'KYT') ? "kyt-tt-course-plain-mat-black" : "INK-CL-MAX-WHITE-YELLOW-FLUO") . ".jpeg"
+            // "image_main" => (($merk === 'KYT') ? "kyt-tt-course-plain-mat-black" : "INK-CL-MAX-WHITE-YELLOW-FLUO") . ".jpeg"
         ];
     }
 }
