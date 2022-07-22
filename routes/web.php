@@ -89,12 +89,7 @@ Route::get('/kasir/laporan', function () {
 Route::get('check_slug', function () {
     $slug = SlugService::createSlug(App\Models\Product::class, 'slug', request('name'));
     return response()->json(['slug' => $slug]);
-<<<<<<< HEAD
 });
-=======
-});
-
 
 //rout admin product
 Route::resource('admin-product', AdminProductController::class);
->>>>>>> 99b77b4d95c53ccd02f411d5addda8acf6b3bd0e
