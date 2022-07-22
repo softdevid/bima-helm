@@ -53,9 +53,9 @@ class ProductAdminController extends Controller
 
         if ($image2 or $image3 or $image4 === NULL) {
             $image2  = $request->file('image2');
-            $image2  = "NULL";
-            $image3  = "NULL";
-            $image4  = "NULL";
+            $image2  = "";
+            $image3  = "";
+            $image4  = "";
 
             $result = CloudinaryStorage::upload($image1->getRealPath(), $image1->getClientOriginalName());
             $image = Image::create([
