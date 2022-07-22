@@ -210,4 +210,15 @@ class ProductAdminController extends Controller
             return redirect('/admin/product')->withSuccess('Berhasil Ditambah!!');
         }
     }
+
+    public function update(Request $request, $id)
+    {
+
+        $product = Product::find($id);
+        $image_id = $request->name;
+
+        Validator::make($request->all(), [
+            'name' => 'required|unique:products|max:255',
+        ])->validate();
+    }
 }

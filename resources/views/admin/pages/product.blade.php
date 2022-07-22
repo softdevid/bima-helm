@@ -31,7 +31,8 @@
                         <td>
                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit"><i
                                     class="fa fa-edit"></i></button>
-                            <a href="/hapus" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a href="/admin/product/delete{{ $products->id }}" class="btn btn-danger"><i
+                                    class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                 @endforeach
