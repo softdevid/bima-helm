@@ -16,6 +16,7 @@ class CreateMereksTable extends Migration
         Schema::create('mereks', function (Blueprint $table) {
             $table->id();
             $table->string('merek');
+            $table->string('slug');
             $table->timestamps();
         });
     }

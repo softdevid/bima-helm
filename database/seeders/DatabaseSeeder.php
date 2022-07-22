@@ -130,7 +130,8 @@ class DatabaseSeeder extends Seeder
             'image_id' => 7,
         ]);
         Merek::create([
-            "merek" => "NHK"
+            "merek" => "NHK",
+            "slug" => "nhk"
         ]);
 
         Product::create([

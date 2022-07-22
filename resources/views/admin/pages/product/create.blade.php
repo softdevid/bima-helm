@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 @section('content')
-    <form action="/admin/product/create" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin-product.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-3 row">
             <label for="merk" class="col-sm-2 col-form-label">Kategori</label>

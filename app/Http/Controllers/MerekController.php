@@ -16,7 +16,8 @@ class MerekController extends Controller
     {
         $merek = Merek::all();
         return view('admin.pages.product.merek', [
-            "merek" => $merek
+            "merek" => $merek,
+            "title" => "Merek"
         ]);
     }
 
@@ -27,7 +28,9 @@ class MerekController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.merek.create', [
+            "title" => "Tambah Merek"
+        ]);
     }
 
     /**

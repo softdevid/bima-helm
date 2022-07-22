@@ -65,12 +65,6 @@
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('merek') ? 'active' : '' }}" href="/admin/merek">
-                    <i
-                        class="fas fa-fw fa-tachometer-alt {{ $title === 'Merk' ? 'active text-white fade-in' : '' }}"></i>
-                    <span>Merk</span></a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link {{ $title === 'Produk' ? 'active text-white fade-in' : '' }}" href="/admin/product">
                     <i class="fa-duotone fa-cubes {{ $title === 'Produk' ? 'active text-white fade-in' : '' }}"></i>
                     <span>Produk</span></a>
@@ -90,6 +84,12 @@
                     <i
                         class="fa-duotone fa-book-open-cover {{ $title === 'Laporan' ? 'active text-white fade-in' : '' }}"></i>
                     <span>Laporan</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('merek') ? 'active' : '' }}" href="/admin/merek">
+                    <i
+                        class="fas fa-fw fa-tachometer-alt {{ $title === 'Merek' ? 'active text-white fade-in' : '' }}"></i>
+                    <span>Merk</span></a>
             </li>
 
         </ul>

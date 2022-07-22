@@ -2,45 +2,48 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use Illuminate\Http\Request;
+
 use App\Models\Product;
 use App\Models\Image;
 use App\Models\Size;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use App\Http\Controllers\CloudinaryStorage;
-use Cloudinary\Cloudinary;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
+use Cloudinary\Cloudinary;
 
-class ProductAdminController extends Controller
+
+class AdminProductController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
+        $products = Product::all();
         $title = "Produk";
-
-        return view('admin.pages.product', [
-            "title" => $title,
-            "products" => Product::all(),
-        ]);
+        return view('admin.pages.product.list_product', compact('products', 'title'));
     }
 
-    public function detail(Product $product)
-    {
-        return view('pages.product-detail', [
-            "title" => "$product->name",
-            "product" => $product
-        ]);
-    }
-
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        return view('admin.pages.product.create', [
-            "title" => "Tambah data",
-            "category" => Category::all(),
-        ]);
-        // return view('admin.pages.product.create');
+        $title = "Tambah Produk";
+        return view('admin.pages.product.create', compact('title'));
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         Validator::make($request->all(), [
@@ -206,23 +209,89 @@ class ProductAdminController extends Controller
                 "image_id" => $image->id,
                 "size_id" => $sizes->id,
             ]);
-            // Str::slug($request->name, '-', 'lowercase');
-            // dd($image1, $image2, $image3, $image4, $sizes, $image, $product);
-            return redirect('/admin/product')->withSuccess('Berhasil Ditambah!!');
+
+            return redirect('admin-product')->withSuccess('Berhasil Ditambah!!');
         }
     }
 
-    public function update(Request $request, $id)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-
-        $product = Product::find($id);
-        $image_id = $request->name;
-
-        Validator::make($request->all(), [
-            'name' => 'required|unique:products|max:255',
-        ])->validate();
+        //
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $image1 = $request->image1;
+        $image2 = $request->image2;
+        $image3 = $request->image3;
+        $image4 = $request->image4;
+
+        $product = Product::find($id);
+        $image_id = $product->image_id;
+        $image = Image::find($image_id);
+
+        $img1 = $image->img_dt_1;
+        $img2 = $image->img_dt_2;
+        $img3 = $image->img_dt_3;
+        $img4 = $image->img_dt_4;
+
+        if ($image1 !== $img1) {
+            echo $img1;
+        } elseif ($image2 !== $img2) {
+            echo $img2;
+        } elseif ($image3 !== $img3) {
+            echo $img3;
+        } elseif ($image4 !== $img4) {
+            echo $img4;
+        } else {
+            CloudinaryStorage::delete($img1);
+            $file1 = request()->file('image1');
+            $file1 = CloudinaryStorage::upload($file1->getRealPath(), $file1->getClientOriginalName());
+
+            CloudinaryStorage::delete($img2);
+            $file2 = request()->file('image2');
+            $file1 = CloudinaryStorage::upload($file2->getRealPath(), $file2->getClientOriginalName());
+
+            CloudinaryStorage::delete($img3);
+            $file3 = request()->file('image3');
+            $file3 = CloudinaryStorage::upload($file3->getRealPath(), $file3->getClientOriginalName());
+
+            CloudinaryStorage::delete($img4);
+            $file4 = request()->file('image4');
+            $file4 = CloudinaryStorage::upload($file4->getRealPath(), $file4->getClientOriginalName());
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
         $product = Product::find($id);
@@ -237,10 +306,11 @@ class ProductAdminController extends Controller
 
         // dd($image->img_dt_1, $image->img_dt_2, $image->img_dt_3, $image->img_dt_4);
         CloudinaryStorage::delete($image->img_dt_1, $image->img_dt_2, $image->img_dt_3, $image->img_dt_4);
-        Image::destroy($image_id);
+        Image::delete($image_id);
 
         $size_id = $product->size_id;
-        $size = Size::where($size_id)->delete();
-        $delete = Product::where($id)->delete();
+        Size::where($size_id)->delete();
+        Product::where($id)->delete();
+        return back();
     }
 }
