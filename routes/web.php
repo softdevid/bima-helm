@@ -6,10 +6,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartNWishController;
 use App\Http\Controllers\ProductAdminController;
+use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\MerekController;
 use Illuminate\Support\Facades\Route;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
-
+use phpDocumentor\Reflection\Types\Resource_;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,11 +63,13 @@ Route::get('/admin/dashboard', function () {
         "title" => "Dashboard"
     ]);
 });
+Route::resource('/admin/merek', MerekController::class)->middleware('auth');
 Route::get('/admin/product', [ProductAdminController::class, 'index']);
 Route::get('/admin/users', [AdminController::class, 'users']);
 Route::get('/admin/orders', [AdminController::class, 'orders']);
 Route::post('/admin/product/create', [ProductAdminController::class, 'store']);
 Route::get('/admin/product/create', [ProductAdminController::class, 'create']);
+Route::get('/admin/product/delete/{id}', [ProductAdminController::class, 'create']);
 // Route::resource('productadmin', ProductAdminController::class);
 
 //KASIR
@@ -86,3 +90,6 @@ Route::get('check_slug', function () {
     $slug = SlugService::createSlug(App\Models\Product::class, 'slug', request('name'));
     return response()->json(['slug' => $slug]);
 });
+
+//rout admin product
+Route::resource('admin-product', AdminProductController::class);
