@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Image;
 use App\Models\Size;
+use App\Models\Category;
 use App\Http\Controllers\CloudinaryStorage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use Cloudinary\Cloudinary;
+
 
 
 class AdminProductController extends Controller
@@ -22,9 +24,10 @@ class AdminProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        // $products = Product::all();
+        $products = Product::join('images', 'images.id', '=', 'products.image_id')->get();
         $title = "Produk";
-        return view('admin.pages.product.list_product', compact('products', 'title'));
+        return view('admin.pages.product.list_product', ['products' => $products, 'title' => $title]);
     }
 
     /**
@@ -35,7 +38,8 @@ class AdminProductController extends Controller
     public function create()
     {
         $title = "Tambah Produk";
-        return view('admin.pages.product.create', compact('title'));
+        $categories = Category::all();
+        return view('admin.pages.product.create', ['title' => $title, 'categories' => $categories]);
     }
 
     /**
@@ -220,11 +224,27 @@ class AdminProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $id)
     {
-        //
+        $image = Product::join('images', 'images.id', '=', 'products.image_id')->get();
+        $size = Product::join('sizes', 'sizes.id', '=', 'products.size_id')->get();
+        return view('admin.pages.product.product-detail', [
+            "title" => "Detail",
+            "products" => Product::find($id),
+            "image" => $image,
+            "size" => $size
+        ]);
     }
 
+    public function detail(Product $product)
+    {
+        $products = Product::join('images', 'images.id', '=', 'products.image_id')->get();
+        $products = Product::join('sizes', 'sizes.id', '=', 'products.size_id')->get();
+        return view('admin.pages.product.product-detail', [
+            "title" => $products->name,
+            "products" => $products
+        ]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -297,20 +317,73 @@ class AdminProductController extends Controller
         $product = Product::find($id);
         $image_id = $product->image_id;
 
-        foreach (Image::find($image_id) as $image) {
+        $image = Image::where('id', $image_id)->get();
+
+        foreach (Image::where($image_id) as $image) {
             echo $image->img_dt_1;
             echo $image->img_dt_2;
             echo $image->img_dt_3;
             echo $image->img_dt_4;
         }
 
+        // dd($image);
         // dd($image->img_dt_1, $image->img_dt_2, $image->img_dt_3, $image->img_dt_4);
-        CloudinaryStorage::delete($image->img_dt_1, $image->img_dt_2, $image->img_dt_3, $image->img_dt_4);
-        Image::delete($image_id);
+        if ($image->img_dt_1) {
+            $product = Product::find($id);
+            $image_id = $product->image_id;
+            $image = Image::where('id', $image_id)->get();
 
-        $size_id = $product->size_id;
-        Size::where($size_id)->delete();
-        Product::where($id)->delete();
-        return back();
+            CloudinaryStorage::delete($image->img_dt_1);
+            Image::delete($image_id);
+
+            $size_id = $product->size_id;
+            Size::where($size_id)->delete();
+            Product::where($id)->delete();
+            return back();
+        } elseif ($image->img_dt_2) {
+            $product = Product::find($id);
+            $image_id = $product->image_id;
+            $image = Image::where('id', $image_id)->get();
+
+            CloudinaryStorage::delete($image->img_dt_2);
+            Image::delete($image_id);
+
+            $size_id = $product->size_id;
+            Size::where($size_id)->delete();
+            Product::where($id)->delete();
+            return back();
+        } elseif ($image->img_dt_3) {
+            $product = Product::find($id);
+            $image_id = $product->image_id;
+            $image = Image::where('id', $image_id)->get();
+
+            CloudinaryStorage::delete($image->img_dt_3);
+            Image::delete($image_id);
+
+            $size_id = $product->size_id;
+            Size::where($size_id)->delete();
+            Product::where($id)->delete();
+            return back();
+        } elseif ($image->img_dt_4) {
+            $product = Product::find($id);
+            $image_id = $product->image_id;
+            $image = Image::where('id', $image_id)->get();
+
+            CloudinaryStorage::delete($image->img_dt_4);
+            Image::delete($image_id);
+
+            $size_id = $product->size_id;
+            Size::where($size_id)->delete();
+            Product::where($id)->delete();
+            return back();
+        } else {
+            CloudinaryStorage::delete($image);
+            Image::delete($image_id);
+
+            $size_id = $product->size_id;
+            Size::where($size_id)->delete();
+            Product::where($id)->delete();
+            return back();
+        }
     }
 }

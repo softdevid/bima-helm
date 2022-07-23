@@ -65,9 +65,9 @@ Route::get('/admin/dashboard', function () {
 Route::get('/admin/product', [ProductAdminController::class, 'index']);
 Route::get('/admin/users', [AdminController::class, 'users']);
 Route::get('/admin/orders', [AdminController::class, 'orders']);
-Route::post('/admin/product/create', [ProductAdminController::class, 'store']);
-Route::get('/admin/product/create', [ProductAdminController::class, 'create']);
-Route::get('/admin/product/delete/{id}', [ProductAdminController::class, 'create']);
+// Route::post('/admin/product/create', [ProductAdminController::class, 'store']);
+// Route::get('/admin/product/create', [ProductAdminController::class, 'create']);
+// Route::get('/admin/product/delete/{id}', [ProductAdminController::class, 'delete']);
 // Route::resource('productadmin', ProductAdminController::class);
 
 //KASIR
@@ -90,5 +90,6 @@ Route::get('check_slug', function () {
 });
 
 
-//rout admin product
+//route admin product
 Route::resource('admin-product', AdminProductController::class);
+Route::get('/admin-product/detail/{id}', [AdminProductController::class, 'show']);
