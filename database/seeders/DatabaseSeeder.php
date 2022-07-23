@@ -9,6 +9,7 @@ use App\Models\Image;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Merek;
+use App\Models\Merk;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -60,12 +61,22 @@ class DatabaseSeeder extends Seeder
             "slug" => "lainnya"
         ]);
 
+        Merk::create([
+            "name" => "KYT",
+            "slug" => 'kyt',
+        ]);
+
+        Merk::create([
+            "name" => "INK",
+            "slug" => 'ink',
+        ]);
+
 
         Product::create([
             "category_id" => 1,
             "name" => "HELM FULLFACE KTY RC SEVEN #14 YELLOW FLUO",
             "slug" => "fullface-kyt-rc-seven-14-yellow-fluo",
-            "merk" => "KYT",
+            "merk_id" => 1,
             "price" => "420000",
             "size_id" => 1,
             "sold" => 3,
@@ -76,7 +87,7 @@ class DatabaseSeeder extends Seeder
             "category_id" => 1,
             "name" => "HELM FULLFACE INK CL MAX WHITE YELLOW FLUO",
             "slug" => "fullface-ink-cl-max-whiteyellow-fluo",
-            "merk" => "INK",
+            "merk_id" => 2,
             "price" => "469000",
             "size_id" => 2,
             "sold" => 2,
@@ -87,7 +98,7 @@ class DatabaseSeeder extends Seeder
             "category_id" => 1,
             "name" => "KYT C5 IANONE WHITE",
             "slug" => "fullface-kyt-c5-ianone-white",
-            "merk" => "KYT",
+            "merk_id" => 1,
             "price" => "2100000",
             "size_id" => 3,
             "sold" => 2,
@@ -98,7 +109,7 @@ class DatabaseSeeder extends Seeder
             "category_id" => 2,
             "name" => "KYT DJ MARU #5 BLACK RED MAROON",
             "slug" => "halfface-kyt-djmaru-5-black-red-maroon",
-            "merk" => "KYT",
+            "merk_id" => 1,
             "price" => "350000",
             "size_id" => 4,
             "sold" => 1,
@@ -109,7 +120,7 @@ class DatabaseSeeder extends Seeder
             "category_id" => 1,
             "name" => "KYT RC SEVEN #17 BLACK DOFT GOLD",
             "slug" => "fullface-kyt-rc-seven-17-black-doft-gold",
-            "merk" => "KYT",
+            "merk_id" => 1,
             "price" => "420000",
             "size_id" => 5,
             "sold" => 4,
@@ -120,7 +131,7 @@ class DatabaseSeeder extends Seeder
             "category_id" => 1,
             "name" => "KYT TT COURSE PLAIN MATT BLACK",
             "slug" => "kyt-tt-course-plain-matt-black",
-            "merk" => "KYT",
+            "merk_id" => 1,
             "price" => "1700000",
             "size_id" => 6,
             "sold" => 5,
@@ -131,7 +142,7 @@ class DatabaseSeeder extends Seeder
             "category_id" => 3,
             "name" => "Spoiler Helm KYT K2R",
             "slug" => "spoiler-helm-kyt-k2r",
-            "merk" => null,
+            "merk_id" => null,
             "price" => "70000",
             "size_id" => null,
             "stock" => 20,
@@ -143,7 +154,7 @@ class DatabaseSeeder extends Seeder
             "category_id" => 4,
             "name" => "BUSA FULLSET HELM INK CX 22",
             "slug" => "busa-fullset-helm-ink-cx-22",
-            "merk" => "INK",
+            "merk_id" => 2,
             "price" => "50000",
             "size_id" => null,
             "stock" => 5,
