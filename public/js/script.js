@@ -146,3 +146,39 @@ $(function () {
         getPostalCode(village+' '+district);
     });
 });
+
+var isBtnCart = true;
+function btnCart(id, name, price) {
+    var qty = $('#quantity').val();
+    var size = $('#size option:selected').val();
+    if (size === '') {
+        $('#size').addClass('is-invalid');
+    } else {
+        if(isBtnCart) {
+            cartAdd(id, name, qty, price, size);
+            isBtnCart = false;
+        } else {
+            // cartRemove(id);
+            isBtnCart = true;
+        }
+    }
+}
+
+function cartAdd(id, name, qty, price, size) {
+    $.ajax({
+        type: "GET",
+        url: '/cart-add',
+        data: {id:id, name:name, qty:qty, price:price, size:size},
+        success: function (data) {
+            $('#btnCart').removeClass('btn-outline-primary').addClass('btn-primary');
+            $('#cartCount').data('count', data.count);
+            $('.toast-body').text(data.message);
+            showToast();
+        }
+    });
+}
+
+function showToast() {
+    const toast = new bootstrap.Toast(document.getElementById('toast'));
+    toast.show();
+}

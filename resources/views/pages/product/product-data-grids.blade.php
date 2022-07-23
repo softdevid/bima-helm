@@ -10,7 +10,7 @@
                                 <div class="product-image">
                                     <img src="/img/{{ $product->image_main }}" alt="#" class="img-thumbnail">
                                     <div class="button">
-                                        <a href="/cart" class="btn">
+                                        <a href="/cart" class="btn btn-primary">
                                             <i class="fa-regular fa-cart-shopping"></i></i>Tambah ke keranjang
                                         </a>
                                     </div>

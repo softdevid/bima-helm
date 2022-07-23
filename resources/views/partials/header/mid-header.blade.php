@@ -41,21 +41,21 @@
             <div class="col-lg-2 col-md-2 col-3">
                 <div class="middle-right-area">
                     <div class="navbar-cart">
-                        <div class="wishlist me-0 me-md-3">
+                        {{-- <div class="wishlist me-0 me-md-3">
                             <a href="/fav">
                                 <span class="fa-stack me-1 text-white">
                                     @auth
-                                    <i class="fa-regular fa-circle fa-stack-2x" data-count="8"></i>
+                                    <i class="fa-regular fa-circle fa-stack-2x" data-count="{{ Cart::count() }}"></i>
                                     @endauth
                                     <i class="fa-solid fa-heart fa-stack-1x"></i>
                                 </span>
                             </a>
-                        </div>
+                        </div> --}}
                         <div class="cart-items">
                             <a href="/cart" class="main-btn">
                                 <span class="fa-stack me-1 text-white">
                                     @auth
-                                    <i class="fa-regular fa-circle fa-stack-2x" data-count="2"></i>
+                                    <i class="fa-regular fa-circle fa-stack-2x" id="cartCount" data-count="{{ Cart::count() }}"></i>
                                     @endauth
                                     <i class="fa-solid fa-cart-shopping fa-stack-1x"></i>
                                 </span>

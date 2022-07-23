@@ -4,9 +4,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartNWishController;
 use App\Http\Controllers\ProductAdminController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\MerekController;
 use Illuminate\Support\Facades\Route;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use phpDocumentor\Reflection\Types\Resource_;
@@ -43,9 +45,8 @@ Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/details/{product:slug}', [ProductController::class, 'detail']);
 
-Route::get('/cart', fn () => view('pages.cart', [
-    "title" => "Keranjang"
-]))->middleware('auth');
+Route::get('/cart', [CartNWishController::class, 'index']);
+Route::get('/cart-add', [CartNWishController::class, 'add']);
 Route::get('/fav', fn () => view('pages.cart', [
     "title" => "Produk yang disukai"
 ]))->middleware('auth');
@@ -62,6 +63,7 @@ Route::get('/admin/dashboard', function () {
         "title" => "Dashboard"
     ]);
 });
+Route::resource('/admin/merek', MerekController::class)->middleware('auth');
 Route::get('/admin/product', [ProductAdminController::class, 'index']);
 Route::get('/admin/users', [AdminController::class, 'users']);
 Route::get('/admin/orders', [AdminController::class, 'orders']);
@@ -91,5 +93,8 @@ Route::get('check_slug', function () {
 
 
 //route admin product
+
+//rout admin product
+
 Route::resource('admin-product', AdminProductController::class);
 Route::get('/admin-product/detail/{id}', [AdminProductController::class, 'show']);

@@ -50,7 +50,7 @@
                                 <a class="lost-pass" href="account-password-recovery.html">Forgot password?</a>
                             </div> --}}
                             <div class="button">
-                                <button class="btn" type="submit">Login</button>
+                                <button class="btn btn-primary" type="submit">Login</button>
                             </div>
                             <p class="outer-link">Belum punya akun? <a href="/register">Registrasi di sini</a>
                             </p>

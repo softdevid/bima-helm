@@ -8,7 +8,7 @@
     <title>{{ $title }} | Bima Helm</title>
 
     <!-- ========================= CSS here ========================= -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    {{-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> --}}
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/assets/css/tiny-slider.css" />
     <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
@@ -50,6 +50,17 @@
     <a href="#" class="scroll-top">
         <i class="fa-solid fa-arrow-up"></i>
     </a>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          {{-- <img src="..." class="rounded me-2" alt="..."> --}}
+          <strong class="me-auto">Bima Helm</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body"></div>
+      </div>
+    </div>
 
     <!-- ========================= JS here ========================= -->
     <script src="/js/jquery-3.6.0.min.js"></script>
