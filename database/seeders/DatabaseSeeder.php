@@ -70,6 +70,7 @@ class DatabaseSeeder extends Seeder
             "size_id" => 1,
             "sold" => 3,
             'image_id' => 1,
+            "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
         Product::create([
@@ -81,6 +82,7 @@ class DatabaseSeeder extends Seeder
             "size_id" => 2,
             "sold" => 2,
             'image_id' => 2,
+            "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
         Product::create([
@@ -92,6 +94,7 @@ class DatabaseSeeder extends Seeder
             "size_id" => 3,
             "sold" => 2,
             'image_id' => 3,
+            "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
         Product::create([
@@ -103,6 +106,7 @@ class DatabaseSeeder extends Seeder
             "size_id" => 4,
             "sold" => 1,
             'image_id' => 4,
+            "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
         Product::create([
@@ -114,6 +118,7 @@ class DatabaseSeeder extends Seeder
             "size_id" => 5,
             "sold" => 4,
             'image_id' => 5,
+            "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
         Product::create([
@@ -125,6 +130,7 @@ class DatabaseSeeder extends Seeder
             "size_id" => 6,
             "sold" => 5,
             'image_id' => 6,
+            "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
         Product::create([
@@ -137,6 +143,7 @@ class DatabaseSeeder extends Seeder
             "stock" => 20,
             "sold" => 1121,
             'image_id' => 7,
+            "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
         Product::create([
@@ -149,6 +156,7 @@ class DatabaseSeeder extends Seeder
             "stock" => 5,
             "sold" => 6,
             'image_id' => 8,
+            "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
         Product::factory(20)->create();
