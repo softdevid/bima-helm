@@ -131,6 +131,14 @@
                 </div>
             </div>
         </div>
+        <div class="mb-3 row">
+            <label for="price" class="col-sm-2 col-form-label">Deskrispsi</label>
+            <div class="col-sm-10">
+                <textarea name="description" id="" cols="30" rows="10" style="height: 100px;"
+                    placeholder="Deskripsi Produk">{{ old('description') }}</textarea>
+            </div>
+        </div>
+
 
         <div class="mb-5 mt-3 row">
             {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
