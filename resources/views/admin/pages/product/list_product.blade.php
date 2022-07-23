@@ -5,7 +5,7 @@
         <table class="table">
             <thead>
                 <tr class="text-center">
-                    <th scope="col">#</th>
+                    <th scope="col">No</th>
                     <th scope="col">Gambar</th>
                     <th scope="col">Nama Produk</th>
                     <th scope="col">Merk</th>
@@ -16,13 +16,10 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                @php
-                    $no = 1;
-                @endphp
                 @foreach ($products as $product)
                     <tr class="text-center" style="vertical-align: middle;">
-                        <th scope="row">{{ $no++ }}</th>
-                        <td><img src="{{ $product->img_dt_1 }}" alt="" style="width: 100px;"></td>
+                        <th scope="row">{{ $loop->iteration }}</th>
+                        <td><img src="/img/{{ $product->image->img_dt_1 }}" alt="" style="width: 100px;"></td>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->merk }}</td>
                         <td>Rp. {{ number_format($product->price) }}</td>

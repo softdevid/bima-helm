@@ -22,7 +22,7 @@ class ProductFactory extends Factory
             "category_id" => mt_rand(1, 2),
             "name" => "HELM " . (($merk === 'KYT') ? "KYT TT COURSE PLAIN MATT BLACK" : "INK CL MAX #5 WHITE YELLOW FLUO") . self::$size++,
             "slug" => $this->faker->slug(5),
-            "merk" => $merk,
+            "merk_id" => mt_rand(1, 2),
             "price" => $this->faker->randomNumber(6, true),
             "size_id" => self::$size,
             "sold" => mt_rand(1, 5),

@@ -10,4 +10,7 @@ class Merk extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $primaryKey = 'id';
+
+
 }

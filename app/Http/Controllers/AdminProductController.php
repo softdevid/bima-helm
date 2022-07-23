@@ -24,10 +24,10 @@ class AdminProductController extends Controller
      */
     public function index()
     {
-        // $products = Product::all();
-        $products = Product::join('images', 'images.id', '=', 'products.image_id')->get();
-        $title = "Produk";
-        return view('admin.pages.product.list_product', ['products' => $products, 'title' => $title]);
+        return view('admin.pages.product.list_product', [
+            'title' => "Produk",
+            'products' => Product::with('merk', 'size','image')->get(),
+        ]);
     }
 
     /**

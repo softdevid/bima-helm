@@ -8,10 +8,9 @@ use App\Http\Controllers\CartNWishController;
 use App\Http\Controllers\ProductAdminController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\RegionController;
-use App\Http\Controllers\MerekController;
+use App\Http\Controllers\MerkController;
 use Illuminate\Support\Facades\Route;
 use Cviebrock\EloquentSluggable\Services\SlugService;
-use phpDocumentor\Reflection\Types\Resource_;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,7 +78,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
             'title' => 'Dashboard',
         ]);
     });
-    Route::resource('/admin/merek', MerekController::class)->middleware('auth');
+    Route::resource('/admin/merk', MerkController::class)->middleware('auth');
     Route::get('/admin/product', [ProductAdminController::class, 'index']);
     Route::get('/admin/users', [AdminController::class, 'users']);
     Route::get('/admin/orders', [AdminController::class, 'orders']);

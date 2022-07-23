@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Merek;
+use App\Models\Merk;
 use Illuminate\Http\Request;
 
-class MerekController extends Controller
+class MerkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,9 @@ class MerekController extends Controller
      */
     public function index()
     {
-        $merek = Merek::all();
-        return view('admin.pages.product.merek', [
-            "merek" => $merek,
-            "title" => "Merek"
+        return view('admin.pages.product.merk', [
+            "merks" => Merk::all(),
+            "title" => "Merk"
         ]);
     }
 
@@ -28,8 +27,8 @@ class MerekController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.merek.create', [
-            "title" => "Tambah Merek"
+        return view('admin.pages.merk.create', [
+            "title" => "Tambah Merk"
         ]);
     }
 
@@ -47,10 +46,10 @@ class MerekController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Merek  $merek
+     * @param  \App\Models\Merk  $merk
      * @return \Illuminate\Http\Response
      */
-    public function show(Merek $merek)
+    public function show(Merk $merk)
     {
         //
     }
@@ -58,10 +57,10 @@ class MerekController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Merek  $merek
+     * @param  \App\Models\Merk  $merk
      * @return \Illuminate\Http\Response
      */
-    public function edit(Merek $merek)
+    public function edit(Merk $merk)
     {
         //
     }
@@ -70,10 +69,10 @@ class MerekController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Merek  $merek
+     * @param  \App\Models\Merk  $merk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Merek $merek)
+    public function update(Request $request, Merk $merk)
     {
         //
     }
@@ -81,10 +80,10 @@ class MerekController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Merek  $merek
+     * @param  \App\Models\Merk  $merk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Merek $merek)
+    public function destroy(Merk $merk)
     {
         //
     }

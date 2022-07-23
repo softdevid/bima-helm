@@ -18,7 +18,7 @@ class Product extends Model
     protected $guarded = ['id'];
     protected $with = ['category'];
     // protected $primaryKey = ['id'];
-    protected $fillable = ['category_id', 'name', 'slug', 'merk', 'price', 'stock', 'image_id', 'size_id'];
+    // protected $fillable = ['category_id', 'name', 'slug', 'merk', 'price', 'stock', 'image_id', 'size_id'];
     // protected $attributes = [
     //     'delayed' => false,
     // ];
@@ -48,6 +48,11 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function merk()
+    {
+        return $this->belongsTo(Merk::class, 'merk_id');
     }
 
     public function size()
