@@ -1,7 +1,6 @@
 {{-- start data products --}}
 <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-list" role="tabpanel"
-        aria-labelledby="nav-list-tab">
+    <div class="tab-pane fade show active" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
         <div class="row">
             @foreach ($products as $product)
                 <div class="col-lg-4 col-md-3 col-6">
@@ -9,8 +8,7 @@
                         <div class="row align-items-center">
                             <div class="col-12">
                                 <div class="product-image">
-                                    <img src="/img/{{ $product->image_main }}" alt="#"
-                                        class="img-thumbnail">
+                                    <img src="/img/{{ $product->image_main }}" alt="#" class="img-thumbnail">
                                     <div class="button">
                                         <a href="/cart" class="btn btn-primary">
                                             <i class="fa-regular fa-cart-shopping"></i></i>Tambah ke keranjang

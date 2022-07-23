@@ -6,10 +6,9 @@
             <label for="merk" class="col-sm-2 col-form-label">Kategori</label>
             <div class="col-sm-10">
                 <select class="form-select form-control" name="category_id" aria-label="Default select example" required>
-                    <option selected value="">Pilih Kategori</option>
-                    @foreach ($category as $category)
-                        <option value="{{ $category->id }}"
-                            {{ old('category_id') === $category->id ? 'selected' : '' }}>
+                    <option value="">Pilih Kategori</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('category_id') === $category->id ? 'selected' : '' }}>
                             {{ $category->name }}</option>
                     @endforeach
                 </select>
@@ -74,8 +73,8 @@
                     </div>
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">S</label>
-                        <input type="number" class="form-control" name="s" value="{{ old('s') }}" min="0"
-                            placeholder="0">
+                        <input type="number" class="form-control" name="s" value="{{ old('s') }}"
+                            min="0" placeholder="0">
                     </div>
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">M</label>
@@ -134,11 +133,37 @@
         </div>
 
         <div class="mb-5 mt-3 row">
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="/admin/product/" class="btn btn-danger" style="margin-left: 5px;"><i
-                    class="fa-solid fa-angles-left"></i> Kembali</a>
+            {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+            <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">Simpan</button>
+            <a href="{{ route('admin-product') }}" class="btn btn-danger" style="margin-left: 5px;"><i
+                    class="fa-solid fa-angles-left"></i> List Produk</a>
         </div>
     </form>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Pilih</h5>
+                    {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <a href="{{ route('admin-product') }}">Halaman List Produk</a>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Lanjut tambah
+                            produk</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     {{-- jQuery Script --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

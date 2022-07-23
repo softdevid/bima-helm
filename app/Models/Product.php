@@ -17,7 +17,11 @@ class Product extends Model
 
     protected $guarded = ['id'];
     protected $with = ['category'];
+    // protected $primaryKey = ['id'];
     protected $fillable = ['category_id', 'name', 'slug', 'merk', 'price', 'stock', 'image_id', 'size_id'];
+    // protected $attributes = [
+    //     'delayed' => false,
+    // ];
 
     public function scopeFilter($query, array $filters)
     {
