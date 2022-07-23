@@ -25,6 +25,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
+        User::create([
+            "frontName" => 'Admin',
+            "lastName" => ' ',
+            "password" => Hash::make('BMadmin@2022'),
+            "email" => 'bimahelm@gmail.com',
+            "noTelp" => ' ',
+            "level" => 2,
+        ]);
+
         //category
         Category::create([
             "name" => "Helm Full Face",
@@ -128,10 +137,6 @@ class DatabaseSeeder extends Seeder
             "stock" => 20,
             "sold" => 1121,
             'image_id' => 7,
-        ]);
-        Merek::create([
-            "merek" => "NHK",
-            "slug" => "nhk"
         ]);
 
         Product::create([

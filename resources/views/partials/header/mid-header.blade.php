@@ -55,7 +55,7 @@
                             <a href="/cart" class="main-btn">
                                 <span class="fa-stack me-1 text-white">
                                     @auth
-                                    <i class="fa-regular fa-circle fa-stack-2x" id="cartCount" data-count="{{ Cart::count() }}"></i>
+                                    <i class="fa-regular fa-circle fa-stack-2x" id="cartCount" data-count="{{ Cart::instance('cart')->count() }}"></i>
                                     @endauth
                                     <i class="fa-solid fa-cart-shopping fa-stack-1x"></i>
                                 </span>

@@ -72,7 +72,7 @@
                             <div class="row align-items-end">
                                 <div class="col-lg-2 col-md-4 col-2">
                                     <div class="button cart-button">
-                                        <button class="btn btn-outline-primary" id="btnCart" style="width: 100%;" onclick="btnCart({{ $product->id }}, '{{ $product->name }}', {{ $product->price }})">
+                                        <button class="btn btn-outline-primary" id="btnCart" style="width: 100%;" onclick="btnCart({{ $product->id }}, '{{ $product->name }}', {{ $product->price }}, '{{ $product->image->img_dt_1 }}')">
                                             <i class="fa-regular fa-cart-plus"></i>
                                         </button>
                                     </div>

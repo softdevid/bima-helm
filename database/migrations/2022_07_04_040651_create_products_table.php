@@ -18,12 +18,13 @@ class CreateProductsTable extends Migration
             $table->foreignId('category_id');
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('merk')->nullable();
+            $table->foreignId('merk_id')->unsigned()->nullable();
             $table->integer('price');
             $table->foreignId('size_id')->unsigned()->nullable();
             $table->integer('stock')->unsigned()->default(0);
             $table->integer('sold')->unsigned()->default(0);
             $table->foreignId('image_id')->unsigned();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

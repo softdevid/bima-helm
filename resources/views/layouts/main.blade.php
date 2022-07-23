@@ -20,7 +20,7 @@
 
 <body>
 
-    <!-- Preloader -->
+    {{-- <!-- Preloader -->
     <div class="preloader">
         <div class="preloader-inner">
             <div class="preloader-icon">
@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-    <!-- /End Preloader -->
+    <!-- /End Preloader --> --}}
 
     <header class="header navbar-area">
         @include('partials.header.top-header')
@@ -76,7 +76,7 @@
             }
         });
     </script>
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         //========= Hero Slider
         tns({
             container: '.hero-slider',
@@ -146,7 +146,7 @@
         }
         timer();
         setInterval(timer, 1000);
-    </script>
+    </script> --}}
     <script src="/js/script.js"></script>
 </body>
 

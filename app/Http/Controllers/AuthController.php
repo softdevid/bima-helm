@@ -17,7 +17,13 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
+
             $request->session()->regenerate();
+            if(Auth::user()->level == 2) {
+                return redirect()->intended('/admin/dashboard');
+            } else if(Auth::user()->level == 1) {
+                return redirect()->intended('/kasir/dashboard');
+            }
             return redirect()->intended();
         }
 
