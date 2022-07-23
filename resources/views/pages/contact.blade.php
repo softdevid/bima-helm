@@ -15,7 +15,7 @@
                                         <div class="row g-0">
                                             <div class="col-md-4 text-center">
                                                 <span class="fa-stack" style="vertical-align: top; font-size: 40px">
-                                                    <i class="fa-regular fa-circle fa-stack-2x"></i>
+                                                    <i class="fa-thin fa-circle fa-stack-2x"></i>
                                                     <i class="fa-solid fa-phone fa-stack-1x"></i>
                                                 </span>
                                             </div>
@@ -32,7 +32,7 @@
                                         <div class="row g-0">
                                             <div class="col-md-4 text-center">
                                                 <span class="fa-stack" style="vertical-align: top; font-size: 40px">
-                                                    <i class="fa-regular fa-circle fa-stack-2x"></i>
+                                                    <i class="fa-thin fa-circle fa-stack-2x"></i>
                                                     <i class="fa-solid fa-envelope fa-stack-1x"></i>
                                                 </span>
                                             </div>
@@ -49,7 +49,7 @@
                                         <div class="row g-0">
                                             <div class="col-md-4 text-center mt-4">
                                                 <span class="fa-stack" style="vertical-align: top; font-size: 40px">
-                                                    <i class="fa-regular fa-circle fa-stack-2x"></i>
+                                                    <i class="fa-thin fa-circle fa-stack-2x"></i>
                                                     <i class="fa-solid fa-building fa-stack-1x"></i>
                                                 </span>
                                             </div>
