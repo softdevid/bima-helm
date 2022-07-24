@@ -14,8 +14,8 @@
     </div>
     <div class="mb-5 mt-3 row">
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="/admin/product/" class="btn btn-danger" style="margin-left: 5px;"><i
-                class="fa-solid fa-angles-left"></i> Kembali</a>
+        <a href="/admin/merk" class="btn btn-danger" style="margin-left: 5px;"><i class="fa-solid fa-angles-left"></i>
+            Kembali</a>
     </div>
 </form>
 
