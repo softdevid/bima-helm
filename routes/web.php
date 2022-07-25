@@ -78,7 +78,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
             'title' => 'Dashboard',
         ]);
     });
-    Route::resource('/admin/merk', MerkController::class)->middleware('auth');
+    // Route::resource('/admin/merk', MerkController::class)->middleware('auth');
     Route::get('/admin/product', [ProductAdminController::class, 'index']);
     Route::get('/admin/users', [AdminController::class, 'users']);
     Route::get('/admin/orders', [AdminController::class, 'orders']);
