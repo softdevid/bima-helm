@@ -20,19 +20,13 @@
                                     class="fa-regular fa-clipboard-list-check fs-5"></i>&nbsp; Pesanan
                                 Saya</button>
                         </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="v-pills-notifikasi-tab" data-bs-toggle="pill"
-                                data-bs-target="#v-pills-notifikasi" type="button" role="tab"
-                                aria-controls="v-pills-notifikasi" aria-selected="false"><i
-                                    class="fa-regular fa-bell fs-5"></i>&nbsp; Notifikasi</button>
-                        </li>
                         <li class="nav-item dropdown" role="presentation">
-                            <button class="nav-link dropdown-toggle" id="v-pills-akunsaya-tab" data-bs-toggle="dropdown"
-                                data-bs-target="#v-pills-akunsaya" type="button" role="tab"
-                                aria-controls="v-pills-akunsaya" aria-selected="true"><i
+                            <button class="nav-link dropdown-toggle" id="v-pills-pengaturan-tab"
+                                data-bs-toggle="dropdown" data-bs-target="#v-pills-pengaturan" type="button" role="tab"
+                                aria-controls="v-pills-pengaturan" aria-selected="true"><i
                                     class="fa-regular fa-gear fs-5"></i>&nbsp; Pengaturan</button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#profil">Profil</a></li>
+                                <li><a class="dropdown-item" href="#v-pills-profil">Profil</a></li>
                                 <li><a class="dropdown-item" href="#alamat">Alamat</a></li>
                                 <li><a class="dropdown-item" href="#bank">Bank & Kartu</a></li>
                                 <li><a class="dropdown-item" href="#sandi">Ubah Sandi</a></li>
@@ -94,23 +88,53 @@
                                     </a>
                                 </div>
                             </div>
-                            {{-- <div class="col mb-3">
-                                <div class="card border-0">
-                                    <a href="">
-                                        <div class="card-body text-center">
-                                            <i class="fa-regular fa-circle-star fs-2 pb-2"></i>
-                                            <p class="fs-6">Beri Penilaian</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-pesanan" role="tabpanel" aria-labelledby="v-pills-pesanan-tab"
+                    tabindex="0">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-semua-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-semua" type="button" role="tab" aria-controls="pills-semua"
+                                aria-selected="true">Semua</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-belumbayar-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-belumbayar" type="button" role="tab"
+                                aria-controls="pills-belumbayar" aria-selected="false">Belum Bayar</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-dikemas-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-dikemas" type="button" role="tab" aria-controls="pills-dikemas"
+                                aria-selected="false">Dikemas</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-dikirim-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-dikirim" type="button" role="tab" aria-controls="pills-dikirim"
+                                aria-selected="false">Dikirim</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-selesai-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-selesai" type="button" role="tab" aria-controls="pills-selesai"
+                                aria-selected="false">Selesai</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-semua" role="tabpanel"
+                            aria-labelledby="pills-semua-tab" tabindex="0">...</div>
+                        <div class="tab-pane fade" id="pills-belumbayar" role="tabpanel"
+                            aria-labelledby="pills-belumbayar-tab" tabindex="0">...</div>
+                        <div class="tab-pane fade" id="pills-dikemas" role="tabpanel"
+                            aria-labelledby="pills-dikemas-tab" tabindex="0">...</div>
+                        <div class="tab-pane fade" id="pills-dikirim" role="tabpanel"
+                            aria-labelledby="pills-dikirim-tab" tabindex="0">...</div>
+                        <div class="tab-pane fade" id="pills-selesai" role="tabpanel"
+                            aria-labelledby="pills-selesai-tab" tabindex="0">...</div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-profil" role="tabpanel" aria-labelledby="v-pills-pengaturan-tab"
                     tabindex="0">...</div>
-                <div class="tab-pane fade" id="v-pills-notifikasi" role="tabpanel"
-                    aria-labelledby="v-pills-notifikasi-tab" tabindex="0">...</div>
             </div>
         </div>
     </div>
