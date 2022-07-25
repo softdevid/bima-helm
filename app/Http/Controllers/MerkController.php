@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Merk;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class MerkController extends Controller
@@ -40,7 +41,10 @@ class MerkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Merk::create([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+        ]);
     }
 
     /**
@@ -85,6 +89,8 @@ class MerkController extends Controller
      */
     public function destroy(Merk $merk)
     {
-        //
+        $merk = Merk::find($merk->id);
+        $merk->destroy($merk->id);
+        return redirect('/admin/merk')->withSuccess('Berhasil Dihapus!!');
     }
 }

@@ -15,12 +15,12 @@ class CreateSizesTable extends Migration
     {
         Schema::create('sizes', function (Blueprint $table) {
             $table->id();
-            $table->integer('xs');
-            $table->integer('s');
-            $table->integer('m');
-            $table->integer('lg');
-            $table->integer('xl');
-            $table->integer('xxl');
+            $table->integer('xs')->unsigned()->default(0);
+            $table->integer('s')->unsigned()->default(0);
+            $table->integer('m')->unsigned()->default(0);
+            $table->integer('lg')->unsigned()->default(0);
+            $table->integer('xl')->unsigned()->default(0);
+            $table->integer('xxl')->unsigned()->default(0);
             $table->timestamps();
         });
     }

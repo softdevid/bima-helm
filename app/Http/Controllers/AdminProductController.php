@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Image;
 use App\Models\Size;
 use App\Models\Category;
+use App\Models\Merk;
 use App\Http\Controllers\CloudinaryStorage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
@@ -26,7 +27,7 @@ class AdminProductController extends Controller
     {
         return view('admin.pages.product.list_product', [
             'title' => "Produk",
-            'products' => Product::with('merk', 'size','image')->get(),
+            'products' => Product::with('merk', 'size', 'image')->get(),
         ]);
     }
 
@@ -236,15 +237,15 @@ class AdminProductController extends Controller
         ]);
     }
 
-    public function detail(Product $product)
-    {
-        $products = Product::join('images', 'images.id', '=', 'products.image_id')->get();
-        $products = Product::join('sizes', 'sizes.id', '=', 'products.size_id')->get();
-        return view('admin.pages.product.product-detail', [
-            "title" => $products->name,
-            "products" => $products
-        ]);
-    }
+    // public function detail(Product $product)
+    // {
+    //     $products = Product::join('images', 'images.id', '=', 'products.image_id')->get();
+    //     $products = Product::join('sizes', 'sizes.id', '=', 'products.size_id')->get();
+    //     return view('admin.pages.product.product-detail', [
+    //         "title" => $products->name,
+    //         "products" => $products
+    //     ]);
+    // }
     /**
      * Show the form for editing the specified resource.
      *
@@ -334,7 +335,7 @@ class AdminProductController extends Controller
             $image = Image::where('id', $image_id)->get();
 
             CloudinaryStorage::delete($image->img_dt_1);
-            Image::delete($image_id);
+            Image::destroy($image_id);
 
             $size_id = $product->size_id;
             Size::where($size_id)->delete();
@@ -346,7 +347,7 @@ class AdminProductController extends Controller
             $image = Image::where('id', $image_id)->get();
 
             CloudinaryStorage::delete($image->img_dt_2);
-            Image::delete($image_id);
+            Image::destroy($image_id);
 
             $size_id = $product->size_id;
             Size::where($size_id)->delete();
@@ -358,7 +359,7 @@ class AdminProductController extends Controller
             $image = Image::where('id', $image_id)->get();
 
             CloudinaryStorage::delete($image->img_dt_3);
-            Image::delete($image_id);
+            Image::destroy($image_id);
 
             $size_id = $product->size_id;
             Size::where($size_id)->delete();
@@ -370,7 +371,7 @@ class AdminProductController extends Controller
             $image = Image::where('id', $image_id)->get();
 
             CloudinaryStorage::delete($image->img_dt_4);
-            Image::delete($image_id);
+            Image::destroy($image_id);
 
             $size_id = $product->size_id;
             Size::where($size_id)->delete();
@@ -378,7 +379,7 @@ class AdminProductController extends Controller
             return back();
         } else {
             CloudinaryStorage::delete($image);
-            Image::delete($image_id);
+            Image::destroy($image_id);
 
             $size_id = $product->size_id;
             Size::where($size_id)->delete();

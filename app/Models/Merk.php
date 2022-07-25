@@ -12,5 +12,8 @@ class Merk extends Model
     protected $guarded = ['id'];
     protected $primaryKey = 'id';
 
-
+    public function product()
+    {
+        return $this->hasOne(Product::class);
+    }
 }

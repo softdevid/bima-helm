@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 @section('content')
-    <form action="{{ route('admin-product.store') }}" method="post" enctype="multipart/form-data">
+    <form action="/admin/product/store" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-3 row">
             <label for="merk" class="col-sm-2 col-form-label">Kategori</label>
@@ -73,8 +73,8 @@
                     </div>
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">S</label>
-                        <input type="number" class="form-control" name="s" value="{{ old('s') }}"
-                            min="0" placeholder="0">
+                        <input type="number" class="form-control" name="s" value="{{ old('s') }}" min="0"
+                            placeholder="0">
                     </div>
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">M</label>
@@ -135,7 +135,7 @@
             <label for="price" class="col-sm-2 col-form-label">Deskrispsi</label>
             <div class="col-sm-10">
                 <textarea name="description" id="" cols="30" rows="10" style="height: 100px;"
-                    placeholder="Deskripsi Produk">{{ old('description') }}</textarea>
+                    placeholder="Deskripsi Produk" class="form-control">{{ old('description') }}</textarea>
             </div>
         </div>
 
@@ -144,15 +144,15 @@
             {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
             <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">Simpan</button>
-            <a href="{{ route('admin-product') }}" class="btn btn-danger" style="margin-left: 5px;"><i
+            <a href="/admin/product" class="btn btn-danger" style="margin-left: 5px;"><i
                     class="fa-solid fa-angles-left"></i> List Produk</a>
         </div>
     </form>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
-    </button>
+    </button> --}}
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -164,7 +164,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <a href="{{ route('admin-product') }}">Halaman List Produk</a>
+                        <a href="admin-product">Halaman List Produk</a>
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Lanjut tambah
                             produk</button>
                     </div>

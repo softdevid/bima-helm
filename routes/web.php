@@ -6,7 +6,6 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartNWishController;
-use App\Http\Controllers\ProductAdminController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\MerkController;
@@ -53,7 +52,7 @@ Route::get('/cart-remove', [CartNWishController::class, 'cartRemove']);
 Route::get('/cart-removeAll', [CartNWishController::class, 'cartRemoveAll']);
 Route::get(
     '/fav',
-    fn() => view('pages.cart', [
+    fn () => view('pages.cart', [
         'title' => 'Produk yang disukai',
     ]),
 )->middleware('auth');
@@ -70,20 +69,30 @@ Route::get('check_slug', function () {
     return response()->json(['slug' => $slug]);
 });
 
+
 Route::middleware(['auth', 'isAdmin'])->group(function () {
+
     //rout admin product
-    Route::resource('admin-product', AdminProductController::class);
+    Route::get('/admin/product', [AdminProductController::class, 'index']);
+    Route::get('/admin/product/create', [AdminProductController::class, 'create']);
+    Route::post('/admin/product/store', [AdminProductController::class, 'store']);
+
+    //route admin
+    // Route::resource('/admin/merk', MerkController::class);
+    Route::get('/admin/merk', [MerkController::class, 'index']);
+    Route::post('/admin/merk/store', [MerkController::class, 'store']);
+    // Route::get('/admin/merk/delete/{id}', [MerkController::class, 'destroy']);
+    Route::post('/admin/merk/delete/{id}', [MerkController::class, 'destroy']);
+
     //route admin
     Route::get('/admin/dashboard', function () {
         return view('admin.pages.index', [
             'title' => 'Dashboard',
         ]);
     });
-    // Route::resource('/admin/merk', MerkController::class)->middleware('auth');
-    Route::get('/admin/product', [ProductAdminController::class, 'index']);
+
     Route::get('/admin/users', [AdminController::class, 'users']);
     Route::get('/admin/orders', [AdminController::class, 'orders']);
-    // Route::resource('productadmin', ProductAdminController::class);
 
     //KASIR
     Route::get('/kasir/dashboard', function () {
