@@ -19,10 +19,11 @@
                         <td>
                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit"><i
                                     class="fa fa-edit"></i></button>
-                            <form action="/admin/merk/delete/{{ $merk->id }}" method="POST">
+                            <form action="/admin/merk/delete/{{ $merk->id }}" method="POST" class="d-inline">
+                                @method('delete')
                                 @csrf
-                                <input type="hidden" name="id" value="{{ $merk->id }}" />
-                                <button class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
+
+                                <button class="btn btn-outline-danger" type="submit"><i class="fa fa-trash"></i></button>
                             </form>
 
                             {{-- <a href="/admin/merk/delete/{{ $merk->id }}" onclick="confirm('Yakin hapus?')"

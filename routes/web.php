@@ -82,7 +82,8 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/admin/merk', [MerkController::class, 'index']);
     Route::post('/admin/merk/store', [MerkController::class, 'store']);
     // Route::get('/admin/merk/delete/{id}', [MerkController::class, 'destroy']);
-    Route::post('/admin/merk/delete/{id}', [MerkController::class, 'destroy']);
+    // Route::post('/admin/merk/delete/{id}', [MerkController::class, 'destroy']);
+    Route::get('/admin/merk/delete/{id}', [MerkController::class, 'destroy']);
 
     //route admin
     Route::get('/admin/dashboard', function () {

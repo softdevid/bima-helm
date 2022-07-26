@@ -89,8 +89,8 @@ class MerkController extends Controller
      */
     public function destroy(Merk $merk)
     {
-        $merk = Merk::find($merk->id);
-        $merk->destroy($merk->id);
-        return redirect('/admin/merk')->withSuccess('Berhasil Dihapus!!');
+        Merk::destroy($merk->id);
+        // Merk::destroy($merk->id);
+        return redirect('/admin/merk')->with('success', 'Berhasil Dihapus!!');
     }
 }
