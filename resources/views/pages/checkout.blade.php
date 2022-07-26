@@ -1,6 +1,11 @@
 @extends('layouts.main')
 @section('content')
 @include('partials.breadcrumbs')
+
+@php
+    $desa = Indonesia::findVillage(auth()->user()->address->village, $with = ['district.city.province'])
+@endphp
+@dd($desa->meta['pos'])
 <!--====== Checkout Form Steps Part Start ======-->
 <section class="checkout-wrapper section">
     <div class="container">
@@ -18,7 +23,7 @@
                                         <div class="single-form form-default">
                                             <label>Nama Lengkap</label>
                                             <div class="form-input form">
-                                                <input type="text" placeholder="Nama Lengkap">
+                                                <input type="text" placeholder="Nama Lengkap" value="{{ auth()->user()->frontName . ' ' . auth()->user()->lastName}}">
                                             </div>
                                         </div>
                                     </div>
@@ -26,7 +31,7 @@
                                         <div class="single-form form-default">
                                             <label>Nomor Telepon</label>
                                             <div class="form-input form">
-                                                <input type="text" placeholder="Nomor Telepon">
+                                                <input type="text" placeholder="Nomor Telepon" value="{{ auth()->user()->noTelp }}">
                                             </div>
                                         </div>
                                     </div>
@@ -34,7 +39,7 @@
                                         <div class="single-form form-default">
                                             <label>Alamat</label>
                                             <div class="form-input form">
-                                                <input type="text" placeholder="Alamat">
+                                                <textarea name="address" id="address" cols="30" rows="10" class="form-control" type="text" required style="height: 100px;">{{ auth()->user()->address->address }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -42,13 +47,13 @@
                                         <div class="single-form form-default">
                                             <label>Kode Pos</label>
                                             <div class="form-input form">
-                                                <input type="text" placeholder="Kode Pos">
+                                                <input type="text" placeholder="Kode Pos" value="{{ auth()->user()->address->postalCode }}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="steps-form-btn button">
-                                            <button class="btn" data-bs-toggle="collapse"
+                                            <button class="btn btn-primary" data-bs-toggle="collapse"
                                                 data-bs-target="#coll-shipping" aria-expanded="false"
                                                 aria-controls="coll-shipping">Lanjut</button>
                                         </div>

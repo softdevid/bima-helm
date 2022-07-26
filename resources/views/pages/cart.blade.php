@@ -21,7 +21,17 @@
                     <tbody class="text-center">
                         {{-- @dd($cart) --}}
                         @foreach ($cart as $cartItem)
+
+                        @php
+                            $product_id = Cart::instance('cart')->get($cartItem->rowId)->id;
+                            $size = Cart::instance('cart')->get($cartItem->rowId)->options->size;
+                            $max = App\Models\Product::without(['category'])->selectRaw('sizes.'.$size.' as size')->join('sizes', 'products.size_id', '=', 'sizes.id')->where('products.id', $product_id)->value('size');
+                        @endphp
+
                         <tr>
+                            <td class="d-none">
+                                <p class="rowId">{{ $cartItem->rowId }}</p>
+                            </td>
                             <td>
                                 <img src="/img/{{ $cartItem->options->img }}" alt="" class="img-thumbnail" style="max-height: 100px; max-width: 100px;">
                             </td>
@@ -31,25 +41,25 @@
                             <td>
                                 <div class="quantity">
                                     <div class="input-group flex-nowrap">
-                                        <button class="btn btn-outline-primary quantity-minus p-0 px-1" type="button">
+                                        <button class="btn btn-outline-primary quantity-minus p-0 px-1 position-static" type="button">
                                             <i class="fa-solid fa-minus"></i>
                                         </button>
-                                        <input type="text" id="quantity" name="quantity" class="form-control text-center p-0" style="width: 50px" value="{{ $cartItem->qty }}" min="1" max="100">
-                                        <button class="btn btn-outline-primary quantity-plus p-0 px-1" type="button">
+                                        <input type="text" id="quantity" name="quantity" class="form-control text-center p-0" style="width: 50px" value="{{ $cartItem->qty }}" min="1" max="{{ $max }}">
+                                        <button class="btn btn-outline-primary quantity-plus p-0 px-1 position-static" type="button">
                                             <i class="fa-solid fa-plus"></i>
                                         </button>
                                     </div>
-                                    <button class="btn btn-secondary btn-sm my-1">Update</button>
+                                    <button class="btn btn-secondary btn-sm my-1 cart-update" >Update</button>
                                 </div>
                             </td>
                             <td>
-                                <h6 class="product-name"><a href="#">{{ $cartItem->options->size }}</a></h6>
+                                <h6 class="product-name"><a href="#">{{ $cartItem->options->size ?? '' }}</a></h6>
                             </td>
                             <td>
-                                <p>Rp.<span>{{ number_format($cartItem->price * $cartItem->qty,0,',','.') }}</span></p>
+                                <p>Rp.<span id="price">{{ number_format($cartItem->subtotal,0,',','.') }}</span></p>
                             </td>
                             <td>
-                                <button class="btn remove-item" id="{{ $cartItem->rowId }}">
+                                <button class="btn remove-item">
                                     <i class="fa-solid fa-circle-xmark"></i>
                                 </button>
                             </td>
@@ -68,7 +78,7 @@
                             <div class="right">
                                 <ul>
                                     {{-- <li>Subtotal<span>Rp.1.700.000</span></li> --}}
-                                    <li>Total<span>Rp.{{ Cart::instance('cart')->subtotal(0, ',', '.') }}</span></li>
+                                    <li>Total<span>Rp.<span id="total">{{ $total }}</span></span></li>
                                 </ul>
                                 <div class="button">
                                     <a href="/checkout" class="btn btn-info">Checkout</a>
@@ -89,6 +99,5 @@
         @endif
     </div>
 </div>
-
 <!--/ End Shopping Cart -->
 @endsection

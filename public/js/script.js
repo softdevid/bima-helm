@@ -2,17 +2,17 @@ $(document).ready(function () {
     // increment and decrement quantity
     $('.quantity-plus').click(function (e) {
         e.preventDefault();
-        var max = parseInt($('#quantity').attr('max'));
-        var quantity = parseInt($('#quantity').val());
+        var max = parseInt($(this).closest('tr').find('input#quantity').attr('max'));
+        var quantity = parseInt($(this).closest('tr').find('input#quantity').val());
         if (quantity < max) {
-            $('#quantity').val(quantity + 1);
+            $(this).closest('tr').find('input#quantity').val(quantity + 1);
         }
     });
     $('.quantity-minus').click(function (e) {
         e.preventDefault();
-        var quantity = parseInt($('#quantity').val());
+        var quantity = parseInt($(this).closest('tr').find('input#quantity').val());
         if (quantity > 1) {
-            $('#quantity').val(quantity - 1);
+            $(this).closest('tr').find('input#quantity').val(quantity - 1);
         }
     });
 
@@ -108,27 +108,27 @@ function onChangeRegion(url, id, name) {
     });
 }
 
-function getPostalCode(name) {
+// function getPostalCode(name) {
 
-    $('#loading-spinner').append('<div class="spinner-border float-end position-relative" style="top: -40px; right: 5px;" role="status"><span class="visually-hidden">Loading...</span></div>');
-    $('#loading-spinner-info').append('<span class="small" >Mohon tunggu...</span>');
+//     $('#loading-spinner').append('<div class="spinner-border float-end position-relative" style="top: -40px; right: 5px;" role="status"><span class="visually-hidden">Loading...</span></div>');
+//     $('#loading-spinner-info').append('<span class="small" >Mohon tunggu...</span>');
 
-    $.ajax({
-        type: "GET",
-        url: 'https://kodepos.vercel.app/search',
-        data: {q:name},
-        dataType: "json",
-        success: function (data) {
-            if(data.status == true) {
-                console.log(data.messages);
-                $('#postalCode').val('');
-                $('#postalCode').val(data.data[0].postalcode);
-                $('#loading-spinner').empty();
-                $('#loading-spinner-info').empty();
-            }
-        }
-    });
-}
+//     $.ajax({
+//         type: "GET",
+//         url: 'https://kodepos.vercel.app/search',
+//         data: {q:name},
+//         dataType: "json",
+//         success: function (data) {
+//             if(data.status == true) {
+//                 console.log(data.messages);
+//                 $('#postalCode').val('');
+//                 $('#postalCode').val(data.data[0].postalcode);
+//                 $('#loading-spinner').empty();
+//                 $('#loading-spinner-info').empty();
+//             }
+//         }
+//     });
+// }
 
 $(function () {
     $('#province').on('change', function () {
@@ -143,10 +143,11 @@ $(function () {
     $('#village').on('change', function () {
         var village = $('#village option:selected').text();
         var district = $('#district option:selected').text();
-        getPostalCode(village+' '+district);
     });
 });
 
+
+// cart
 var isBtnCart = true;
 function btnCart(id, name, price, img) {
     var qty = $('#quantity').val();
@@ -164,9 +165,14 @@ function btnCart(id, name, price, img) {
     }
 }
 
+$('#cartSection').on('click', '.cart-update', function () {
+    var rowId = $(this).closest('tr').find('p.rowId').text();
+    var qty = $('#quantity').val();
+    cartUpdate(rowId, qty);
+});
 
 $('#cartSection').on('click', '.remove-item', function () {
-    var rowId = $(this).attr('id');
+    var rowId = $(this).closest('tr').find('p.rowId').text();
     cartRemove(rowId);
 });
 
@@ -184,6 +190,22 @@ function cartAdd(id, name, qty, price, size, img) {
     });
 }
 
+function cartUpdate(rowId, qty) {
+    $.ajax({
+        type: "GET",
+        url: "/cart-update",
+        data: {rowId:rowId, qty:qty},
+        success: function (data) {
+            $('#cartCount').attr('data-count', data.count);
+            $('.toast-body').text(data.message);
+            $('#total').text(data.total);
+            $('p:contains('+ rowId +')').closest('tr').find('span#price').text(data.price);
+            console.log(data);
+            showToast();
+        }
+    });
+}
+
 function cartRemove(rowId) {
     $.ajax({
         type: "GET",
@@ -194,6 +216,7 @@ function cartRemove(rowId) {
             // $('#'+rowId).closest("tr").remove();
             $('#cartCount').attr('data-count', data.count);
             $('.toast-body').text(data.message);
+            $('#total').text(data.total);
             showToast();
         }
     });

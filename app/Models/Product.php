@@ -52,7 +52,7 @@ class Product extends Model
 
     public function merk()
     {
-        return $this->belongsTo(Merk::class, 'merk_id');
+        return $this->belongsTo(Merk::class);
     }
 
     public function size()
