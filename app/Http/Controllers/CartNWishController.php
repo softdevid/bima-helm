@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\CartNWish;
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,6 +22,7 @@ class CartNWishController extends Controller
         return view('pages.cart', [
             'title' => 'Keranjang',
             'cart' => \Cart::instance('cart')->content(),
+            'total' => \Cart::instance('cart')->subtotal(0, ',', '.')
         ]);
     }
 
@@ -47,6 +47,22 @@ class CartNWishController extends Controller
             return response()->json([
                 'message' => 'Berhasil menambahkan produk',
                 'count' => \Cart::instance('cart')->count(),
+            ]);
+        }
+    }
+
+    public function cartUpdate(Request $request)
+    {
+        if ($request->ajax()){
+            \Cart::instance('cart')->update($request->rowId, $request->qty);
+            CartNWish::deleteRecord(Auth::id(), 'cart');
+            \Cart::instance('cart')->store(Auth::id());
+
+            return response()->json([
+                'message' => 'Berhasil mengupdate produk',
+                'count' => \Cart::instance('cart')->count(),
+                'price' => \Cart::instance('cart')->get($request->rowId)->subtotal(0, ',', '.'),
+                'total' => \Cart::instance('cart')->subtotal(0, ',', '.')
             ]);
         }
     }

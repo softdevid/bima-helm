@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\CartNWish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -24,6 +25,9 @@ class AuthController extends Controller
             } else if(Auth::user()->level == 1) {
                 return redirect()->intended('/kasir/dashboard');
             }
+
+            \Cart::instance('cart')->restore(Auth::id());
+            \Cart::instance('cart')->store(Auth::id());
             return redirect()->intended();
         }
 
@@ -32,8 +36,9 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
+        CartNWish::deleteRecord(Auth::id(), 'cart');
+        \Cart::instance('cart')->store(Auth::id());
         Auth::logout();
-
         $request->session()->invalidate();
         $request->session()->regenerate();
 

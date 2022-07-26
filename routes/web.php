@@ -58,6 +58,7 @@ Route::get(
 )->middleware('auth');
 
 Route::get('/checkout', function () {
+
     return view('pages.checkout', [
         'title' => 'Checkout',
     ]);

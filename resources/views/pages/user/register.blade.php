@@ -118,8 +118,6 @@
                                 <div class="form-group">
                                     <label for="postalCode">Kode Pos</label>
                                     <input class="form-control" type="text" name="postalCode" id="postalCode" required>
-                                    <div id="loading-spinner"></div>
-                                    <div id="loading-spinner-info"></div>
                                 </div>
                             </div>
                             <div class="col-sm-12">
@@ -130,7 +128,7 @@
                                 </div>
                             </div>
                             <div class="button">
-                                <button class="btn" type="submit">Registrasi</button>
+                                <button class="btn btn-primary" type="submit">Registrasi</button>
                             </div>
                             <p class="outer-link">Sudah punya akun? <a href="/login">Login</a>
                             </p>

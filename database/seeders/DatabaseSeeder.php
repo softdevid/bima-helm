@@ -8,7 +8,6 @@ use App\Models\User;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\Merek;
 use App\Models\Merk;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;

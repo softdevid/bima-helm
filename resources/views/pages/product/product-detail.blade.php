@@ -99,7 +99,7 @@
                             <div class="col-12 col-md-6 mb-3 mb-md-0">
                                 <h4>Detail</h4>
                                 <ul class="normal-list">
-                                    <li><span>Merek: </span>{{ $product->merk }}</li>
+                                    <li><span>Merek: </span>{{ $product->merk->name ?? '' }}</li>
                                     <li><span>Jenis: </span>{{ $product->category->name }}</li>
                                     <li><span>Dikirim Dari:</span> Kab. Purbalingga</li>
                                 </ul>
