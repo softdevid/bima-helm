@@ -37,6 +37,7 @@ Route::post('/indonesia/provinces', [RegionController::class, 'provinces']);
 Route::post('/indonesia/cities', [RegionController::class, 'cities']);
 Route::post('/indonesia/districts', [RegionController::class, 'districts']);
 Route::post('/indonesia/villages', [RegionController::class, 'villages']);
+Route::post('/indonesia/villages/postalCode', [RegionController::class, 'postalCode']);
 
 Route::get('/faq', [HomeController::class, 'faq']);
 Route::get('/tentang-kami', [HomeController::class, 'tentangkami']);
@@ -59,10 +60,14 @@ Route::get(
 
 Route::get('/checkout', function () {
 
+    if(count(\Cart::instance('cart')->content()) == 0) {
+        return redirect('/products');
+    }
+
     return view('pages.checkout', [
         'title' => 'Checkout',
     ]);
-});
+})->middleware('auth');
 
 //route slug generate
 Route::get('check_slug', function () {
