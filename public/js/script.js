@@ -90,6 +90,22 @@ $(".check-shipp").change(function () {
     $('.check-shipp').not(this).prop('checked', false);
 });
 
+$(function () {
+    $('#province').on('change', function () {
+        onChangeRegion('/indonesia/cities', $(this).val(), 'city');
+    });
+    $('#city').on('change', function () {
+        onChangeRegion('/indonesia/districts', $(this).val(), 'district');
+    });
+    $('#district').on('change', function () {
+        onChangeRegion('/indonesia/villages', $(this).val(), 'village');
+    });
+    $('#village').on('change', function () {
+        var villageId = $('#village option:selected').val();
+        getPostalCode(villageId);
+    });
+});
+
 function onChangeRegion(url, id, name) {
     var token = $('#token').val();
     $.ajax({
@@ -108,43 +124,20 @@ function onChangeRegion(url, id, name) {
     });
 }
 
-// function getPostalCode(name) {
+function getPostalCode(id) {
 
-//     $('#loading-spinner').append('<div class="spinner-border float-end position-relative" style="top: -40px; right: 5px;" role="status"><span class="visually-hidden">Loading...</span></div>');
-//     $('#loading-spinner-info').append('<span class="small" >Mohon tunggu...</span>');
+    var token = $('#token').val();
 
-//     $.ajax({
-//         type: "GET",
-//         url: 'https://kodepos.vercel.app/search',
-//         data: {q:name},
-//         dataType: "json",
-//         success: function (data) {
-//             if(data.status == true) {
-//                 console.log(data.messages);
-//                 $('#postalCode').val('');
-//                 $('#postalCode').val(data.data[0].postalcode);
-//                 $('#loading-spinner').empty();
-//                 $('#loading-spinner-info').empty();
-//             }
-//         }
-//     });
-// }
+    $.ajax({
+        type: "POST",
+        url: '/indonesia/villages/postalCode',
+        data: { _token:token,id: id },
+        success: function (data) {
+            $('#postalCode').val(data);
+        }
+    });
+}
 
-$(function () {
-    $('#province').on('change', function () {
-        onChangeRegion('/indonesia/cities', $(this).val(), 'city');
-    });
-    $('#city').on('change', function () {
-        onChangeRegion('/indonesia/districts', $(this).val(), 'district');
-    });
-    $('#district').on('change', function () {
-        onChangeRegion('/indonesia/villages', $(this).val(), 'village');
-    });
-    $('#village').on('change', function () {
-        var village = $('#village option:selected').text();
-        var district = $('#district option:selected').text();
-    });
-});
 
 
 // cart

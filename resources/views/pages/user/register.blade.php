@@ -85,7 +85,7 @@
                                     <select name="province" id="province" class="form-select" required>
                                         <option>Pilih Salah Satu</option>
                                         @foreach ($provinces as $province)
-                                            <option value="{{ $province->id ?? '' }}">{{ $province->name ?? '' }}</option>
+                                            <option value="{{ $province->id ?? '' }}" {{ old('province') == $province->id ? 'selected' : ''}}>{{ $province->name ?? '' }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -123,8 +123,8 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="address">Alamat</label>
-                                    <textarea name="address" id="address" cols="30" rows="10" class="form-control" type="text" required
-                                        style="height: 100px;">{{ old('address') }}</textarea>
+                                    <div id="address" class="form-text">Isikan selain yang sudah diisi di atas seperti RT/RW / nama jalan / Perumahan</div>
+                                    <textarea name="address" id="address" cols="30" rows="10" class="form-control" type="text" style="height: 100px;" required>{{ old('address') }}</textarea>
                                 </div>
                             </div>
                             <div class="button">
