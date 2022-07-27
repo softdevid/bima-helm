@@ -1,5 +1,12 @@
 @extends('admin.layouts.template')
 @section('content')
+    @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <form action="/admin/product/store" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-3 row">
@@ -73,8 +80,8 @@
                     </div>
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">S</label>
-                        <input type="number" class="form-control" name="s" value="{{ old('s') }}" min="0"
-                            placeholder="0">
+                        <input type="number" class="form-control" name="s" value="{{ old('s') }}"
+                            min="0" placeholder="0">
                     </div>
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">M</label>
@@ -107,25 +114,29 @@
                     <div class="row">
                         <div class="col">
                             <label for="size" class="col-sm-4 col-form-label">Gambar 1</label>
-                            <input class="form-control" type="file" id="formFile" name="image1" required>
+                            <input class="form-control" value="{{ old('image1') }}" type="file" id="formFile"
+                                name="image1" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="size" class="col-sm-4 col-form-label">Gambar 2</label>
-                            <input class="form-control" type="file" id="formFile" name="image2">
+                            <input class="form-control" type="file" id="formFile" value="{{ old('image1') }}"
+                                name="image2">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="size" class="col-sm-4 col-form-label">Gambar 3</label>
-                            <input class="form-control" type="file" id="formFile" name="image3">
+                            <input class="form-control" type="file" id="formFile" value="{{ old('image1') }}"
+                                name="image3">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="size" class="col-sm-4 col-form-label">Gambar 4</label>
-                            <input class="form-control" type="file" id="formFile" name="image4">
+                            <input class="form-control" type="file" id="formFile" value="{{ old('image1') }}"
+                                name="image4">
                         </div>
                     </div>
                 </div>
@@ -135,15 +146,14 @@
             <label for="price" class="col-sm-2 col-form-label">Deskrispsi</label>
             <div class="col-sm-10">
                 <textarea name="description" id="" cols="30" rows="10" style="height: 100px;"
-                    placeholder="Deskripsi Produk" class="form-control">{{ old('description') }}</textarea>
+                    placeholder="Deskripsi Produk" class="form-control" required>{{ old('description') }}</textarea>
             </div>
         </div>
 
 
         <div class="mb-5 mt-3 row">
             {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
-            <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
             <a href="/admin/product" class="btn btn-danger" style="margin-left: 5px;"><i
                     class="fa-solid fa-angles-left"></i> List Produk</a>
         </div>

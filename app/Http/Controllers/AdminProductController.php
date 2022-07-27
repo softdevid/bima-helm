@@ -75,12 +75,12 @@ class AdminProductController extends Controller
             ]);
 
             $sizes = Size::create([
-                'xs' => $request->xs,
-                's' => $request->s,
-                'm' => $request->m,
-                'lg' => $request->lg,
-                'xl' => $request->xl,
-                'xxl' => $request->xxl,
+                'xs' => $request->xs ?? 0,
+                's' => $request->s ?? 0,
+                'm' => $request->m ?? 0,
+                'lg' => $request->lg ?? 0,
+                'xl' => $request->xl ?? 0,
+                'xxl' => $request->xxl ?? 0,
             ]);
 
             $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
@@ -96,7 +96,8 @@ class AdminProductController extends Controller
                 "image_id" => $image->id,
                 "size_id" => $sizes->id,
             ]);
-            return redirect('/admin/product')->withSuccess('Berhasil Ditambah!!');
+
+            return redirect('/admin/product/create')->with('success', 'Tambah Berhasil!');
         } elseif ($image3 === NULL) {
             $image1  = $request->file('image1');
             $image2  = $request->file('image2');
@@ -113,12 +114,12 @@ class AdminProductController extends Controller
             ]);
 
             $sizes = Size::create([
-                'xs' => $request->xs,
-                's' => $request->s,
-                'm' => $request->m,
-                'lg' => $request->lg,
-                'xl' => $request->xl,
-                'xxl' => $request->xxl,
+                'xs' => $request->xs ?? 0,
+                's' => $request->s ?? 0,
+                'm' => $request->m ?? 0,
+                'lg' => $request->lg ?? 0,
+                'xl' => $request->xl ?? 0,
+                'xxl' => $request->xxl ?? 0,
             ]);
 
             $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
@@ -134,7 +135,8 @@ class AdminProductController extends Controller
                 "image_id" => $image->id,
                 "size_id" => $sizes->id,
             ]);
-            return redirect('/admin/product')->withSuccess('Berhasil Ditambah!!');
+
+            return redirect('/admin/product')->withSuccess('success', 'Tambah Berhasil!');
         } elseif ($image4 === NULL) {
             $image1  = $request->file('image1');
             $image2  = $request->file('image2');
@@ -152,12 +154,12 @@ class AdminProductController extends Controller
             ]);
 
             $sizes = Size::create([
-                'xs' => $request->xs,
-                's' => $request->s,
-                'm' => $request->m,
-                'lg' => $request->lg,
-                'xl' => $request->xl,
-                'xxl' => $request->xxl,
+                'xs' => $request->xs ?? 0,
+                's' => $request->s ?? 0,
+                'm' => $request->m ?? 0,
+                'lg' => $request->lg ?? 0,
+                'xl' => $request->xl ?? 0,
+                'xxl' => $request->xxl ?? 0,
             ]);
 
             $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
@@ -173,7 +175,8 @@ class AdminProductController extends Controller
                 "image_id" => $image->id,
                 "size_id" => $sizes->id,
             ]);
-            return redirect('/admin/product')->withSuccess('Berhasil Ditambah!!');
+
+            return redirect('/admin/product/create')->with('success', 'Tambah Berhasil!');
         } else {
             $image1  = $request->file('image1');
             $image2  = $request->file('image2');
@@ -193,12 +196,12 @@ class AdminProductController extends Controller
             ]);
 
             $sizes = Size::create([
-                'xs' => $request->xs,
-                's' => $request->s,
-                'm' => $request->m,
-                'lg' => $request->lg,
-                'xl' => $request->xl,
-                'xxl' => $request->xxl,
+                'xs' => $request->xs ?? 0,
+                's' => $request->s ?? 0,
+                'm' => $request->m ?? 0,
+                'lg' => $request->lg ?? 0,
+                'xl' => $request->xl ?? 0,
+                'xxl' => $request->xxl ?? 0,
             ]);
 
             $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
@@ -215,7 +218,7 @@ class AdminProductController extends Controller
                 "size_id" => $sizes->id,
             ]);
 
-            return redirect('admin-product')->withSuccess('Berhasil Ditambah!!');
+            return redirect('/admin/product/create')->with('success', 'Tambah  !');
         }
     }
 
