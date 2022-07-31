@@ -1,5 +1,8 @@
 @extends('admin.layouts.template')
 @section('content')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
@@ -7,7 +10,7 @@
         </div>
     @endif
 
-    <form action="/admin/product/store" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin-product.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-3 row">
             <label for="merk" class="col-sm-2 col-form-label">Kategori</label>
@@ -70,13 +73,27 @@
             </div>
         </div>
         <div class="mb-3 row">
+            <label for="weight" class="col-sm-2 col-form-label">Berat produk</label>
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col">
+                        <input type="number" class="form-control" id="weight" placeholder="1000" name="weight"
+                            value="{{ old('weight') }}" required>
+                    </div>
+                    <div class="col">
+                        <b>gram</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 row">
             <label for="size" class="col-sm-2 col-form-label mt-4">Jumlah Stok / Ukuran</label>
             <div class="col-sm-10">
                 <div class="row">
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">XS</label>
-                        <input type="number" value="{{ old('xs') }}" class="form-control" name="xs" min="0"
-                            placeholder="0">
+                        <input type="number" value="{{ old('xs') }}" class="form-control" name="xs"
+                            min="0" placeholder="0">
                     </div>
                     <div class="col">
                         <label for="size" class="col-sm-2 col-form-label">S</label>
@@ -106,42 +123,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="mb-3 row">
-            <label for="size" class="col-sm-2 col-form-label mt-4">Gambar</label>
-            <div class="col-sm-10">
-                <div class="row">
-                    <div class="row">
-                        <div class="col">
-                            <label for="size" class="col-sm-4 col-form-label">Gambar 1</label>
-                            <input class="form-control" value="{{ old('image1') }}" type="file" id="formFile"
-                                name="image1" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="size" class="col-sm-4 col-form-label">Gambar 2</label>
-                            <input class="form-control" type="file" id="formFile" value="{{ old('image1') }}"
-                                name="image2">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="size" class="col-sm-4 col-form-label">Gambar 3</label>
-                            <input class="form-control" type="file" id="formFile" value="{{ old('image1') }}"
-                                name="image3">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="size" class="col-sm-4 col-form-label">Gambar 4</label>
-                            <input class="form-control" type="file" id="formFile" value="{{ old('image1') }}"
-                                name="image4">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="mb-3 row">
             <label for="price" class="col-sm-2 col-form-label">Deskrispsi</label>
             <div class="col-sm-10">
@@ -150,6 +131,33 @@
             </div>
         </div>
 
+        <div class="mb-3">
+            <div class="row">
+                <label for="image_main" class="col-sm-2 col-form-label">Gambar utama</label>        
+                <div class="col-sm-10">                    
+                    <input type="file" name="image_main" class="form-control">                    
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="size" class="col-sm-2 col-form-label mt-4">Gambar lain</label>        
+            <div class="col-sm-10">                
+                
+                    <div class="input-group hdtuto control-group lst increment col-sm-4">
+                      <!-- <input type="file" name="filenames[]" class="myfrm form-control"> -->                      
+                        <button class="btn btn-success" type="button">Tambah Gambar</button>
+                    </div>                
+                    <div class="clone hide col">
+                      <div class="hdtuto control-group lst input-group" style="margin-top:10px">
+                        <input type="file" name="images[]" class="myfrm form-control">
+                        <div class="input-group-btn"> 
+                          <button class="btn btn-danger" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
+                        </div>
+                      </div>
+                    </div>
+                
+            </div>
+        </div>        
 
         <div class="mb-5 mt-3 row">
             {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
@@ -198,5 +206,40 @@
                 }
             );
         });
-    </script>
+
+        function bacaGambar(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function(e){
+            $('#gambar_load').attr('src', e.target.result); 
+          }
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+      $('#preview_gambar').change(function(){
+        bacaGambar(this)
+        });
+    </script>    
+
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+
+      $(".btn-success").click(function(){ 
+
+          var lsthmtl = $(".clone").html();
+
+          $(".increment").after(lsthmtl);
+
+      });
+
+      $("body").on("click",".btn-danger",function(){ 
+
+          $(this).parents(".hdtuto").remove();
+
+      });
+
+    });
+
+</script>
 @endsection

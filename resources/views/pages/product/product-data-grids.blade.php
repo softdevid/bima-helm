@@ -8,7 +8,7 @@
                         <div class="row align-items-center">
                             <div class="col-12">
                                 <div class="product-image">
-                                    <img src="/img/{{ $product->image->img_dt_1 }}" alt="#" class="img-thumbnail">
+                                    <img src="/img/{{ $product->image->image_main }}" alt="#" class="img-thumbnail">
                                     <div class="button">
                                         <a href="/cart" class="btn btn-primary">
                                             <i class="fa-regular fa-cart-shopping"></i></i>Tambah ke keranjang

@@ -12,11 +12,11 @@ class HomeController extends Controller
         $helmTopSell = Product::
             without(['category'])->
             join('categories', 'products.category_id', '=', 'categories.id')->
-            join('images', 'products.image_id', '=', 'images.id')->
+            join('images', 'products.id', '=', 'images.product_id')->
             where('categories.name', 'like', '%helm%')->
             orderBy('sold', 'desc')->
             limit(12)->
-            select('products.name', 'products.price', 'images.img_dt_1 as image')->
+            select('products.name', 'products.price', 'products.image_main as image')->
             get();
 
         return view('pages.home', [

@@ -12,7 +12,8 @@ use App\Models\Merk;
 use App\Http\Controllers\CloudinaryStorage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
-use Cloudinary\Cloudinary;
+// use Cloudinary\Cloudinary;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 
 
@@ -53,26 +54,11 @@ class AdminProductController extends Controller
     {
         Validator::make($request->all(), [
             'name' => 'required|unique:products|max:255',
-        ])->validate();
+        ])->validate();        
 
-        $image1  = $request->file('image1');
-        $image2  = $request->file('image2');
-        $image3  = $request->file('image3');
-        $image4  = $request->file('image4');
-
-        if ($image2 === NULL) {
-            $image1  = $request->file('image1');
-            $image2  = NULL;
-            $image3  = NULL;
-            $image4  = NULL;
-
-            $result = CloudinaryStorage::upload($image1->getRealPath(), $image1->getClientOriginalName());
-            $image = Image::create([
-                'img_dt_1' => $result,
-                'img_dt_2' => $image2,
-                'img_dt_3' => $image3,
-                'img_dt_4' => $image4,
-            ]);
+        if ($request->hasFile("image_main")) {
+            $file = $request->file('image_main');
+            $image_main = Cloudinary::upload($file->getRealPath())->getSecurePath();
 
             $sizes = Size::create([
                 'xs' => $request->xs ?? 0,
@@ -82,130 +68,7 @@ class AdminProductController extends Controller
                 'xl' => $request->xl ?? 0,
                 'xxl' => $request->xxl ?? 0,
             ]);
-
             $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
-
-
-            Product::create([
-                "category_id" => $request->category_id,
-                "name" => $request->name,
-                "slug" => Str::slug($request->name),
-                "merk" => $request->merk,
-                "price" => $request->price,
-                "stock" => $stock,
-                "image_id" => $image->id,
-                "size_id" => $sizes->id,
-            ]);
-
-            return redirect('/admin/product/create')->with('success', 'Tambah Berhasil!');
-        } elseif ($image3 === NULL) {
-            $image1  = $request->file('image1');
-            $image2  = $request->file('image2');
-            $image3  = NULL;
-            $image4  = NULL;
-
-            $result1 = CloudinaryStorage::upload($image1->getRealPath(), $image1->getClientOriginalName());
-            $result2 = CloudinaryStorage::upload($image2->getRealPath(), $image2->getClientOriginalName());
-            $image = Image::create([
-                'img_dt_1' => $result1,
-                'img_dt_2' => $result2,
-                'img_dt_3' => $image3,
-                'img_dt_4' => $image4,
-            ]);
-
-            $sizes = Size::create([
-                'xs' => $request->xs ?? 0,
-                's' => $request->s ?? 0,
-                'm' => $request->m ?? 0,
-                'lg' => $request->lg ?? 0,
-                'xl' => $request->xl ?? 0,
-                'xxl' => $request->xxl ?? 0,
-            ]);
-
-            $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
-
-
-            Product::create([
-                "category_id" => $request->category_id,
-                "name" => $request->name,
-                "slug" => Str::slug($request->name),
-                "merk" => $request->merk,
-                "price" => $request->price,
-                "stock" => $stock,
-                "image_id" => $image->id,
-                "size_id" => $sizes->id,
-            ]);
-
-            return redirect('/admin/product')->withSuccess('success', 'Tambah Berhasil!');
-        } elseif ($image4 === NULL) {
-            $image1  = $request->file('image1');
-            $image2  = $request->file('image2');
-            $image3  = $request->file('image3');
-            $image4  = NULL;
-
-            $result1 = CloudinaryStorage::upload($image1->getRealPath(), $image1->getClientOriginalName());
-            $result2 = CloudinaryStorage::upload($image2->getRealPath(), $image2->getClientOriginalName());
-            $result3 = CloudinaryStorage::upload($image3->getRealPath(), $image3->getClientOriginalName());
-            $image = Image::create([
-                'img_dt_1' => $result1,
-                'img_dt_2' => $result2,
-                'img_dt_3' => $image3,
-                'img_dt_4' => $image4,
-            ]);
-
-            $sizes = Size::create([
-                'xs' => $request->xs ?? 0,
-                's' => $request->s ?? 0,
-                'm' => $request->m ?? 0,
-                'lg' => $request->lg ?? 0,
-                'xl' => $request->xl ?? 0,
-                'xxl' => $request->xxl ?? 0,
-            ]);
-
-            $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
-
-
-            Product::create([
-                "category_id" => $request->category_id,
-                "name" => $request->name,
-                "slug" => Str::slug($request->name),
-                "merk" => $request->merk,
-                "price" => $request->price,
-                "stock" => $stock,
-                "image_id" => $image->id,
-                "size_id" => $sizes->id,
-            ]);
-
-            return redirect('/admin/product/create')->with('success', 'Tambah Berhasil!');
-        } else {
-            $image1  = $request->file('image1');
-            $image2  = $request->file('image2');
-            $image3  = $request->file('image3');
-            $image4  = $request->file('image4');
-
-            $result1 = CloudinaryStorage::upload($image1->getRealPath(), $image1->getClientOriginalName());
-            $result2 = CloudinaryStorage::upload($image2->getRealPath(), $image2->getClientOriginalName());
-            $result3 = CloudinaryStorage::upload($image3->getRealPath(), $image3->getClientOriginalName());
-            $result4 = CloudinaryStorage::upload($image4->getRealPath(), $image4->getClientOriginalName());
-
-            $image = Image::create([
-                'img_dt_1' => $result1,
-                'img_dt_2' => $result2,
-                'img_dt_3' => $result3,
-                'img_dt_4' => $result4
-            ]);
-
-            $sizes = Size::create([
-                'xs' => $request->xs ?? 0,
-                's' => $request->s ?? 0,
-                'm' => $request->m ?? 0,
-                'lg' => $request->lg ?? 0,
-                'xl' => $request->xl ?? 0,
-                'xxl' => $request->xxl ?? 0,
-            ]);
-
-            $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
-
 
             $product = Product::create([
                 "category_id" => $request->category_id,
@@ -214,12 +77,196 @@ class AdminProductController extends Controller
                 "merk" => $request->merk,
                 "price" => $request->price,
                 "stock" => $stock,
-                "image_id" => $image->id,
+                "image_main" => $image_main,
                 "size_id" => $sizes->id,
             ]);
 
-            return redirect('/admin/product/create')->with('success', 'Tambah  !');
+            if ($request->hasFile('images')) {
+                $file = $request->file('images');
+                foreach ($file as $key => $file) {
+                    $images = Cloudinary::upload($file->getRealPath())->getSecurePath();
+                    // $reques['product_id'] = $product->id;
+                    // $request['image'] = $images;
+                    // Image::create($request->all());
+                    Image::create([
+                        'image' => $images,
+                        'product_id' => $product->id,
+                    ]);
+                }
+            }
+
+            return back()->with('success', 'Berhasil ditambah');
+
+
         }
+        // dd($request->all());
+
+        // $image1  = $request->file('image1');
+        // $image2  = $request->file('image2');
+        // $image3  = $request->file('image3');
+        // $image4  = $request->file('image4');
+
+
+        // if ($image2 === NULL) {
+        //     $image1  = $request->file('image1');
+        //     $image2  = NULL;
+        //     $image3  = NULL;
+        //     $image4  = NULL;
+
+        //     $result = CloudinaryStorage::upload($image1->getRealPath(), $image1->getClientOriginalName());
+        //     $image = Image::create([
+        //         'img_dt_1' => $result,
+        //         'img_dt_2' => $image2,
+        //         'img_dt_3' => $image3,
+        //         'img_dt_4' => $image4,
+        //     ]);
+
+        //     $sizes = Size::create([
+        //         'xs' => $request->xs ?? 0,
+        //         's' => $request->s ?? 0,
+        //         'm' => $request->m ?? 0,
+        //         'lg' => $request->lg ?? 0,
+        //         'xl' => $request->xl ?? 0,
+        //         'xxl' => $request->xxl ?? 0,
+        //     ]);
+
+        //     $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
+
+
+        //     Product::create([
+        //         "category_id" => $request->category_id,
+        //         "name" => $request->name,
+        //         "slug" => Str::slug($request->name),
+        //         "merk" => $request->merk,
+        //         "price" => $request->price,
+        //         "stock" => $stock,
+        //         "image_id" => $image->id,
+        //         "size_id" => $sizes->id,
+        //     ]);
+
+        //     return redirect('/admin/product/create')->with('success', 'Tambah Berhasil!');
+        // } elseif ($image3 === NULL) {
+        //     $image1  = $request->file('image1');
+        //     $image2  = $request->file('image2');
+        //     $image3  = NULL;
+        //     $image4  = NULL;
+
+        //     $result1 = CloudinaryStorage::upload($image1->getRealPath(), $image1->getClientOriginalName());
+        //     $result2 = CloudinaryStorage::upload($image2->getRealPath(), $image2->getClientOriginalName());
+        //     $image = Image::create([
+        //         'img_dt_1' => $result1,
+        //         'img_dt_2' => $result2,
+        //         'img_dt_3' => $image3,
+        //         'img_dt_4' => $image4,
+        //     ]);
+
+        //     $sizes = Size::create([
+        //         'xs' => $request->xs ?? 0,
+        //         's' => $request->s ?? 0,
+        //         'm' => $request->m ?? 0,
+        //         'lg' => $request->lg ?? 0,
+        //         'xl' => $request->xl ?? 0,
+        //         'xxl' => $request->xxl ?? 0,
+        //     ]);
+
+        //     $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
+
+
+        //     Product::create([
+        //         "category_id" => $request->category_id,
+        //         "name" => $request->name,
+        //         "slug" => Str::slug($request->name),
+        //         "merk" => $request->merk,
+        //         "price" => $request->price,
+        //         "stock" => $stock,
+        //         "image_id" => $image->id,
+        //         "size_id" => $sizes->id,
+        //     ]);
+
+        //     return redirect('/admin/product')->withSuccess('success', 'Tambah Berhasil!');
+        // } elseif ($image4 === NULL) {
+        //     $image1  = $request->file('image1');
+        //     $image2  = $request->file('image2');
+        //     $image3  = $request->file('image3');
+        //     $image4  = NULL;
+
+        //     $result1 = CloudinaryStorage::upload($image1->getRealPath(), $image1->getClientOriginalName());
+        //     $result2 = CloudinaryStorage::upload($image2->getRealPath(), $image2->getClientOriginalName());
+        //     $result3 = CloudinaryStorage::upload($image3->getRealPath(), $image3->getClientOriginalName());
+        //     $image = Image::create([
+        //         'img_dt_1' => $result1,
+        //         'img_dt_2' => $result2,
+        //         'img_dt_3' => $image3,
+        //         'img_dt_4' => $image4,
+        //     ]);
+
+        //     $sizes = Size::create([
+        //         'xs' => $request->xs ?? 0,
+        //         's' => $request->s ?? 0,
+        //         'm' => $request->m ?? 0,
+        //         'lg' => $request->lg ?? 0,
+        //         'xl' => $request->xl ?? 0,
+        //         'xxl' => $request->xxl ?? 0,
+        //     ]);
+
+        //     $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
+
+
+        //     Product::create([
+        //         "category_id" => $request->category_id,
+        //         "name" => $request->name,
+        //         "slug" => Str::slug($request->name),
+        //         "merk" => $request->merk,
+        //         "price" => $request->price,
+        //         "stock" => $stock,
+        //         "image_id" => $image->id,
+        //         "size_id" => $sizes->id,
+        //     ]);
+
+        //     return redirect('/admin/product/create')->with('success', 'Tambah Berhasil!');
+        // } else {
+        //     $image1  = $request->file('image1');
+        //     $image2  = $request->file('image2');
+        //     $image3  = $request->file('image3');
+        //     $image4  = $request->file('image4');
+
+        //     $result1 = CloudinaryStorage::upload($image1->getRealPath(), $image1->getClientOriginalName());
+        //     $result2 = CloudinaryStorage::upload($image2->getRealPath(), $image2->getClientOriginalName());
+        //     $result3 = CloudinaryStorage::upload($image3->getRealPath(), $image3->getClientOriginalName());
+        //     $result4 = CloudinaryStorage::upload($image4->getRealPath(), $image4->getClientOriginalName());
+
+        //     $image = Image::create([
+        //         'img_dt_1' => $result1,
+        //         'img_dt_2' => $result2,
+        //         'img_dt_3' => $result3,
+        //         'img_dt_4' => $result4
+        //     ]);
+
+        //     $sizes = Size::create([
+        //         'xs' => $request->xs ?? 0,
+        //         's' => $request->s ?? 0,
+        //         'm' => $request->m ?? 0,
+        //         'lg' => $request->lg ?? 0,
+        //         'xl' => $request->xl ?? 0,
+        //         'xxl' => $request->xxl ?? 0,
+        //     ]);
+
+        //     $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
+
+
+        //     $product = Product::create([
+        //         "category_id" => $request->category_id,
+        //         "name" => $request->name,
+        //         "slug" => Str::slug($request->name),
+        //         "merk" => $request->merk,
+        //         "price" => $request->price,
+        //         "stock" => $stock,
+        //         "image_id" => $image->id,
+        //         "size_id" => $sizes->id,
+        //     ]);
+
+        //     return redirect('/admin/product/create')->with('success', 'Tambah  !');
+        // }
     }
 
     /**
@@ -230,14 +277,14 @@ class AdminProductController extends Controller
      */
     public function show(Product $id)
     {
-        $image = Product::join('images', 'images.id', '=', 'products.image_id')->get();
-        $size = Product::join('sizes', 'sizes.id', '=', 'products.size_id')->get();
-        return view('admin.pages.product.product-detail', [
-            "title" => "Detail",
-            "products" => Product::find($id),
-            "image" => $image,
-            "size" => $size
-        ]);
+        // $image = Product::join('images', 'images.id', '=', 'products.image_id')->get();
+        // $size = Product::join('sizes', 'sizes.id', '=', 'products.size_id')->get();
+        // return view('admin.pages.product.product-detail', [
+        //     "title" => "Detail",
+        //     "products" => Product::find($id),
+        //     "image" => $image,
+        //     "size" => $size
+        // ]);
     }
 
     // public function detail(Product $product)
@@ -269,45 +316,45 @@ class AdminProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $image1 = $request->image1;
-        $image2 = $request->image2;
-        $image3 = $request->image3;
-        $image4 = $request->image4;
+        // $image1 = $request->image1;
+        // $image2 = $request->image2;
+        // $image3 = $request->image3;
+        // $image4 = $request->image4;
 
-        $product = Product::find($id);
-        $image_id = $product->image_id;
-        $image = Image::find($image_id);
+        // $product = Product::find($id);
+        // $image_id = $product->image_id;
+        // $image = Image::find($image_id);
 
-        $img1 = $image->img_dt_1;
-        $img2 = $image->img_dt_2;
-        $img3 = $image->img_dt_3;
-        $img4 = $image->img_dt_4;
+        // $img1 = $image->img_dt_1;
+        // $img2 = $image->img_dt_2;
+        // $img3 = $image->img_dt_3;
+        // $img4 = $image->img_dt_4;
 
-        if ($image1 !== $img1) {
-            echo $img1;
-        } elseif ($image2 !== $img2) {
-            echo $img2;
-        } elseif ($image3 !== $img3) {
-            echo $img3;
-        } elseif ($image4 !== $img4) {
-            echo $img4;
-        } else {
-            CloudinaryStorage::delete($img1);
-            $file1 = request()->file('image1');
-            $file1 = CloudinaryStorage::upload($file1->getRealPath(), $file1->getClientOriginalName());
+        // if ($image1 !== $img1) {
+        //     echo $img1;
+        // } elseif ($image2 !== $img2) {
+        //     echo $img2;
+        // } elseif ($image3 !== $img3) {
+        //     echo $img3;
+        // } elseif ($image4 !== $img4) {
+        //     echo $img4;
+        // } else {
+        //     CloudinaryStorage::delete($img1);
+        //     $file1 = request()->file('image1');
+        //     $file1 = CloudinaryStorage::upload($file1->getRealPath(), $file1->getClientOriginalName());
 
-            CloudinaryStorage::delete($img2);
-            $file2 = request()->file('image2');
-            $file1 = CloudinaryStorage::upload($file2->getRealPath(), $file2->getClientOriginalName());
+        //     CloudinaryStorage::delete($img2);
+        //     $file2 = request()->file('image2');
+        //     $file1 = CloudinaryStorage::upload($file2->getRealPath(), $file2->getClientOriginalName());
 
-            CloudinaryStorage::delete($img3);
-            $file3 = request()->file('image3');
-            $file3 = CloudinaryStorage::upload($file3->getRealPath(), $file3->getClientOriginalName());
+        //     CloudinaryStorage::delete($img3);
+        //     $file3 = request()->file('image3');
+        //     $file3 = CloudinaryStorage::upload($file3->getRealPath(), $file3->getClientOriginalName());
 
-            CloudinaryStorage::delete($img4);
-            $file4 = request()->file('image4');
-            $file4 = CloudinaryStorage::upload($file4->getRealPath(), $file4->getClientOriginalName());
-        }
+        //     CloudinaryStorage::delete($img4);
+        //     $file4 = request()->file('image4');
+        //     $file4 = CloudinaryStorage::upload($file4->getRealPath(), $file4->getClientOriginalName());
+        // }
     }
 
     /**
@@ -319,75 +366,115 @@ class AdminProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
-        $image_id = $product->image_id;
 
-        $image = Image::where('id', $image_id)->get();
+        $images = Image::where("product_id", $product->id)->get();
+        CloudinaryStorage::delete($images->image);
 
-        foreach (Image::where($image_id) as $image) {
-            echo $image->img_dt_1;
-            echo $image->img_dt_2;
-            echo $image->img_dt_3;
-            echo $image->img_dt_4;
-        }
+        $image_main = Product::where('image_main', $product->image_main);
+        CloudinaryStorage::delete($image_main);        
+
+        $sizes = Size::where('id', $product->size_id);
+        Size::destroy($sizes);
+
+        Product::destroy($id);
+        return back();
+
+        // $product = Product::find($id);
+        // $image_id = $product->image_id;
+
+        // $image = Image::find($image_id);        
+
+        // foreach (Image::where($image_id) as $image) {
+        //     echo $image->img_dt_1;
+        //     echo $image->img_dt_2;
+        //     echo $image->img_dt_3;
+        //     echo $image->img_dt_4;
+        // }
+
+        // $product = Product::find($id);
+        // $image_id = $product->image_id;
+        // $image = Image::find($image_id);
+
+        // // dd($image);
+        // CloudinaryStorage::delete($image->img_dt_1);
+        
+        // if ($image->img_dt_2) {
+        //     CloudinaryStorage::delete($image->img_dt_2);    
+        // }
+
+        // if ($image->img_dt_3) {
+        //     CloudinaryStorage::delete($image->img_dt_3);
+        // }
+
+        // if ($image->img_dt_4) {
+        //     CloudinaryStorage::delete($image->img_dt_4);
+        // }
+
+        // $size_id = $product->size_id;
+        // $size = Size::find($size_id);
+        // Size::destroy($size);
+        
+        // Product::destroy($id);        
+        // return back();
 
         // dd($image);
         // dd($image->img_dt_1, $image->img_dt_2, $image->img_dt_3, $image->img_dt_4);
-        if ($image->img_dt_1) {
-            $product = Product::find($id);
-            $image_id = $product->image_id;
-            $image = Image::where('id', $image_id)->get();
+        // if ($image->img_dt_1) {
+        //     $product = Product::find($id);
+        //     $image_id = $product->image_id;
+        //     $image = Image::where('id', $image_id)->get();
 
-            CloudinaryStorage::delete($image->img_dt_1);
-            Image::destroy($image_id);
+        //     Cloudinary::destroy($image->img_dt_1);
+        //     Image::destroy($image_id);
 
-            $size_id = $product->size_id;
-            Size::where($size_id)->delete();
-            Product::where($id)->delete();
-            return back();
-        } elseif ($image->img_dt_2) {
-            $product = Product::find($id);
-            $image_id = $product->image_id;
-            $image = Image::where('id', $image_id)->get();
+        //     $size_id = $product->size_id;
+        //     Size::where($size_id)->delete();
+        //     Product::where($id)->delete();
+        //     return back();
+        // } elseif ($image->img_dt_2) {
+        //     $product = Product::find($id);
+        //     $image_id = $product->image_id;
+        //     $image = Image::where('id', $image_id)->get();
 
-            CloudinaryStorage::delete($image->img_dt_2);
-            Image::destroy($image_id);
+        //     Cloudinary::destroy($image->img_dt_2);
+        //     Image::destroy($image_id);
 
-            $size_id = $product->size_id;
-            Size::where($size_id)->delete();
-            Product::where($id)->delete();
-            return back();
-        } elseif ($image->img_dt_3) {
-            $product = Product::find($id);
-            $image_id = $product->image_id;
-            $image = Image::where('id', $image_id)->get();
+        //     $size_id = $product->size_id;
+        //     Size::where($size_id)->delete();
+        //     Product::where($id)->delete();
+        //     return back();
+        // } elseif ($image->img_dt_3) {
+        //     $product = Product::find($id);
+        //     $image_id = $product->image_id;
+        //     $image = Image::where('id', $image_id)->get();
 
-            CloudinaryStorage::delete($image->img_dt_3);
-            Image::destroy($image_id);
+        //     Cloudinary::destroy($image->img_dt_3);
+        //     Image::destroy($image_id);
 
-            $size_id = $product->size_id;
-            Size::where($size_id)->delete();
-            Product::where($id)->delete();
-            return back();
-        } elseif ($image->img_dt_4) {
-            $product = Product::find($id);
-            $image_id = $product->image_id;
-            $image = Image::where('id', $image_id)->get();
+        //     $size_id = $product->size_id;
+        //     Size::where($size_id)->delete();
+        //     Product::where($id)->delete();
+        //     return back();
+        // } elseif ($image->img_dt_4) {
+        //     $product = Product::find($id);
+        //     $image_id = $product->image_id;
+        //     $image = Image::where('id', $image_id)->get();
 
-            CloudinaryStorage::delete($image->img_dt_4);
-            Image::destroy($image_id);
+        //     Cloudinary::destroy($image->img_dt_4);
+        //     Image::destroy($image_id);
 
-            $size_id = $product->size_id;
-            Size::where($size_id)->delete();
-            Product::where($id)->delete();
-            return back();
-        } else {
-            CloudinaryStorage::delete($image);
-            Image::destroy($image_id);
+        //     $size_id = $product->size_id;
+        //     Size::where($size_id)->delete();
+        //     Product::where($id)->delete();
+        //     return back();
+        // } else {
+        //     Cloudinary::destroy($image);
+        //     Image::destroy($image_id);
 
-            $size_id = $product->size_id;
-            Size::where($size_id)->delete();
-            Product::where($id)->delete();
-            return back();
-        }
+        //     $size_id = $product->size_id;
+        //     Size::where($size_id)->delete();
+        //     Product::where($id)->delete();
+        //     return back();
+        // }
     }
 }

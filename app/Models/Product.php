@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use App\Models\Image;
 
 class Product extends Model
 {
@@ -62,7 +63,7 @@ class Product extends Model
 
     public function image()
     {
-        return $this->belongsTo(Image::class);
+        return $this->hasMany(Image::class);        
     }
 
     public function sluggable(): array

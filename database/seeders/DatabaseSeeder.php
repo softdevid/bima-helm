@@ -77,9 +77,11 @@ class DatabaseSeeder extends Seeder
             "slug" => "fullface-kyt-rc-seven-14-yellow-fluo",
             "merk_id" => 1,
             "price" => "420000",
+            "weight" => "2000",
+            "weight" => "2000",
             "size_id" => 1,
             "sold" => 3,
-            'image_id' => 1,
+            'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
@@ -89,9 +91,11 @@ class DatabaseSeeder extends Seeder
             "slug" => "fullface-ink-cl-max-whiteyellow-fluo",
             "merk_id" => 2,
             "price" => "469000",
+            "weight" => "2000",
+            "weight" => "2000",
             "size_id" => 2,
             "sold" => 2,
-            'image_id' => 2,
+            'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
@@ -101,9 +105,10 @@ class DatabaseSeeder extends Seeder
             "slug" => "fullface-kyt-c5-ianone-white",
             "merk_id" => 1,
             "price" => "2100000",
+            "weight" => "2000",
             "size_id" => 3,
             "sold" => 2,
-            'image_id' => 3,
+            'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
@@ -113,9 +118,10 @@ class DatabaseSeeder extends Seeder
             "slug" => "halfface-kyt-djmaru-5-black-red-maroon",
             "merk_id" => 1,
             "price" => "350000",
+            "weight" => "2000",
             "size_id" => 4,
             "sold" => 1,
-            'image_id' => 4,
+            'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
@@ -125,9 +131,10 @@ class DatabaseSeeder extends Seeder
             "slug" => "fullface-kyt-rc-seven-17-black-doft-gold",
             "merk_id" => 1,
             "price" => "420000",
+            "weight" => "2000",
             "size_id" => 5,
             "sold" => 4,
-            'image_id' => 5,
+            'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
@@ -137,9 +144,10 @@ class DatabaseSeeder extends Seeder
             "slug" => "kyt-tt-course-plain-matt-black",
             "merk_id" => 1,
             "price" => "1700000",
+            "weight" => "2000",
             "size_id" => 6,
             "sold" => 5,
-            'image_id' => 6,
+            'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
@@ -149,10 +157,11 @@ class DatabaseSeeder extends Seeder
             "slug" => "spoiler-helm-kyt-k2r",
             "merk_id" => null,
             "price" => "70000",
+            "weight" => "2000",
             "size_id" => null,
             "stock" => 20,
             "sold" => 1121,
-            'image_id' => 7,
+            'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
@@ -162,10 +171,11 @@ class DatabaseSeeder extends Seeder
             "slug" => "busa-fullset-helm-ink-cx-22",
             "merk_id" => 2,
             "price" => "50000",
+            "weight" => "2000",
             "size_id" => null,
             "stock" => 5,
             "sold" => 6,
-            'image_id' => 8,
+            'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 

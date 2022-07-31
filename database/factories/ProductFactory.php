@@ -26,8 +26,8 @@ class ProductFactory extends Factory
             "price" => $this->faker->randomNumber(6, true),
             "size_id" => self::$size,
             "sold" => mt_rand(1, 5),
-            'image_id' => self::$img++,
-            // "image_main" => (($merk === 'KYT') ? "kyt-tt-course-plain-mat-black" : "INK-CL-MAX-WHITE-YELLOW-FLUO") . ".jpeg"
+            // 'image_id' => self::$img++,
+            "image_main" => (($merk === 'KYT') ? "kyt-tt-course-plain-mat-black" : "INK-CL-MAX-WHITE-YELLOW-FLUO") . ".jpeg"
         ];
     }
 }
