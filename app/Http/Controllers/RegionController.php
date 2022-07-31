@@ -25,4 +25,9 @@ class RegionController extends Controller
     {
         return \Indonesia::findDistrict($request->id, ['villages'])->villages->pluck('name', 'id');
     }
+
+    public function postalCode(Request $request)
+    {
+        return \Indonesia::findVillage($request->id, null)->meta['pos'];
+    }
 }

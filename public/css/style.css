@@ -156,6 +156,10 @@
     min-height: 460px;
 }
 
+.total-harga {
+    padding-left: 65%;
+}
+
 /* .img-logo {
     width: 100px;
     height: 100px;

@@ -3,9 +3,9 @@
 @include('partials.breadcrumbs')
 
 @php
-    $desa = Indonesia::findVillage(auth()->user()->address->village, $with = ['district.city.province'])
+    $village = Indonesia::findVillage(auth()->user()->address->village, ['district.city.province']);
 @endphp
-@dd($desa->meta['pos'])
+
 <!--====== Checkout Form Steps Part Start ======-->
 <section class="checkout-wrapper section">
     <div class="container">
@@ -35,19 +35,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="single-form form-default">
                                             <label>Alamat</label>
                                             <div class="form-input form">
-                                                <textarea name="address" id="address" cols="30" rows="10" class="form-control" type="text" required style="height: 100px;">{{ auth()->user()->address->address }}</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="single-form form-default">
-                                            <label>Kode Pos</label>
-                                            <div class="form-input form">
-                                                <input type="text" placeholder="Kode Pos" value="{{ auth()->user()->address->postalCode }}">
+                                                <textarea name="address" id="address" cols="30" rows="10" class="form-control" type="text" required style="height: 100px;"
+                                                >{{ auth()->user()->address->address .', '. $village->name .', '. $village->district->name .', '. $village->district->city->name .', '. $village->district->city->province->name .' | '. auth()->user()->address->postalCode}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -130,34 +123,38 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="table-responsive text-nowrap">
-                                            <table class="table table-striped table-light text-center">
-                                              <thead class="bg-light">
+                                            <table class="table table-striped bg-white">
+                                              <thead class="table-light">
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Nama</th>
                                                     <th>Jumlah</th>
+                                                    <th>Ukuran</th>
                                                     <th>Harga</th>
                                                 </tr>
                                               </thead>
                                               <tbody>
+                                                @foreach (Cart::instance('cart')->content() as $cartItem)
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>KYT C5 IANONE WHITE</td>
-                                                    <td>1</td>
-                                                    <td>Rp.1.700.000</td>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $cartItem->name }}</td>
+                                                    <td>{{ $cartItem->qty }}</td>
+                                                    <td>{{ $cartItem->options->size ?? '' }}</td>
+                                                    <td>{{ number_format($cartItem->subtotal,0,',','.') }}</td>
                                                 </tr>
+                                                @endforeach
                                               </tbody>
                                               <tfoot>
                                                 <tr>
-                                                    <td colspan="3" class="text-end">Sub-Total</td>
-                                                    <td>Rp.1.700.000</td>
+                                                    <td colspan="4" class="text-end">Sub-Total</td>
+                                                    <td>{{ Cart::instance('cart')->subtotal('0',',','.') }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="3" class="text-end">JNT Express</td>
+                                                    <td colspan="4" class="text-end">JNT Express</td>
                                                     <td>Rp.32.000</td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="3" class="text-end">Total</td>
+                                                    <td colspan="4" class="text-end">Total</td>
                                                     <td>Rp.1.700.000</td>
                                                 </tr>
                                               </tfoot>

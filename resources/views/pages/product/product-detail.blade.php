@@ -27,15 +27,18 @@
                         <p class="category"><i class="lni lni-tag"></i>{{ $product->category->name }}</p>
                         <h3 class="price">Rp{{ number_format($product->price,0,',','.') }}</h3>
                         <p class="info-text">Stok total: <span>{{ $product->stock }}</span> <br>
+                            @if ($product->size_id != null)
                             XS:<span id="xs">{{ $product->size->xs }}</span> |
                             S:<span id="s">{{ $product->size->s }}</span> |
                             M:<span id="m">{{ $product->size->m }}</span> |
                             L:<span id="l">{{ $product->size->lg }}</span> |
                             XL:<span id="xl">{{ $product->size->xl }}</span> |
                             XXL:<span id="xxl">{{ $product->size->xxl }}</span>
+                            @endif
                         </p>
                         @auth
                         <div class="row">
+                            @if ($product->size_id != null)
                             <div class="col-5 col-sm-6 col-md-3 col-lg-4">
                                 <div class="form-group">
                                     <label for="size">Pilih Ukuran</label>
@@ -53,6 +56,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
                             <div class="col-7 col-sm-6 col-md-4 col-lg-5">
                                 <div class="d-block quantity">
                                     <label for="quantity">Kuantitas</label>
