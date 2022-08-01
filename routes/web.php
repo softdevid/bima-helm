@@ -116,4 +116,4 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     });
 });
 
-Route::get('/my-account', [AccountController::class, 'index']);
+Route::resource('my-account', AccountController::class);

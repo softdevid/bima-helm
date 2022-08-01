@@ -45,6 +45,7 @@ class MerkController extends Controller
             'name' => $request->name,
             'slug' => Str::slug($request->name),
         ]);
+        return back();
     }
 
     /**
