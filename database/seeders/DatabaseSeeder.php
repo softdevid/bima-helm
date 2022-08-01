@@ -82,6 +82,7 @@ class DatabaseSeeder extends Seeder
             "size_id" => 1,
             "sold" => 3,
             'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
+            "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1659326183/products/jntsanfausuhcfncpiuo.png",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
@@ -96,6 +97,7 @@ class DatabaseSeeder extends Seeder
             "size_id" => 2,
             "sold" => 2,
             'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
+            "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1659326183/products/jntsanfausuhcfncpiuo.png",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
@@ -109,6 +111,7 @@ class DatabaseSeeder extends Seeder
             "size_id" => 3,
             "sold" => 2,
             'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
+            "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1659326183/products/jntsanfausuhcfncpiuo.png",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
@@ -122,6 +125,7 @@ class DatabaseSeeder extends Seeder
             "size_id" => 4,
             "sold" => 1,
             'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
+            "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1659326183/products/jntsanfausuhcfncpiuo.png",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
@@ -135,6 +139,7 @@ class DatabaseSeeder extends Seeder
             "size_id" => 5,
             "sold" => 4,
             'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
+            "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1659326183/products/jntsanfausuhcfncpiuo.png",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
@@ -148,6 +153,7 @@ class DatabaseSeeder extends Seeder
             "size_id" => 6,
             "sold" => 5,
             'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
+            "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1659326183/products/jntsanfausuhcfncpiuo.png",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
@@ -162,6 +168,7 @@ class DatabaseSeeder extends Seeder
             "stock" => 20,
             "sold" => 1121,
             'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
+            "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1659326183/products/jntsanfausuhcfncpiuo.png",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
@@ -176,6 +183,7 @@ class DatabaseSeeder extends Seeder
             "stock" => 5,
             "sold" => 6,
             'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
+            "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1659326183/products/jntsanfausuhcfncpiuo.png",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 

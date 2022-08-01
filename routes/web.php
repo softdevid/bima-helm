@@ -80,7 +80,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
     //rout admin product
 
-    Route::resource('admin-product', AdminProductController::class);
+    Route::resource('admin-product', AdminProductController::class);    
     // Route::get('/admin/product', [AdminProductController::class, 'index']);
     // Route::get('/admin/product/create', [AdminProductController::class, 'create']);
     // Route::post('/admin/product/store', [AdminProductController::class, 'store']);

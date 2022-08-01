@@ -65,7 +65,7 @@
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ $title === 'Produk' ? 'active text-white fade-in' : '' }}" href="/admin/product">
+                <a class="nav-link {{ $title === 'Produk' ? 'active text-white fade-in' : '' }}" href="{{ route('admin-product.index') }}">
                     <i class="fa-duotone fa-cubes {{ $title === 'Produk' ? 'active text-white fade-in' : '' }}"></i>
                     <span>Produk</span></a>
             </li>

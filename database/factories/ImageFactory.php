@@ -19,6 +19,7 @@ class ImageFactory extends Factory
         return [
             "image" => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
             'product_id' => 1,
+            'url' => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1659326183/products/jntsanfausuhcfncpiuo.png",
             // "img_dt_1" => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
             // "img_dt_2" => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
             // "img_dt_3" => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",

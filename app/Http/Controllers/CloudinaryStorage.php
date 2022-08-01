@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class CloudinaryStorage extends Controller
 {
@@ -14,7 +15,8 @@ class CloudinaryStorage extends Controller
     }
 
     public static function upload($image, $filename)
-    {
+    {        
+        
         $newFilename = str_replace(' ', '_', $filename);
         $public_id = date('Y-m-d_His') . '_' . $newFilename;
         $result = cloudinary()->upload($image, [
