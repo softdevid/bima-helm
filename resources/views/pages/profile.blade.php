@@ -250,27 +250,49 @@
                     <div class="container">
                         <h3 class="fw-bold mb-3">Ubah Profil</h3>
                         <form action="">
+                            @method("put")
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" value="{{ auth()->user()->frontName }}"
-                                            placeholder="Nama Depan" required>
-                                        <label for="">Nama Depan</label>
+                                        <input type="text" id="frontName" name="frontName"
+                                            class="form-control @error('frontName') is-invalid @enderror"
+                                            value="{{ old('frontName',  auth()->user()->frontName) }}"
+                                            placeholder="Nama Depan" required autofocus>
+                                        <label for="frontName" class="form-label">Nama Depan</label>
+                                        @error('frontName')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" value="{{ auth()->user()->lastName }}"
-                                            placeholder="Nama Belakang" required>
-                                        <label for="">Nama Belakang</label>
+                                        <input type="text" id="lastName" name="lastName"
+                                            class="form-control @error('lastName') is-invalid @enderror"
+                                            value="{{ old('lastName', auth()->user()->lastName)}}"
+                                            placeholder="Nama Belakang" required autofocus>
+                                        <label for="lastName" class="form-label">Nama Belakang</label>
+                                        @error('lastName')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" value="{{ auth()->user()->noTelp }}"
-                                            placeholder="No Telp" required>
-                                        <label for="">No Telp</label>
+                                        <input type="text" id="noTelp" name="noTelp"
+                                            class="form-control @error('noTelp') is-invalid @enderror"
+                                            value="{{ old('noTelp', auth()->user()->noTelp)}}" placeholder="No Telp"
+                                            required autofocus>
+                                        <label for="noTelp" class="form-label">No Telp</label>
+                                        @error('noTelp')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-12 mb-3">
