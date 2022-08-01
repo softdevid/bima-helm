@@ -140,18 +140,13 @@
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="size" class="col-sm-2 col-form-label mt-4">Gambar lain</label>        
-            <div class="col-sm-10">                
-                <!-- <input type="file" name="image1" class="myfrm form-control">
-                <input type="file" name="image2" class="myfrm form-control">
-                <input type="file" name="image3" class="myfrm form-control">  -->               
-
-
-                    <div class="input-group hdtuto control-group lst increment col-sm-4">
+            <label for="size" class="col-sm-2 col-form-label">Gambar lain</label>        
+            <div class="col-sm-10">                                
+                    <div class="input-group hdtuto control-group lst increment">
                       <input type="file" name="filenames[]" class="myfrm form-control">                      
                         <button class="btn btn-success" type="button">Tambah Gambar</button>
                     </div>                
-                    <div class="clone hide col">
+                    <div class="clone hide" style="display: none;">
                       <div class="hdtuto control-group lst input-group" style="margin-top:10px">
                         <input type="file" name="images[]" class="myfrm form-control">
                         <div class="input-group-btn"> 
@@ -166,7 +161,7 @@
         <div class="mb-5 mt-3 row">
             {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
             <button type="submit" class="btn btn-primary">Simpan</button>
-            <a href="/admin/product" class="btn btn-danger" style="margin-left: 5px;"><i
+            <a href="{{ route('admin-product.index') }}" class="btn btn-danger" style="margin-left: 5px;"><i
                     class="fa-solid fa-angles-left"></i> List Produk</a>
         </div>
     </form>
@@ -207,25 +202,24 @@
         });
     </script>    
 
+
     <script type="text/javascript">
+        $(document).ready(function() {
+          $(".btn-success").click(function(){ 
 
-    $(document).ready(function() {
+              var lsthmtl = $(".clone").html();
 
-      $(".btn-success").click(function(){ 
+              $(".increment").after(lsthmtl);
+              arr.splice(4,1);
+          });
 
-          var lsthmtl = $(".clone").html();
+          $("body").on("click",".btn-danger",function(){ 
 
-          $(".increment").after(lsthmtl);
+              $(this).parents(".hdtuto").remove();
 
-      });
+          });
 
-      $("body").on("click",".btn-danger",function(){ 
+        });
+    </script>
 
-          $(this).parents(".hdtuto").remove();
-
-      });
-
-    });
-
-</script>
 @endsection
