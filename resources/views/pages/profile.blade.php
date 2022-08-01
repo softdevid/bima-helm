@@ -250,28 +250,33 @@
                     <div class="container">
                         <h3 class="fw-bold mb-3">Ubah Profil</h3>
                         <form action="">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" placeholder="Nama Depan" required>
+                                        <input type="text" class="form-control" value="{{ auth()->user()->frontName }}"
+                                            placeholder="Nama Depan" required>
                                         <label for="">Nama Depan</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" placeholder="Nama Belakang" required>
+                                        <input type="text" class="form-control" value="{{ auth()->user()->lastName }}"
+                                            placeholder="Nama Belakang" required>
                                         <label for="">Nama Belakang</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" placeholder="No Telp" required>
+                                        <input type="text" class="form-control" value="{{ auth()->user()->noTelp }}"
+                                            placeholder="No Telp" required>
                                         <label for="">No Telp</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" placeholder="Email" required>
+                                        <input type="email" class="form-control" value="{{ auth()->user()->email }}"
+                                            placeholder="Email" required>
                                         <label for="">Email</label>
                                     </div>
                                 </div>
