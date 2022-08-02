@@ -8,10 +8,10 @@
                         <div class="row align-items-center">
                             <div class="col-12">
                                 <div class="product-image">
-                                    <img src="/img/{{ $product->image->image_main }}" alt="#" class="img-thumbnail">
+                                    <img src="/img/{{ $product->image_main }}" alt="#" class="img-thumbnail">
                                     <div class="button">
-                                        <a href="/cart" class="btn btn-primary">
-                                            <i class="fa-regular fa-cart-shopping"></i></i>Tambah ke keranjang
+                                        <a href="/fav-add" class="btn btn-primary">
+                                            <i class="fa-regular fa-heart"></i>Tambah ke favorit
                                         </a>
                                     </div>
                                 </div>

@@ -10,13 +10,13 @@
                     <div class="product-images">
                         <main id="gallery">
                             <div class="main-img">
-                                <img src="/img/{{ $product->image->image_main }}" id="current" alt="#">
+                                <img src="/img/{{ $product->image_main }}" id="current" alt="#">
                             </div>
                             <div class="images">
-                                <img src="/img/{{ $product->image->image_main }}" class="img" alt="#">
-                                <img src="/img/{{ $product->image->image_main }}" class="img" alt="#">
-                                <img src="/img/{{ $product->image->image_main }}" class="img" alt="#">
-                                <img src="/img/{{ $product->image->image_main }}" class="img" alt="#">
+                                <img src="/img/{{ $product->image_main }}" class="img" alt="#">
+                                <img src="/img/{{ $product->image_main }}" class="img" alt="#">
+                                <img src="/img/{{ $product->image_main }}" class="img" alt="#">
+                                <img src="/img/{{ $product->image_main }}" class="img" alt="#">
                             </div>
                         </main>
                     </div>
@@ -76,7 +76,7 @@
                             <div class="row align-items-end">
                                 <div class="col-lg-2 col-md-4 col-2">
                                     <div class="button cart-button">
-                                        <button class="btn btn-outline-primary" id="btnCart" style="width: 100%;" onclick="btnCart({{ $product->id }}, '{{ $product->name }}', {{ $product->price }}, '{{ $product->image->image_main }}')">
+                                        <button class="btn btn-outline-primary" id="btnCart" style="width: 100%;" onclick="btnCart({{ $product->id }}, '{{ $product->name }}', {{ $product->price }}, {{ $product->weight }}, '{{ $product->image_main }}')">
                                             <i class="fa-regular fa-cart-plus"></i>
                                         </button>
                                     </div>

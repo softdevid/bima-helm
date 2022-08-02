@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Cart;
 use App\Models\Size;
 use App\Models\User;
 use App\Models\Image;
@@ -78,7 +77,6 @@ class DatabaseSeeder extends Seeder
             "merk_id" => 1,
             "price" => "420000",
             "weight" => "2000",
-            "weight" => "2000",
             "size_id" => 1,
             "sold" => 3,
             'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
@@ -92,7 +90,6 @@ class DatabaseSeeder extends Seeder
             "slug" => "fullface-ink-cl-max-whiteyellow-fluo",
             "merk_id" => 2,
             "price" => "469000",
-            "weight" => "2000",
             "weight" => "2000",
             "size_id" => 2,
             "sold" => 2,
@@ -163,7 +160,7 @@ class DatabaseSeeder extends Seeder
             "slug" => "spoiler-helm-kyt-k2r",
             "merk_id" => null,
             "price" => "70000",
-            "weight" => "2000",
+            "weight" => "100",
             "size_id" => null,
             "stock" => 20,
             "sold" => 1121,
@@ -178,7 +175,7 @@ class DatabaseSeeder extends Seeder
             "slug" => "busa-fullset-helm-ink-cx-22",
             "merk_id" => 2,
             "price" => "50000",
-            "weight" => "2000",
+            "weight" => "500",
             "size_id" => null,
             "stock" => 5,
             "sold" => 6,
@@ -187,10 +184,10 @@ class DatabaseSeeder extends Seeder
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 
-        Product::factory(20)->create();
-        Image::factory(28)->create();
+        //Product::factory(20)->create();
+        Image::factory(8)->create();
 
-        Size::factory(26)->create();
+        Size::factory(6)->create();
         DB::update('UPDATE products p INNER JOIN (SELECT sizes.id, SUM(xs+s+m+lg+xl+xxl) as total FROM sizes GROUP BY sizes.id) s ON p.size_id = s.id SET p.stock = s.total');
         // 'SELECT size_id, total FROM products as p INNER JOIN (SELECT sizes.id, SUM(xs+s+m+lg+xl+xxl) as total FROM sizes GROUP BY sizes.id) s ON p.size_id = s.id'
     }

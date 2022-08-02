@@ -35,7 +35,7 @@ class CartNWishController extends Controller
                 'name' => $request->name,
                 'qty' => $request->qty,
                 'price' => $request->price,
-                'weight' => 0,
+                'weight' => $request->weight,
                 'options' => [
                     'size' => $request->size,
                     'img' => $request->img,

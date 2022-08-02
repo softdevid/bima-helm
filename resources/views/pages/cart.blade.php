@@ -24,8 +24,12 @@
 
                         @php
                             $product_id = Cart::instance('cart')->get($cartItem->rowId)->id;
-                            $size = Cart::instance('cart')->get($cartItem->rowId)->options->size;
-                            $max = App\Models\Product::without(['category'])->selectRaw('sizes.'.$size.' as size')->join('sizes', 'products.size_id', '=', 'sizes.id')->where('products.id', $product_id)->value('size');
+                            $size = Cart::instance('cart')->get($cartItem->rowId)->options->size ?? '';
+                            if($size != '') {
+                                $max = App\Models\Product::without(['category'])->selectRaw('sizes.'.$size.' as size')->join('sizes', 'products.size_id', '=', 'sizes.id')->where('products.id', $product_id)->value('size');
+                            } else {
+                                $max = App\Models\Product::without(['category'])->select('stock')->where('products.id', $product_id)->value('stock');
+                            }
                         @endphp
 
                         <tr>

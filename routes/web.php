@@ -9,6 +9,7 @@ use App\Http\Controllers\CartNWishController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\MerkController;
+use App\Models\Shipping;
 use Illuminate\Support\Facades\Route;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -60,12 +61,13 @@ Route::get(
 
 Route::get('/checkout', function () {
 
-    if(count(\Cart::instance('cart')->content()) == 0) {
+    if (count(\Cart::instance('cart')->content()) == 0) {
         return redirect('/products');
     }
 
     return view('pages.checkout', [
         'title' => 'Checkout',
+        'shippings' => Shipping::all(),
     ]);
 })->middleware('auth');
 
@@ -80,7 +82,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
     //rout admin product
 
-    Route::resource('admin-product', AdminProductController::class);    
+    Route::resource('admin-product', AdminProductController::class);
     // Route::get('/admin/product', [AdminProductController::class, 'index']);
     // Route::get('/admin/product/create', [AdminProductController::class, 'create']);
     // Route::post('/admin/product/store', [AdminProductController::class, 'store']);
@@ -117,3 +119,9 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 });
 
 Route::resource('my-account', AccountController::class);
+
+Route::get('/shipp', function () {
+    return view('test', [
+        'shipp' => Shipping::all(),
+    ]);
+});

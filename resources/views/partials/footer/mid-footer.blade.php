@@ -32,14 +32,8 @@
                     <div class="single-footer icons">
                         <h3>Metode Pembayaran</h3>
                         <ul>
-                            <li><a href="javascript:void(0)">
-                                    <img src="/img/icons/bca.png"
-                                        style="object-fit: cover;width: 100%; max-height: 25px" alt="">
-                                </a></li>
-                            <li><a href="javascript:void(0)">
-                                    <img src="/img/icons/bri.png"
-                                        style="object-fit: cover;width: 100%; max-height: 25px" alt="">
-                                </a></li>
+                            <li>BCA</li>
+                            <li>BRI</li>
                         </ul>
                     </div>
                     <!-- End Single Widget -->
@@ -49,14 +43,11 @@
                     <div class="single-footer icons">
                         <h3>Jasa Pengiriman</h3>
                         <ul>
-                            <li><a href="javascript:void(0)">
-                                    <img src="/img/icons/jne.png"
-                                        style="object-fit: cover;width: 100%; max-height: 25px" alt="">
-                                </a></li>
-                            <li><a href="javascript:void(0)">
-                                    <img src="/img/icons/jnt.png"
-                                        style="object-fit: cover;width: 100%; max-height: 25px" alt="">
-                                </a></li>
+                            <li>JNE</li>
+                            <li>JNT</li>
+                            <li>Sicepat</li>
+                            <li>Ninja</li>
+                            <li>Anteraja</li>
                         </ul>
                     </div>
                     <!-- End Single Widget -->

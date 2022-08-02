@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Shipping extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    protected $casts = [
+        'services' => 'array',
+        'payment' => 'array'
+    ];
 }
