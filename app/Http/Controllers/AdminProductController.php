@@ -24,11 +24,18 @@ class AdminProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Product $product)
     {
+        // return view('admin.pages.product.list_product', [
+        //     'title' => "Produk",
+        //     'products' => Product::with('merk', 'size', 'image')->get(),
+        // ]);
+
+        $product = Product::all();
+        // dd($product);
         return view('admin.pages.product.list_product', [
-            'title' => "Produk",
-            'products' => Product::with('merk', 'size', 'image')->get(),
+            "title" => "Produk",
+            "products" => $product
         ]);
     }
 
@@ -41,7 +48,8 @@ class AdminProductController extends Controller
     {
         $title = "Tambah Produk";
         $categories = Category::all();
-        return view('admin.pages.product.create', ['title' => $title, 'categories' => $categories]);
+        $merks = Merk::all();
+        return view('admin.pages.product.create', ['title' => $title, 'categories' => $categories, 'merks' => $merks]);
     }
 
     /**
@@ -109,16 +117,19 @@ class AdminProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $id)
+    public function show(Product $product, $id)
     {
-        // $image = Product::join('images', 'images.id', '=', 'products.image_id')->get();
-        // $size = Product::join('sizes', 'sizes.id', '=', 'products.size_id')->get();
-        // return view('admin.pages.product.product-detail', [
-        //     "title" => "Detail",
-        //     "products" => Product::find($id),
-        //     "image" => $image,
-        //     "size" => $size
-        // ]);
+        $product = Product::findOrFail($id);
+        $images = Image::where("product_id", $product->id)->get();
+        // dd($images);
+        // foreach($images as $image){
+        //     $images = $image->url;
+        // }        
+        return view('admin.pages.product.product-detail', [
+            "title" => "$product->name",
+            "product" => $product,
+            "images" => $images,
+        ]);
     }
 
     // public function detail(Product $product)
