@@ -92,9 +92,9 @@
                     <span style="text-indent: 5px;">Laporan</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('merk') ? 'active' : '' }}" href="/admin/merk">
+                <a class="nav-link {{ Request::is('merk') ? 'active' : '' }}" href="{{ route('admin-merk.index') }}">
                     <i
-                        class="fas fa-fw fa-tachometer-alt {{ $title === 'Merk' ? 'active text-white fade-in' : '' }}"></i>
+                        class="fas fa-fw fa-m {{ $title === 'Merk' ? 'active text-white fade-in' : '' }}"></i>
                     <span style="text-indent: 5px;">Merk</span></a>
             </li>
             <li class="nav-item">
