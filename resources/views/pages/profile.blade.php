@@ -249,7 +249,7 @@
                     aria-labelledby="v-pills-pengaturan-tab" tabindex="0">
                     <div class="container">
                         <h3 class="fw-bold mb-3">Ubah Profil</h3>
-                        <form action="">
+                        <form action="{{ route('my-account.update', [auth()->user()->id]) }}" method="POST">
                             @method("put")
                             @csrf
                             <div class="row">
@@ -257,7 +257,7 @@
                                     <div class="form-floating">
                                         <input type="text" id="frontName" name="frontName"
                                             class="form-control @error('frontName') is-invalid @enderror"
-                                            value="{{ old('frontName',  auth()->user()->frontName) }}"
+                                            value="{{ old('frontName', auth()->user()->frontName) }}"
                                             placeholder="Nama Depan" required autofocus>
                                         <label for="frontName" class="form-label">Nama Depan</label>
                                         @error('frontName')
@@ -297,29 +297,45 @@
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" value="{{ auth()->user()->email }}"
-                                            placeholder="Email" required>
-                                        <label for="">Email</label>
+                                        <input type="email" id="email" name="email"
+                                            class="form-control @error('email') is-invalid @enderror"
+                                            value="{{ old('email', auth()->user()->email )}}" placeholder="Email"
+                                            required autofocus>
+                                        <label for="email" class="form-label">E-mail</label>
+                                        @error('email')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-floating">
-                                        <input type="password" class="form-control" placeholder="Sandi Baru" required>
-                                        <label for="">Sandi Baru</label>
+                                        <input type="password" id="password" name="password"
+                                            class="form-control @error('password') is-invalid @enderror"
+                                            value="{{ auth()->user()->password }}" placeholder="Sandi Baru" required
+                                            autofocus>
+                                        <label for="password" class="form-label">Sandi Baru</label>
+                                        @error('password')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-floating">
-                                        <input type="password" class="form-control" placeholder="Konfirmasi Sandi"
-                                            required>
-                                        <label for="">Konfirmasi Sandi</label>
+                                        <input type="password" id="confirmPassword" name="confirmPassword"
+                                            class="form-control" placeholder="Konfirmasi Sandi" required>
+                                        <label for="confirmPassword" class="form-label">Konfirmasi Sandi</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Alamat Anda" rows="3"
-                                            required></textarea>
-                                        <label for="">Alamat Anda</label>
+                                        <textarea name="address" id="address" class="form-control"
+                                            placeholder="Alamat Anda" rows="3"
+                                            required>{{ old('address', auth()->user()->address->address) }}</textarea>
+                                        <label for="address" class="form-label">Alamat Anda</label>
                                     </div>
                                 </div>
                                 <button class="btn btn-primary mb-3" type="submit" name="button">Ubah & Simpan</button>
