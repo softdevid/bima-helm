@@ -62,7 +62,7 @@ class AdminProductController extends Controller
     {
         Validator::make($request->all(), [
             'name' => 'required|unique:products|max:255',
-        ])->validate();        
+        ])->validate();
 
         if ($request->hasFile("image_main")) {
             $file = $request->file('image_main');
@@ -99,7 +99,7 @@ class AdminProductController extends Controller
             foreach ($file as $key => $file) {
                 $images = Cloudinary::upload($file->getRealPath(), ['folder' => 'products']);
                 $public_id = $image->getPublicId();
-                $url = $images->getSecurePath();               
+                $url = $images->getSecurePath();
                 Image::create([
                     'image' => $public_id,
                     'url' => $url,
@@ -108,7 +108,7 @@ class AdminProductController extends Controller
             }
         }
 
-        return back()->with('success', 'Berhasil ditambah');        
+        return back()->with('success', 'Berhasil ditambah');
     }
 
     /**
@@ -124,7 +124,7 @@ class AdminProductController extends Controller
         // dd($images);
         // foreach($images as $image){
         //     $images = $image->url;
-        // }        
+        // }
         return view('admin.pages.product.product-detail', [
             "title" => "$product->name",
             "product" => $product,
@@ -148,19 +148,20 @@ class AdminProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {        
+    {
         $categories = Category::all();
         $merks = Merk::all();
         $product = Product::findOrFail($id);
+        $sizes = Size::findOrFail($product->size_id);
         $images = Image::where("product_id", $product->id)->get();
         return view('admin.pages.product.edit', [
             "title" => "$product->name",
             "product" => $product,
             "images" => $images,
+            "sizes" => $sizes,
             "categories" => $categories,
             "merks" => $merks,
         ]);
-
     }
 
     /**
@@ -172,39 +173,62 @@ class AdminProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Validator::make($request->all(), [
+            'name' => 'required|unique:products|max:255',
+        ])->validate();
+
         $product = Product::findOrFail($id);
+        $size = Size::findOrFail($product->size_id);
+        // dd($product, $size);
 
-        if($request->hasFile("image_main")){
-            if (File::exists("cover/".$post->cover)) {
-                File::delete("cover/".$post->cover);
-            }
+        if ($request->hasFile("image_main")) {
+            Cloudinary::destroy($product->image);
+            $product->url->delete();
+
+            $file = $request->file('image_main');
+            $image = Cloudinary::upload($file->getRealPath(), ['folder' => 'products']);
+            $public_id = $image->getPublicId();
+            $url = $image->getSecurePath();
             
-            $file = $request->file("cover");
-            $post->cover=time()."_".$file->getClientOriginalName();
-            $file->move(\public_path("/cover"),$post->cover);
-            $request['cover']=$post->cover;
-         }
-
-            $post->update([
-                "title" =>$request->title,
-                "author"=>$request->author,
-                "body"=>$request->body,
-                "cover"=>$post->cover,
+            $sizes = $size->update([                
+                'xs' => $request->xs ?? 0,
+                's' => $request->s ?? 0,
+                'm' => $request->m ?? 0,
+                'lg' => $request->lg ?? 0,
+                'xl' => $request->xl ?? 0,
+                'xxl' => $request->xxl ?? 0,
             ]);
+            $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
 
-            if($request->hasFile("images")){
-                $files=$request->file("images");
-                foreach($files as $file){
-                    $imageName=time().'_'.$file->getClientOriginalName();
-                    $request["post_id"]=$id;
-                    $request["image"]=$imageName;
-                    $file->move(\public_path("images"),$imageName);
-                    Image::create($request->all());
+            $product->updateOrCreate([                
+                "category_id" => $request->category_id,
+                "name" => $request->name,
+                "slug" => Str::slug($request->name),
+                "merk" => $request->merk_id,
+                "price" => $request->price,
+                "stock" => $stock,
+                "description" => $request->description,
+                "image_main" => $public_id,
+                "url" => $url,
+                "size_id" => $request->size_id,
+            ]);
+        }        
 
+        if ($request->hasFile("images")) {
+            $files = $request->file("images");
+            foreach ($files as $file) {
+                $images = Cloudinary::upload($file->getRealPath(), ['folder' => 'products']);
+                $public_id = $image->getPublicId();
+                $url = $images->getSecurePath();
+                Image::update([
+                    'image' => $public_id,
+                    'url' => $url,
+                    'product_id' => $product->id,
+                ]);
             }
         }
 
-        return redirect("/");        
+        return redirect("admin-product");
     }
 
     /**
@@ -214,35 +238,36 @@ class AdminProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {     
+    {
         $product = Product::findOrFail($id);
 
-        $images = Image::where("product_id",$product->id)->get();
+        $images = Image::where("product_id", $product->id)->get();
         // dd($images);
-        foreach($images as $image){
+        foreach ($images as $image) {
             Cloudinary::destroy($image->image);
         }
-        Image::where("product_id",$product->id)->delete();
+        Image::where("product_id", $product->id)->delete();
 
-        $image_main = $product->image_main;        
-        Cloudinary::destroy($image_main); 
+        $image_main = $product->image_main;
+        Cloudinary::destroy($image_main);
 
-        Size::where("id",$product->size_id)->delete();               
+        Size::where("id", $product->size_id)->delete();
 
         Product::destroy($id);
-        return back()->with('success', 'Berhasil dihapus!!');    
+        return back()->with('success', 'Berhasil dihapus!!');
     }
 
     public function deleteimages($id)
     {
         $images = Image::findOrFail($id);
-        Cloudinary::destroy($images);        
+        Cloudinary::destroy($images);
 
         Image::find($id)->delete();
         return back();
     }
 
-    public function deletecover($id){
+    public function deletecover($id)
+    {
         $image_main = Product::findOrFail($id)->image_main;
         $url = Product::findOrFail($id)->url;
         Cloudinary::destroy($image_main);
