@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Merk;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class MerkController extends Controller
 {
@@ -15,7 +16,7 @@ class MerkController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.product.merk', [
+        return view('admin.pages.merk.merk', [
             "merks" => Merk::all(),
             "title" => "Merk"
         ]);
@@ -44,8 +45,8 @@ class MerkController extends Controller
         Merk::create([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
-        ]);
-        return back();
+        ]);        
+        return back()->with('success', 'Berhasil ditambah!!!');
     }
 
     /**
@@ -77,9 +78,14 @@ class MerkController extends Controller
      * @param  \App\Models\Merk  $merk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Merk $merk)
+    public function update(Request $request, Merk $id)
     {
-        //
+        $merk = Merk::findOrFail($id);
+        $merk->update([
+            'name' => $request->name,
+            'slug' => $request->slug,
+        ]);
+        return back()->with('success', 'Berhasil diedit!');
     }
 
     /**
@@ -88,10 +94,9 @@ class MerkController extends Controller
      * @param  \App\Models\Merk  $merk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Merk $merk)
+    public function destroy($id)
     {
-        Merk::destroy($merk->id);
-        // Merk::destroy($merk->id);
-        return redirect('/admin/merk')->with('success', 'Berhasil Dihapus!!');
+        Merk::destroy($id);        
+        return back()->with('success', 'Berhasil dihapus!!');        
     }
 }
