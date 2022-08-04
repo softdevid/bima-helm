@@ -80,6 +80,21 @@ $(document).ready(function () {
             },
         });
     });
+
+    $("#accordion-checkout").on("show.bs.collapse", function (e) {
+        if ($(e.target).hasClass("collapse-lock")) {
+            e.preventDefault();
+        }
+        this.scrollIntoView();
+    });
+
+    $(".steps-form-btn > button").on("click", function () {
+        if ($(`#${$(this).attr("aria-controls")}`).hasClass("collapse-lock")) {
+            $(`#${$(this).attr("aria-controls")}`).removeClass("collapse-lock");
+            $(this).trigger("click");
+            return;
+        }
+    });
 });
 
 $("#password").on("focusout", function () {

@@ -67,7 +67,7 @@ Route::get('/checkout', function () {
 
     return view('pages.checkout', [
         'title' => 'Checkout',
-        'shippings' => Shipping::all(),
+        'shippings' => ['JNT', 'JNE', 'NINJA', 'SICEPAT', 'ANTERAJA'],
     ]);
 })->middleware('auth');
 
@@ -82,7 +82,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
     //rout admin product
 
-    Route::resource('admin-product', AdminProductController::class);    
+    Route::resource('admin-product', AdminProductController::class);
     //route admin
     Route::resource('admin-merk', MerkController::class);
     // Route::get('/admin/merk', [MerkController::class, 'index']);

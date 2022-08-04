@@ -17,7 +17,7 @@
                                 <h6 class="title collapsed" data-bs-toggle="collapse" data-bs-target="#coll-address" aria-expanded="false" aria-controls="coll-address">
                                     Alamat
                                     Pengiriman</h6>
-                                <section class="checkout-steps-form-content collapse" id="coll-address" aria-labelledby="heading-address"
+                                <section class="checkout-steps-form-content collapse show" id="coll-address" aria-labelledby="heading-address"
                                     data-bs-parent="#accordion-checkout">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -68,7 +68,7 @@
                                 <h6 class="title collapsed" data-bs-toggle="collapse" data-bs-target="#coll-shipping" aria-expanded="false"
                                     aria-controls="coll-shipping">
                                     Metode Pengiriman</h6>
-                                <section class="checkout-steps-form-content collapse show" id="coll-shipping" aria-labelledby="heading-shipping"
+                                <section class="checkout-steps-form-content collapse collapse-lock" id="coll-shipping" aria-labelledby="heading-shipping"
                                     data-bs-parent="#accordion-checkout">
                                     <div class="row">
                                         <div class="col-12">
@@ -78,11 +78,11 @@
                                                 <div class="payment-option-wrapper justify-content-center">
                                                     @foreach ($shippings as $shipp)
                                                         <div class="single-payment-option">
-                                                            <input type="radio" name="{{ strtolower($shipp->name) }}" class="check-shipp"
-                                                                id="{{ strtolower($shipp->name) }}">
-                                                            <label for="{{ strtolower($shipp->name) }}">
+                                                            <input type="radio" name="{{ strtolower($shipp) }}" class="check-shipp"
+                                                                id="{{ strtolower($shipp) }}">
+                                                            <label for="{{ strtolower($shipp) }}">
                                                                 {{-- <img src="/img/icons/jnt.png" style="height: 32px" alt="Sipping"> --}}
-                                                                <p>{{ $shipp->name }}</p>
+                                                                <p>{{ $shipp }}</p>
                                                                 {{-- <span class="price">Rp.42.000</span> --}}
                                                             </label>
                                                         </div>
@@ -110,6 +110,12 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-12">
+                                            <div class="steps-form-btn button">
+                                                <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#coll-payment" aria-expanded="false"
+                                                    aria-controls="coll-payment">Lanjut</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </section>
                             </li>
@@ -117,7 +123,7 @@
                                 <h6 class="title collapsed" data-bs-toggle="collapse" data-bs-target="#coll-payment" aria-expanded="false"
                                     aria-controls="coll-payment">Metode
                                     Pembayaran</h6>
-                                <section class="checkout-steps-form-content collapse" id="coll-payment" aria-labelledby="heading-payment"
+                                <section class="checkout-steps-form-content collapse collapse-lock" id="coll-payment" aria-labelledby="heading-payment"
                                     data-bs-parent="#accordion-checkout">
                                     <div class="row">
                                         <div class="col-12">
@@ -132,18 +138,24 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-12">
+                                            <div class="steps-form-btn button">
+                                                <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#coll-confirm" aria-expanded="false"
+                                                    aria-controls="coll-confirm">Lanjut</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </section>
                             </li>
                             <li>
-                                <h6 class="title collapsed" data-bs-toggle="collapse" data-bs-target="#collapsefive" aria-expanded="false"
-                                    aria-controls="collapsefive">
+                                <h6 class="title collapsed" data-bs-toggle="collapse" data-bs-target="#coll-confirm" aria-expanded="false"
+                                    aria-controls="coll-confirm">
                                     Konfirmasi Pesanan</h6>
-                                <section class="checkout-steps-form-content collapse" id="collapsefive" aria-labelledby="headingFive"
+                                <section class="checkout-steps-form-content collapse collapse-lock" id="coll-confirm" aria-labelledby="headingFive"
                                     data-bs-parent="#accordion-checkout">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="table-responsive text-nowrap">
+                                            <div class="table-responsive text-nowrap shadow-sm">
                                                 <table class="table table-striped bg-white">
                                                     <thead class="table-light">
                                                         <tr>
@@ -168,7 +180,8 @@
                                                     <tfoot>
                                                         <tr>
                                                             <td colspan="4" class="text-end">Sub-Total</td>
-                                                            <td>Rp <span id="subtotal-price-order">{{ Cart::instance('cart')->subtotal('0', ',', '.') }}</span></td>
+                                                            <td>Rp <span id="subtotal-price-order">{{ Cart::instance('cart')->subtotal('0', ',', '.') }}</span>
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="4" class="text-end" id="ongkir-service"></td>
@@ -180,6 +193,22 @@
                                                         </tr>
                                                     </tfoot>
                                                 </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 my-2">
+                                            <div class="card rounded-0 shadow-sm">
+                                                <div class="card-body">
+                                                    <p class="card-text">
+                                                        Silahkan bayar lewat rekening ini
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="float-end">
+                                                <div class="btn btn-outline-primary rounded-0">
+                                                    Konfirmasi pesanan
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
