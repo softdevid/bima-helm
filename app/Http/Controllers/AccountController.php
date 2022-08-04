@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserAddress;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -96,13 +97,15 @@ class AccountController extends Controller
         $validatedUser['password'] = Hash::make($validatedUser['password']);
         $validatedAddress = $request->only(['address']);
 
-        $user = User::where('id', $validateData)->update();
-        $user->address()->update($validatedAddress);
+        User::where('id', auth()->user()->id)
+            ->update($validatedUser);
+        UserAddress::where('id', auth()->user()->address->address)
+            ->update($validatedAddress);
 
     //    User::where('id', auth()->user()->id)
     //                         ->update($validateData);
 
-        return redirect('/my-account')->with('success', 'Registrasi berhasil!');
+        return redirect('/my-account')->with('success', 'Update berhasil!');
     }
 
     /**
