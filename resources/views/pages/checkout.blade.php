@@ -98,25 +98,15 @@
                                                         <span
                                                             id="to">{{ ucwords(strtolower($village->district->name . ', ' . $village->district->city->name)) }}</span>
                                                         dengan
-                                                        berat paket {{ Cart::instance('cart')->weight(2, ',', '.') }} gram
+                                                        berat paket <span id="weight">{{ Cart::instance('cart')->weight(0, '', '') }}</span> gram
                                                     </p>
-                                                    <div class="table-responsive text-nowrap mt-2">
-                                                        <table class="table table-striped bg-white">
-                                                            <thead class="table-light">
-                                                                <tr>
-                                                                    <th>Kurir</th>
-                                                                    <th>Layanan</th>
-                                                                    <th>Sampai (Hari)</th>
-                                                                    <th>Ongkir (Rp)</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
+                                                </div>
+                                                <ul class="list-group list-group-flush" id="data-ongkir">
+                                                </ul>
+                                                <div class="card-body">
+                                                    <p class="card-text">
+                                                        pilih salah satu layanan di atas
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -171,22 +161,22 @@
                                                                 <td>{{ $cartItem->name }}</td>
                                                                 <td>{{ $cartItem->qty }}</td>
                                                                 <td>{{ $cartItem->options->size ?? '' }}</td>
-                                                                <td>{{ number_format($cartItem->subtotal, 0, ',', '.') }}</td>
+                                                                <td>Rp {{ number_format($cartItem->subtotal, 0, ',', '.') }}</td>
                                                             </tr>
                                                         @endforeach
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
                                                             <td colspan="4" class="text-end">Sub-Total</td>
-                                                            <td>{{ Cart::instance('cart')->subtotal('0', ',', '.') }}</td>
+                                                            <td>Rp <span id="subtotal-price-order">{{ Cart::instance('cart')->subtotal('0', ',', '.') }}</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="4" class="text-end">JNT Express</td>
-                                                            <td>Rp.32.000</td>
+                                                            <td colspan="4" class="text-end" id="ongkir-service"></td>
+                                                            <td id="ongkir-price"></td>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="4" class="text-end">Total</td>
-                                                            <td>Rp.1.700.000</td>
+                                                            <td id="total-price-order"></td>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
@@ -201,81 +191,5 @@
             </div>
         </div>
     </section>
-    <script src="/cekongkir/kecamatan.js"></script>
-    <script>
-        function setCookie(name, value, days) {
-            var expires = "";
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-
-        }
-
-        function getCookie(name) {
-            var nameEQ = name + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
-        }
-
-        function eraseCookie(name) {
-            document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-        }
-
-        function getDistrict(name) {
-            var data = kecamatan.filter((kec) => kec.label.toLowerCase().includes(name.toLowerCase()));
-            return data[0].value;
-        }
-
-        async function getData(from, to, weight) {
-            try {
-                const response = await fetch(
-                    `/cekongkir/getData.php?action=hitung_auto&kec=${to}&kurir=anteraja:jne:jnt:ninja:sicepat&asal=${from}&berat=${weight}`);
-                const data = await response.json();
-                return data.rajaongkir;
-            } catch (err) {
-                return console.log(err);
-            }
-        }
-
-
-        document.addEventListener("DOMContentLoaded", async function(event) {
-            // Your code to run since DOM is loaded and ready
-            // eraseCookie('dataCekOngkir');
-            const asal = document.getElementById("from").innerHTML;
-            const tujuan = document.getElementById("to").innerHTML;
-
-            const weight = {{ Cart::instance('cart')->weight(0, '', '') }};
-            const from = getDistrict(asal);
-            const to = getDistrict(tujuan);
-            if (getCookie('dataCekOngkir') == null) {
-                console.log('kuki null');
-                setCookie('beratProduk', JSON.stringify(weight), 30);
-                const data = await getData(from, to, weight);
-                setCookie('dataCekOngkir', JSON.stringify(data), 30);
-                console.log(data);
-            } else {
-                console.log('kuki ada');
-                console.log(JSON.parse(getCookie('dataCekOngkir')));
-
-            }
-
-            if (weight != getCookie('beratProduk')) {
-                console.log('berat berubah');
-                setCookie('beratProduk', JSON.stringify(weight), 30);
-                const data = await getData(from, to, weight);
-                setCookie('dataCekOngkir', JSON.stringify(data), 30);
-                console.log(data);
-            }
-
-        });
-    </script>
     <!--====== Checkout Form Steps Part Ends ======-->
 @endsection

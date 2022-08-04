@@ -80,11 +80,6 @@ $(document).ready(function () {
             },
         });
     });
-
-    $(".check-shipp").change(function () {
-        console.log($(this).attr('id'));
-        $(".check-shipp").not(this).prop("checked", false);
-    });
 });
 
 $("#password").on("focusout", function () {
@@ -102,7 +97,6 @@ $("#confirmPassword").on("keyup", function () {
         $(this).removeClass("is-invalid");
     }
 });
-
 
 $(function () {
     $("#province").on("change", function () {

@@ -151,6 +151,8 @@
         setInterval(timer, 1000);
     </script> --}}
     <script src="/js/script.js"></script>
+    <script src="/cekongkir/kecamatan.js"></script>
+    <script src="/cekongkir/cekongkir.js"></script>
 </body>
 
 </html>
