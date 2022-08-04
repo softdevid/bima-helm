@@ -148,8 +148,19 @@ class AdminProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {        
+        $categories = Category::all();
+        $merks = Merk::all();
+        $product = Product::findOrFail($id);
+        $images = Image::where("product_id", $product->id)->get();
+        return view('admin.pages.product.edit', [
+            "title" => "$product->name",
+            "product" => $product,
+            "images" => $images,
+            "categories" => $categories,
+            "merks" => $merks,
+        ]);
+
     }
 
     /**
@@ -161,45 +172,39 @@ class AdminProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $image1 = $request->image1;
-        // $image2 = $request->image2;
-        // $image3 = $request->image3;
-        // $image4 = $request->image4;
+        $product = Product::findOrFail($id);
 
-        // $product = Product::find($id);
-        // $image_id = $product->image_id;
-        // $image = Image::find($image_id);
+        if($request->hasFile("image_main")){
+            if (File::exists("cover/".$post->cover)) {
+                File::delete("cover/".$post->cover);
+            }
+            
+            $file = $request->file("cover");
+            $post->cover=time()."_".$file->getClientOriginalName();
+            $file->move(\public_path("/cover"),$post->cover);
+            $request['cover']=$post->cover;
+         }
 
-        // $img1 = $image->img_dt_1;
-        // $img2 = $image->img_dt_2;
-        // $img3 = $image->img_dt_3;
-        // $img4 = $image->img_dt_4;
+            $post->update([
+                "title" =>$request->title,
+                "author"=>$request->author,
+                "body"=>$request->body,
+                "cover"=>$post->cover,
+            ]);
 
-        // if ($image1 !== $img1) {
-        //     echo $img1;
-        // } elseif ($image2 !== $img2) {
-        //     echo $img2;
-        // } elseif ($image3 !== $img3) {
-        //     echo $img3;
-        // } elseif ($image4 !== $img4) {
-        //     echo $img4;
-        // } else {
-        //     CloudinaryStorage::delete($img1);
-        //     $file1 = request()->file('image1');
-        //     $file1 = CloudinaryStorage::upload($file1->getRealPath(), $file1->getClientOriginalName());
+            if($request->hasFile("images")){
+                $files=$request->file("images");
+                foreach($files as $file){
+                    $imageName=time().'_'.$file->getClientOriginalName();
+                    $request["post_id"]=$id;
+                    $request["image"]=$imageName;
+                    $file->move(\public_path("images"),$imageName);
+                    Image::create($request->all());
 
-        //     CloudinaryStorage::delete($img2);
-        //     $file2 = request()->file('image2');
-        //     $file1 = CloudinaryStorage::upload($file2->getRealPath(), $file2->getClientOriginalName());
+            }
+        }
 
-        //     CloudinaryStorage::delete($img3);
-        //     $file3 = request()->file('image3');
-        //     $file3 = CloudinaryStorage::upload($file3->getRealPath(), $file3->getClientOriginalName());
-
-        //     CloudinaryStorage::delete($img4);
-        //     $file4 = request()->file('image4');
-        //     $file4 = CloudinaryStorage::upload($file4->getRealPath(), $file4->getClientOriginalName());
-        // }
+        return redirect("/");        
     }
 
     /**
@@ -220,11 +225,27 @@ class AdminProductController extends Controller
         Image::where("product_id",$product->id)->delete();
 
         $image_main = $product->image_main;        
-        Cloudinary::destroy($image_main);        
+        Cloudinary::destroy($image_main); 
 
         Size::where("id",$product->size_id)->delete();               
 
         Product::destroy($id);
         return back()->with('success', 'Berhasil dihapus!!');    
+    }
+
+    public function deleteimages($id)
+    {
+        $images = Image::findOrFail($id);
+        Cloudinary::destroy($images);        
+
+        Image::find($id)->delete();
+        return back();
+    }
+
+    public function deletecover($id){
+        $image_main = Product::findOrFail($id)->image_main;
+        $url = Product::findOrFail($id)->url;
+        Cloudinary::destroy($image_main);
+        return back();
     }
 }
