@@ -78,8 +78,7 @@
                                                 <div class="payment-option-wrapper justify-content-center">
                                                     @foreach ($shippings as $shipp)
                                                         <div class="single-payment-option">
-                                                            <input type="radio" name="{{ strtolower($shipp) }}" class="check-shipp"
-                                                                id="{{ strtolower($shipp) }}">
+                                                            <input type="radio" name="{{ strtolower($shipp) }}" class="check-shipp" id="{{ strtolower($shipp) }}">
                                                             <label for="{{ strtolower($shipp) }}">
                                                                 {{-- <img src="/img/icons/jnt.png" style="height: 32px" alt="Sipping"> --}}
                                                                 <p>{{ $shipp }}</p>
@@ -107,6 +106,10 @@
                                                     <p class="card-text">
                                                         pilih salah satu layanan di atas
                                                     </p>
+                                                </div>
+                                                <div class="card-body">
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Tambahkan komentar (opsional)</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -188,6 +191,10 @@
                                                             <td id="ongkir-price"></td>
                                                         </tr>
                                                         <tr>
+                                                            <td colspan="4" class="text-end" id="handling-fee-service">Biaya Penanganan</td>
+                                                            <td>Rp <span id="handling-fee-price">10.000</span></td>
+                                                        </tr>
+                                                        <tr>
                                                             <td colspan="4" class="text-end">Total</td>
                                                             <td id="total-price-order"></td>
                                                         </tr>
@@ -200,6 +207,8 @@
                                                 <div class="card-body">
                                                     <p class="card-text">
                                                         Silahkan bayar lewat rekening ini
+                                                        <br>
+                                                        Pesanan baru bisa diproses ketika sudah melakukan pembayaran
                                                     </p>
                                                 </div>
                                             </div>
@@ -207,7 +216,7 @@
                                         <div class="col-12">
                                             <div class="float-end">
                                                 <div class="btn btn-outline-primary rounded-0">
-                                                    Konfirmasi pesanan
+                                                    Buat pesanan
                                                 </div>
                                             </div>
                                         </div>
