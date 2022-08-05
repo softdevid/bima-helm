@@ -9,6 +9,7 @@ use App\Http\Controllers\CartNWishController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\MerkController;
+use App\Http\Controllers\OrderController;
 use App\Models\Shipping;
 use Illuminate\Support\Facades\Route;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -70,6 +71,11 @@ Route::get('/checkout', function () {
         'shippings' => ['JNT', 'JNE', 'NINJA', 'SICEPAT', 'ANTERAJA'],
     ]);
 })->middleware('auth');
+
+// route for order
+Route::middleware(['auth'])->group(function () {
+    Route::post('/order/make', [OrderController::class, 'make']);
+});
 
 //route slug generate
 Route::get('check_slug', function () {
