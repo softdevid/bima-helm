@@ -84,7 +84,7 @@ class AdminProductController extends Controller
                 "category_id" => $request->category_id,
                 "name" => $request->name,
                 "slug" => Str::slug($request->name),
-                "merk" => $request->merk,
+                "merk_id" => $request->merk_id,
                 "price" => $request->price,
                 "stock" => $stock,
                 "description" => $request->description,
@@ -120,13 +120,11 @@ class AdminProductController extends Controller
     public function show(Product $product, $id)
     {
         $product = Product::findOrFail($id);
+        // dd($product);
         $images = Image::where("product_id", $product->id)->get();
-        // dd($images);
-        // foreach($images as $image){
-        //     $images = $image->url;
-        // }
+
         return view('admin.pages.product.product-detail', [
-            "title" => "$product->name",
+            "title" => "Detail Produk",
             "product" => $product,
             "images" => $images,
         ]);
@@ -155,7 +153,7 @@ class AdminProductController extends Controller
         $sizes = Size::findOrFail($product->size_id);
         $images = Image::where("product_id", $product->id)->get();
         return view('admin.pages.product.edit', [
-            "title" => "$product->name",
+            "title" => "Edit Produk",
             "product" => $product,
             "images" => $images,
             "sizes" => $sizes,
@@ -268,9 +266,13 @@ class AdminProductController extends Controller
 
     public function deletecover($id)
     {
-        $image_main = Product::findOrFail($id)->image_main;
-        $url = Product::findOrFail($id)->url;
+        $product = Product::findOrFail($id);        
+        $image_main = $product->image_main;
+        $url = $product->url;
         Cloudinary::destroy($image_main);
-        return back();
+        Product::where('image_main', $product);
+        Product::where('url', $product);
+
+        return back()->with('success', 'Gambar Berhasil dihapus!!');
     }
 }

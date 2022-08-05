@@ -8,7 +8,7 @@
                         <div class="row align-items-center">
                             <div class="col-12">
                                 <div class="product-image">
-                                    <img src="/img/{{ $product->image_main }}" alt="#" class="img-thumbnail">
+                                    <img src="{{ $product->url }}" alt="#" class="img-thumbnail">
                                     <div class="button">
                                         <a href="/fav-add" class="btn btn-primary">
                                             <i class="fa-regular fa-heart"></i>Tambah ke favorit

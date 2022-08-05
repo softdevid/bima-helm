@@ -1,7 +1,7 @@
 @extends('admin.layouts.template')
 @section('content')
-    <div class="table-responsive">
-        <a href="{{ route('admin-product.create') }}" class="btn btn-primary mb-3">Tambah</a>
+    <a href="{{ route('admin-product.create') }}" class="btn btn-primary mb-3">Tambah</a>
+    <div class="table-responsive">        
         <table class="table">
             <thead>
                 <tr class="text-center">
