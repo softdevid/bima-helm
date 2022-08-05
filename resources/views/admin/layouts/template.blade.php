@@ -172,18 +172,26 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span
                                     class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->frontName }}</span>
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal"
+                            </a>                            
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in text-center"
+                                aria-labelledby="userDropdown">                                
+                                <a class="dropdown-item" style="justify-content: center;" href="/logout" data-toggle="modal"
                                     data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    <i class="fas fa-sign-out fa-fw mr-2 text-gray-400"></i>
+                                    Keluar
                                 </a>
                             </div>
                         </li>
+                        <!-- <div class="dropdown">
+                          <a class="dropdown-toggle nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><button class="dropdown-item" type="button">Action</button></li>
+                            <li><button class="dropdown-item" type="button">Another action</button></li>
+                            <li><button class="dropdown-item" type="button">Something else here</button></li>
+                          </ul>
+                        </div> -->
 
                     </ul>
 
@@ -212,7 +220,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Bima Helm 2022</span>
+                        <span>Copyright &copy; 2022 by Bima Helm</span>
                     </div>
                 </div>
             </footer>
@@ -235,7 +243,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Logout?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Yakin mau keluar ?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -243,7 +251,7 @@
                 <div class="modal-body">Pilih "Logout" di bawah ini untuk keluar.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="/logout">Logout</a>
                 </div>
             </div>
         </div>

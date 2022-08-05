@@ -62,7 +62,9 @@ class AccountController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::query()->findOrFail($id);
+        $address = UserAddress::all(['id', 'address']);
+        return view('page.profile#v-pills-pengaturan', compact('user', 'address'));
     }
 
     /**
@@ -74,38 +76,42 @@ class AccountController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = [
-            'frontName' => 'required|max:255',
-            'lastName' => 'required|max:255',
-            'password' => 'required|min:5|max:255',
-            // 'email' => 'required|email:dns|unique:users',
-            'noTelp' => 'required',
-            'province' => 'required',
-            'city' => 'required',
-            'district' => 'required',
-            'village' => 'required',
-            'postalCode' => 'required',
-            'address' => 'required',
-        ];
-        if ($request->email != auth()->user()->email) {
-            $rules['email'] = 'required|email:dns|unique:users';
-        }
-        $validateData = $request->validate($rules);
+        $user = User::query()->findOrFail($id);
+        $user->update($request->only('frontName', 'lastName', 'email', 'password', 'noTelp'));
+        $user['password'] = Hash::make($user['password']);
+        return redirect('/my-account#v-pills-pengaturan')->with('success', 'Update berhasil!');
+        // $rules = [
+        //     'frontName' => 'required|max:255',
+        //     'lastName' => 'required|max:255',
+        //     'password' => 'required|min:5|max:255',
+        //     // 'email' => 'required|email:dns|unique:users',
+        //     'noTelp' => 'required',
+        //     'province' => 'required',
+        //     'city' => 'required',
+        //     'district' => 'required',
+        //     'village' => 'required',
+        //     'postalCode' => 'required',
+        //     'address' => 'required',
+        // ];
+        // if ($request->email != auth()->user()->email) {
+        //     $rules['email'] = 'required|email:dns|unique:users';
+        // }
+        // $validateData = $request->validate($rules);
 
-       $validateData['user'] = auth()->user()->id;
-       $validatedUser = $request->only(['frontName', 'lastName', 'email', 'noTelp', 'password']);
-        $validatedUser['password'] = Hash::make($validatedUser['password']);
-        $validatedAddress = $request->only(['address']);
+        // $validateData['user'] = auth()->user()->id;
+        // $validatedUser = $request->only(['frontName', 'lastName', 'email', 'noTelp', 'password']);
+        // $validatedUser['password'] = Hash::make($validatedUser['password']);
+        // $validatedAddress = $request->only(['address']);
 
-        User::where('id', auth()->user()->id)
-            ->update($validatedUser);
-        UserAddress::where('id', auth()->user()->address->address)
-            ->update($validatedAddress);
+        // User::where('id', auth()->user()->id)
+        //     ->update($validatedUser);
+        // UserAddress::where('id', auth()->user()->address->address)
+        //     ->update($validatedAddress);
 
-    //    User::where('id', auth()->user()->id)
-    //                         ->update($validateData);
+        // //    User::where('id', auth()->user()->id)
+        // //                         ->update($validateData);
 
-        return redirect('/my-account')->with('success', 'Update berhasil!');
+        // return redirect('/my-account')->with('success', 'Update berhasil!');
     }
 
     /**

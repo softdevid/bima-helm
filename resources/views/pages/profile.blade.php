@@ -313,8 +313,8 @@
                                     <div class="form-floating">
                                         <input type="password" id="password" name="password"
                                             class="form-control @error('password') is-invalid @enderror"
-                                            value="{{ auth()->user()->password }}" placeholder="Sandi Baru" required
-                                            autofocus>
+                                            value="{{ old(auth()->user()->password) }}" placeholder="Sandi Baru"
+                                            required autofocus>
                                         <label for="password" class="form-label">Sandi Baru</label>
                                         @error('password')
                                         <div class="invalid-feedback">

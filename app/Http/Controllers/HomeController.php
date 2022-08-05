@@ -16,7 +16,7 @@ class HomeController extends Controller
             where('categories.name', 'like', '%helm%')->
             orderBy('sold', 'desc')->
             limit(12)->
-            select('products.name', 'products.price', 'products.image_main as image')->
+            select('products.name', 'products.price', 'products.url')->
             get();
 
         return view('pages.home', [

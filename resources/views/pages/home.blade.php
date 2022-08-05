@@ -16,7 +16,7 @@
                         <div class="carousel-inner">
                             @foreach ($helmTopSell->take(3) as $index => $helmTop3)
                             <div class="carousel-item {{ ($index == 0) ? 'active' : '' }}">
-                                <img src="/img/{{ $helmTop3->image }}" class="d-block w-100" alt="">
+                                <img src="{{ $helmTop3->url }}" class="d-block w-100" alt="">
                             </div>
                             @endforeach
                         </div>
@@ -97,7 +97,7 @@
                                             @foreach ($helmTopSell->take(6) as $helmTop)
                                             <div class="col-6 col-md-3 col-lg-2 mb-2">
                                                 <div class="card">
-                                                    <img src="/img/{{ $helmTop->image }}" alt=""
+                                                    <img src="{{ $helmTop->url }}" alt=""
                                                         class="img-fluid">
                                                     <div class="card-body">
                                                         <div class="text-dark card-title">{{ $helmTop->name }}</div>
@@ -113,7 +113,7 @@
                                             @foreach ($helmTopSell->skip(6) as $helmTop)
                                             <div class="col-6 col-md-3 col-lg-2 mb-2">
                                                 <div class="card">
-                                                    <img src="/img/{{ $helmTop->image }}" alt=""
+                                                    <img src="{{ $helmTop->url }}" alt=""
                                                         class="img-fluid">
                                                     <div class="card-body">
                                                         <div class="text-dark card-title">{{ $helmTop->name }}</div>

@@ -1,31 +1,15 @@
 @extends('admin.layouts.template')
 @section('content')
 
-<div class="row">
-    <div class="col-lg-3">
-        <p>Cover:</p>
-        <form action="" method="post" class="d-inline">
-        <button class="btn text-danger">X</button>
-        @csrf
-        @method('delete')
-        </form>
-        <img src="{{ $product->url }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="" srcset="">
-        <br>
-         @if (count($images) > 0)
-         <p>Images:</p>
-         @foreach ($images as $image)
-         <form action="" method="post" enctype="multipart/form-data">
-             <button class="btn text-danger">X</button>
-             @csrf
-             @method('delete')
-             </form>
-         <img src="{{ $image->url }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="" srcset="">
-         @endforeach
-         @endif
-    </div>
-
-    <div class="col-lg-9">
-        <h3 class="text-center text-danger"><b>Udate Post</b> </h3>
+@if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    
+<div class="row">        
+    <div class="col-lg-9">        
 	    <div class="form-group">
             <form action="{{ route('admin-product.update', [$product->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -140,8 +124,12 @@
             <div class="mb-3">
                 <div class="row">
                     <label for="image_main" class="col-sm-2 col-form-label">Gambar utama</label>        
-                    <div class="col-sm-10">                    
-                        <input type="file" name="image_main" class="form-control">                    
+                    <div class="col-sm-10">   
+                        @if ($product->image_main === "")                 
+                            <input type="file" name="image_main" class="form-control" required>
+                        @else
+                            <input type="file" name="image_main" class="form-control">
+                        @endif
                     </div>
                 </div>
             </div>
@@ -156,7 +144,65 @@
             </form>
        </div>
     </div>
+    <div class="col-lg-3">
+        <p>Cover:</p>
+        <div class="card" style="max-height: 100px; max-width: 150px;">
+            <div class="card text-bg-dark">
+              @if ($product->image_main === "")
+              <b>Gambar Kosong</b>
+              @else
+              <img src="{{ $product->url }}" class="card-img" alt="...">              
+              <div class="card-img-overlay d-flex align-items-end p-0">                
+                  <button class="btn text-danger bg-dark text-center text-white flex-fill p-2 mb-0" data-toggle="modal" data-target="#hapusGambar"><i class="fa fa-close"></i></button>                        
+              </div>
+              @endif
+            </div>
+        </div>
+
+        <!-- <form action="" method="post">
+        <button class="btn btn-danger">X</button>
+        @csrf
+        @method('delete')
+        </form>
+        <img src="{{ $product->url }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="" srcset=""> -->
+        <br>
+         @if (count($images) > 0)
+         <p>Images:</p>
+         @foreach ($images as $image)
+         <form action="" method="post" enctype="multipart/form-data">
+             <button class="btn text-danger">X</button>
+             @csrf
+             @method('delete')
+             </form>
+         <img src="{{ $image->url }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="" srcset="">
+         @endforeach
+         @endif
+    </div>
 </div>
+
+<!-- Hapus Gambar Modal-->
+    <div class="modal fade" id="hapusGambar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Yakin Hapus Gambar ?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Pilih "Logout" di bawah ini untuk keluar.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <form action="/deletecover/{{ $product->id }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-primary">Hapus Gambar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection         
 

@@ -89,6 +89,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     //rout admin product
 
     Route::resource('admin-product', AdminProductController::class);
+    Route::delete('/deletecover/{id}',[AdminProductController::class,'deletecover']);
     //route admin
     Route::resource('admin-merk', MerkController::class);
     // Route::get('/admin/merk', [MerkController::class, 'index']);

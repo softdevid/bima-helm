@@ -19,7 +19,7 @@
                     <select class="form-select form-control" name="category_id" aria-label="Default select example" required>
                         <option value="">Pilih Kategori</option>
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}" {{ old('category_id') === $category->id ? 'selected' : '' }}>
+                            <option value="{{ $category->id }}" @if(old('category_id') == $category->id) {{'selected'}} @endif>
                                 {{ $category->name }}</option>
                         @endforeach
                     </select>
@@ -68,7 +68,7 @@
                     <select class="form-select form-control" name="merk_id" aria-label="Default select example" required>
                         <option value="">Pilih Merk</option>
                         @foreach ($merks as $merk)
-                            <option value="{{ $merk->id }}" {{ old('merk_id') === $merk->id ? 'selected' : '' }}>
+                            <option value="{{ $merk->id }}" @if(old('merk_id') == $merk->id) {{'selected'}} @endif>
                                 {{ $merk->name }}</option>
                         @endforeach
                     </select>
@@ -92,6 +92,9 @@
                         <div class="col">
                             <b>gram</b>
                         </div>
+                        <div class="col">
+                            <b>1 kg = 1000 gram</b>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -102,32 +105,32 @@
                         <div class="col">
                             <label for="size" class="col-sm-2 col-form-label">XS</label>
                             <input type="number" value="{{ old('xs') }}" class="form-control" name="xs"
-                                min="0" placeholder="0">
+                                min="0" placeholder="0" required>
                         </div>
                         <div class="col">
                             <label for="size" class="col-sm-2 col-form-label">S</label>
                             <input type="number" class="form-control" name="s" value="{{ old('s') }}"
-                                min="0" placeholder="0">
+                                min="0" placeholder="0" required>
                         </div>
                         <div class="col">
                             <label for="size" class="col-sm-2 col-form-label">M</label>
                             <input type="number" class="form-control" name="m" value="{{ old('m') }}"
-                                min="0" placeholder="0">
+                                min="0" placeholder="0" required>
                         </div>
                         <div class="col">
                             <label for="size" class="col-sm-2 col-form-label">LG</label>
                             <input type="number" class="form-control" name="lg" value="{{ old('lg') }}"
-                                min="0" placeholder="0">
+                                min="0" placeholder="0" required>
                         </div>
                         <div class="col">
                             <label for="size" class="col-sm-2 col-form-label">XL</label>
                             <input type="number" class="form-control" name="xl" value="{{ old('xl') }}"
-                                min="0" placeholder="0">
+                                min="0" placeholder="0" required>
                         </div>
                         <div class="col">
                             <label for="size" class="col-sm-2 col-form-label">XXL</label>
                             <input type="number" class="form-control" name="xxl" value="{{ old('xxl') }}"
-                                min="0" placeholder="0">
+                                min="0" placeholder="0" required>
                         </div>
                     </div>
                 </div>
@@ -144,7 +147,7 @@
                 <div class="row">
                     <label for="image_main" class="col-sm-2 col-form-label">Gambar utama</label>        
                     <div class="col-sm-10">                    
-                        <input type="file" name="image_main" class="form-control">                    
+                        <input type="file" name="image_main" class="form-control" required>                    
                     </div>
                 </div>
             </div>
@@ -153,20 +156,7 @@
                 <div class="col-sm-10">                                
                     <input type="file" name="images[]" class="form-control">
                     <input type="file" name="images[]" class="form-control">
-                    <input type="file" name="images[]" class="form-control">
-                       <!--  <div class="input-group hdtuto control-group lst increment">
-                          <input type="file" name="images[]" class="myfrm form-control">                      
-                            <button class="btn btn-success" type="button">Tambah Gambar</button>
-                        </div>                
-                        <div class="clone hide" style="display: none;">
-                          <div class="hdtuto control-group lst input-group" style="margin-top:10px">
-                            <input type="file" name="images[]" class="myfrm form-control">
-                            <div class="input-group-btn"> 
-                              <button class="btn btn-danger" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
-                            </div>
-                          </div>
-                        </div> -->
-                    
+                    <input type="file" name="images[]" class="form-control">                
                 </div>
             </div>        
         </div>
