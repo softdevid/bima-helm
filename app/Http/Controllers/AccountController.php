@@ -77,9 +77,11 @@ class AccountController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::query()->findOrFail($id);
+        $address = UserAddress::query()->findOrFail($id);
         $user->update($request->only('frontName', 'lastName', 'email', 'password', 'noTelp'));
+        $address->update($request->only('address'));
         $user['password'] = Hash::make($user['password']);
-        return redirect('/my-account#v-pills-pengaturan')->with('success', 'Update berhasil!');
+        return route('my-account/#v-pills-pengaturan');
         // $rules = [
         //     'frontName' => 'required|max:255',
         //     'lastName' => 'required|max:255',
