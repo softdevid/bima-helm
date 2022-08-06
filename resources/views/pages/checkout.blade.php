@@ -24,7 +24,7 @@
                                             <div class="single-form form-default">
                                                 <label>Nama Lengkap</label>
                                                 <div class="form-input form">
-                                                    <input type="text" placeholder="Nama Lengkap"
+                                                    <input type="text" id="fullName" placeholder="Nama Lengkap"
                                                         value="{{ auth()->user()->frontName . ' ' . auth()->user()->lastName }}">
                                                 </div>
                                             </div>
@@ -33,7 +33,7 @@
                                             <div class="single-form form-default">
                                                 <label>Nomor Telepon</label>
                                                 <div class="form-input form">
-                                                    <input type="text" placeholder="Nomor Telepon" value="{{ auth()->user()->noTelp }}">
+                                                    <input type="text" id="noTelp" placeholder="Nomor Telepon" value="{{ auth()->user()->noTelp }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -108,8 +108,8 @@
                                                     </p>
                                                 </div>
                                                 <div class="card-body">
-                                                    <label for="exampleFormControlTextarea1" class="form-label">Tambahkan komentar (opsional)</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                    <label for="order-comment" class="form-label">Tambahkan komentar mengenai pesanan (opsional)</label>
+                                                    <textarea class="form-control" id="order-comment" rows="3"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,7 +134,7 @@
                                                 <div class="single-form form-default">
                                                     <label>Pilih Metode Pembayaran</label>
                                                     <div class="select-items">
-                                                        <select class="form-control">
+                                                        <select class="form-control" id="payment-method">
                                                             <option value="0">Bank Transfer</option>
                                                         </select>
                                                     </div>
@@ -169,10 +169,11 @@
                                                             <th>Harga</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <tbody id="tableCart">
                                                         @foreach (Cart::instance('cart')->content() as $cartItem)
                                                             <tr>
                                                                 <td>{{ $loop->iteration }}</td>
+                                                                <td id="product-id" style="display: none">{{ $cartItem->id }}</td>
                                                                 <td>{{ $cartItem->name }}</td>
                                                                 <td>{{ $cartItem->qty }}</td>
                                                                 <td>{{ $cartItem->options->size ?? '' }}</td>
@@ -182,13 +183,17 @@
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
+                                                            <td colspan="4" class="text-end">Jumlah Produk</td>
+                                                            <td id="total-product">{{ Cart::instance('cart')->count() }}</td>
+                                                        </tr>
+                                                        <tr>
                                                             <td colspan="4" class="text-end">Sub-Total</td>
                                                             <td>Rp <span id="subtotal-price-order">{{ Cart::instance('cart')->subtotal('0', ',', '.') }}</span>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="4" class="text-end" id="ongkir-service"></td>
-                                                            <td id="ongkir-price"></td>
+                                                            <td>Rp <span id="ongkir-price"></span></td>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="4" class="text-end" id="handling-fee-service">Biaya Penanganan</td>
@@ -196,7 +201,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td colspan="4" class="text-end">Total</td>
-                                                            <td id="total-price-order"></td>
+                                                            <td>Rp <span id="total-price-order"></span></td>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
@@ -215,7 +220,8 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="float-end">
-                                                <div class="btn btn-outline-primary rounded-0">
+                                                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                                                <div class="btn btn-outline-primary rounded-0" onclick="make()">
                                                     Buat pesanan
                                                 </div>
                                             </div>
@@ -230,4 +236,5 @@
         </div>
     </section>
     <!--====== Checkout Form Steps Part Ends ======-->
+    <script src="/order/order.js"></script>
 @endsection

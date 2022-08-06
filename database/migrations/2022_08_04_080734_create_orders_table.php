@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('orderNumber');
             $table->text('orderData');
+            $table->string('status')->default("belum bayar");
             $table->timestamps();
         });
     }

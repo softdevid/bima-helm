@@ -88,12 +88,23 @@ document.addEventListener("DOMContentLoaded", async function (event) {
         }
         let dataOngkir = "";
         dataResult.costs.forEach((ongkir) => {
-            dataOngkir +=
-            `<li class="list-group-item">
+            dataOngkir += `<li class="list-group-item">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="kurir-${dataResult.code}" id="kurir-${dataResult.code}-${ongkir.service.toLowerCase()}">
-                    <label class="form-check-label" for="kurir-${dataResult.code}-${ongkir.service.toLowerCase()}">
-                        <span id="${dataResult.code.toLowerCase()}-${ongkir.service.toLowerCase()}-kurir">${dataResult.name} - ${ongkir.service}</span> -> Rp <span id="${dataResult.code.toLowerCase()}-${ongkir.service.toLowerCase()}-harga">${numThousand(ongkir.cost[0].value)}</span>
+                    <input class="form-check-input" type="radio" name="kurir-${
+                        dataResult.code
+                    }" id="kurir-${
+                dataResult.code
+            }-${ongkir.service.toLowerCase()}">
+                    <label class="form-check-label" for="kurir-${
+                        dataResult.code
+                    }-${ongkir.service.toLowerCase()}">
+                        <span id="${dataResult.code.toLowerCase()}-${ongkir.service.toLowerCase()}-kurir">${
+                dataResult.name
+            } - ${
+                ongkir.service
+            }</span> -> Rp <span id="${dataResult.code.toLowerCase()}-${ongkir.service.toLowerCase()}-harga">${numThousand(
+                ongkir.cost[0].value
+            )}</span>
                     </label>
                 </div>
             </li>`;
@@ -101,22 +112,34 @@ document.addEventListener("DOMContentLoaded", async function (event) {
         document.getElementById("data-ongkir").innerHTML = "";
         document.getElementById("data-ongkir").innerHTML = dataOngkir;
 
-        document.querySelectorAll('#data-ongkir li > div > input[type="radio"]').forEach(radiOngkir => {
-            radiOngkir.addEventListener('click', function(event) {
-                const idOngkir = document.getElementById(event.target.nextSibling.nextSibling.children[0].id).innerHTML;
-                document.getElementById('ongkir-service').innerHTML = '';
-                document.getElementById('ongkir-service').innerHTML = idOngkir;
-                const idOngkirHarga = document.getElementById(event.target.nextSibling.nextSibling.children[1].id).innerHTML;
-                document.getElementById('ongkir-price').innerHTML = '';
-                document.getElementById('ongkir-price').innerHTML = 'Rp ' + idOngkirHarga;
+        document
+            .querySelectorAll('#data-ongkir li > div > input[type="radio"]')
+            .forEach((radiOngkir) => {
+                radiOngkir.addEventListener("click", function (event) {
+                    const idOngkir = document.getElementById(
+                        event.target.nextSibling.nextSibling.children[0].id
+                    ).innerHTML;
+                    document.getElementById("ongkir-service").innerHTML = "";
+                    document.getElementById("ongkir-service").innerHTML =
+                        idOngkir;
+                    const idOngkirHarga = document.getElementById(
+                        event.target.nextSibling.nextSibling.children[1].id
+                    ).innerHTML;
+                    document.getElementById("ongkir-price").innerHTML = "";
+                    document.getElementById("ongkir-price").innerHTML =
+                        idOngkirHarga;
 
-                const subtotal = document.getElementById('subtotal-price-order').innerHTML;
-                const total = parseInt(subtotal.replace(/.(?=\d{3})/g, '')) + parseInt(idOngkirHarga.replace(/.(?=\d{3})/g, ''));
+                    const subtotal = document.getElementById(
+                        "subtotal-price-order"
+                    ).innerHTML;
+                    const total =
+                        parseInt(subtotal.replace(/.(?=\d{3})/g, "")) +
+                        parseInt(idOngkirHarga.replace(/.(?=\d{3})/g, ""));
 
-                document.getElementById('total-price-order').innerHTML = '';
-                document.getElementById('total-price-order').innerHTML = 'Rp ' + numThousand(total);
+                    document.getElementById("total-price-order").innerHTML = "";
+                    document.getElementById("total-price-order").innerHTML =
+                        numThousand(total);
+                });
             });
-        })
-
     });
 });
