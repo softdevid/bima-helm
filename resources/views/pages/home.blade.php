@@ -94,7 +94,7 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         <div class="row">
-                                            @foreach ($helmTopSell->take(6) as $helmTop)
+                                            @foreach ($helmTopSell as $helmTop)
                                             <div class="col-6 col-md-3 col-lg-2 mb-2">
                                                 <div class="card">
                                                     <img src="{{ $helmTop->url }}" alt=""
@@ -110,7 +110,7 @@
                                     </div>
                                     <div class="carousel-item">
                                         <div class="row">
-                                            @foreach ($helmTopSell->skip(6) as $helmTop)
+                                            {{-- @foreach ($helmTopSell->skip(6) as $helmTop)
                                             <div class="col-6 col-md-3 col-lg-2 mb-2">
                                                 <div class="card">
                                                     <img src="{{ $helmTop->url }}" alt=""
@@ -121,7 +121,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            @endforeach
+                                            @endforeach --}}
                                         </div>
                                     </div>
                                 </div>
