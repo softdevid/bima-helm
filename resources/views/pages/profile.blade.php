@@ -334,7 +334,7 @@
                                     <div class="form-floating">
                                         <textarea name="address" id="address" class="form-control"
                                             placeholder="Alamat Anda" rows="3"
-                                            required>{{ old('address', auth()->user()->address->address) }}</textarea>
+                                            required>{{ auth()->user()->address->address }}</textarea>
                                         <label for="address" class="form-label">Alamat Anda</label>
                                     </div>
                                 </div>
