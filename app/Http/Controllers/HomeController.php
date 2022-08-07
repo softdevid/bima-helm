@@ -40,10 +40,20 @@ class HomeController extends Controller
             "title" => "Tentang Kami"
         ]);
     }
-    public function caraBelanja()
+    // public function caraBelanja()
+    // {
+    //     return view('pages.cara-belanja', [
+    //         "title" => "Cara Belanja"
+    //     ]);
+    // }
+    public function gallery()
     {
-        return view('pages.cara-belanja', [
-            "title" => "Cara Belanja"
+
+        $galleryImg = \File::allFiles(public_path('galleries'));
+
+        return view('pages.gallery', [
+            "title" => "Galeri",
+            "images" => $galleryImg,
         ]);
     }
     public function contact()

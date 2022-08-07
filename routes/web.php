@@ -14,17 +14,6 @@ use App\Models\Shipping;
 use Illuminate\Support\Facades\Route;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/login', [HomeController::class, 'login'])
@@ -43,7 +32,8 @@ Route::post('/indonesia/villages/postalCode', [RegionController::class, 'postalC
 
 Route::get('/faq', [HomeController::class, 'faq']);
 Route::get('/tentang-kami', [HomeController::class, 'tentangkami']);
-Route::get('/cara-belanja', [HomeController::class, 'carabelanja']);
+// Route::get('/cara-belanja', [HomeController::class, 'carabelanja']);
+Route::get('/gallery', [HomeController::class, 'gallery']);
 Route::get('/contact', [HomeController::class, 'contact']);
 
 Route::get('/products', [ProductController::class, 'index']);
@@ -122,9 +112,3 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 });
 
 Route::resource('my-account', AccountController::class);
-
-Route::get('/shipp', function () {
-    return view('test', [
-        'shipp' => Shipping::all(),
-    ]);
-});

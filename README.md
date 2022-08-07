@@ -8,5 +8,5 @@
 	CLOUDINARY_URL=CLOUDINARY_URL=cloudinary://284977252145521:cA_OwFvwjCPjAanWJxKvLlzYgl4@cv-mekar-cutting-digital
 	CLOUDINARY_UPLOAD_PRESET=https://api.cloudinary.com/v1_1/cv-mekar-cutting-digital/image/uploads
 	CLOUDINARY_NOTIFICATION_URL=
-</pre>
+    </pre>
 6. done, if error just WA me :)
