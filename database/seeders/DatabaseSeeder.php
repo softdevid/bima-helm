@@ -185,9 +185,9 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         //Product::factory(20)->create();
-        Image::factory(8)->create();
+        // Image::factory(8)->create();
 
-        Size::factory(6)->create();
+        // Size::factory(6)->create();
         DB::update('UPDATE products p INNER JOIN (SELECT sizes.id, SUM(xs+s+m+lg+xl+xxl) as total FROM sizes GROUP BY sizes.id) s ON p.size_id = s.id SET p.stock = s.total');
         // 'SELECT size_id, total FROM products as p INNER JOIN (SELECT sizes.id, SUM(xs+s+m+lg+xl+xxl) as total FROM sizes GROUP BY sizes.id) s ON p.size_id = s.id'
     }

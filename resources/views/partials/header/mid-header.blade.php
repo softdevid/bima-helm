@@ -21,7 +21,7 @@
                                     <select id="select1">
                                         <option selected>Semua</option>
                                         @foreach (App\Models\Category::oldest()->get() as $category)
-                                        <option value="{{ $category->slug }}">{{ $category->name }}</option>    
+                                            <option value="{{ $category->slug }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -38,7 +38,7 @@
                 </div>
                 <!-- End Main Menu Search -->
             </div>
-            <div class="col-lg-2 col-md-2 col-3">
+            <div class="col-lg-2 col-md-2 col-3 d-none">
                 <div class="middle-right-area">
                     <div class="navbar-cart">
                         {{-- <div class="wishlist me-0 me-md-3">
@@ -55,7 +55,8 @@
                             <a href="/cart" class="main-btn">
                                 <span class="fa-stack me-1 text-white">
                                     @auth
-                                    <i class="fa-regular fa-circle fa-stack-2x" id="cartCount" data-count="{{ Cart::instance('cart')->count() }}"></i>
+                                        <i class="fa-regular fa-circle fa-stack-2x" id="cartCount"
+                                            data-count="{{ Cart::instance('cart')->count() }}"></i>
                                     @endauth
                                     <i class="fa-solid fa-cart-shopping fa-stack-1x"></i>
                                 </span>
