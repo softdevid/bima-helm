@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <div class="container text-dark">
+    <div class="container my-3 text-dark">
         <div class="section-title">
             <h2>Kontak Kami</h2>
         </div>

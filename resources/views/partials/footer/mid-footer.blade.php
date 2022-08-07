@@ -8,7 +8,7 @@
                     <div class="single-footer f-link">
                         <h3>Layanan Konsumen</h3>
                         <ul>
-                            <li><a href="/cara-belanja">Cara Belanja</a></li>
+                            {{-- <li><a href="/cara-belanja">Cara Belanja</a></li> --}}
                             <li><a href="javascript:void(0)">Pengiriman Produk</a></li>
                             <li><a href="javascript:void(0)">Pengembalian Produk</a></li>
                         </ul>
@@ -27,7 +27,7 @@
                     </div>
                     <!-- End Single Widget -->
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
+                {{-- <div class="col-lg-3 col-md-6 col-12">
                     <!-- Single Widget -->
                     <div class="single-footer icons">
                         <h3>Metode Pembayaran</h3>
@@ -51,7 +51,7 @@
                         </ul>
                     </div>
                     <!-- End Single Widget -->
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

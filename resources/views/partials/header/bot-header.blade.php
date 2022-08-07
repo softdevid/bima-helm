@@ -55,9 +55,13 @@
                                     </li>
                                 </ul>
                             </li> --}}
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link {{ $title === 'Cara Belanja' ? 'active text-primary fade-in' : '' }}"
                                     href="/cara-belanja" aria-label="Toggle navigation">Cara Belanja</a>
+                            </li> --}}
+                            <li class="nav-item">
+                                <a class="nav-link {{ $title === 'Cara Belanja' ? 'active text-primary fade-in' : '' }}"
+                                    href="/gallery" aria-label="Toggle navigation">Galeri</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ $title === 'Frequently Asked Question' ? 'active text-primary fade-in' : '' }}"
@@ -66,6 +70,10 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ $title === 'Tentang Kami' ? 'active text-primary fade-in' : '' }}"
                                     href="/tentang-kami" aria-label="Toggle navigation">Tentang Kami</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ $title === 'Tentang Kami' ? 'active text-primary fade-in' : '' }}"
+                                    href="/contact" aria-label="Toggle navigation">Kontak Kami</a>
                             </li>
                         </ul>
                     </div> <!-- navbar collapse -->

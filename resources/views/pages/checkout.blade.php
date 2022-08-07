@@ -26,6 +26,7 @@
                                                 <div class="form-input form">
                                                     <input type="text" id="fullName" placeholder="Nama Lengkap"
                                                         value="{{ auth()->user()->frontName . ' ' . auth()->user()->lastName }}">
+                                                    <input type="hidden" id="userId" value="{{ auth()->user()->id }}">
                                                 </div>
                                             </div>
                                         </div>

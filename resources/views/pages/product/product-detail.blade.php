@@ -9,14 +9,14 @@
                 <div class="col-lg-5 col-md-12 col-12">
                     <div class="product-images">
                         <main id="gallery">
-                            <div class="main-img">                                
+                            <div class="main-img">
                                 <img src="{{ $product->url }}" class="img-fluid images" id="current" alt="#">
                             </div>
                             <div class="images">
                                 <img src="{{ $product->url }}" class="img" alt="#">
-                                @foreach ($images as $images)
-                                    <img src="{{ $images->url }}" class="img" alt="#">
-                                @endforeach                                    
+                                {{-- @foreach ($images as $image)
+                                    <img src="{{ $image->url }}" class="img" alt="#">
+                                @endforeach --}}
                             </div>
                         </main>
                     </div>
