@@ -4,6 +4,7 @@
     <section class="hero-area">
         <div class="container">
             <div class="row">
+                {{-- start banner --}}
                 <div class="col-12 mb-2">
                     <!-- Start Banner -->
                     <div class="single-banner right">
@@ -11,7 +12,8 @@
                     </div>
                     <!-- End Banner -->
                 </div>
-                <div class="col-md-4 col-12 custom-padding-right">
+                {{-- end banner --}}
+                <div class="col-8 mt-2 custom-padding-right">
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             @foreach ($helms as $index => $helm)
@@ -30,19 +32,23 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-md-4 col-12">
-                    <div class="card">
-                        <img src="/img/Spoiler-KYT-K2R.jpeg" class="card-img" alt="...">
-                        <div class="card-img-overlay d-flex align-items-end p-0">
-                            <h5 class="card-title text-center text-white flex-fill p-2 mb-0" style="background-color: rgba(0, 0, 0, 0.4);">Aksesoris</h5>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-12 md-custom-padding ps-0">
+                            <div class="card border-0 rounded-0">
+                                <img src="/img/Spoiler-KYT-K2R.jpeg" class="card-img rounded-0" alt="...">
+                                <div class="card-img-overlay d-flex align-items-end p-0">
+                                    <h6 class="card-title text-center text-white flex-fill p-2 mb-0" style="background-color: rgba(0, 0, 0, 0.4);">Aksesoris</h6>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="card">
-                        <img src="/img/BUSA-FULLSET-HELM-INK-CX-22.jpeg" class="card-img" alt="...">
-                        <div class="card-img-overlay d-flex align-items-end p-0">
-                            <h5 class="card-title text-center text-white flex-fill p-2 mb-0" style="background-color: rgba(0, 0, 0, 0.4);">Sparepart</h5>
+                        <div class="col-12 md-custom-padding ps-0 pt-2">
+                            <div class="card border-0 rounded-0">
+                                <img src="/img/BUSA-FULLSET-HELM-INK-CX-22.jpeg" class="card-img rounded-0" alt="...">
+                                <div class="card-img-overlay d-flex align-items-end p-0">
+                                    <h6 class="card-title text-center text-white flex-fill p-2 mb-0" style="background-color: rgba(0, 0, 0, 0.4);">Sparepart</h6>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -56,7 +62,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Produk Top Seller</h2>
+                        <h2>Produk Terbaru</h2>
                     </div>
                 </div>
             </div>

@@ -8,8 +8,7 @@
     <title>{{ $title }} | Bima Helm</title>
 
     <!-- ========================= CSS here ========================= -->
-    {{--
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> --}}
+    {{-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> --}}
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/assets/css/tiny-slider.css" />
     <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
@@ -21,7 +20,6 @@
 
 <body>
 
-    {{--
     <!-- Preloader -->
     <div class="preloader">
         <div class="preloader-inner">
@@ -31,7 +29,7 @@
             </div>
         </div>
     </div>
-    <!-- /End Preloader --> --}}
+    <!-- /End Preloader -->
 
     <header class="header navbar-area">
         @include('partials.header.top-header')
@@ -67,11 +65,32 @@
     <!-- ========================= JS here ========================= -->
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
     <script src="/masonry/masonry.pkgd.min.js"></script>
     <script src="/assets/js/tiny-slider.js"></script>
     <script src="/assets/js/glightbox.min.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="/js/script.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            var imgDefer = document.getElementsByTagName("img");
+            for (var i = 0; i < imgDefer.length; i++) {
+                if (imgDefer[i].getAttribute("data-src")) {
+                    imgDefer[i].setAttribute("src", imgDefer[i].getAttribute("data-src"));
+                }
+            }
+            var $container = $(".masonry");
+            $container.imagesLoaded(function() {
+                $container.masonry({
+                    percentPosition: true
+                });
+            });
+        };
+        const lightbox = GLightbox();
+        lightbox.on('open', () => {
+            console.log('lightbox opened');
+        });
+    </script>
     <script type="text/javascript">
         $('.tabs-carousel').click(function(e) {
             if ($('.carousel-tab').hasClass('active')) {

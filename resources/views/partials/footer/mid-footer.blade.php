@@ -32,8 +32,8 @@
                     <div class="single-footer f-link">
                         <h3>Bima Helm</h3>
                         <ul>
-                            <li><a href="/tentang-kami"> Jl. Ahmad Yani No.76, Kandang Gampang, Kalikabong, Kec. Kalimanah, Kabupaten Purbalingga, Jawa Tengah 53321</a></li>
-                            <li><a href="#">09.00 - 20.00 WIB</a></li>
+                            <li><a href="/tentang-kami">Alamat : Jl. Ahmad Yani No.76, Kandang Gampang, Kalikabong, Kec. Kalimanah, Kabupaten Purbalingga, Jawa Tengah 53321</a></li>
+                            <li><a href="#">Jam Buka : 09.00 - 20.00 WIB</a></li>
                         </ul>
                     </div>
                     <!-- End Single Widget -->
