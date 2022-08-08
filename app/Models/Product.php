@@ -12,17 +12,8 @@ class Product extends Model
     use HasFactory;
     use Sluggable;
 
-    // choose $guarded or $fillable,
-    // $guarded is only for unfillable columns
-    // but $fillable is only for fillable colums
-
     protected $guarded = ['id'];
     protected $with = ['category'];
-    // protected $primaryKey = ['id'];
-    // protected $fillable = ['category_id', 'name', 'slug', 'merk', 'price', 'stock', 'image_id', 'size_id'];
-    // protected $attributes = [
-    //     'delayed' => false,
-    // ];
 
     public function scopeFilter($query, array $filters)
     {
@@ -32,6 +23,15 @@ class Product extends Model
             $query->where(
                 fn ($query) =>
                 $query->where('name', 'like', '%' . $search . '%')
+            )
+        );
+
+        $query->when(
+            $filters['sortby'] ?? false,
+            fn ($query, $sortby) =>
+            $query->where(
+                fn ($query) =>
+                $query->orderBy('price', $sortby)
             )
         );
 
@@ -63,7 +63,7 @@ class Product extends Model
 
     public function image()
     {
-        return $this->hasMany(Image::class);        
+        return $this->hasMany(Image::class);
     }
 
     public function sluggable(): array
