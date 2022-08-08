@@ -6,10 +6,11 @@
                 <div class="col-lg-3 col-md-6 col-12">
                     <!-- Single Widget -->
                     <div class="single-footer f-link">
-                        <h3>Layanan Konsumen</h3>
+                        <h3>Produk</h3>
                         <ul>
-                            <li><a href="javascript:void(0)">Pengiriman Produk</a></li>
-                            <li><a href="javascript:void(0)">Pengembalian Produk</a></li>
+                            <li><a href="javascript:void(0)">Helm</a></li>
+                            <li><a href="javascript:void(0)">Aksesoris</a></li>
+                            <li><a href="javascript:void(0)">Spare Parts</a></li>
                         </ul>
                     </div>
                     <!-- End Single Widget -->
@@ -26,6 +27,18 @@
                     </div>
                     <!-- End Single Widget -->
                 </div>
+                <div class=" col-md-6 col-12">
+                    <!-- Single Widget -->
+                    <div class="single-footer f-link">
+                        <h3>Bima Helm</h3>
+                        <ul>
+                            <li><a href="/tentang-kami"> Jl. Ahmad Yani No.76, Kandang Gampang, Kalikabong, Kec. Kalimanah, Kabupaten Purbalingga, Jawa Tengah 53321</a></li>
+                            <li><a href="#">09.00 - 20.00 WIB</a></li>
+                        </ul>
+                    </div>
+                    <!-- End Single Widget -->
+                </div>
+
             </div>
         </div>
     </div>

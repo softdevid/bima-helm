@@ -72,6 +72,14 @@
     <script src="/assets/js/glightbox.min.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="/js/script.js"></script>
+    <script type="text/javascript">
+        $('.tabs-carousel').click(function(e) {
+            if ($('.carousel-tab').hasClass('active')) {
+                let href = $('.tab-content>.active').children().attr('id');
+                $('.btn-carousel').attr('href', `#${href}`);
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -9,7 +9,36 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $helmImg = \File::allFiles(public_path('img/helm'));
+        $helmNew = Product::
+            without(['category'])->
+            join('categories', 'products.category_id', '=', 'categories.id')->
+            where('categories.name', 'like', '%helm%')->
+            orderBy('products.created_at', 'desc')->
+            limit(12)->
+            select('products.name', 'products.price', 'products.url')->
+            get();
+        $spareNew = Product::
+            without(['category'])->
+            join('categories', 'products.category_id', '=', 'categories.id')->
+            where('categories.name', 'like', '%aksesoris%')->
+            orderBy('products.created_at', 'desc')->
+            limit(12)->
+            select('products.name', 'products.price', 'products.url')->
+            get();
+        $accNew = Product::
+            without(['category'])->
+            join('categories', 'products.category_id', '=', 'categories.id')->
+            where('categories.name', 'like', '%spare%')->
+            orderBy('products.created_at', 'desc')->
+            limit(12)->
+            select('products.name', 'products.price', 'products.url')->
+            get();
         return view('pages.home', [
+            "helms" => $helmImg,
+            "helmNew" => $helmNew,
+            "accNew" => $accNew,
+            "spareNew" => $spareNew,
             "title" => "Home",
         ]);
     }
