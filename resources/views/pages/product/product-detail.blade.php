@@ -9,14 +9,14 @@
                 <div class="col-lg-5 col-md-12 col-12">
                     <div class="product-images">
                         <main id="gallery">
-                            <div class="main-img">                                
+                            <div class="main-img">
                                 <img src="{{ $product->url }}" class="img-fluid images" id="current" alt="#">
                             </div>
                             <div class="images">
                                 <img src="{{ $product->url }}" class="img" alt="#">
-                                @foreach ($images as $images)
-                                    <img src="{{ $images->url }}" class="img" alt="#">
-                                @endforeach                                    
+                                {{-- @foreach ($images as $image)
+                                <img src="{{ $image->url }}" class="img" alt="#">
+                                @endforeach --}}
                             </div>
                         </main>
                     </div>
@@ -36,61 +36,59 @@
                             XXL:<span id="xxl">{{ $product->size->xxl }}</span>
                             @endif
                         </p>
-                        @auth
-                        <div class="row">
-                            @if ($product->size_id != null)
-                            <div class="col-5 col-sm-6 col-md-3 col-lg-4">
-                                <div class="form-group">
-                                    <label for="size">Pilih Ukuran</label>
-                                    <select class="form-control" id="size">
-                                        <option value="">Ukuran</option>
-                                        <option value="xs" @if($product->size->xs == 0) {{ 'disabled' }} @endif>XS</option>
-                                        <option value="s" @if($product->size->s == 0) {{ 'disabled' }} @endif>S</option>
-                                        <option value="m" @if($product->size->m == 0) {{ 'disabled' }} @endif>M</option>
-                                        <option value="l" @if($product->size->lg == 0) {{ 'disabled' }} @endif>L</option>
-                                        <option value="xl" @if($product->size->xl == 0) {{ 'disabled' }} @endif>XL</option>
-                                        <option value="xxl" @if($product->size->xxl == 0) {{ 'disabled' }} @endif>XXL</option>
-                                    </select>
-                                    <div id="size" class="invalid-feedback">
-                                        Pilih salah satu ukuran
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            Tertarik Beli
+                        </button>
+                    </div>
+                </div>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row justify-content-center row-cols-1 row-cols-md-2">
+                                    <div class="col">
+                                        <a href="https://shopee.co.id/bimahelm" target="_blank">
+                                            <div class="card border-0">
+                                                <img src="/img/icons/shopee.png" class="card-img-top" alt="Shopee">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="https://www.bukalapak.com/u/bimahelm?from=omnisearch&from_keyword_history=false&search_source=omnisearch_user&source=navbar"
+                                            target="_blank">
+                                            <div class="card border-0">
+                                                <img src="/img/icons/bukalapak.png" class="card-img-top"
+                                                    alt="Bukalapak">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="https://www.tokopedia.com/bimahelm" target="_blank">
+                                            <div class="card border-0">
+                                                <img src="/img/icons/tokped.png" class="card-img-top" alt="Tokopedia">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="https://www.lazada.co.id/shop/bimahelm/?spm=a2o4j.pdp_revamp.seller.1.129f7470QEabzz&itemId=5590496509&channelSource=pdp"
+                                            target="_blank">
+                                            <div class="card border-0">
+                                                <img src="/img/icons/lazada.png" class="card-img-top" alt="Lazada">
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            @endif
-                            <div class="col-7 col-sm-6 col-md-4 col-lg-5">
-                                <div class="d-block quantity">
-                                    <label for="quantity">Kuantitas</label>
-                                    <div class="input-group ">
-                                        <button class="btn btn-outline-primary quantity-minus" type="button" style="position: initial">
-                                            <i class="fa-solid fa-minus"></i>
-                                        </button>
-                                        <input type="text" id="quantity" name="quantity" class="form-control text-center" value="1" min="1" max="1">
-                                        <button class="btn btn-outline-primary quantity-plus" type="button" style="position: initial">
-                                            <i class="fa-solid fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
-                        <div class="bottom-content">
-                            <div class="row align-items-end">
-                                <div class="col-lg-2 col-md-4 col-2">
-                                    <div class="button cart-button">
-                                        <button class="btn btn-outline-primary" id="btnCart" style="width: 100%;" onclick="btnCart({{ $product->id }}, '{{ $product->name }}', {{ $product->price }}, {{ $product->weight }}, '{{ $product->image_main }}')">
-                                            <i class="fa-regular fa-cart-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-4 col-2">
-                                    <div class="wish-button">
-                                        <button class="btn btn-outline-primary">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endauth
                     </div>
                 </div>
             </div>
@@ -124,12 +122,16 @@
                         <div class="info-body custom-responsive-margin">
                             <h4>NB :</h4>
                             <ul class="features">
-                                <li>SEBELUM ORDER WAJIB MENANYAKAN KETERSEDIAAN BARANG TERLEBIH DAHULU KEPADA PENJUAL</li>
-                                <li>SEBELUM ORDER WAJIB MENGIKUTI PERATURAN TOKO, ONGKIR RETUR FULL DI TANGGUNG PEMBELI</li>
+                                <li>SEBELUM ORDER WAJIB MENANYAKAN KETERSEDIAAN BARANG TERLEBIH DAHULU KEPADA PENJUAL
+                                </li>
+                                <li>SEBELUM ORDER WAJIB MENGIKUTI PERATURAN TOKO, ONGKIR RETUR FULL DI TANGGUNG PEMBELI
+                                </li>
                                 <li>MEMBELI/ATC DIANGGAP SUDAH SETUJU & MEMBACA DESKRIPSI DENGAN LENGKAP</li>
                                 <li>PASTIKAN UKURAN DAN WARNA</li>
-                                <li>SEBELUM BARANG DIKIRIM AKAN KAMI CEK TERLEBIH DAHULU, KARENA KAMI TIDAK INGIN MENGECEWAKAN KONSUMEN</li>
-                                <li>PACKING MENGGUNAKAN BUBBLE DAN KARDUS BOX HELM, dijamin barang aman saat pengiriman</li>
+                                <li>SEBELUM BARANG DIKIRIM AKAN KAMI CEK TERLEBIH DAHULU, KARENA KAMI TIDAK INGIN
+                                    MENGECEWAKAN KONSUMEN</li>
+                                <li>PACKING MENGGUNAKAN BUBBLE DAN KARDUS BOX HELM, dijamin barang aman saat pengiriman
+                                </li>
                                 <li>TERIMAKASIH :D</li>
                             </ul>
                         </div>

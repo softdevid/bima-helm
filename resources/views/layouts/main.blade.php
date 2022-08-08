@@ -8,8 +8,7 @@
     <title>{{ $title }} | Bima Helm</title>
 
     <!-- ========================= CSS here ========================= -->
-    {{--
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> --}}
+    {{-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> --}}
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/assets/css/tiny-slider.css" />
     <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
@@ -21,7 +20,6 @@
 
 <body>
 
-    {{--
     <!-- Preloader -->
     <div class="preloader">
         <div class="preloader-inner">
@@ -31,7 +29,7 @@
             </div>
         </div>
     </div>
-    <!-- /End Preloader --> --}}
+    <!-- /End Preloader -->
 
     <header class="header navbar-area">
         @include('partials.header.top-header')
@@ -67,9 +65,32 @@
     <!-- ========================= JS here ========================= -->
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/masonry/masonry.pkgd.min.js"></script>
     <script src="/assets/js/tiny-slider.js"></script>
     <script src="/assets/js/glightbox.min.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script src="/js/script.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            var imgDefer = document.getElementsByTagName("img");
+            for (var i = 0; i < imgDefer.length; i++) {
+                if (imgDefer[i].getAttribute("data-src")) {
+                    imgDefer[i].setAttribute("src", imgDefer[i].getAttribute("data-src"));
+                }
+            }
+            var $container = $(".masonry");
+            $container.imagesLoaded(function() {
+                $container.masonry({
+                    percentPosition: true
+                });
+            });
+        };
+        const lightbox = GLightbox();
+        lightbox.on('open', () => {
+            console.log('lightbox opened');
+        });
+    </script>
     <script type="text/javascript">
         $('.tabs-carousel').click(function(e) {
             if ($('.carousel-tab').hasClass('active')) {
@@ -78,81 +99,6 @@
             }
         });
     </script>
-
-    {{-- <script type="text/javascript">
-        //========= Hero Slider
-        tns({
-            container: '.hero-slider',
-            slideBy: 'page',
-            autoplay: true,
-            autoplayButtonOutput: false,
-            mouseDrag: true,
-            gutter: 0,
-            items: 1,
-            nav: false,
-            controls: true,
-            controlsText: ['<i class="lni lni-chevron-left"></i>', '<i class="lni lni-chevron-right"></i>'],
-        });
-
-        //======== Brand Slider
-        tns({
-            container: '.brands-logo-carousel',
-            autoplay: true,
-            autoplayButtonOutput: false,
-            mouseDrag: true,
-            gutter: 15,
-            nav: false,
-            controls: false,
-            responsive: {
-                0: {
-                    items: 1,
-                },
-                540: {
-                    items: 3,
-                },
-                768: {
-                    items: 5,
-                },
-                992: {
-                    items: 6,
-                }
-            }
-        });
-    </script>
-    <script>
-        const finaleDate = new Date("February 15, 2023 00:00:00").getTime();
-
-        const timer = () => {
-            const now = new Date().getTime();
-            let diff = finaleDate - now;
-            if (diff < 0) {
-                document.querySelector('.alert').style.display = 'block';
-                document.querySelector('.container').style.display = 'none';
-            }
-
-            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            let hours = Math.floor(diff % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
-            let minutes = Math.floor(diff % (1000 * 60 * 60) / (1000 * 60));
-            let seconds = Math.floor(diff % (1000 * 60) / 1000);
-
-            days <= 99 ? days = `0${days}` : days;
-            days <= 9 ? days = `00${days}` : days;
-            hours <= 9 ? hours = `0${hours}` : hours;
-            minutes <= 9 ? minutes = `0${minutes}` : minutes;
-            seconds <= 9 ? seconds = `0${seconds}` : seconds;
-
-            document.querySelector('#days').textContent = days;
-            document.querySelector('#hours').textContent = hours;
-            document.querySelector('#minutes').textContent = minutes;
-            document.querySelector('#seconds').textContent = seconds;
-
-        }
-        timer();
-        setInterval(timer, 1000);
-    </script> --}}
-    <script src="/js/script.js"></script>
-    <script src="/cekongkir/kecamatan.js"></script>
-    <script src="/cekongkir/cekongkir.js"></script>
 </body>
 
 </html>

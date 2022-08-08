@@ -9,21 +9,16 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $helmTopSell = Product::
-            without(['category'])->
-            join('categories', 'products.category_id', '=', 'categories.id')->
-            join('images', 'products.id', '=', 'images.product_id')->
-            where('categories.name', 'like', '%helm%')->
-            orderBy('sold', 'desc')->
-            limit(12)->
-            select('products.name', 'products.price', 'products.url')->
-            get();
-
+        $helmImg = \File::allFiles(public_path('img/helm'));
+        $helmNew = Product::without(['category'])->join('categories', 'products.category_id', '=', 'categories.id')->where('categories.name', 'like', '%helm%')->orderBy('products.created_at', 'desc')->limit(12)->select('products.name', 'products.price', 'products.url')->get();
+        $spareNew = Product::without(['category'])->join('categories', 'products.category_id', '=', 'categories.id')->where('categories.name', 'like', '%aksesoris%')->orderBy('products.created_at', 'desc')->limit(12)->select('products.name', 'products.price', 'products.url')->get();
+        $accNew = Product::without(['category'])->join('categories', 'products.category_id', '=', 'categories.id')->where('categories.name', 'like', '%spare%')->orderBy('products.created_at', 'desc')->limit(12)->select('products.name', 'products.price', 'products.url')->get();
         return view('pages.home', [
+            "helms" => $helmImg,
+            "helmNew" => $helmNew,
+            "accNew" => $accNew,
+            "spareNew" => $spareNew,
             "title" => "Home",
-            'helmTopSell' => $helmTopSell,
-            'accsTopSell' => '',
-            'spTopSell' => ''
         ]);
     }
 
@@ -40,24 +35,32 @@ class HomeController extends Controller
             "title" => "Tentang Kami"
         ]);
     }
-    public function caraBelanja()
+
+    public function gallery()
     {
-        return view('pages.cara-belanja', [
-            "title" => "Cara Belanja"
+
+        $galleryImg = \File::allFiles(public_path('galleries'));
+
+        return view('pages.gallery', [
+            "title" => "Galeri",
+            "images" => $galleryImg,
         ]);
     }
+
     public function contact()
     {
         return view('pages.contact', [
-            "title" => "Kontak"
+            "title" => "Kontak Kami"
         ]);
     }
+
     public function register()
     {
         return view('pages.user.register', [
             "title" => "Registrasi"
         ]);
     }
+
     public function login()
     {
         return view('pages.user.login', [

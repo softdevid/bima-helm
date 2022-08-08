@@ -4,6 +4,7 @@
     <section class="hero-area">
         <div class="container">
             <div class="row">
+                {{-- start banner --}}
                 <div class="col-12 mb-2">
                     <!-- Start Banner -->
                     <div class="single-banner right">
@@ -11,44 +12,43 @@
                     </div>
                     <!-- End Banner -->
                 </div>
-                <div class="col-md-4 col-12 custom-padding-right">
+                {{-- end banner --}}
+                <div class="col-8 mt-2 custom-padding-right">
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            @foreach ($helmTopSell->take(3) as $index => $helmTop3)
-                            <div class="carousel-item {{ ($index == 0) ? 'active' : '' }}">
-                                <img src="{{ $helmTop3->url }}" class="d-block w-100" alt="">
-                            </div>
+                            @foreach ($helms as $index => $helm)
+                                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                    <img src="{{ asset('img/helm/' . $helm->getFilename()) }}" class="d-block w-100" alt="">
+                                </div>
                             @endforeach
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"
-                                style="background-color: rgba(0, 0, 0, 0.4);"></span>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.4);"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"
-                                style="background-color: rgba(0, 0, 0, 0.4);"></span>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.4);"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
                 </div>
-                <div class="col-md-4 col-12">
-                    <div class="card">
-                        <img src="/img/Spoiler-KYT-K2R.jpeg" class="card-img" alt="...">
-                        <div class="card-img-overlay d-flex align-items-end p-0">
-                            <h5 class="card-title text-center text-white flex-fill p-2 mb-0"
-                                style="background-color: rgba(0, 0, 0, 0.4);">Aksesoris</h5>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-12 md-custom-padding ps-0">
+                            <div class="card border-0 rounded-0">
+                                <img src="/img/Spoiler-KYT-K2R.jpeg" class="card-img rounded-0" alt="...">
+                                <div class="card-img-overlay d-flex align-items-end p-0">
+                                    <h6 class="card-title text-center text-white flex-fill p-2 mb-0" style="background-color: rgba(0, 0, 0, 0.4);">Aksesoris</h6>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="card">
-                        <img src="/img/BUSA-FULLSET-HELM-INK-CX-22.jpeg" class="card-img" alt="...">
-                        <div class="card-img-overlay d-flex align-items-end p-0">
-                            <h5 class="card-title text-center text-white flex-fill p-2 mb-0"
-                                style="background-color: rgba(0, 0, 0, 0.4);">Sparepart</h5>
+                        <div class="col-12 md-custom-padding ps-0 pt-2">
+                            <div class="card border-0 rounded-0">
+                                <img src="/img/BUSA-FULLSET-HELM-INK-CX-22.jpeg" class="card-img rounded-0" alt="...">
+                                <div class="card-img-overlay d-flex align-items-end p-0">
+                                    <h6 class="card-title text-center text-white flex-fill p-2 mb-0" style="background-color: rgba(0, 0, 0, 0.4);">Sparepart</h6>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -62,28 +62,23 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Produk Top Seller</h2>
+                        <h2>Produk Terbaru</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-8 mb-1 mb-md-0">
                     <ul class="nav nav-tabs">
-                        <li class="nav-item"><a class="tabs-carousel nav-link active" href="#helm-topsell"
-                                data-bs-toggle="tab">Helm</a></li>
-                        <li class="nav-item"><a class="tabs-carousel nav-link" href="#aksesoris-topsell"
-                                data-bs-toggle="tab">Aksessoris</a></li>
-                        <li class="nav-item"><a class="tabs-carousel nav-link" href="#spareparts-topsell"
-                                data-bs-toggle="tab">Spare Parts</a></li>
+                        <li class="nav-item"><a class="tabs-carousel nav-link active" href="#helm-topsell" data-bs-toggle="tab">Helm</a></li>
+                        <li class="nav-item"><a class="tabs-carousel nav-link" href="#aksesoris-topsell" data-bs-toggle="tab">Aksessoris</a></li>
+                        <li class="nav-item"><a class="tabs-carousel nav-link" href="#spareparts-topsell" data-bs-toggle="tab">Spare Parts</a></li>
                     </ul>
                 </div>
                 <div class="col-4 text-end">
-                    <a href="#carousel-helm-topsell" class="btn-carousel btn btn-primary mb-3 ms-1" role="button"
-                        data-bs-slide="prev">
+                    <a href="#carousel-helm-topsell" class="btn-carousel btn btn-primary mb-3 ms-1" role="button" data-bs-slide="prev">
                         <i class="fa-solid fa-arrow-left"></i>
                     </a>
-                    <a href="#carousel-helm-topsell" class="btn-carousel btn btn-primary mb-3" role="button"
-                        data-bs-slide="next">
+                    <a href="#carousel-helm-topsell" class="btn-carousel btn btn-primary mb-3" role="button" data-bs-slide="next">
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -94,34 +89,32 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         <div class="row">
-                                            @foreach ($helmTopSell as $helmTop)
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="{{ $helmTop->url }}" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">{{ $helmTop->name }}</div>
-                                                        <p class="card-text">Rp.{{ $helmTop->price }}</p>
+                                            @foreach ($helmNew as $hNew)
+                                                <div class="col-6 col-md-3 col-lg-2 mb-2">
+                                                    <div class="card">
+                                                        <img src="{{ $hNew->url }}" alt="" class="img-fluid">
+                                                        <div class="card-body">
+                                                            <div class="text-dark card-title">{{ $hNew->name }}</div>
+                                                            <p class="card-text">Rp.{{ $hNew->price }}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                             @endforeach
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <div class="row">
-                                            {{-- @foreach ($helmTopSell->skip(6) as $helmTop)
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="{{ $helmTop->url }}" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">{{ $helmTop->name }}</div>
-                                                        <p class="card-text">Rp.{{ $helmTop->price }}</p>
+                                            @foreach ($helmNew->skip(6) as $hNew)
+                                                <div class="col-6 col-md-3 col-lg-2 mb-2">
+                                                    <div class="card">
+                                                        <img src="{{ $hNew->url }}" alt="" class="img-fluid">
+                                                        <div class="card-body">
+                                                            <div class="text-dark card-title">{{ $hNew->name }}</div>
+                                                            <p class="card-text">Rp.{{ $hNew->price }}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            @endforeach --}}
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -132,130 +125,32 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item carousel-content active">
                                         <div class="row">
+                                            @foreach ($accNew as $aNew)
                                             <div class="col-6 col-md-3 col-lg-2 mb-2">
                                                 <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
+                                                    <img src="{{ $aNew->url }}" alt="" class="img-fluid">
                                                     <div class="card-body">
-                                                        <div class="text-dark card-title">Spoiler</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
+                                                        <div class="text-dark card-title">{{ $aNew->name }}</div>
+                                                        <p class="card-text">Rp.{{ $aNew->price }}</p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Spoiler</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Spoiler</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Spoiler</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Spoiler</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Spoiler</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <div class="row">
+                                            @foreach ($accNew->skip(6) as $aNew)
                                             <div class="col-6 col-md-3 col-lg-2 mb-2">
                                                 <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
+                                                    <img src="{{ $aNew->url }}" alt="" class="img-fluid">
                                                     <div class="card-body">
-                                                        <div class="text-dark card-title">Spoiler</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
+                                                        <div class="text-dark card-title">{{ $aNew->name }}</div>
+                                                        <p class="card-text">Rp.{{ $aNew->price }}</p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Spoiler</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Spoiler</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Spoiler</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Spoiler</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Spoiler</div>
-                                                        <p class="card-text">Rp.700.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -266,130 +161,32 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item carousel-content active">
                                         <div class="row">
+                                            @foreach ($spareNew as $sNew)
                                             <div class="col-6 col-md-3 col-lg-2 mb-2">
                                                 <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
+                                                    <img src="{{ $sNew->url }}" alt="" class="img-fluid">
                                                     <div class="card-body">
-                                                        <div class="text-dark card-title">Visor</div>
-                                                        <p class="card-text">Rp.100.000,00</p>
+                                                        <div class="text-dark card-title">{{ $sNew->name }}</div>
+                                                        <p class="card-text">Rp.{{ $sNew->price }}</p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Visor</div>
-                                                        <p class="card-text">Rp.100.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Visor</div>
-                                                        <p class="card-text">Rp.100.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Visor</div>
-                                                        <p class="card-text">Rp.100.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Visor</div>
-                                                        <p class="card-text">Rp.100.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Visor</div>
-                                                        <p class="card-text">Rp.100.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <div class="row">
+                                            @foreach ($spareNew->skip(6) as $sNew)
                                             <div class="col-6 col-md-3 col-lg-2 mb-2">
                                                 <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
+                                                    <img src="{{ $sNew->url }}" alt="" class="img-fluid">
                                                     <div class="card-body">
-                                                        <div class="text-dark card-title">Visor</div>
-                                                        <p class="card-text">Rp.100.000,00</p>
+                                                        <div class="text-dark card-title">{{ $sNew->name }}</div>
+                                                        <p class="card-text">Rp.{{ $sNew->price }}</p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Visor</div>
-                                                        <p class="card-text">Rp.100.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Visor</div>
-                                                        <p class="card-text">Rp.100.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Visor</div>
-                                                        <p class="card-text">Rp.100.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Visor</div>
-                                                        <p class="card-text">Rp.100.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-3 col-lg-2 mb-2">
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/200x200" alt=""
-                                                        class="img-fluid">
-                                                    <div class="card-body">
-                                                        <div class="text-dark card-title">Visor</div>
-                                                        <p class="card-text">Rp.100.000,00</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -401,7 +198,6 @@
         </div>
     </section>
     <!-- End Trending Product Area -->
-
     <section class="section">
         <div class="container">
             <div class="row">

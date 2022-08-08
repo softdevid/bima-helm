@@ -63,7 +63,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
+                {{-- <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingFourth">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseFourth" aria-expanded="false"
@@ -78,8 +78,8 @@
                             detailnya.
                         </div>
                     </div>
-                </div>
-                <div class="accordion-item">
+                </div> --}}
+                {{-- <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingFifth">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseFifth" aria-expanded="false"
@@ -105,8 +105,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="accordion-item">
+                </div> --}}
+                {{-- <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingSixth">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseSixth" aria-expanded="false"
@@ -132,7 +132,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

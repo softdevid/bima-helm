@@ -22,42 +22,9 @@
                                 <a class="nav-link {{ $title === 'Produk' ? 'active text-primary fade-in' : '' }}"
                                     href="/products" aria-label="Toggle navigation">Produk</a>
                             </li>
-
-                            {{-- <li class="nav-item">
-                                <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
-                                    data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"
-                                    aria-expanded="false" aria-label="Toggle navigation">
-                                    Produk
-                                </a>
-                                <ul class="sub-menu collapse" id="submenu-1-2">
-                                    <li class="nav-item">
-                                        <a href="/products" aria-label="Toggle navigation">Selengkapnya</a>
-                                    </li>
-                                    <li class="nav-item dropend">
-                                        <a href="#" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown">
-                                            Helm
-                                        </a>
-                                        <ul class="dropdown-menu shadow">
-                                            <li><a href="#" class="dropdown-item">KYT</a></li>
-                                            <li><a href="#" class="dropdown-item">NHK</a></li>
-                                            <li><a href="#" class="dropdown-item">JPX</a></li>
-                                            <li><a href="#" class="dropdown-item">MDS</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" aria-label="Toggle navigation">Aksesoris</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" aria-label="Toggle navigation">Spare Part</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" aria-label="Toggle navigation">Lainnya</a>
-                                    </li>
-                                </ul>
-                            </li> --}}
                             <li class="nav-item">
                                 <a class="nav-link {{ $title === 'Cara Belanja' ? 'active text-primary fade-in' : '' }}"
-                                    href="/cara-belanja" aria-label="Toggle navigation">Cara Belanja</a>
+                                    href="/gallery" aria-label="Toggle navigation">Galeri</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ $title === 'Frequently Asked Question' ? 'active text-primary fade-in' : '' }}"
@@ -66,6 +33,10 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ $title === 'Tentang Kami' ? 'active text-primary fade-in' : '' }}"
                                     href="/tentang-kami" aria-label="Toggle navigation">Tentang Kami</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ $title === 'Kontak Kami' ? 'active text-primary fade-in' : '' }}"
+                                    href="/contact" aria-label="Toggle navigation">Kontak Kami</a>
                             </li>
                         </ul>
                     </div> <!-- navbar collapse -->
