@@ -35,7 +35,7 @@
                                     href="/tentang-kami" aria-label="Toggle navigation">Tentang Kami</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ $title === 'Tentang Kami' ? 'active text-primary fade-in' : '' }}"
+                                <a class="nav-link {{ $title === 'Kontak Kami' ? 'active text-primary fade-in' : '' }}"
                                     href="/contact" aria-label="Toggle navigation">Kontak Kami</a>
                             </li>
                         </ul>
