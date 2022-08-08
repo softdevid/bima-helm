@@ -26,10 +26,10 @@
                                 </div>
                             </div>
                             <div class="search-input">
-                                <input type="text" placeholder="Cari produk...">
+                                <input type="text" name="search"placeholder="Cari produk...">
                             </div>
                             <div class="search-btn">
-                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
                         </form>
                     </div>

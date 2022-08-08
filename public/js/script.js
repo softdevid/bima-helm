@@ -69,12 +69,11 @@ $(document).ready(function () {
         if (searchParams.has("page")) {
             var page = searchParams.get("page");
         }
-        history.pushState(null, null, "?page=" + page + "&sortBy=" + sortBy);
 
         $.ajax({
             type: "GET",
             url: "/products?page=" + page,
-            data: { sort_by: sortBy },
+            data: { sortby: sortBy },
             success: function (response) {
                 $(".data-products").html(response);
             },

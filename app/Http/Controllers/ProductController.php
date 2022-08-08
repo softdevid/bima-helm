@@ -16,22 +16,22 @@ class ProductController extends Controller
             $title = $category->name;
         }
 
-        if (request()->ajax() && request()->sort_by != null && request()->sort_by != 'sold') {
+        if (request()->ajax() && request()->sortby != null && request()->sortby != 'latest') {
             return view('pages.product.product-data-grids', [
-                "products" => Product::orderBy('price', request()->sort_by)->filter(request(['search', 'category']))->paginate(9)->withQueryString(),
+                "products" => Product::orderBy('price', request()->sortby)->filter(request(['search', 'category', 'sortby']))->paginate(9)->withQueryString(),
             ])->render();
         }
 
         if (request()->ajax()) {
             return view('pages.product.product-data-grids', [
-                "products" => Product::orderBy('sold', 'desc')->filter(request(['search', 'category']))->paginate(9)->withQueryString(),
+                "products" => Product::latest()->filter(request(['search', 'category']))->paginate(9)->withQueryString(),
             ])->render();
         }
 
         return view('pages.product.products', [
             "title" => $title,
             "categories" => Category::oldest()->get(),
-            "products" => Product::orderBy('sold', 'desc')->filter(request(['search', 'category']))->paginate(9)->withQueryString(),
+            "products" => Product::latest()->filter(request(['search', 'category']))->paginate(9)->withQueryString(),
         ]);
     }
 

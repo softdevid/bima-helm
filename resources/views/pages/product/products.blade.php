@@ -115,7 +115,8 @@
                                 <div class="product-sorting">
                                     <label for="sorting">Berdasarkan:</label>
                                     <select class="form-control" id="sorting" name="sort_by">
-                                        <option value="sold">Terlaris</option>
+                                        {{-- <option value="sold">Terlaris</option> --}}
+                                        <option value="latest">Terbaru</option>
                                         <option value="asc">Murah - Mahal</option>
                                         <option value="desc">Mahal - Murah</option>
                                     </select>
