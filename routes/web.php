@@ -1,16 +1,12 @@
 <?php
 
-use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CartNWishController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\MerkController;
-use App\Http\Controllers\OrderController;
-use App\Models\Shipping;
 use Illuminate\Support\Facades\Route;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -21,52 +17,14 @@ Route::get('/login', [HomeController::class, 'login'])
     ->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
-Route::get('/register', [HomeController::class, 'register'])->middleware('guest');
-Route::post('/register', [AuthController::class, 'registration']);
-
-Route::post('/indonesia/provinces', [RegionController::class, 'provinces']);
-Route::post('/indonesia/cities', [RegionController::class, 'cities']);
-Route::post('/indonesia/districts', [RegionController::class, 'districts']);
-Route::post('/indonesia/villages', [RegionController::class, 'villages']);
-Route::post('/indonesia/villages/postalCode', [RegionController::class, 'postalCode']);
 
 Route::get('/faq', [HomeController::class, 'faq']);
 Route::get('/tentang-kami', [HomeController::class, 'tentangkami']);
-// Route::get('/cara-belanja', [HomeController::class, 'carabelanja']);
 Route::get('/gallery', [HomeController::class, 'gallery']);
 Route::get('/contact', [HomeController::class, 'contact']);
 
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/details/{product:slug}', [ProductController::class, 'detail']);
-
-Route::get('/cart', [CartNWishController::class, 'indexCart']);
-Route::get('/cart-add', [CartNWishController::class, 'cartAdd']);
-Route::get('/cart-remove', [CartNWishController::class, 'cartRemove']);
-Route::get('/cart-removeAll', [CartNWishController::class, 'cartRemoveAll']);
-Route::get(
-    '/fav',
-    fn () => view('pages.cart', [
-        'title' => 'Produk yang disukai',
-    ]),
-)->middleware('auth');
-
-Route::get('/checkout', function () {
-
-    if (count(\Cart::instance('cart')->content()) == 0) {
-        return redirect('/products');
-    }
-
-    return view('pages.checkout', [
-        'title' => 'Checkout',
-        'shippings' => ['JNT', 'JNE', 'NINJA', 'SICEPAT', 'ANTERAJA'],
-    ]);
-})->middleware('auth');
-
-// route for order
-Route::middleware(['auth'])->group(function () {
-    Route::post('/order/make', [OrderController::class, 'make']);
-});
-
 //route slug generate
 Route::get('check_slug', function () {
     $slug = SlugService::createSlug(App\Models\Product::class, 'slug', request('name'));
@@ -82,10 +40,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::delete('/deletecover/{id}',[AdminProductController::class,'deletecover']);
     //route admin
     Route::resource('admin-merk', MerkController::class);
-    // Route::get('/admin/merk', [MerkController::class, 'index']);
-    // Route::post('/admin/merk/store', [MerkController::class, 'store']);
-    // Route::get('/admin/merk/delete/{id}', [MerkController::class, 'destroy']);
-    // Route::post('/admin/merk/delete/{id}', [MerkController::class, 'destroy']);
     Route::get('/admin/merk/delete/{id}', [MerkController::class, 'destroy']);
 
     //route admin
@@ -110,5 +64,3 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
         ]);
     });
 });
-
-Route::resource('my-account', AccountController::class);

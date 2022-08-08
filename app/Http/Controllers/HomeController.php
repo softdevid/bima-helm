@@ -9,21 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $helmTopSell = Product::
-            without(['category'])->
-            join('categories', 'products.category_id', '=', 'categories.id')->
-            join('images', 'products.id', '=', 'images.product_id')->
-            where('categories.name', 'like', '%helm%')->
-            orderBy('sold', 'desc')->
-            limit(12)->
-            select('products.name', 'products.price', 'products.url')->
-            get();
-
         return view('pages.home', [
             "title" => "Home",
-            'helmTopSell' => $helmTopSell,
-            'accsTopSell' => '',
-            'spTopSell' => ''
         ]);
     }
 
@@ -40,12 +27,7 @@ class HomeController extends Controller
             "title" => "Tentang Kami"
         ]);
     }
-    // public function caraBelanja()
-    // {
-    //     return view('pages.cara-belanja', [
-    //         "title" => "Cara Belanja"
-    //     ]);
-    // }
+
     public function gallery()
     {
 
@@ -56,18 +38,21 @@ class HomeController extends Controller
             "images" => $galleryImg,
         ]);
     }
+
     public function contact()
     {
         return view('pages.contact', [
             "title" => "Kontak"
         ]);
     }
+
     public function register()
     {
         return view('pages.user.register', [
             "title" => "Registrasi"
         ]);
     }
+
     public function login()
     {
         return view('pages.user.login', [
