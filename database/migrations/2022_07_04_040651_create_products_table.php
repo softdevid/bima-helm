@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('slug')->unique();
             $table->foreignId('merk_id')->unsigned()->nullable();
             $table->integer('price');
+            $table->integer('purchase_price');
             $table->integer('weight')->unsigned()->default(0);
             $table->foreignId('size_id')->unsigned()->nullable();
             $table->integer('stock')->unsigned()->default(0);

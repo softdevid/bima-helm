@@ -37,6 +37,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
     Route::resource('admin-product', AdminProductController::class);
     Route::delete('/deletecover/{id}',[AdminProductController::class,'deletecover']);
+    Route::delete('/deleteimages/{id}',[AdminProductController::class,'deleteimages']);
     //route admin
     Route::resource('admin-merk', MerkController::class);
     Route::get('/admin/merk/delete/{id}', [MerkController::class, 'destroy']);

@@ -9,11 +9,11 @@
     @endif
     
 <div class="row">        
-    <div class="col-lg-9">        
+    <div class="col-lg-8">        
 	    <div class="form-group">
             <form action="{{ route('admin-product.update', [$product->id]) }}" method="post" enctype="multipart/form-data">
-                @csrf
                 @method("put")
+                @csrf                
 
              <div class="mb-3 row">
                 <input type="hidden" name="id" value="{{ $product->id }}">
@@ -121,18 +121,25 @@
                 </div>
             </div>
 
-            <div class="mb-3">
-                <div class="row">
-                    <label for="image_main" class="col-sm-2 col-form-label">Gambar utama</label>        
-                    <div class="col-sm-10">   
-                        @if ($product->image_main === "")                 
-                            <input type="file" name="image_main" class="form-control" required>
-                        @else
-                            <input type="file" name="image_main" class="form-control">
-                        @endif
+            @if ($product->image_main === "")
+                <div class="mb-3">
+                    <div class="row">
+                        <label for="image_main" class="col-sm-2 col-form-label">Gambar utama</label>        
+                        <div class="col-sm-10">                           
+                                <input type="file" name="image_main" class="form-control" required>     
+                        </div>
                     </div>
                 </div>
-            </div>
+            @else
+                <div class="mb-3 d-none">
+                    <div class="row">
+                        <label for="image_main" class="col-sm-2 col-form-label">Gambar utama</label>        
+                        <div class="col-sm-10">                           
+                                <input type="file" name="image_main" class="form-control">     
+                        </div>
+                    </div>
+                </div>
+            @endif
             <div class="mb-3 row">
                 <label for="size" class="col-sm-2 col-form-label">Gambar lain</label>        
                 <div class="col-sm-10">                    
@@ -140,43 +147,56 @@
                 </div>
             </div>
             
-            <button type="submit" class="btn btn-danger mt-3 ">Submit</button>
+            <div class="row mt-3">
+                <button type="submit" class="btn btn-danger ">Submit</button>
+                <a href="{{ route('admin-product.index') }}" class="btn btn-secondary"><i class="fa fa-circle-left"></i> Kembali</a>
+            </div>
+
             </form>
        </div>
     </div>
-    <div class="col-lg-3">
-        <p>Cover:</p>
+    <div class="col-lg-4">
+        <p>Gambar utama: </p>
+        @if ($product->image_main === "")            
+            <div class="card" style="max-height: 100px; max-width: 150px;">
+                <div class="card text-bg-dark text-center"> 
+                  <b>Gambar Kosong</b>
+                </div>
+            </div>
+        @else
         <div class="card" style="max-height: 100px; max-width: 150px;">
-            <div class="card text-bg-dark">
-              @if ($product->image_main === "")
-              <b>Gambar Kosong</b>
-              @else
+            <div class="card text-bg-dark">                            
               <img src="{{ $product->url }}" class="card-img" alt="...">              
               <div class="card-img-overlay d-flex align-items-end p-0">                
-                  <button class="btn text-danger bg-dark text-center text-white flex-fill p-2 mb-0" data-toggle="modal" data-target="#hapusGambar"><i class="fa fa-close"></i></button>                        
-              </div>
-              @endif
+                  <button class="btn text-danger bg-dark text-center text-white" data-toggle="modal" data-target="#hapusGambar"><i class="fa fa-close"></i></button>                        
+              </div>              
             </div>
         </div>
-
-        <!-- <form action="" method="post">
-        <button class="btn btn-danger">X</button>
-        @csrf
-        @method('delete')
-        </form>
-        <img src="{{ $product->url }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="" srcset=""> -->
-        <br>
-         @if (count($images) > 0)
-         <p>Images:</p>
-         @foreach ($images as $image)
-         <form action="" method="post" enctype="multipart/form-data">
-             <button class="btn text-danger">X</button>
-             @csrf
-             @method('delete')
-             </form>
-         <img src="{{ $image->url }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="" srcset="">
-         @endforeach
-         @endif
+        @endif
+        
+        <p class="mt-5">Gambar lain :</p>
+            @if (count($images) > 0)              
+                @foreach ($images as $image)                                    
+                     <div class="card mt-5" style="max-height: 100px; max-width: 150px;">
+                        <div class="card text-bg-dark">              
+                          <img src="{{ $image->url }}" class="card-img" alt="...">              
+                          <div class="card-img-overlay d-flex align-items-end p-0">   
+                          <form action="/deleteimages/{{ $image->id }}" method="post" enctype="multipart/form-data">                     
+                             @csrf
+                             @method('delete')             
+                              <button class="btn text-danger bg-dark text-center text-white" onclick="return confirm('Yakin mau hapus gambar')"><i class="fa fa-close"></i></button>                        
+                          </form>
+                          </div>              
+                        </div>
+                    </div>                    
+                @endforeach
+            {{-- @else
+                <div class="card" style="max-height: 100px; max-width: 150px;">
+                    <div class="card text-bg-dark text-center"> 
+                      <b>Gambar Kosong</b>
+                    </div>
+                </div> --}}
+            @endif        
     </div>
 </div>
 
@@ -190,8 +210,7 @@
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
-                </div>
-                <div class="modal-body">Pilih "Logout" di bawah ini untuk keluar.</div>
+                </div>                
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
                     <form action="/deletecover/{{ $product->id }}" method="post" enctype="multipart/form-data">
