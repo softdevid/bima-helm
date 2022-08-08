@@ -86,6 +86,8 @@ class AdminProductController extends Controller
                 "slug" => Str::slug($request->name),
                 "merk_id" => $request->merk_id,
                 "price" => $request->price,
+                "purchase_price" => $request->purchase_price,
+                "weight" => $request->weight,
                 "stock" => $stock,
                 "description" => $request->description,
                 "image_main" => $public_id,
@@ -128,17 +130,7 @@ class AdminProductController extends Controller
             "product" => $product,
             "images" => $images,
         ]);
-    }
-
-    // public function detail(Product $product)
-    // {
-    //     $products = Product::join('images', 'images.id', '=', 'products.image_id')->get();
-    //     $products = Product::join('sizes', 'sizes.id', '=', 'products.size_id')->get();
-    //     return view('admin.pages.product.product-detail', [
-    //         "title" => $products->name,
-    //         "products" => $products
-    //     ]);
-    // }
+    }   
     /**
      * Show the form for editing the specified resource.
      *
@@ -170,63 +162,73 @@ class AdminProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        Validator::make($request->all(), [
-            'name' => 'required|unique:products|max:255',
-        ])->validate();
-
+    {        
         $product = Product::findOrFail($id);
         $size = Size::findOrFail($product->size_id);
-        // dd($product, $size);
+        $image_main = $product->image_main;
+        
+        // dd($product);
+        $rules = [            
+            'name' => 'required|max:255',       
+        ];
 
-        if ($request->hasFile("image_main")) {
-            Cloudinary::destroy($product->image);
-            $product->url->delete();
-
+        if ($request->slug != $product->slug) {
+            $rules['slug'] = 'required|unique:products';
+        }        
+                
+        if ($request->hasFile('image_main')) {
             $file = $request->file('image_main');
             $image = Cloudinary::upload($file->getRealPath(), ['folder' => 'products']);
             $public_id = $image->getPublicId();
             $url = $image->getSecurePath();
-            
-            $sizes = $size->update([                
+
+            $image = [
+                "image_main" => $public_id,
+                "url" => $url,
+            ];            
+            $product->where('id', $product->id)
+                ->update($image);
+        }
+
+        $size = [
                 'xs' => $request->xs ?? 0,
                 's' => $request->s ?? 0,
                 'm' => $request->m ?? 0,
                 'lg' => $request->lg ?? 0,
                 'xl' => $request->xl ?? 0,
                 'xxl' => $request->xxl ?? 0,
-            ]);
-            $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
+        ];
+        $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
+        
+        Size::where('id', $product->id)
+            ->update($size);
 
-            $product->updateOrCreate([                
-                "category_id" => $request->category_id,
-                "name" => $request->name,
-                "slug" => Str::slug($request->name),
-                "merk" => $request->merk_id,
-                "price" => $request->price,
-                "stock" => $stock,
-                "description" => $request->description,
-                "image_main" => $public_id,
-                "url" => $url,
-                "size_id" => $request->size_id,
-            ]);
-        }        
+        $product->update([
+            "category_id" => $request->category_id,
+            "name" => $request->name,
+            "slug" => Str::slug($request->name),
+            "merk_id" => $request->merk_id,
+            "price" => $request->price,
+            "purchase_price" => $request->purchase_price,
+            "weight" => $request->weight,
+            "stock" => $stock,
+            "description" => $request->description,            
+        ]);                
 
         if ($request->hasFile("images")) {
             $files = $request->file("images");
             foreach ($files as $file) {
                 $images = Cloudinary::upload($file->getRealPath(), ['folder' => 'products']);
-                $public_id = $image->getPublicId();
+                $public_id = $images->getPublicId();
                 $url = $images->getSecurePath();
-                Image::update([
+                Image::create([
                     'image' => $public_id,
                     'url' => $url,
                     'product_id' => $product->id,
                 ]);
             }
-        }
-
-        return redirect("admin-product");
+        }        
+        return redirect('admin-product')->with("success", "Berhasil diedit!!");
     }
 
     /**
@@ -258,20 +260,31 @@ class AdminProductController extends Controller
     public function deleteimages($id)
     {
         $images = Image::findOrFail($id);
-        Cloudinary::destroy($images);
+        Cloudinary::destroy($images->image);
 
         Image::find($id)->delete();
-        return back();
+        return back()->with('success', 'Gambar berhasil dihapus!!');       
     }
 
     public function deletecover($id)
     {
+        // $product = Product::findOrFail($id);                
+        // if ($product->image_main) {
+        //     Cloudinary::destroy($product->image_main);            
+        // } 
         $product = Product::findOrFail($id);        
-        $image_main = $product->image_main;
-        $url = $product->url;
-        Cloudinary::destroy($image_main);
-        Product::where('image_main', $product);
-        Product::where('url', $product);
+        
+        Cloudinary::destroy($product->image_main);
+        
+        $a = [
+            'image_main' => "",
+            'url' => "",
+        ];        
+
+        $product->where('id', $product->id)
+                ->update($a);
+        // $product->where('id', $product->id)
+        //         ->update($url);
 
         return back()->with('success', 'Gambar Berhasil dihapus!!');
     }

@@ -42,29 +42,6 @@
             <div class="mb-3 row">
                 <label for="merk" class="col-sm-2 col-form-label">Merk</label>
                 <div class="col-sm-10">
-                    <!-- <select class="form-select form-control" name="merk" aria-label="Default select example"
-                        value="{{ old('merk') }}" required>
-                        <option selected>Pilih Merk</option>
-                        <option value="spoiler">SPOILER</option>
-                        <option value="apd face shield">APD FACE SHIELD</option>
-                        <option value="kyt">KYT</option>
-                        <option value="ink">INK</option>
-                        <option value="carglos">Carglos</option>
-                        <option value="dag">DAG</option>
-                        <option value="hiu">HIU</option>
-                        <option value="nhk">NHK</option>
-                        <option value="mds">MDS</option>
-                        <option value="hbc">HBC</option>
-                        <option value="bmc">BMC</option>
-                        <option value="retro">RETRO</option>
-                        <option value="google">GOOGLE</option>
-                        <option value="kaca helm">KACA HELM</option>
-                        <option value="spare part">SPARE PART</option>
-                        <option value="helm anak">HELM ANAK</option>
-                        <option value="gix">GIX</option>
-
-                    </select> -->
-
                     <select class="form-select form-control" name="merk_id" aria-label="Default select example" required>
                         <option value="">Pilih Merk</option>
                         @foreach ($merks as $merk)
@@ -75,9 +52,16 @@
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="price" class="col-sm-2 col-form-label">Harga</label>
+                <label for="purchase_price" class="col-sm-2 col-form-label">Harga Beli</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" id="harga" placeholder="125000" name="price"
+                    <input type="number" class="form-control" id="harga" placeholder="contoh: 125000" name="purchase_price"
+                        value="{{ old('purchase_price') }}" required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="price" class="col-sm-2 col-form-label">Harga Jual</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="harga" placeholder="contoh: 125000" name="price"
                         value="{{ old('price') }}" required>
                 </div>
             </div>
