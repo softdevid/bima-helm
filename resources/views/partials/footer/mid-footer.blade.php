@@ -3,19 +3,20 @@
     <div class="container">
         <div class="bottom-inner">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-3 col-6">
                     <!-- Single Widget -->
                     <div class="single-footer f-link">
                         <h3>Produk</h3>
                         <ul>
-                            <li><a href="javascript:void(0)">Helm</a></li>
-                            <li><a href="javascript:void(0)">Aksesoris</a></li>
-                            <li><a href="javascript:void(0)">Spare Parts</a></li>
+                            <li><a href="/products?category=helm-full-face">Helm Full Face</a></li>
+                            <li><a href="/products?category=helm-half-face">Helm Half Face</a></li>
+                            <li><a href="/products?category=aksesoris">Aksesoris</a></li>
+                            <li><a href="/products?category=spare-part">Spare Parts</a></li>
                         </ul>
                     </div>
                     <!-- End Single Widget -->
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-3 col-6">
                     <!-- Single Widget -->
                     <div class="single-footer f-link">
                         <h3>Informasi</h3>

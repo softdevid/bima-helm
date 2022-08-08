@@ -4053,6 +4053,10 @@ ol {
     }
 }
 
+.accordion-button:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-icon);
+}
+/*
 .accordion-item:first-of-type .accordion-button {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -4180,7 +4184,7 @@ ol {
 
 .accordion-item:last-child {
     margin: 0;
-}
+} */
 
 /*======================================
     Blog CSS

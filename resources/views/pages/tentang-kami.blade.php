@@ -70,7 +70,7 @@
             <h2 class="text-center">Mitra Kami</h2>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4 mt-2 justify-content-center align-items-center">
+        {{-- <div class="row row-cols-1 row-cols-md-2 g-4 mt-2 justify-content-center align-items-center">
             <a href="https://akriliklasercutting.com" target="_blank">
                 <div class="col">
                     <div class="h-100">
@@ -82,6 +82,22 @@
                 <div class="h-100">
                     <img src="/img/icons/fcs.png" alt="">
                 </div>
+            </div>
+        </div> --}}
+        <div class="row">
+            <div class="col-6">
+                <a href="https://akriliklasercutting.com" target="_blank" rel="noopener noreferrer">
+                    <div class="h-100">
+                        <img src="/img/icons/mekar.png" alt="">
+                    </div>
+                </a>
+            </div>
+            <div class="col-6">
+                <a href="https://softdev.akriliklasercutting.com/" target="_blank" rel="noopener noreferrer">
+                    <div class="h-100">
+                        <img src="/img/icons/fcs.png" alt="">
+                    </div>
+                </a>
             </div>
         </div>
     </div>

@@ -9,11 +9,6 @@
                             <div class="col-12">
                                 <div class="product-image">
                                     <img src="{{ $product->url }}" alt="#" class="img-thumbnail">
-                                    <div class="button">
-                                        <a href="/fav-add" class="btn btn-primary">
-                                            <i class="fa-regular fa-heart"></i>Tambah ke favorit
-                                        </a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -23,9 +18,6 @@
                                 <p class="title">
                                     <a href="/products/details/{{ $product->slug }}">{{ $product->name }}</a>
                                 </p>
-                                @if ($product->sold > 0)
-                                    <span>{{ $product->sold }} Terjual</span>
-                                @endif
                                 <div class="price">
                                     <span>Rp.{{ number_format($product->price, 0, ',', '.') }}</span>
                                 </div>
