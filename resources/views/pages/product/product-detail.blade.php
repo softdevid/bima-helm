@@ -53,30 +53,35 @@
                             <div class="modal-body">
                                 <div class="row justify-content-center row-cols-1 row-cols-md-2">
                                     <div class="col">
-                                        <a href="https://shopee.co.id/bimahelm" target="_blank"></a>
-                                        <div class="card border-0">
-                                            <img src="/img/icons/shopee.png" class="card-img-top" alt="Shopee">
-                                        </div>
+                                        <a href="https://shopee.co.id/bimahelm" target="_blank">
+                                            <div class="card border-0">
+                                                <img src="/img/icons/shopee.png" class="card-img-top" alt="Shopee">
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="col">
                                         <a href="https://www.bukalapak.com/u/bimahelm?from=omnisearch&from_keyword_history=false&search_source=omnisearch_user&source=navbar"
-                                            target="_blank"></a>
-                                        <div class="card border-0">
-                                            <img src="/img/icons/bukalapak.png" class="card-img-top" alt="Bukalapak">
-                                        </div>
+                                            target="_blank">
+                                            <div class="card border-0">
+                                                <img src="/img/icons/bukalapak.png" class="card-img-top"
+                                                    alt="Bukalapak">
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="col">
-                                        <a href="https://www.tokopedia.com/bimahelm" target="_blank"></a>
-                                        <div class="card border-0">
-                                            <img src="/img/icons/tokped.png" class="card-img-top" alt="Tokopedia">
-                                        </div>
+                                        <a href="https://www.tokopedia.com/bimahelm" target="_blank">
+                                            <div class="card border-0">
+                                                <img src="/img/icons/tokped.png" class="card-img-top" alt="Tokopedia">
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="col">
                                         <a href="https://www.lazada.co.id/shop/bimahelm/?spm=a2o4j.pdp_revamp.seller.1.129f7470QEabzz&itemId=5590496509&channelSource=pdp"
-                                            target="_blank"></a>
-                                        <div class="card border-0">
-                                            <img src="/img/icons/lazada.png" class="card-img-top" alt="Lazada">
-                                        </div>
+                                            target="_blank">
+                                            <div class="card border-0">
+                                                <img src="/img/icons/lazada.png" class="card-img-top" alt="Lazada">
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
