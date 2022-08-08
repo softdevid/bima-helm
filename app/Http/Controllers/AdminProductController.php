@@ -166,8 +166,7 @@ class AdminProductController extends Controller
         $product = Product::findOrFail($id);
         $size = Size::findOrFail($product->size_id);
         $image_main = $product->image_main;
-        
-        // dd($product);
+                
         $rules = [            
             'name' => 'required|max:255',       
         ];

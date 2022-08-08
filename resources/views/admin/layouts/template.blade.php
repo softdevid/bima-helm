@@ -26,13 +26,8 @@
 
     <!-- Custom styles for this template-->
     <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
-    <script src="/js/fas.js"></script>
-    <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css" />
-
-    <script type="text/javascript" src="/datatables/datatables.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
-
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+    <script src="/js/fas.js"></script>    
+    
     
     <link rel="stylesheet" href="../../assets/css/tiny-slider.css" />
     <link rel="stylesheet" href="../../assets/css/glightbox.min.css" />
@@ -75,12 +70,12 @@
                     <i class="fa-duotone fa-cubes {{ $title === 'Produk' ? 'active text-white fade-in' : '' }}"></i>
                     <span style="text-indent: 5px;">Produk</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item d-none">
                 <a class="nav-link {{ $title === 'Orders' ? 'active text-white fade-in' : '' }}" href="/admin/orders">
                     <i class="fa-regular fa-box-check {{ $title === 'Orders' ? 'active text-white fade-in' : '' }}"></i>
                     <span style="text-indent: 5px;">Pesanan</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item d-none">
                 <a class="nav-link {{ $title === 'Users' ? 'active text-white fade-in' : '' }}" href="/admin/users">
                     <i class="fa-duotone fa-users {{ $title === 'Users' ? 'active text-white fade-in' : '' }}"></i>
                     <span style="text-indent: 5px;">Pengguna</span></a>

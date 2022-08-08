@@ -22,11 +22,11 @@
                         <td><img src="{{ $product->url }}" alt="" style="width: 100px;"></td>
                         <td>{{ $product->name }}</td>                        
                         <td>{{ $product->merk->name }}</td>
-                        <td>{{ $product->purchase_price }}</td>
+                        <td>{{ number_format($product->purchase_price) }}</td>
                         <td>Rp. {{ number_format($product->price) }}</td>                        
                         <td>{{ $product->stock }}</td>
                         <td>
-                            <a href="{{ route('admin-product.show',[$product->id]) }}" class="btn btn-outline-primary" title="Detail Produk"><i class="fa fa-book"></i> Detail
+                            <a href="{{ route('admin-product.show',[$product->id]) }}" class="btn btn-outline-primary" title="Detail Produk"><i class="fa fa-book"></i> <span>Detail</span>
                             </a>
                         </td>
                         <td>

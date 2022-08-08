@@ -56,9 +56,16 @@
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="price" class="col-sm-2 col-form-label">Harga</label>
+                <label for="price" class="col-sm-2 col-form-label">Harga Beli</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" id="harga" placeholder="125000" name="price"
+                    <input type="number" class="form-control" id="harga" placeholder="contoh: 125000" name="purchase_price"
+                        value="{{ $product->price }}" required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="price" class="col-sm-2 col-form-label">Harga Jual</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="harga" placeholder="contoh: 125000" name="price"
                         value="{{ $product->price }}" required>
                 </div>
             </div>
@@ -148,7 +155,7 @@
             </div>
             
             <div class="row mt-3">
-                <button type="submit" class="btn btn-danger ">Submit</button>
+                <button type="submit" class="btn btn-outline-primary">Simpan</button>
                 <a href="{{ route('admin-product.index') }}" class="btn btn-secondary"><i class="fa fa-circle-left"></i> Kembali</a>
             </div>
 

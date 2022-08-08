@@ -24,7 +24,8 @@
                     <div class="product-info">
                         <h5 class="title">Nama: {{ $product->name }}</h5>
                         <p class="category"><i class="lni lni-tag"></i>Kategori: {{ $product->category->name }}</p>
-                        <h5 class="price info-text">Harga: Rp. {{ number_format($product->price,0,',','.') }}</h5>                        
+                        <h6 class="price info-text">Harga Beli: Rp. {{ number_format($product->purchase_price,0,',','.') }}</h6>
+                        <h6 class="price info-text">Harga Jual: Rp. {{ number_format($product->price,0,',','.') }}</h6>                  
                             @if ($product->size_id != null)                       
                             <div class="row">
                                 <div class="col">XS: {{ $product->size->xs }}</div>

@@ -81,11 +81,20 @@ class MerkController extends Controller
     public function update(Request $request, Merk $id)
     {
         $merk = Merk::findOrFail($id);
+        $rules = [            
+            'name' => 'required|max:255',       
+        ];
+
+        if ($request->slug != $merk->slug) {
+            $rules['slug'] = 'required|unique:products';
+        }
+
+        $validate = $request->validate($rules);        
         $merk->update([
-            'name' => $request->name,
-            'slug' => $request->slug,
+            "name" => $request->name,
+            "slug" => $request->slug,            
         ]);
-        return back()->with('success', 'Berhasil diedit!');
+        return back()->with('success', 'Berhasil diedit!');   
     }
 
     /**

@@ -109,6 +109,10 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
+                                    {{-- slug --}}
+                                    <input type="hidden" class="form-control" id="slug" placeholder="Slug" name="slug"
+                                        value="{{ old('slug') }}">
+                                    {{-- end slug --}}
                                 </div>
                                 <div class="mb-5 mt-3 row">
                                     <button type="submit" class="btn btn-primary">Submit</button>
