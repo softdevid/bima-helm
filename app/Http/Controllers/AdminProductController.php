@@ -31,7 +31,7 @@ class AdminProductController extends Controller
         //     'products' => Product::with('merk', 'size', 'image')->get(),
         // ]);
 
-        $product = Product::all();
+        $product = Product::with('size', 'Category', 'merk')->get();
         // dd($product);
         return view('admin.pages.product.list_product', [
             "title" => "Produk",
@@ -62,6 +62,8 @@ class AdminProductController extends Controller
     {
         Validator::make($request->all(), [
             'name' => 'required|unique:products|max:255',
+            'image_main' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            'images' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ])->validate();
 
         if ($request->hasFile("image_main")) {
@@ -139,10 +141,11 @@ class AdminProductController extends Controller
      */
     public function edit($id)
     {
-        $categories = Category::all();
-        $merks = Merk::all();
-        $product = Product::findOrFail($id);
-        $sizes = Size::findOrFail($product->size_id);
+        // $categories = Category::all();
+        // $merks = Merk::all();
+        // $product = Product::findOrFail($id);
+        // $sizes = Size::findOrFail($product->size_id);
+        $product = Product::with('Category', 'merk', 'size')->get();
         $images = Image::where("product_id", $product->id)->get();
         return view('admin.pages.product.edit', [
             "title" => "Edit Produk",
@@ -168,7 +171,9 @@ class AdminProductController extends Controller
         $image_main = $product->image_main;
                 
         $rules = [            
-            'name' => 'required|max:255',       
+            'name' => 'required|max:255',
+            'image_main' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            'images' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ];
 
         if ($request->slug != $product->slug) {

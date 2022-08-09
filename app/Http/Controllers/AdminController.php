@@ -18,21 +18,21 @@ class AdminController extends Controller
         ]);
     }
 
-    public function users()
-    {
-        $title = 'Users';
-        return view('admin.pages.users', [
-            "title" => $title,
-            "users" => User::where('level', 'user')->get(),
-            "admin" => User::where('level', 'admin')->get(),
-        ]);
-    }
+    // public function users()
+    // {
+    //     $title = 'Users';
+    //     return view('admin.pages.users', [
+    //         "title" => $title,
+    //         "users" => User::where('level', 'user')->get(),
+    //         "admin" => User::where('level', 'admin')->get(),
+    //     ]);
+    // }
 
-    public function orders()
-    {
-        $title = 'Orders';
-        return view('admin.pages.orders', [
-            "title" => $title,
-        ]);
-    }
+    // public function orders()
+    // {
+    //     $title = 'Orders';
+    //     return view('admin.pages.orders', [
+    //         "title" => $title,
+    //     ]);
+    // }
 }

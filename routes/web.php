@@ -42,15 +42,22 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('admin-merk', MerkController::class);
     Route::get('/admin/merk/delete/{id}', [MerkController::class, 'destroy']);
 
-    //route admin
+    //route admin laporan
+    Route::get('/admin/laporan', function () {
+        return view('admin.pages.laporan.index', [
+            'title' => 'Laporan',
+        ]);
+    });
+
+    //route admin dashboard
     Route::get('/admin/dashboard', function () {
         return view('admin.pages.index', [
             'title' => 'Dashboard',
         ]);
     });
 
-    Route::get('/admin/users', [AdminController::class, 'users']);
-    Route::get('/admin/orders', [AdminController::class, 'orders']);
+    // Route::get('/admin/users', [AdminController::class, 'users']);
+    // Route::get('/admin/orders', [AdminController::class, 'orders']);
 
     //KASIR
     Route::get('/kasir/dashboard', function () {

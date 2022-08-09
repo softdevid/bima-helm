@@ -1,6 +1,12 @@
 @extends('admin.layouts.template')
 @section('content')
     <a href="{{ route('admin-product.create') }}" class="btn btn-primary mb-3">Tambah</a>
+    @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="table-responsive">        
         <table class="table">
             <thead>

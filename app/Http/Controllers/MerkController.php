@@ -66,9 +66,13 @@ class MerkController extends Controller
      * @param  \App\Models\Merk  $merk
      * @return \Illuminate\Http\Response
      */
-    public function edit(Merk $merk)
-    {
-        //
+    public function edit(Merk $merk, $id)
+    {             
+        return view('admin.pages.merk.edit', [
+            "merks" => Merk::all(),
+            "title" => "Edit Merk",
+            "merk" => Merk::findOrFail($id)
+        ]);
     }
 
     /**
@@ -78,23 +82,27 @@ class MerkController extends Controller
      * @param  \App\Models\Merk  $merk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Merk $id)
+    public function update(Request $request, $id)
     {
         $merk = Merk::findOrFail($id);
+        // dd($merk);
         $rules = [            
             'name' => 'required|max:255',       
         ];
 
         if ($request->slug != $merk->slug) {
-            $rules['slug'] = 'required|unique:products';
-        }
+            $rules['slug'] = 'required|unique:merks';
+        }        
 
-        $validate = $request->validate($rules);        
-        $merk->update([
+
+        $merks = [
             "name" => $request->name,
-            "slug" => $request->slug,            
-        ]);
-        return back()->with('success', 'Berhasil diedit!');   
+            "slug" => Str::slug($request->name),            
+        ];
+        Merk::where('id', $merk->id)
+            ->update($merks);
+
+        return back();
     }
 
     /**
