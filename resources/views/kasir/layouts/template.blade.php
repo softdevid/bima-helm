@@ -32,8 +32,7 @@
     <script type="text/javascript" src="/datatables/datatables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
 
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
-
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>    
 </head>
 
 <body id="page-top">
@@ -57,17 +56,17 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link " href="/kasir/dashboard">
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('kasir-input.index') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Kasir</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ $title === 'Laporan' ? 'active text-white fade-in' : '' }}"
-                    href="/kasir/laporan">
+                <a class="nav-link {{ $title === 'Laporan Penjualan' ? 'active text-white fade-in' : '' }}"
+                    href="{{ route('laporan.index') }}">
                     <i
-                        class="fa-duotone fa-book-open-cover {{ $title === 'Laporan' ? 'active text-white fade-in' : '' }}"></i>
-                    <span>Laporan</span></a>
+                        class="fa-duotone fa-book-open-cover {{ $title === 'Laporan Penjualan' ? 'active text-white fade-in' : '' }}"></i>
+                    <span>Laporan Penjualan</span></a>
             </li>
 
         </ul>
@@ -292,6 +291,18 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">{{ $title }}</h1>
+                        <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small"
+                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" id="myInput" onkeyup="myFunction()">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" id="myInput" onkeyup="myFunction()" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                     </div>
 
 

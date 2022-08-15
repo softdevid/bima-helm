@@ -32,10 +32,12 @@ class AdminProductController extends Controller
         // ]);
 
         $product = Product::with('size', 'Category', 'merk')->get();
+        $image = Image::find($product->id);
         // dd($product);
         return view('admin.pages.product.list_product', [
             "title" => "Produk",
-            "products" => $product
+            "products" => $product,
+            "image" => $image
         ]);
     }
 
@@ -63,7 +65,7 @@ class AdminProductController extends Controller
         Validator::make($request->all(), [
             'name' => 'required|unique:products|max:255',
             'image_main' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
-            'images' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            'images[]' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ])->validate();
 
         if ($request->hasFile("image_main")) {
@@ -101,7 +103,7 @@ class AdminProductController extends Controller
         if ($request->hasFile('images')) {
             $file = $request->file('images');
             foreach ($file as $key => $file) {
-                $images = Cloudinary::upload($file->getRealPath(), ['folder' => 'products']);
+                $images = Cloudinary::upload($file->getRealPath(), ['folder' => 'uploads']);
                 $public_id = $image->getPublicId();
                 $url = $images->getSecurePath();
                 Image::create([

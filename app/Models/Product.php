@@ -66,6 +66,11 @@ class Product extends Model
         return $this->hasMany(Image::class);
     }
 
+    public function laporan()
+    {
+        return $this->hasOne(laporan::class);
+    }
+
     public function sluggable(): array
     {
         return [

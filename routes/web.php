@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\MerkController;
+use App\Http\Controllers\KasirController;
+use App\Http\Controllers\LaporanController;
 use Illuminate\Support\Facades\Route;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -57,17 +59,28 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     });
 
     // Route::get('/admin/users', [AdminController::class, 'users']);
-    // Route::get('/admin/orders', [AdminController::class, 'orders']);
+    // Route::get('/admin/orders', [AdminController::class, 'orders']);    
+});
 
     //KASIR
-    Route::get('/kasir/dashboard', function () {
-        return view('kasir.pages.index', [
-            'title' => 'Dashboard',
-        ]);
-    });
-    Route::get('/kasir/laporan', function () {
-        return view('kasir.pages.laporan', [
-            'title' => 'Laporan',
-        ]);
-    });
-});
+    Route::resource('kasir-input', KasirController::class);
+    Route::resource('laporan', LaporanController::class);
+    Route::post('/laporan/harian', [LaporanController::class, 'laporan_harian']);
+    Route::post('/laporan/bulanan', [LaporanController::class, 'laporan_bulanan']);
+    Route::post('/laporan/tahunan', [LaporanController::class, 'laporan_tahunan']);
+
+// Route::middleware(['auth', 'isKasir'])->group(function () {
+
+//     Route::get('/kasir/dashboard', function () {
+//         return view('kasir.pages.index', [
+//             'title' => 'Dashboard',
+//         ]);
+//     });
+
+//     Route::get('/kasir/laporan', function () {
+//         return view('kasir.pages.laporan', [
+//             'title' => 'Laporan',
+//         ]);
+//     });
+
+// });
