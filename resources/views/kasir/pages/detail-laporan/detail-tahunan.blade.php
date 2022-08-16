@@ -34,6 +34,7 @@
     </style>
 </head>
 <body>
+  @if ($laporan->count())
     <div class="invoice p-3 mb-3">
     <!-- title row -->
         <div class="row">
@@ -114,5 +115,10 @@
       </div><!-- /.row -->
     </div>  
   </div>  
+
+  @else
+  <h1 class="text-center mt-5">Tidak ada laporan penjualan</h1>
+  <center><a href="{{ route('laporan.index') }}" class="btn btn-secondary"><i class="fa fa-circle-left"></i> Kembali</a></center>
+  @endif
 </body>
 </html>    

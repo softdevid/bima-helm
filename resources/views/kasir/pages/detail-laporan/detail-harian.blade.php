@@ -30,6 +30,7 @@
 
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
 
+@if ($laporan->count())
 <div class="invoice p-3 mb-3">
   <!-- title row -->
       <div class="row">
@@ -113,3 +114,8 @@
 </section>
     <!-- /.content -->
   </div>  
+
+  @else
+  <h1 class="text-center mt-5">Tidak ada laporan penjualan</h1>
+  <center><a href="{{ route('laporan.index') }}" class="btn btn-secondary"><i class="fa fa-circle-left"></i> Kembali</a></center>
+  @endif

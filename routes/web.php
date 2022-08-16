@@ -65,6 +65,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     //KASIR
     Route::resource('kasir-input', KasirController::class);
     Route::resource('laporan', LaporanController::class);
+    Route::get('/laporan-search', [LaporanController::class, 'index']);
     Route::post('/laporan/harian', [LaporanController::class, 'laporan_harian']);
     Route::post('/laporan/bulanan', [LaporanController::class, 'laporan_bulanan']);
     Route::post('/laporan/tahunan', [LaporanController::class, 'laporan_tahunan']);

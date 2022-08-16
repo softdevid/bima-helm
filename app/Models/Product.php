@@ -43,7 +43,7 @@ class Product extends Model
                 fn ($query) =>
                 $query->where('slug', $category)
             )
-        );
+        );        
     }
 
     public function category()

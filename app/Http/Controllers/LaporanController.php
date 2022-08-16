@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Size;
 use App\Models\SizeName;
+use App\Models\Merk;
 use App\Models\Laporan;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -17,15 +18,42 @@ class LaporanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {        
-        $laporan = Laporan::all();        
-        // $size_name = SizeName::where('id', $laporan->size_name)->get();
-        return view('kasir.pages.laporan', [
-            'title' => "Laporan Penjualan",
-            'laporan' => $laporan,
-            // 'size_name' => $size_name,
-        ]);
+    public function index(Request $request)
+    {                           
+        // $merks = Merk::all();
+        // $search = $request->search;
+        // if(request('search') === Product::where('slug', request('search'))->get()) {
+        //     $product_id = Product::where('name', request('search'))->get();
+        //     return view('kasir.pages.laporan', [
+        //         'title' => "Laporan Penjualan",
+        //         'laporan' => Laporan::where('product_id', $product_id)->get(), 
+        //     ]);            
+        // }
+
+        // // $laporan = Laporan::all();        
+        // // $size_name = SizeName::where('id', $laporan->size_name)->get();        
+        // return view('kasir.pages.laporan', [
+        //     'title' => "Laporan Penjualan",
+        //     'laporan' => Laporan::all(),
+        //     'merks' => $merks,
+        //     // 'size_name' => $size_name,
+        // ]);
+
+        $title = "Laporan Penjualan";
+        $laporan = DB::table('laporans');
+
+        if ($request->search != null) {
+            $laporan = $laporan->where('name', 'like', '%' . $request->search . '%');
+        }
+        $laporan = $laporan
+        ->select('laporans.*', 'products.name as productName', 'size_names.name as sizeName')
+        ->leftJoin('products', 'products.id', 'laporans.product_id')
+        ->leftJoin('size_names', 'size_names.id', 'laporans.size_name')
+        // ->leftJoin('merks', 'products.merks_id', 'merks.id')
+        ->get();
+        // dd($laporan);
+        return view('kasir.pages.laporan', ['laporan' => $laporan, 'title' => $title]);        
+
     }
 
     /**
@@ -133,13 +161,13 @@ class LaporanController extends Controller
 
     public function laporan_tahunan(Request $request)
     {                    
-        $tahun = $request->tahunan;
-        $date_tahun = date('Y',strtotime($tahun));  //diubah dulu jadi date karena sebelumnya string
-        $laporan = Laporan::whereYear('created_at', $date_tahun)->get();        
+        $tahun = $request->tahunan;        
+        $laporan = Laporan::whereYear('created_at', $tahun)->get();        
+        // dd($tahun);
 
         return view('kasir.pages.detail-laporan.detail-tahunan', [
             'title' => 'Laporan Penjualan Harian',            
-            'date_tahun' => $date_tahun,
+            'date_tahun' => $tahun,
             'laporan' => $laporan,
         ]);
     }
