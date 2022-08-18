@@ -19,10 +19,10 @@ class KasirController extends Controller
     {
         $products = Product::all();
         $size = Size::all();
-        $size_name = SizeName::all();        
+        $size_name = SizeName::all();
         return view('kasir.pages.index', [
             "title" => "Kasir",
-            "products" => $products,            
+            "products" => $products,
             "size" => $size,
             "size_name" => $size_name,
         ]);
@@ -79,19 +79,19 @@ class KasirController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {        
+    {
         Validator::make($request->all(), [
-            'qty' => 'required',            
+            'qty' => 'required',
         ])->validate();
 
-        $product = Product::find($id);        
+        $product = Product::find($id);
         $size = Size::where('id', $product->size_id)->get();
         $qty = $request->qty;
         $stock = $product->stock;
 
         if ($request->slug != $product->slug) {
             $rules['slug'] = 'required|unique:products';
-        }       
+        }
 
         $size->update([
             'xs' => $product->xs - $request->xs ?? 0,
@@ -100,12 +100,12 @@ class KasirController extends Controller
             'lg' => $product->lg - $request->lg ?? 0,
             'xl' => $product->xl - $request->xl ?? 0,
             'xxl' => $product->xxl - $request->xxl ?? 0,
-        ]);        
+        ]);
 
         $product->update([
             'stock' => $stock - $qty,
         ]);
-        return back()->with('success','Laporan Penjualan ditambahkan!!');
+        return back()->with('success', 'Laporan Penjualan ditambahkan!!');
     }
 
     /**

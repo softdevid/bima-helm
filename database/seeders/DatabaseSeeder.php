@@ -70,19 +70,20 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        // Product::create([
-        //     "category_id" => 1,
-        //     "name" => "HELM FULLFACE KTY RC SEVEN #14 YELLOW FLUO",
-        //     "slug" => "fullface-kyt-rc-seven-14-yellow-fluo",
-        //     "merk_id" => 1,
-        //     "price" => "420000",
-        //     "weight" => "2000",
-        //     "size_id" => 1,
-        //     "sold" => 3,
-        //     'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
-        //     "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1659326183/products/jntsanfausuhcfncpiuo.png",
-        //     "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
-        // ]);
+        Product::create([
+            "category_id" => 1,
+            "name" => "HELM FULLFACE KTY RC SEVEN #14 YELLOW FLUO",
+            "slug" => "fullface-kyt-rc-seven-14-yellow-fluo",
+            "merk_id" => 1,
+            "price" => "420000",
+            "purchase_price" => "200000",
+            "weight" => "2000",
+            "size_id" => 1,
+            "sold" => 3,
+            'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
+            "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1659326183/products/jntsanfausuhcfncpiuo.png",
+            "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
+        ]);
 
         // Product::create([
         //     "category_id" => 1,

@@ -13,7 +13,7 @@ class Product extends Model
     use Sluggable;
 
     protected $guarded = ['id'];
-    protected $with = ['category', 'merk'];
+    protected $with = ['category'];
 
     public function scopeFilter($query, array $filters)
     {
@@ -43,7 +43,7 @@ class Product extends Model
                 fn ($query) =>
                 $query->where('slug', $category)
             )
-        );        
+        );
     }
 
     public function category()

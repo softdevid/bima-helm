@@ -18,6 +18,7 @@ class CreateLaporansTable extends Migration
             $table->foreignId('product_id')->unsigned();
             $table->foreignId('size_id')->unsigned();
             $table->foreignId('size_name')->unsigned();
+            $table->foreignId('merk_id')->unsigned();
             $table->Integer('qty')->unsigned();
             $table->Integer('profit')->unsigned()->nullable()->default(0);
             $table->Integer('loss')->unsigned()->nullable()->default(0);
