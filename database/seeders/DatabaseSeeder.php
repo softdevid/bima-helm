@@ -8,6 +8,7 @@ use App\Models\Image;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Merk;
+use App\Models\SizeName;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -31,6 +32,15 @@ class DatabaseSeeder extends Seeder
             "email" => 'bimahelm@gmail.com',
             "noTelp" => ' ',
             "level" => 2,
+        ]);
+
+        User::create([
+            "frontName" => 'Kasir',
+            "lastName" => ' ',
+            "password" => Hash::make('BMkasir@2022'),
+            "email" => 'kasirbimahelm@gmail.com',
+            "noTelp" => ' ',
+            "level" => 1,
         ]);
 
         //category
@@ -69,9 +79,49 @@ class DatabaseSeeder extends Seeder
             "slug" => 'ink',
         ]);
 
+        SizeName::create([
+            'name' => 'XS',
+            'slug' => 'xs'
+        ]);
+
+        SizeName::create([
+            'name' => 'S',
+            'slug' => 's'
+        ]);
+
+        SizeName::create([
+            'name' => 'M',
+            'slug' => 'm'
+        ]);
+
+        SizeName::create([
+            'name' => 'LG',
+            'slug' => 'lg'
+        ]);
+
+        SizeName::create([
+            'name' => 'XL',
+            'slug' => 'xl'
+        ]);
+
+        SizeName::create([
+            'name' => 'XXL',
+            'slug' => 'xxl'
+        ]);
+
+        Size::create([
+            'xs' => 5,
+            's' => 5,
+            'm' => 5,
+            'lg' => 5,
+            'xl' => 5,
+            'xxl' => 5,
+        ]);
+
 
         Product::create([
             "category_id" => 1,
+            "barcode" => "000000000000001",
             "name" => "HELM FULLFACE KTY RC SEVEN #14 YELLOW FLUO",
             "slug" => "fullface-kyt-rc-seven-14-yellow-fluo",
             "merk_id" => 1,
@@ -80,8 +130,24 @@ class DatabaseSeeder extends Seeder
             "weight" => "2000",
             "size_id" => 1,
             "sold" => 3,
-            'image_main' => "HELM-FULLFACE-KYT-RC-SEVEN-14-YELLOW-FLUO.jpeg",
-            "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1659326183/products/jntsanfausuhcfncpiuo.png",
+            'image_main' => "products/i4xtgsg8zngm5unfbh9e",
+            "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1661153096/products/i4xtgsg8zngm5unfbh9e.png",
+            "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
+        ]);
+
+        Product::create([
+            "category_id" => 1,
+            "barcode" => "000000000000002",
+            "name" => "HELM FULLFACE KTY RC SEVEN #14 GREEN FLUO",
+            "slug" => "fullface-kyt-rc-seven-14-green-fluo",
+            "merk_id" => 2,
+            "price" => "420000",
+            "purchase_price" => "200000",
+            "weight" => "2000",
+            "size_id" => 1,
+            "sold" => 3,
+            'image_main' => "products/i4xtgsg8zngm5unfbh9e",
+            "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1661153096/products/i4xtgsg8zngm5unfbh9e.png",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
         ]);
 

@@ -5,13 +5,19 @@
             Cek Laporan
         </button>
         <div>
-            Total Keuntungan:
+            <div class="d-none">
+                @foreach ($laporans as $laporan)
+                    {{ $profit = $laporan->profit }}
+                @endforeach
+            </div>
+            Keuntungan = Rp. {{ number_format($profit + $profit, 0, ',', '.') }}
         </div>
     </div>
     <div class="table-responsive">
         <table class="table">
             <tr>
                 <th>#</th>
+                <th>Barcode</th>
                 <th>Nama Produk</th>
                 <th>Harga beli</th>
                 <th>Harga Jual</th>
@@ -23,6 +29,7 @@
             @foreach ($laporans as $key => $laporan)
                 <tr>
                     <td>{{ $key + 1 }}</td>
+                    <td>{{ $laporan->product->barcode }}</td>
                     <td>{{ $laporan->product->name }}</td>
                     <td>Rp. {{ number_format($laporan->product->purchase_price, 0, ',', '.') }}</td>
                     <td>Rp. {{ number_format($laporan->product->price, 0, ',', '.') }}</td>
@@ -30,9 +37,9 @@
                     <td>{{ $laporan->product->merk->name }}</td>
                     <td>
                         Rp.
-                        {{ number_format(($laporan->product->price - $laporan->product->purchase_price) * $laporan->qty, 0, ',', '.') }}
+                        {{ number_format($laporan->profit, 0, ',', '.') }}
                     </td>
-                    <td>{{ $laporan->created_at }}</td>
+                    <td>{{ date('d / m / Y', strtotime($laporan->created_at)) }}</td>
                 </tr>
             @endforeach
         </table>

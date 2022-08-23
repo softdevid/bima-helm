@@ -14,10 +14,10 @@ class CreateLaporansTable extends Migration
     public function up()
     {
         Schema::create('laporans', function (Blueprint $table) {
-            $table->id();
+            $table->id()->unsignedZerofill();
             $table->foreignId('product_id')->unsigned();
             $table->foreignId('size_id')->unsigned();
-            $table->foreignId('size_name')->unsigned();
+            $table->foreignId('size_name_id')->unsigned();
             $table->foreignId('merk_id')->unsigned();
             $table->Integer('qty')->unsigned();
             $table->Integer('profit')->unsigned()->nullable()->default(0);

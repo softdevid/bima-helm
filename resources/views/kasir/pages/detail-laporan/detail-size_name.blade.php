@@ -60,10 +60,15 @@
                 </div>
                 @php
                     $time = Carbon\Carbon::now();
-
                 @endphp
+                {{-- <div class="d-none">
+                    @foreach ($laporans as $laporan)
+                        {{ $profit = $laporan->profit }}
+                    @endforeach
+                </div> --}}
                 <div class="col-sm-4 invoice-col">
-                    <b>Total Keuntungan:</b> ...<br>
+                    <b>Total Keuntungan:</b> -
+                    {{-- <b>Total Keuntungan:</b> {{ number_format($profit + $profit, 0, ',', '.') }}<br> --}}
                     <b>Total Kerugian:</b> ...<br>
                     <b>Waktu Laporan:</b> {{ $time->toDateTimeString() }}<br>
                 </div>
@@ -83,6 +88,7 @@
                                 <th>Terjual ?</th>
                                 <th>Harga Jual</th>
                                 <th>Harga Beli</th>
+                                <th>Keuntungan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,8 +100,9 @@
                                     <td>{{ $laporan->product->name }}</td>
                                     <td>{{ $laporan->product->merk->name }}</td>
                                     <td>{{ $laporan->qty }}</td>
-                                    <td>{{ $laporan->product->price }}</td>
-                                    <td>{{ $laporan->product->purchase_price }}</td>
+                                    <td>Rp. {{ number_format($laporan->product->purchase_price, 0, ',', '.') }}</td>
+                                    <td>Rp. {{ number_format($laporan->product->price, 0, ',', '.') }}</td>
+                                    <td>Rp. {{ number_format($laporan->profit, 0, ',', '.') }}</td>
                                 </tr>
                             @endforeach
 

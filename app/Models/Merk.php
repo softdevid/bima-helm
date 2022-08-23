@@ -9,11 +9,15 @@ class Merk extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];    
+    protected $guarded = ['id'];
 
     public function product()
     {
         return $this->hasOne(Product::class);
     }
-}
 
+    public function laporan()
+    {
+        return $this->hasOne(Laporan::class);
+    }
+}

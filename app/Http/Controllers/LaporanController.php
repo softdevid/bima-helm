@@ -18,11 +18,12 @@ class LaporanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
+        $laporans = Laporan::all();
         return view('kasir.pages.laporan', [
             'title' => "Laporan Penjualan",
-            'laporans' => Laporan::all(),
+            'laporans' => $laporans,
             'merks' => Merk::all(),
             'size_names' => SizeName::all(),
         ]);
@@ -64,16 +65,34 @@ class LaporanController extends Controller
      */
     public function store(Request $request)
     {
+        $size_id = $request->size_id;
+        $size = Size::where('id', $size_id)->get();
+        // dd($size);
+        foreach ($size as $size) {
+            $xs = $size->xs;
+            $s = $size->s;
+            $m = $size->m;
+            $lg = $size->lg;
+            $xl = $size->xl;
+            $xxl = $size->xxl;
+        }
+        // dd($xs, $s, $m, $lg, $xl, $xxl);
+        if ($xs == 0) {
+            return back()->with('message', 'Stock Kosong tidak bisa ditambah ke laporan');
+        }
+
+        $profit = ($request->price - $request->purchase_price) * $request->qty;
         Laporan::create([
             'product_id' => $request->product_id,
             'size_id' => $request->size_id,
-            'size_name' => $request->size_name,
+            'size_name_id' => $request->size_name_id,
             'merk_id' => $request->merk_id,
             'qty' => $request->qty,
+            'profit' => $profit,
         ]);
         // dd($laporan);
 
-        return back()->with('success', 'Tambah ke Laporan berhasil !!');
+        return redirect()->to('kasir-input')->with('success', 'Tambah ke Laporan berhasil !!');
     }
 
     /**
@@ -129,11 +148,13 @@ class LaporanController extends Controller
     {
         $date = $request->harian;
         $laporan = Laporan::where('created_at', $date)->get();
-
+        $totalProfit = Laporan::where('created_at', $date)->sum('profit');
+        // dd($laporan);
         return view('kasir.pages.detail-laporan.detail-harian', [
             'title' => 'Laporan Penjualan Harian',
             'date' => $date,
             'laporan' => $laporan,
+            'totalProfit' => $totalProfit,
         ]);
     }
 
@@ -142,6 +163,7 @@ class LaporanController extends Controller
         $date_bulan = date('m', strtotime($request->bulanan));
         $date_tahun = date('Y', strtotime($request->bulanan));
         $laporan = Laporan::whereMonth('created_at', [$date_bulan, $date_tahun])->get();
+
         return view('kasir.pages.detail-laporan.detail-bulanan', [
             'title' => 'Laporan Penjualan Bulanan',
             'date_bulan' => $date_bulan,
@@ -154,7 +176,6 @@ class LaporanController extends Controller
     {
         $tahun = $request->tahunan;
         $laporan = Laporan::whereYear('created_at', $tahun)->get();
-        // dd($tahun);
 
         return view('kasir.pages.detail-laporan.detail-tahunan', [
             'title' => 'Laporan Penjualan Harian',
@@ -169,6 +190,7 @@ class LaporanController extends Controller
         $merks = Merk::find($merk);
         $laporan = Laporan::where('merk_id', $merk)->get();
 
+
         return view('kasir.pages.detail-laporan.detail-merk', [
             'title' => 'Laporan Penjualan Harian',
             'merk' => $merks,
@@ -181,6 +203,7 @@ class LaporanController extends Controller
         $size_name = $request->size_name;
         $size_names = SizeName::find($size_name);
         $laporan = Laporan::where('size_id', $size_name)->get();
+
 
         return view('kasir.pages.detail-laporan.detail-size_name', [
             'title' => 'Laporan Penjualan Harian',

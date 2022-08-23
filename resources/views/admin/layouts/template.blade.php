@@ -26,9 +26,9 @@
 
     <!-- Custom styles for this template-->
     <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
-    <script src="/js/fas.js"></script>    
-    
-    
+    <script src="/js/fas.js"></script>
+
+
     <link rel="stylesheet" href="../../assets/css/tiny-slider.css" />
     <link rel="stylesheet" href="../../assets/css/glightbox.min.css" />
     <link rel="stylesheet" href="../../assets/css/main.css" />
@@ -60,13 +60,14 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link {{ $title === 'Dashboard' ? 'active text-white fade-in' : '' }}"
-                    href="/admin/dashboard">
+                    href="admin-dashboard.index">
                     <i
                         class="fas fa-fw fa-tachometer-alt {{ $title === 'Dashboard' ? 'active text-white fade-in' : '' }}"></i>
                     <span style="text-indent: 5px;">Dashboard</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ $title === 'Produk' ? 'active text-white fade-in' : '' }}" href="{{ route('admin-product.index') }}">
+                <a class="nav-link {{ $title === 'Produk' ? 'active text-white fade-in' : '' }}"
+                    href="{{ route('admin-product.index') }}">
                     <i class="fa-duotone fa-cubes {{ $title === 'Produk' ? 'active text-white fade-in' : '' }}"></i>
                     <span style="text-indent: 5px;">Produk</span></a>
             </li>
@@ -81,15 +82,15 @@
                     <span style="text-indent: 5px;">Pengguna</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ $title === 'Laporan' ? 'active text-white fade-in' : '' }}" href="/admin/laporan">
+                <a class="nav-link {{ $title === 'Laporan' ? 'active text-white fade-in' : '' }}"
+                    href="/admin/laporan">
                     <i
                         class="fa-duotone fa-book-open-cover {{ $title === 'Laporan' ? 'active text-white fade-in' : '' }}"></i>
                     <span style="text-indent: 5px;">Laporan</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('merk') ? 'active' : '' }}" href="{{ route('admin-merk.index') }}">
-                    <i
-                        class="fas fa-fw fa-m {{ $title === 'Merk' ? 'active text-white fade-in' : '' }}"></i>
+                    <i class="fas fa-fw fa-m {{ $title === 'Merk' ? 'active text-white fade-in' : '' }}"></i>
                     <span style="text-indent: 5px;">Merk</span></a>
             </li>
             <li class="nav-item">
@@ -157,8 +158,8 @@
                                     </div>
                                 </form>
                             </div>
-                        </li>                        
-                        
+                        </li>
+
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
@@ -167,11 +168,11 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span
                                     class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->frontName }}</span>
-                            </a>                            
+                            </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in text-center"
-                                aria-labelledby="userDropdown">                                
-                                <a class="dropdown-item" style="justify-content: center;" href="/logout" data-toggle="modal"
-                                    data-target="#logoutModal">
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" style="justify-content: center;" href="/logout"
+                                    data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out fa-fw mr-2 text-gray-400"></i>
                                     Keluar
                                 </a>
@@ -253,7 +254,7 @@
     </div>
 
     <!-- ========================= JS here ========================= -->
-    <script src="/js/jquery-3.6.0.min.js"></script>    
+    <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/js/script.js"></script>
 
     <!-- Bootstrap core JavaScript-->

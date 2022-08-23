@@ -64,8 +64,9 @@ class AdminProductController extends Controller
     {
         Validator::make($request->all(), [
             'name' => 'required|unique:products|max:255',
-            'image_main' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
-            'images[]' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            'image_main' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:1024',
+            'images[]' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'barcode' => 'required|max:18|unique:products',
         ])->validate();
 
         if ($request->hasFile("image_main")) {
@@ -85,6 +86,7 @@ class AdminProductController extends Controller
             $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
 
             $product = Product::create([
+                "barcode" => $request->barcode,
                 "category_id" => $request->category_id,
                 "name" => $request->name,
                 "slug" => Str::slug($request->name),
@@ -176,6 +178,7 @@ class AdminProductController extends Controller
             'name' => 'required|max:255',
             'image_main' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
             'images' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            'barcode' => 'required|max:18|unique:products'
         ];
 
         if ($request->slug != $product->slug) {
@@ -210,6 +213,7 @@ class AdminProductController extends Controller
             ->update($size);
 
         $product->update([
+            "barcode" => $request->barcode,
             "category_id" => $request->category_id,
             "name" => $request->name,
             "slug" => Str::slug($request->name),

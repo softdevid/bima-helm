@@ -1,7 +1,6 @@
 @extends('admin.layouts.template')
 @section('content')
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -12,14 +11,26 @@
 
     <form action="{{ route('admin-product.store') }}" method="post" enctype="multipart/form-data">
         @csrf
-        <div class="col-sm-12">                
+        <div class="col-sm-12">
+            <div class="mb-3 row">
+                <label for="barcode" class="col-sm-2 col-form-label">Barcode Produk</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control @error('barcode') is-invalid @enderror" id="barcode"
+                        placeholder="Nama Produk" name="name" value="{{ old('barcode') }}" required>
+                    @error('barcode')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
             <div class="mb-3 row">
                 <label for="merk" class="col-sm-2 col-form-label">Kategori</label>
                 <div class="col-sm-10">
-                    <select class="form-select form-control" name="category_id" aria-label="Default select example" required>
+                    <select class="form-select form-control" name="category_id" aria-label="Default select example"
+                        required>
                         <option value="">Pilih Kategori</option>
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}" @if(old('category_id') == $category->id) {{'selected'}} @endif>
+                            <option value="{{ $category->id }}"
+                                @if (old('category_id') == $category->id) {{ 'selected' }} @endif>
                                 {{ $category->name }}</option>
                         @endforeach
                     </select>
@@ -45,7 +56,8 @@
                     <select class="form-select form-control" name="merk_id" aria-label="Default select example" required>
                         <option value="">Pilih Merk</option>
                         @foreach ($merks as $merk)
-                            <option value="{{ $merk->id }}" @if(old('merk_id') == $merk->id) {{'selected'}} @endif>
+                            <option value="{{ $merk->id }}"
+                                @if (old('merk_id') == $merk->id) {{ 'selected' }} @endif>
                                 {{ $merk->name }}</option>
                         @endforeach
                     </select>
@@ -54,8 +66,8 @@
             <div class="mb-3 row">
                 <label for="purchase_price" class="col-sm-2 col-form-label">Harga Beli</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" id="harga" placeholder="contoh: 125000" name="purchase_price"
-                        value="{{ old('purchase_price') }}" required>
+                    <input type="number" class="form-control" id="harga" placeholder="contoh: 125000"
+                        name="purchase_price" value="{{ old('purchase_price') }}" required>
                 </div>
             </div>
             <div class="mb-3 row">
@@ -129,23 +141,27 @@
 
             <div class="mb-3">
                 <div class="row">
-                    <label for="image_main" class="col-sm-2 col-form-label">Gambar utama</label>        
-                    <div class="col-sm-10">                    
-                        <input type="file" name="image_main" class="form-control" required>                    
+                    <label for="image_main" class="col-sm-2 col-form-label">Gambar utama</label>
+                    <div class="col-sm-10">
+                        <input type="file" name="image_main"
+                            class="form-control @error('image_main') is-invalid @enderror" required>
+                        @error('image_main')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="size" class="col-sm-2 col-form-label">Gambar lain</label>        
-                <div class="col-sm-10">                                
+                <label for="size" class="col-sm-2 col-form-label">Gambar lain</label>
+                <div class="col-sm-10">
                     <input type="file" name="images[]" class="form-control">
                     <input type="file" name="images[]" class="form-control">
-                    <input type="file" name="images[]" class="form-control">                
+                    <input type="file" name="images[]" class="form-control">
                 </div>
-            </div>        
+            </div>
         </div>
 
-        <div class="mb-5 mt-3 row">            
+        <div class="mb-5 mt-3 row">
             <button type="submit" class="btn btn-primary">Simpan</button>
             <a href="{{ route('admin-product.index') }}" class="btn btn-danger" style="margin-left: 5px;"><i
                     class="fa-solid fa-angles-left"></i> List Produk</a>
@@ -169,37 +185,36 @@
         });
 
         function bacaGambar(input) {
-        if (input.files && input.files[0]) {
-          var reader = new FileReader();
-          reader.onload = function(e){
-            $('#gambar_load').attr('src', e.target.result); 
-          }
-          reader.readAsDataURL(input.files[0]);
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#gambar_load').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
         }
-      }
-      $('#preview_gambar').change(function(){
-        bacaGambar(this)
+        $('#preview_gambar').change(function() {
+            bacaGambar(this)
         });
-    </script>    
+    </script>
 
 
-   <!--  <script type="text/javascript">
+    <!--  <script type="text/javascript">
         $(document).ready(function() {
-          $(".btn-success").click(function(){ 
+            $(".btn-success").click(function() {
 
-              var lsthmtl = $(".clone").html();
+                var lsthmtl = $(".clone").html();
 
-              $(".increment").after(lsthmtl);
-              arr.splice(4,1);
-          });
+                $(".increment").after(lsthmtl);
+                arr.splice(4, 1);
+            });
 
-          $("body").on("click",".btn-danger",function(){ 
+            $("body").on("click", ".btn-danger", function() {
 
-              $(this).parents(".hdtuto").remove();
+                $(this).parents(".hdtuto").remove();
 
-          });
+            });
 
         });
     </script> -->
-
 @endsection

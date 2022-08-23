@@ -44,46 +44,18 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('admin-merk', MerkController::class);
     Route::get('/admin/merk/delete/{id}', [MerkController::class, 'destroy']);
 
-    //route admin laporan
-    Route::get('/admin/laporan', function () {
-        return view('admin.pages.laporan.index', [
-            'title' => 'Laporan',
-        ]);
-    });
-
     //route admin dashboard
-    Route::get('/admin/dashboard', function () {
-        return view('admin.pages.index', [
-            'title' => 'Dashboard',
-        ]);
-    });
+    Route::get('admin-dashboard', [AdminController::class, 'index']);
 
     // Route::get('/admin/users', [AdminController::class, 'users']);
     // Route::get('/admin/orders', [AdminController::class, 'orders']);
+    Route::resource('kasir-input', KasirController::class);
+    Route::resource('laporan', LaporanController::class);
+    Route::get('/kasir-dashboard', [KasirController::class, 'dashboard']);
+    Route::get('/laporan-search', [LaporanController::class, 'index']);
+    Route::post('/laporan/harian', [LaporanController::class, 'laporan_harian']);
+    Route::post('/laporan/bulanan', [LaporanController::class, 'laporan_bulanan']);
+    Route::post('/laporan/tahunan', [LaporanController::class, 'laporan_tahunan']);
+    Route::post('/laporan/merk', [LaporanController::class, 'laporan_merk']);
+    Route::post('/laporan/size-name', [LaporanController::class, 'laporan_sizename']);
 });
-
-//KASIR
-Route::resource('kasir-input', KasirController::class);
-Route::resource('laporan', LaporanController::class);
-Route::get('/laporan-search', [LaporanController::class, 'index']);
-Route::post('/laporan/harian', [LaporanController::class, 'laporan_harian']);
-Route::post('/laporan/bulanan', [LaporanController::class, 'laporan_bulanan']);
-Route::post('/laporan/tahunan', [LaporanController::class, 'laporan_tahunan']);
-Route::post('/laporan/merk', [LaporanController::class, 'laporan_merk']);
-Route::post('/laporan/size-name', [LaporanController::class, 'laporan_sizename']);
-
-// Route::middleware(['auth', 'isKasir'])->group(function () {
-
-//     Route::get('/kasir/dashboard', function () {
-//         return view('kasir.pages.index', [
-//             'title' => 'Dashboard',
-//         ]);
-//     });
-
-//     Route::get('/kasir/laporan', function () {
-//         return view('kasir.pages.laporan', [
-//             'title' => 'Laporan',
-//         ]);
-//     });
-
-// });

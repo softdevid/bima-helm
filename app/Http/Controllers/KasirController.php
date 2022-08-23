@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Laporan;
 use App\Models\SizeName;
 use App\Models\Size;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class KasirController extends Controller
 {
@@ -25,6 +27,27 @@ class KasirController extends Controller
             "products" => $products,
             "size" => $size,
             "size_name" => $size_name,
+        ]);
+    }
+
+    public function dashboard()
+    {
+        $date = Carbon::now()->isoFormat('D-M-Y');
+        $day = date('d', strtotime($date));
+        $month = date('m', strtotime($date));
+        $year = date('Y', strtotime($date));
+
+        $thisDay = Laporan::whereDay('created_at', $day)->sum('profit');
+        $thisMonth = Laporan::whereMonth('created_at', [$month, $year])->sum('profit');
+        $thisYear = Laporan::whereYear('created_at', $year)->sum('profit');
+
+        // dd($thisDay, $thisMonth, $thisYear);
+        return view('kasir.pages.dashboard', [
+            'title' => 'Dashboard',
+            'totalProduct' => Product::count(),
+            'thisDay' => $thisDay,
+            'thisMonth' => $thisMonth,
+            'thisYear' => $thisYear,
         ]);
     }
 
@@ -57,7 +80,12 @@ class KasirController extends Controller
      */
     public function show($id)
     {
-        //
+        $products = Product::find($id);
+        // dd($products);
+        return view('kasir.pages.kasir-input.detail-product', [
+            'title' => "$products->name",
+            'products' => $products,
+        ]);
     }
 
     /**
@@ -68,7 +96,15 @@ class KasirController extends Controller
      */
     public function edit($id)
     {
-        //
+        $products = Product::find($id);
+        $size = Size::all();
+        $size_name = SizeName::all();
+        return view('kasir.pages.kasir-input.create', [
+            'title' => "Tambahkan laporan $products->name",
+            'products' => $products,
+            'size' => $size,
+            'size_name' => $size_name,
+        ]);
     }
 
     /**

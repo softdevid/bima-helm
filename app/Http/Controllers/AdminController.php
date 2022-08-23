@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+    public function index()
+    {
+        $totalProduct = Product::count();
+        return view('admin.pages.index', [
+            'title' => "Dashboard",
+            'totalProduct' => $totalProduct,
+        ]);
+    }
+
     public function product()
     {
         $title = 'Produk';
