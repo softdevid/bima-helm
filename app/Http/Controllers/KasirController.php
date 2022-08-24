@@ -96,14 +96,20 @@ class KasirController extends Controller
      */
     public function edit($id)
     {
+        $now = Carbon::now()->toDateString('Y-m-d');
+        $laporan = Laporan::where('created_at', $now)->get()->count();
         $products = Product::find($id);
-        $size = Size::all();
         $size_name = SizeName::all();
+        $size = Size::all();
+
+        // dd($laporan);
         return view('kasir.pages.kasir-input.create', [
             'title' => "Tambahkan laporan $products->name",
             'products' => $products,
             'size' => $size,
             'size_name' => $size_name,
+            'laporan' => $laporan,
+            'now' => $now,
         ]);
     }
 

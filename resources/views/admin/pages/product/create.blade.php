@@ -95,7 +95,44 @@
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="size" class="col-sm-2 col-form-label mt-4">Jumlah Stok / Ukuran</label>
+                <label for="size" class="col-sm-2 col-form-label mt-4">Jumlah Stok Gurang</label>
+                <div class="col-sm-10">
+                    <div class="row">
+                        <div class="col">
+                            <label for="size" class="col-sm-2 col-form-label">XS</label>
+                            <input type="number" value="{{ old('xs') }}" class="form-control" name="gd_xs"
+                                min="0" placeholder="0" required>
+                        </div>
+                        <div class="col">
+                            <label for="size" class="col-sm-2 col-form-label">S</label>
+                            <input type="number" class="form-control" name="gd_s" value="{{ old('gd_s') }}"
+                                min="0" placeholder="0" required>
+                        </div>
+                        <div class="col">
+                            <label for="size" class="col-sm-2 col-form-label">M</label>
+                            <input type="number" class="form-control" name="gd_m" value="{{ old('gd_m') }}"
+                                min="0" placeholder="0" required>
+                        </div>
+                        <div class="col">
+                            <label for="size" class="col-sm-2 col-form-label">LG</label>
+                            <input type="number" class="form-control" name="gd_lg" value="{{ old('gd_lg') }}"
+                                min="0" placeholder="0" required>
+                        </div>
+                        <div class="col">
+                            <label for="size" class="col-sm-2 col-form-label">XL</label>
+                            <input type="number" class="form-control" name="gd_xl" value="{{ old('gd_xl') }}"
+                                min="0" placeholder="0" required>
+                        </div>
+                        <div class="col">
+                            <label for="size" class="col-sm-2 col-form-label">XXL</label>
+                            <input type="number" class="form-control" name="gd_xxl" value="{{ old('gd_xxl') }}"
+                                min="0" placeholder="0" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="size" class="col-sm-2 col-form-label mt-4">Jumlah Stok Toko</label>
                 <div class="col-sm-10">
                     <div class="row">
                         <div class="col">

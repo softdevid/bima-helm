@@ -26,6 +26,7 @@ class LaporanController extends Controller
             'laporans' => $laporans,
             'merks' => Merk::all(),
             'size_names' => SizeName::all(),
+            'totalProfit' => $laporans->sum('profit'),
         ]);
     }
 
@@ -67,6 +68,7 @@ class LaporanController extends Controller
     {
         $size_id = $request->size_id;
         $size = Size::where('id', $size_id)->get();
+        // dd($date);
         // dd($size);
         foreach ($size as $size) {
             $xs = $size->xs;
@@ -80,8 +82,24 @@ class LaporanController extends Controller
         if ($xs == 0) {
             return back()->with('message', 'Stock Kosong tidak bisa ditambah ke laporan');
         }
+        if ($s == 0) {
+            return back()->with('message', 'Stock Kosong tidak bisa ditambah ke laporan');
+        }
+        if ($m == 0) {
+            return back()->with('message', 'Stock Kosong tidak bisa ditambah ke laporan');
+        }
+        if ($lg == 0) {
+            return back()->with('message', 'Stock Kosong tidak bisa ditambah ke laporan');
+        }
+        if ($xl == 0) {
+            return back()->with('message', 'Stock Kosong tidak bisa ditambah ke laporan');
+        }
+        if ($xxl == 0) {
+            return back()->with('message', 'Stock Kosong tidak bisa ditambah ke laporan');
+        }
 
         $profit = ($request->price - $request->purchase_price) * $request->qty;
+
         Laporan::create([
             'product_id' => $request->product_id,
             'size_id' => $request->size_id,
@@ -90,6 +108,7 @@ class LaporanController extends Controller
             'qty' => $request->qty,
             'profit' => $profit,
         ]);
+
         // dd($laporan);
 
         return redirect()->to('kasir-input')->with('success', 'Tambah ke Laporan berhasil !!');
@@ -129,7 +148,14 @@ class LaporanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $profit = ($request->price - $request->purchase_price) * $request->qty;
+        $profit = [
+            'qty' => $request->qty,
+            'profit' => $profit,
+        ];
+        Laporan::where('id', $id)
+            ->update($profit);
+        return redirect()->to('kasir-input')->with('success', 'Tambah ke Laporan berhasil !!');
     }
 
     /**
@@ -143,6 +169,13 @@ class LaporanController extends Controller
         //
     }
 
+    public function chart()
+    {
+        $date_tahun = date('Y', strtotime("2022"));
+        // $date_jan = Laporan::whereYear('created_at', $date_tahun)->get();
+        $jan = Laporan::whereMonth('created_at', $date_tahun)->sum('profit');
+        dd($jan, $date_tahun);
+    }
 
     public function laporan_harian(Request $request)
     {

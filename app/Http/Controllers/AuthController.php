@@ -21,9 +21,9 @@ class AuthController extends Controller
 
             $request->session()->regenerate();
             if (Auth::user()->level == 2) {
-                return redirect()->intended('admin-dashboard.index');
+                return redirect()->intended('admin-dashboard');
             } else if (Auth::user()->level == 1) {
-                return redirect()->intended('kasir-input.index');
+                return redirect()->intended('kasir-input');
             }
 
             \Cart::instance('cart')->restore(Auth::id());

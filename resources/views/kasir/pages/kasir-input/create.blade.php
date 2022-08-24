@@ -32,7 +32,7 @@
                             <input type="hidden" name="merk_id" value="{{ $products->merk_id }}">
                             <input type="hidden" name="purchase_price" value="{{ $products->purchase_price }}">
                             <input type="hidden" name="price" value="{{ $products->price }}">
-                            <input type="hidden" name="merk_id" value="{{ $products->merk_id }}">
+                            <input type="hidden" name="slug" value="{{ $products->slug }}">
 
                             <h6>Nama Produk: {{ $products->name }}</h6>
                             <p>Barcode: {{ $products->barcode }}</p>

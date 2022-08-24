@@ -13,7 +13,7 @@ class Product extends Model
     use Sluggable;
 
     protected $guarded = ['id'];
-    protected $with = ['category'];
+    protected $with = ['category', 'merk', 'gudang'];
 
     public function scopeFilter($query, array $filters)
     {
@@ -54,6 +54,11 @@ class Product extends Model
     public function merk()
     {
         return $this->belongsTo(Merk::class);
+    }
+
+    public function gudang()
+    {
+        return $this->belongsTo(Gudang::class);
     }
 
     public function size()

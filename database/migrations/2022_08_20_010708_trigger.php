@@ -56,6 +56,14 @@ class Trigger extends Migration
             END'
         );
 
+        // trigger update
+        DB::unprepared(
+            'CREATE TRIGGER `update_xs` AFTER UPDATE ON `laporans`
+             FOR EACH ROW BEGIN
+                UPDATE sizes set xs = xs - NEW.qty where id = size_id AND size_name_id = 1;
+            END'
+        );
+
         DB::unprepared(
             'CREATE TRIGGER `tr_updateStokTotal` AFTER INSERT ON `laporans`
              FOR EACH ROW BEGIN

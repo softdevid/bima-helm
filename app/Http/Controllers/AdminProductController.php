@@ -9,6 +9,7 @@ use App\Models\Image;
 use App\Models\Size;
 use App\Models\Category;
 use App\Models\Merk;
+use App\Models\Gudang;
 // use App\Http\Controllers\CloudinaryStorage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
@@ -85,6 +86,16 @@ class AdminProductController extends Controller
             ]);
             $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
 
+            $gudang = Gudang::create([
+                'gd_xs' => $request->gd_xs ?? 0,
+                'gd_s' => $request->gd_s ?? 0,
+                'gd_m' => $request->gd_m ?? 0,
+                'gd_lg' => $request->gd_lg ?? 0,
+                'gd_xl' => $request->gd_xl ?? 0,
+                'gd_xxl' => $request->gd_xxl ?? 0,
+            ]);
+            $gd_stock = $request->gd_xs + $request->gd_s + $request->gd_m + $request->gd_lg + $request->gd_xl + $request->gd_xxl;
+
             $product = Product::create([
                 "barcode" => $request->barcode,
                 "category_id" => $request->category_id,
@@ -95,10 +106,12 @@ class AdminProductController extends Controller
                 "purchase_price" => $request->purchase_price,
                 "weight" => $request->weight,
                 "stock" => $stock,
+                "stock_gudang" => $gd_stock,
                 "description" => $request->description,
                 "image_main" => $public_id,
                 "url" => $url,
                 "size_id" => $sizes->id,
+                "gudang_id" => $gudang->id,
             ]);
         }
 
@@ -149,6 +162,7 @@ class AdminProductController extends Controller
         $merks = Merk::all();
         $product = Product::findOrFail($id);
         $sizes = Size::findOrFail($product->size_id);
+        $gudang = Size::findOrFail($product->gudang_id);
         // $product = Product::with('Category', 'merk', 'size')->get();
         $images = Image::where("product_id", $product->id)->get();
         return view('admin.pages.product.edit', [
@@ -156,6 +170,7 @@ class AdminProductController extends Controller
             "product" => $product,
             "images" => $images,
             "sizes" => $sizes,
+            "gudang" => $gudang,
             "categories" => $categories,
             "merks" => $merks,
         ]);
@@ -212,6 +227,19 @@ class AdminProductController extends Controller
         Size::where('id', $product->id)
             ->update($size);
 
+        $gudang = [
+            'gd_xs' => $request->gd_xs ?? 0,
+            'gd_s' => $request->gd_s ?? 0,
+            'gd_m' => $request->gd_m ?? 0,
+            'gd_lg' => $request->gd_lg ?? 0,
+            'gd_xl' => $request->gd_xl ?? 0,
+            'gd_xxl' => $request->gd_xxl ?? 0,
+        ];
+        $gd_stock = $request->gd_xs + $request->gd_s + $request->gd_m + $request->gd_lg + $request->gd_xl + $request->gd_xxl;
+
+        Size::where('id', $product->id)
+            ->update($size);
+
         $product->update([
             "barcode" => $request->barcode,
             "category_id" => $request->category_id,
@@ -222,6 +250,7 @@ class AdminProductController extends Controller
             "purchase_price" => $request->purchase_price,
             "weight" => $request->weight,
             "stock" => $stock,
+            "gd_stock" => $gd_stock,
             "description" => $request->description,
         ]);
 
@@ -262,6 +291,7 @@ class AdminProductController extends Controller
         Cloudinary::destroy($image_main);
 
         Size::where("id", $product->size_id)->delete();
+        Gudang::where("id", $product->gudang_id)->delete();
 
         Product::destroy($id);
         return back()->with('success', 'Berhasil dihapus!!');

@@ -59,3 +59,4 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('/laporan/merk', [LaporanController::class, 'laporan_merk']);
     Route::post('/laporan/size-name', [LaporanController::class, 'laporan_sizename']);
 });
+Route::get('/chart', [LaporanController::class, 'chart']);

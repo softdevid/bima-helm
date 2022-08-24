@@ -10,7 +10,7 @@
                     {{ $profit = $laporan->profit }}
                 @endforeach
             </div>
-            Keuntungan = Rp. {{ number_format($profit + $profit, 0, ',', '.') }}
+            Keuntungan = Rp. {{ number_format($totalProfit, 0, ',', '.') }}
         </div>
     </div>
     <div class="table-responsive">

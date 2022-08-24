@@ -24,7 +24,9 @@ class CreateProductsTable extends Migration
             $table->integer('purchase_price');
             $table->integer('weight')->unsigned()->default(0);
             $table->foreignId('size_id')->unsigned()->nullable();
+            $table->foreignId('gudang_id')->unsigned()->nullable();
             $table->integer('stock')->unsigned()->default(0);
+            $table->integer('gd_stock')->unsigned()->default(0);
             $table->integer('sold')->unsigned()->default(0);
             $table->text('image_main');
             $table->text('url');
