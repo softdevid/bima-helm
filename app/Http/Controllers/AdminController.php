@@ -6,15 +6,28 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use App\Models\Laporan;
 
 class AdminController extends Controller
 {
     public function index()
     {
+        $date = Carbon::now()->isoFormat('D-M-Y');
+        $day = date('d', strtotime($date));
+        $month = date('m', strtotime($date));
+        $year = date('Y', strtotime($date));
+
+        $thisDay = Laporan::whereDay('created_at', $day)->sum('profit');
+        $thisMonth = Laporan::whereMonth('created_at', [$month, $year])->sum('profit');
+        $thisYear = Laporan::whereYear('created_at', $year)->sum('profit');
         $totalProduct = Product::count();
         return view('admin.pages.index', [
             'title' => "Dashboard",
             'totalProduct' => $totalProduct,
+            'thisDay' => $thisDay,
+            'thisMonth' => $thisMonth,
+            'thisYear' => $thisYear,
         ]);
     }
 

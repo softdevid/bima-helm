@@ -16,7 +16,7 @@
                 <label for="barcode" class="col-sm-2 col-form-label">Barcode Produk</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control @error('barcode') is-invalid @enderror" id="barcode"
-                        placeholder="Nama Produk" name="name" value="{{ old('barcode') }}" required>
+                        placeholder="No barcode Produk" name="barcode" value="{{ old('barcode') }}" required>
                     @error('barcode')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

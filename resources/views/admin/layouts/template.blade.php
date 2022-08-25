@@ -60,7 +60,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link {{ $title === 'Dashboard' ? 'active text-white fade-in' : '' }}"
-                    href="admin-dashboard.index">
+                    href="admin-dashboard">
                     <i
                         class="fas fa-fw fa-tachometer-alt {{ $title === 'Dashboard' ? 'active text-white fade-in' : '' }}"></i>
                     <span style="text-indent: 5px;">Dashboard</span></a>
@@ -82,11 +82,10 @@
                     <span style="text-indent: 5px;">Pengguna</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ $title === 'Laporan' ? 'active text-white fade-in' : '' }}"
-                    href="/admin/laporan">
-                    <i
-                        class="fa-duotone fa-book-open-cover {{ $title === 'Laporan' ? 'active text-white fade-in' : '' }}"></i>
-                    <span style="text-indent: 5px;">Laporan</span></a>
+                <a class="nav-link {{ $title === 'Gudang' ? 'active text-white fade-in' : '' }}"
+                    href="{{ route('admin-gudang.index') }}">
+                    <i class="fa-solid fa-house {{ $title === 'Gudang' ? 'active text-white fade-in' : '' }}"></i>
+                    <span style="text-indent: 5px;">Gudang</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('merk') ? 'active' : '' }}" href="{{ route('admin-merk.index') }}">

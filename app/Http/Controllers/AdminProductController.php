@@ -67,8 +67,9 @@ class AdminProductController extends Controller
             'name' => 'required|unique:products|max:255',
             'image_main' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:1024',
             'images[]' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'barcode' => 'required|max:18|unique:products',
+            'barcode' => 'max:18|unique:products',
         ])->validate();
+        // dd($request->all());
 
         if ($request->hasFile("image_main")) {
             $file = $request->file('image_main');
@@ -87,12 +88,12 @@ class AdminProductController extends Controller
             $stock = $request->xs + $request->s + $request->m + $request->lg + $request->xl + $request->xxl;
 
             $gudang = Gudang::create([
-                'gd_xs' => $request->gd_xs ?? 0,
-                'gd_s' => $request->gd_s ?? 0,
-                'gd_m' => $request->gd_m ?? 0,
-                'gd_lg' => $request->gd_lg ?? 0,
-                'gd_xl' => $request->gd_xl ?? 0,
-                'gd_xxl' => $request->gd_xxl ?? 0,
+                'xs' => $request->gd_xs ?? 0,
+                's' => $request->gd_s ?? 0,
+                'm' => $request->gd_m ?? 0,
+                'lg' => $request->gd_lg ?? 0,
+                'xl' => $request->gd_xl ?? 0,
+                'xxl' => $request->gd_xxl ?? 0,
             ]);
             $gd_stock = $request->gd_xs + $request->gd_s + $request->gd_m + $request->gd_lg + $request->gd_xl + $request->gd_xxl;
 
@@ -106,7 +107,7 @@ class AdminProductController extends Controller
                 "purchase_price" => $request->purchase_price,
                 "weight" => $request->weight,
                 "stock" => $stock,
-                "stock_gudang" => $gd_stock,
+                "gd_stock" => $gd_stock,
                 "description" => $request->description,
                 "image_main" => $public_id,
                 "url" => $url,
@@ -228,17 +229,17 @@ class AdminProductController extends Controller
             ->update($size);
 
         $gudang = [
-            'gd_xs' => $request->gd_xs ?? 0,
-            'gd_s' => $request->gd_s ?? 0,
-            'gd_m' => $request->gd_m ?? 0,
-            'gd_lg' => $request->gd_lg ?? 0,
-            'gd_xl' => $request->gd_xl ?? 0,
-            'gd_xxl' => $request->gd_xxl ?? 0,
+            'xs' => $request->gd_xs ?? 0,
+            's' => $request->gd_s ?? 0,
+            'm' => $request->gd_m ?? 0,
+            'lg' => $request->gd_lg ?? 0,
+            'xl' => $request->gd_xl ?? 0,
+            'xxl' => $request->gd_xxl ?? 0,
         ];
         $gd_stock = $request->gd_xs + $request->gd_s + $request->gd_m + $request->gd_lg + $request->gd_xl + $request->gd_xxl;
 
-        Size::where('id', $product->id)
-            ->update($size);
+        Gudang::where('id', $product->id)
+            ->update($gudang);
 
         $product->update([
             "barcode" => $request->barcode,

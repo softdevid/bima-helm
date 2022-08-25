@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\MerkController;
 use App\Http\Controllers\KasirController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\GudangController;
 use Illuminate\Support\Facades\Route;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -38,6 +39,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     //rout admin product
 
     Route::resource('admin-product', AdminProductController::class);
+    Route::resource('admin-gudang', GudangController::class);
     Route::delete('/deletecover/{id}', [AdminProductController::class, 'deletecover']);
     Route::delete('/deleteimages/{id}', [AdminProductController::class, 'deleteimages']);
     //route admin

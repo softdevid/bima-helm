@@ -43,7 +43,7 @@
                         </td>
                         <td>
                             <a href="{{ route('kasir-input.edit', [$products->id]) }}" class="btn btn-success"
-                                title="Laporkan penjualan Produk ini">Laporankan</a>
+                                title="Laporkan penjualan Produk ini">Laporkan</a>
                         </td>
                     </tr>
                 @endforeach
