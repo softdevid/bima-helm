@@ -10,3 +10,19 @@
 	CLOUDINARY_NOTIFICATION_URL=
     </pre>
 6. done, if error just WA me :)
+
+<hr>
+
+mysql query to get stock
+<pre>
+SELECT 
+categories.id AS category_id,
+COALESCE(SUM(sizes.xs+sizes.s+sizes.m+sizes.lg+sizes.xl+sizes.xxl), 0) as store, 
+COALESCE(SUM(gudangs.xs+gudangs.s+gudangs.m+gudangs.lg+gudangs.xl+gudangs.xxl), 0) as storehouse, 
+CURRENT_DATE() as date 
+FROM products 
+JOIN sizes ON products.size_id = sizes.id 
+JOIN gudangs ON products.gudang_id = gudangs.id 
+RIGHT JOIN categories ON products.category_id = categories.id 
+GROUP BY categories.id;
+</pre>
