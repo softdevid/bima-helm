@@ -18,7 +18,6 @@ class CreateDailyStocksTable extends Migration
             $table->tinyInteger('category_id')->nullable(false);
             $table->integer('store')->nullable(false);
             $table->integer('storehouse')->nullable(false);
-            $table->integer('sum_stock')->nullable(false);
             $table->string('date')->nullable(false);
         });
     }
