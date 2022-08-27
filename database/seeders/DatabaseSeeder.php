@@ -128,6 +128,24 @@ class DatabaseSeeder extends Seeder
             'xxl' => 5,
         ]);
 
+        Size::create([
+            'xs' => 5,
+            's' => 5,
+            'm' => 4,
+            'lg' => 5,
+            'xl' => 4,
+            'xxl' => 5,
+        ]);
+
+        Size::create([
+            'xs' => 5,
+            's' => 5,
+            'm' => 4,
+            'lg' => 4,
+            'xl' => 4,
+            'xxl' => 5,
+        ]);
+
         Gudang::create([
             'xs' => 5,
             's' => 5,
@@ -145,7 +163,25 @@ class DatabaseSeeder extends Seeder
             'xl' => 5,
             'xxl' => 5,
         ]);
-        
+
+        Gudang::create([
+            'xs' => 4,
+            's' => 4,
+            'm' => 5,
+            'lg' => 5,
+            'xl' => 5,
+            'xxl' => 5,
+        ]);
+
+        Gudang::create([
+            'xs' => 4,
+            's' => 4,
+            'm' => 4,
+            'lg' => 5,
+            'xl' => 5,
+            'xxl' => 5,
+        ]);
+
 
         Product::create([
             "category_id" => 1,
@@ -183,7 +219,45 @@ class DatabaseSeeder extends Seeder
             'image_main' => "products/i4xtgsg8zngm5unfbh9e",
             "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1661153096/products/i4xtgsg8zngm5unfbh9e.png",
             "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
-        ]);        
+        ]);
+
+        Product::create([
+            "category_id" => 2,
+            "barcode" => "000000000000003",
+            "name" => "HELM FULLFACE KTY RC SEVEN #14 GREEN",
+            "slug" => "fullface-kyt-rc-seven-14-green",
+            "merk_id" => 2,
+            "price" => "420000",
+            "purchase_price" => "200000",
+            "weight" => "2000",
+            "size_id" => 3,
+            "gudang_id" => 3,
+            "stock" => 28,
+            "gd_stock" => 28,
+            "sold" => 3,
+            'image_main' => "products/i4xtgsg8zngm5unfbh9e",
+            "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1661153096/products/i4xtgsg8zngm5unfbh9e.png",
+            "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
+        ]);
+
+        Product::create([
+            "category_id" => 2,
+            "barcode" => "000000000000004",
+            "name" => "HELM FULLFACE KTY RC SEVEN #14",
+            "slug" => "fullface-kyt-rc-seven-14",
+            "merk_id" => 2,
+            "price" => "420000",
+            "purchase_price" => "200000",
+            "weight" => "2000",
+            "size_id" => 4,
+            "gudang_id" => 4,
+            "stock" => 27,
+            "gd_stock" => 27,
+            "sold" => 3,
+            'image_main' => "products/i4xtgsg8zngm5unfbh9e",
+            "url" => "https://res.cloudinary.com/cv-mekar-cutting-digital/image/upload/v1661153096/products/i4xtgsg8zngm5unfbh9e.png",
+            "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit fugiat voluptatum ut necessitatibus consequuntur. Consequuntur odio perferendis nobis maiores dolore! Veniam maiores nisi magnam sequi repellendus similique ut doloribus inventore!",
+        ]);
 
         //Product::factory(20)->create();
         // Image::factory(8)->create();
