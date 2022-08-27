@@ -354,8 +354,13 @@
     <script src="/admin/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="/admin/js/demo/chart-area-demo.js"></script>
+    {{-- <script src="/admin/js/demo/chart-area-demo.js"></script>
+    <script src="/admin/js/demo/chart-profit.js"></script> --}}
     <script src="/admin/js/demo/chart-pie-demo.js"></script>
+
+
+    {{-- chart kasir --}}
+    {{-- <script src="resources\views\kasir\pages\chart-profit.js"></script> --}}
 
 </body>
 

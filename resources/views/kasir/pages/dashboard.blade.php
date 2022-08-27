@@ -1,3 +1,4 @@
+@extends('kasir.pages.chart-profit')
 @extends('kasir.layouts.template')
 @section('content')
     <div class="container-fluid">
@@ -110,7 +111,8 @@
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="chart-area">
-                            <canvas id="myAreaChart"></canvas>
+                            {{-- <canvas id="myAreaChart"></canvas> --}}
+                            <canvas id="myChart"></canvas>
                         </div>
                     </div>
                 </div>
