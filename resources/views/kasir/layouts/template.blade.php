@@ -26,13 +26,11 @@
 
     <!-- Custom styles for this template-->
     <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
-    <script src="/js/fas.js"></script>
     <link rel="stylesheet" type="text/css" href="/datatables/datatables.min.css" />
 
+    <script src="/js/fas.js"></script>
+    <script src="/js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="/datatables/datatables.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
-
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
 </head>
 
 <body id="page-top">

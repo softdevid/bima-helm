@@ -57,6 +57,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     // Route::get('/admin/users', [AdminController::class, 'users']);
     // Route::get('/admin/orders', [AdminController::class, 'orders']);
     Route::resource('kasir-input', KasirController::class);
+    Route::get('/kasir-barcode-data', [KasirController::class, 'getBarcodeData']);
     Route::resource('laporan', LaporanController::class);
     Route::get('/kasir-dashboard', [KasirController::class, 'dashboard']);
     Route::get('/laporan-search', [LaporanController::class, 'index']);

@@ -20,21 +20,39 @@ class KasirController extends Controller
      */
     public function index()
     {
-        if (request()->ajax() && request()->barcode = Product::findOrFail(request('barcode'))) {
-            return view('kasir.pages.input-kasir', [
-                "product" => Product::latest()->filter(request(['name', 'price', 'barcode'])),
-            ])->render();
-        }
-        // $products = Product::all();
-        // $size = Size::all();
-        // $size_name = SizeName::all();
         return view('kasir.pages.input-kasir', [
             "title" => "Kasir",
-            // "products" => $products,
-            "product" => Product::latest()->filter(request(['name', 'price'])),
-            // "size" => $size,
-            // "size_name" => $size_name,
         ]);
+    }
+
+    public function getBarcodeData()
+    {
+        if (request()->barcode != null) {
+            $product = Product::without(['category', 'gudang', 'merk'])->select('barcode', 'name', 'price')->where('barcode', request()->barcode);
+
+            if ($product->exists()) {
+                $data = $product->first();
+
+                return response()->json([
+                    'message' => 'Berhasil mengambil data',
+                    'product' => [
+                        "barcode" => $data->barcode,
+                        "name" => $data->name,
+                        "price" => $data->price,
+                    ],
+                ]);
+            } else {
+                return response()->json([
+                    'message' => 'Data kosong',
+                    'product' => null
+                ]);
+            }
+        } else {
+            return response()->json([
+                'message' => 'Barcode kosong',
+                'product' => null
+            ]);
+        }
     }
 
     public function dashboard()
