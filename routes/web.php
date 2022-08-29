@@ -11,6 +11,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\GudangController;
 use Illuminate\Support\Facades\Route;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Models\Product;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -31,6 +32,10 @@ Route::get('/products/details/{product:slug}', [ProductController::class, 'detai
 Route::get('check_slug', function () {
     $slug = SlugService::createSlug(App\Models\Product::class, 'slug', request('name'));
     return response()->json(['slug' => $slug]);
+});
+
+Route::get('/kasir-input/product', function () {
+    return view('kasir.pages.kasir-input.product');
 });
 
 

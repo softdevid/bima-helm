@@ -20,14 +20,20 @@ class KasirController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        $size = Size::all();
-        $size_name = SizeName::all();
-        return view('kasir.pages.index', [
+        if (request()->ajax() && request()->barcode = Product::findOrFail(request('barcode'))) {
+            return view('kasir.pages.input-kasir', [
+                "product" => Product::latest()->filter(request(['name', 'price', 'barcode'])),
+            ])->render();
+        }
+        // $products = Product::all();
+        // $size = Size::all();
+        // $size_name = SizeName::all();
+        return view('kasir.pages.input-kasir', [
             "title" => "Kasir",
-            "products" => $products,
-            "size" => $size,
-            "size_name" => $size_name,
+            // "products" => $products,
+            "product" => Product::latest()->filter(request(['name', 'price'])),
+            // "size" => $size,
+            // "size_name" => $size_name,
         ]);
     }
 
