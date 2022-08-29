@@ -10,7 +10,7 @@
                 <input type="number" min="1" name="qty" class="form-control" placeholder="Banyaknya?">
             </div>
         </div>
-        <div class="row mt-2">            
+        <div class="row mt-2">
             <input type="hidden" value="price" name="price">
             <input type="hidden" value="purchase_price" name="purchase_price">
             <input type="hidden" value="product_id" name="product_id">
@@ -23,6 +23,13 @@
             </div>
         </div>
         <center><a href="#" class="btn btn-success mt-3">Tambah</a></center>
+    </div>
+    <div class="col-sm-6 mt-3">
+        <div class="row">
+            <label for="tunai" class="col-sm-2">Tunai</label>
+            {{-- tunai ora diinputna maring database --}}
+            <input type="number" class="form-control col-sm-4" name="tunai" placeholder="Rp. 3000">
+        </div>
     </div>
     <div class="col-sm-12 mt-2">
         <div class="row">
