@@ -10,7 +10,11 @@
                 <input type="number" min="1" name="qty" class="form-control" placeholder="Banyaknya?">
             </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-2">            
+            <input type="hidden" value="price" name="price">
+            <input type="hidden" value="purchase_price" name="purchase_price">
+            <input type="hidden" value="product_id" name="product_id">
+            <input type="hidden" value="profit" name="profit">
             <div class="col">
                 <input type="text" name="name" placeholder="Nama Produk" disabled class="form-control">
             </div>
@@ -34,7 +38,10 @@
                     </thead>
                     <tbody>
                     <tbody>
-                        <tr>
+                        <tr><input type="hidden" value="price" name="price">
+                            <input type="hidden" value="purchase_price" name="purchase_price">
+                            <input type="hidden" value="product_id" name="product_id">
+                            <input type="hidden" value="profit" name="profit">
                             <td>999959385938</td>
                             <td>Coca-cola</td>
                             <td>1</td>
@@ -60,13 +67,4 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="/js/kasir.js"></script>
     {{-- Check Slug --}}
-
-    <script>
-        $('#barcode').change(function(e) {
-            function(data) {
-                $('#barcode').val(data.barcode);
-                console.log(data.barcode);
-            }
-        });
-    </script>
 @endsection
