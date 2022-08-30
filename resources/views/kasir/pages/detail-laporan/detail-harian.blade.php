@@ -38,6 +38,7 @@
                 <h4>
                     <i class="fas fa-book"></i> Bima Helm
                     <small class="float-right">Laporan Tanggal: {{ $date }}</small>
+                    <input type="hidden" value="{{ $date }}" name="harian">
                 </h4>
             </div>
             <!-- /.col -->
@@ -73,7 +74,7 @@
         <!-- Table row -->
         <div class="row">
             <div class="col-12 table-responsive">
-                <table class="table">
+                <table class="table" id="myTable">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -116,8 +117,9 @@
         <!-- this row will not appear when printing -->
         <div class="row no-print">
             <div class="col-12">
-                <a onclick="window.print()" class="btn btn-primary" id="hide"><i class="fas fa-print"></i>
-                    Print</a>
+                <button class="btn btn-success"><i class="fa fa-download"></i> Excel</button>
+                {{-- <a id="excel" class="btn btn-primary" id="hide"><i class="fas fa-print"></i>
+                    Print</a> --}}
                 <a href="{{ route('laporan.index') }}" class="btn btn-secondary" id="hide"><i
                         class="fa fa-circle-left"></i>
                     Kembali</a>
@@ -136,3 +138,12 @@
     <center><a href="{{ route('laporan.index') }}" class="btn btn-secondary"><i class="fa fa-circle-left"></i>
             Kembali</a></center>
 @endif
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.table2excel.js"></script>
+
+<script>
+    $("button").click(function() {
+        $("#myTable").table2excel();
+    });
+</script>

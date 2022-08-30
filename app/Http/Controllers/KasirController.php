@@ -28,7 +28,7 @@ class KasirController extends Controller
     public function getBarcodeData()
     {
         if (request()->barcode != null) {
-            $product = Product::without(['category', 'gudang', 'merk'])->select('barcode', 'name', 'price')->where('barcode', request()->barcode);
+            $product = Product::without(['category', 'gudang', 'merk'])->select('barcode', 'name', 'price', 'purchase_price', 'id')->where('barcode', request()->barcode);
 
             if ($product->exists()) {
                 $data = $product->first();
@@ -39,6 +39,8 @@ class KasirController extends Controller
                         "barcode" => $data->barcode,
                         "name" => $data->name,
                         "price" => $data->price,
+                        "purchase_price" => $data->purchase_price,
+                        "id" => $data->id,
                     ],
                 ]);
             } else {

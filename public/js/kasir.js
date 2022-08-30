@@ -11,6 +11,9 @@ let price = document.querySelector("#price");
 let btnTambah = document.querySelector("#btnTambah");
 let tunai = document.querySelector("#tunai");
 
+var purchase_price = "";
+var id = "";
+
 let tabelKasir = document
     .querySelector("#tabelKasir")
     .getElementsByTagName("tbody")[0];
@@ -23,6 +26,8 @@ barcode.addEventListener("input", function () {
                 barcodeData.value = data.product.barcode;
                 productName.value = data.product.name;
                 price.value = data.product.price;
+                purchase_price = data.product.purchase_price;
+                id = data.product.id;
             } else {
                 barcodeData.value = "";
                 productName.value = "";
@@ -45,12 +50,22 @@ btnTambah.addEventListener("click", function () {
         let cell2 = row.insertCell(1);
         let cell3 = row.insertCell(2);
         let cell4 = row.insertCell(3);
+        let cell5 = row.insertCell(4);
+        let cell6 = row.insertCell(5);
 
         cell1.innerHTML = barcodeData.value;
         cell2.innerHTML = productName.value;
         cell3.innerHTML = qty.value;
         cell4.innerHTML = price.value * qty.value;
         cell4.id = "price";
+        cell5.innerHTML = purchase_price;
+        cell5.className = "d-none";
+        cell6.innerHTML = id;
+        cell6.className = "d-none";
+        barcode.value = "";
+        qty.value = "";
+        productName.value = "";
+        price.value = "";
     }
 });
 
