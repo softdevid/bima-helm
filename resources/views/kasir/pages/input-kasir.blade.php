@@ -8,7 +8,8 @@
                 <input type="hidden" id="barcodeData" name="barcodeData">
             </div>
             <div class="col">
-                <input type="number" id="qty" min="1" name="qty" class="form-control" placeholder="Banyaknya?" required>
+                <input type="number" id="qty" min="1" name="qty" class="form-control"
+                    placeholder="Banyaknya?" required>
             </div>
         </div>
         <div class="row mt-2">

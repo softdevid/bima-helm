@@ -101,6 +101,7 @@ class LaporanController extends Controller
         $profit = ($request->price - $request->purchase_price) * $request->qty;
 
         Laporan::create([
+            'no_order' => date('Ymd') . random_int(5, 8),
             'product_id' => $request->product_id,
             'size_id' => $request->size_id,
             'size_name_id' => $request->size_name_id,

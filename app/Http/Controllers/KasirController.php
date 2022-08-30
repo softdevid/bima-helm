@@ -146,7 +146,16 @@ class KasirController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'no_order' => date('Ymd') . random_int(5, 8),
+            'barcode' => $request->barcode,
+            'name' => $request->name,
+            'name' => $request->name,
+            'name' => $request->name,
+            'name' => $request->name,
+            'name' => $request->name,
+            'name' => $request->name,
+        ];
     }
 
     /**

@@ -15,6 +15,7 @@ class CreateLaporansTable extends Migration
     {
         Schema::create('laporans', function (Blueprint $table) {
             $table->id()->unsignedZerofill();
+            $table->string('no_transaction')->unique()->default(0);
             $table->foreignId('product_id')->unsigned();
             $table->foreignId('size_id')->unsigned();
             $table->foreignId('size_name_id')->unsigned();
