@@ -3,14 +3,24 @@
     <div class="col-lg-12 col-sm-12 col-md-12">
 
         <div class="row">
-            <div class="col-lg-6 col-sm-12 col-md-12 mt-2">
+            <div class="col-lg-4 col-sm-12 col-md-12 mt-2">
                 <input type="text" id="barcode" name="barcode" class="form-control" placeholder="No. Barcode" required>
                 <input type="hidden" id="barcodeData" name="barcodeData">
             </div>
-            <div class="col-lg-6 col-sm-12 col-md-12 mt-2">
+            <div class="col-lg-4 col-sm-12 col-md-12 mt-2">
                 <input type="number" id="qty" min="1" name="qty" class="form-control"
                     placeholder="Banyaknya?" required>
             </div>
+            <div class="col-lg-4 col-sm-12 col-md-12 mt-2">
+                <select name="size_name_id" id="sizeName" class="form-control form-select" required>
+                    <option value="">Pilih ukuran</option>
+                    @foreach ($size_name as $sn)
+                        <option value="{{ $sn->id }}">{{ $sn->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-lg-6 col-sm-12 col-md-12 mt-2">
                 <input type="text" id="name" name="name" placeholder="Nama Produk" disabled class="form-control">
             </div>
@@ -39,7 +49,8 @@
                             <tr>
                                 <th>No. Barcode</th>
                                 <th>Nama</th>
-                                <th>Banyaknya?</th>
+                                <th>Banyaknya ?</th>
+                                <th>Ukuran</th>
                                 <th>Total</th>
                             </tr>
                         </thead>

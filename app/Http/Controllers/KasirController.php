@@ -22,13 +22,14 @@ class KasirController extends Controller
     {
         return view('kasir.pages.input-kasir', [
             "title" => "Kasir",
+            "size_name" => SizeName::all(),
         ]);
     }
 
     public function getBarcodeData()
     {
         if (request()->barcode != null) {
-            $product = Product::without(['category', 'gudang', 'merk'])->select('barcode', 'name', 'price', 'purchase_price', 'id')->where('barcode', request()->barcode);
+            $product = Product::without(['category', 'gudang', 'merk', 'sizename'])->select('barcode', 'name', 'price', 'purchase_price', 'id')->where('barcode', request()->barcode);
 
             if ($product->exists()) {
                 $data = $product->first();
