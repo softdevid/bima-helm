@@ -197,12 +197,14 @@ class LaporanController extends Controller
         $date_bulan = date('m', strtotime($request->bulanan));
         $date_tahun = date('Y', strtotime($request->bulanan));
         $laporan = Laporan::whereMonth('created_at', [$date_bulan, $date_tahun])->get();
+        $totalProfit = Laporan::whereMonth('created_at', [$date_bulan, $date_tahun])->sum('profit');
 
         return view('kasir.pages.detail-laporan.detail-bulanan', [
             'title' => 'Laporan Penjualan Bulanan',
             'date_bulan' => $date_bulan,
             'date_tahun' => $date_tahun,
             'laporan' => $laporan,
+            'totalProfit' => $totalProfit,
         ]);
     }
 
@@ -210,11 +212,13 @@ class LaporanController extends Controller
     {
         $tahun = $request->tahunan;
         $laporan = Laporan::whereYear('created_at', $tahun)->get();
+        $totalProfit = Laporan::whereYear('created_at', $tahun)->sum('profit');
 
         return view('kasir.pages.detail-laporan.detail-tahunan', [
             'title' => 'Laporan Penjualan Harian',
             'date_tahun' => $tahun,
             'laporan' => $laporan,
+            'totalProfit' => $totalProfit,
         ]);
     }
 
@@ -223,12 +227,13 @@ class LaporanController extends Controller
         $merk = $request->merk_id;
         $merks = Merk::find($merk);
         $laporan = Laporan::where('merk_id', $merk)->get();
-
+        $totalProfit = Laporan::where('merk_id', $merk)->sum('profit');
 
         return view('kasir.pages.detail-laporan.detail-merk', [
             'title' => 'Laporan Penjualan Harian',
             'merk' => $merks,
             'laporan' => $laporan,
+            'totalProfit' => $totalProfit,
         ]);
     }
 
@@ -237,12 +242,13 @@ class LaporanController extends Controller
         $size_name = $request->size_name;
         $size_names = SizeName::find($size_name);
         $laporan = Laporan::where('size_id', $size_name)->get();
-
+        $totalProfit = Laporan::where('size_id', $size_name)->sum('profit');
 
         return view('kasir.pages.detail-laporan.detail-size_name', [
             'title' => 'Laporan Penjualan Harian',
             'size_names' => $size_names,
             'laporan' => $laporan,
+            'totalProfit' => $totalProfit,
         ]);
     }
 }

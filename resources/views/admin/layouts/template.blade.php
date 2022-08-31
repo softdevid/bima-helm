@@ -60,7 +60,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link {{ $title === 'Dashboard' ? 'active text-white fade-in' : '' }}"
-                    href="admin-dashboard">
+                    href="/admin-dashboard">
                     <i
                         class="fas fa-fw fa-tachometer-alt {{ $title === 'Dashboard' ? 'active text-white fade-in' : '' }}"></i>
                     <span style="text-indent: 5px;">Dashboard</span></a>
@@ -268,8 +268,8 @@
 
     <!-- Chartjs -->
     <script src="/admin/js/chartjs/chart.min.js"></script>
-  	<!-- charts -->
-  	<script src="/admin/js/charts.js"></script>
+    <!-- charts -->
+    <script src="/admin/js/charts.js"></script>
 
 </body>
 

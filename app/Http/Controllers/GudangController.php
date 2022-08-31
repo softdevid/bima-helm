@@ -40,7 +40,30 @@ class GudangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::findOrfail($request->id);
+        $gudang = Gudang::findOrFail($request->gudang_id);
+        $data = [
+            'xs' => $request->gd_xs + $gudang->xs,
+            's' => $request->gd_s + $gudang->s,
+            'm' => $request->gd_m + $gudang->m,
+            'lg' => $request->gd_lg + $gudang->lg,
+            'xl' => $request->gd_xl + $gudang->xl,
+            'xxl' => $request->gd_xxl + $gudang->xxl,
+        ];
+        Gudang::where('id', $request->gudang_id)
+            ->update($data);
+        $gudangs = Gudang::findOrFail($request->gudang_id);
+        // dd($gudangs);
+        $stock_gudang = $gudangs->xs + $gudangs->s + $gudangs->m + $gudangs->lg + $gudangs->xl + $gudangs->xxl;
+        // dd($stock_gudang);
+        // Product::where('gd_stock', $request->id)
+        //     ->update($stock_gudang);
+
+        $product->gd_stock = $stock_gudang;
+        $product->save();
+
+        return back();
+        // return redirect()->to('admin-gudang')->with('success', 'Tambah ke Gudang Berhasi');
     }
 
     /**
@@ -53,10 +76,12 @@ class GudangController extends Controller
     {
         $product = Product::findOrFail($id);
         $gudang = Gudang::findOrFail($product->gudang_id);
+        $size = Size::findOrFail($product->size_id);
         return view('admin.pages.gudang.detail-gudang', [
             'title' => "Tambah Stok Toko",
             'product' => $product,
             'gudang' => $gudang,
+            'size' => $size,
         ]);
     }
 

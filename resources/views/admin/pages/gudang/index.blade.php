@@ -26,8 +26,9 @@
                     <td>Rp. {{ number_format($gudang->price, 0, ',', '.') }}</td>
                     <td>{{ $gudang->stock }}</td>
                     <td>{{ $gudang->gd_stock }}</td>
-                    <td><a href="{{ route('admin-gudang.show', [$gudang->id]) }}" class="btn btn-outline-primary">Tambah Stok
-                            Toko</a></td>
+                    <td><a href="{{ route('admin-gudang.show', [$gudang->id]) }}" class="btn btn-outline-primary"><i
+                                class="fa fa-plus"></i> Stok
+                            Toko & Gudang</a></td>
                 </tr>
             @endforeach
         </table>

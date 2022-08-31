@@ -67,24 +67,35 @@
                     @endforeach
                 </div> --}}
                 <div class="col-sm-4 invoice-col">
-                    <b>Total Keuntungan:</b> -
-                    {{-- <b>Total Keuntungan:</b> {{ number_format($profit + $profit, 0, ',', '.') }}<br> --}}
-                    <b>Total Kerugian:</b> ...<br>
+                    <b>Total Keuntungan:</b> Rp. {{ number_format($totalProfit, 0, ',', '.') }} <br>
                     <b>Waktu Laporan:</b> {{ $time->toDateTimeString() }}<br>
                 </div>
                 <!-- /.col -->
             </div>
             <!-- /.row -->
 
+            <!-- this row will not appear when printing -->
+            <div class="row no-print mb-3" id="hide">
+                <div class="col-12">
+                    <button class="btn btn-success" id="hide"><i class="fa fa-download"></i> Excel</button>
+                    <a onclick="window.print()" class="btn btn-primary print" id="hide"><i
+                            class="fas fa-print"></i> Print</a>
+                    <a href="{{ route('laporan.index') }}" class="btn btn-secondary" id="hide"><i
+                            class="fa fa-circle-left"></i>
+                        Kembali</a>
+                </div>
+            </div>
+
             <!-- Table row -->
             <div class="row">
                 <div class="col-12 table-responsive">
-                    <table class="table">
+                    <table class="table" id="myTable">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Nama Produk</th>
                                 <th>Merek</th>
+                                <th>Stok Toko</th>
                                 <th>Terjual ?</th>
                                 <th>Harga Jual</th>
                                 <th>Harga Beli</th>
@@ -99,12 +110,17 @@
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $laporan->product->name }}</td>
                                     <td>{{ $laporan->product->merk->name }}</td>
+                                    <td>{{ $laporan->product->stock }}</td>
                                     <td>{{ $laporan->qty }}</td>
                                     <td>Rp. {{ number_format($laporan->product->purchase_price, 0, ',', '.') }}</td>
                                     <td>Rp. {{ number_format($laporan->product->price, 0, ',', '.') }}</td>
                                     <td>Rp. {{ number_format($laporan->profit, 0, ',', '.') }}</td>
                                 </tr>
                             @endforeach
+                            <tr>
+                                <th colspan="7">Total Keuntungan:</th>
+                                <th colspan="1">Rp. {{ number_format($totalProfit, 0, ',', '.') }}</th>
+                            </tr>
 
                         </tbody>
                     </table>
@@ -113,16 +129,6 @@
             </div>
             <!-- /.row -->
 
-
-            <!-- this row will not appear when printing -->
-            <div class="row no-print" id="hide">
-                <div class="col-12">
-                    <a onclick="window.print()" class="btn btn-primary print"><i class="fas fa-print"
-                            id="hide"></i> Print</a>
-                    <a href="{{ route('laporan.index') }}" class="btn btn-secondary"><i class="fa fa-circle-left"
-                            id="hide"></i> Kembali</a>
-                </div>
-            </div>
         </div>
         <!-- /.invoice -->
         </div><!-- /.col -->
@@ -134,6 +140,15 @@
         <center><a href="{{ route('laporan.index') }}" class="btn btn-secondary"><i class="fa fa-circle-left"></i>
                 Kembali</a></center>
     @endif
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="/js/jquery.table2excel.js"></script>
+
+    <script>
+        $("button").click(function() {
+            $("#myTable").table2excel();
+        });
+    </script>
 </body>
 
 </html>

@@ -64,12 +64,23 @@
                 <b>Total Keuntungan:</b> Rp. {{ number_format($totalProfit, 0, ',', '.') }}<br>
                 {{-- <b>Total Keuntungan:</b> {{ number_format($profit, 0, ',', '.') }}<br> --}}
                 <br>
-                <b>Total Kerugian:</b> -<br>
                 <b>Waktu Laporan:</b> {{ $date }}<br>
             </div>
             <!-- /.col -->
         </div>
         <!-- /.row -->
+
+        <!-- this row will not appear when printing -->
+        <div class="row no-print mb-3" id="hide">
+            <div class="col-12">
+                <button class="btn btn-success" id="hide"><i class="fa fa-download"></i> Excel</button>
+                <a onclick="window.print()" class="btn btn-primary print" id="hide"><i class="fas fa-print"></i>
+                    Print</a>
+                <a href="{{ route('laporan.index') }}" class="btn btn-secondary" id="hide"><i
+                        class="fa fa-circle-left"></i>
+                    Kembali</a>
+            </div>
+        </div>
 
         <!-- Table row -->
         <div class="row">
@@ -81,6 +92,7 @@
                             <th>Barcode</th>
                             <th>Nama Produk</th>
                             <th>Merek</th>
+                            <th>Stok Toko</th>
                             <th>Terjual ?</th>
                             <th>Harga Jual</th>
                             <th>Harga Beli</th>
@@ -96,6 +108,7 @@
                                 <td>{{ $laporan->product->barcode }}</td>
                                 <td>{{ $laporan->product->name }}</td>
                                 <td>{{ $laporan->product->merk->name }}</td>
+                                <td>{{ $laporan->product->stock }}</td>
                                 <td class="text-center">{{ $laporan->qty }}</td>
                                 <td>Rp. {{ number_format($laporan->product->purchase_price, 0, ',', '.') }}</td>
                                 <td>Rp. {{ number_format($laporan->product->price, 0, ',', '.') }}</td>
@@ -112,19 +125,6 @@
             <!-- /.col -->
         </div>
         <!-- /.row -->
-
-
-        <!-- this row will not appear when printing -->
-        <div class="row no-print">
-            <div class="col-12">
-                <button class="btn btn-success"><i class="fa fa-download"></i> Excel</button>
-                {{-- <a id="excel" class="btn btn-primary" id="hide"><i class="fas fa-print"></i>
-                    Print</a> --}}
-                <a href="{{ route('laporan.index') }}" class="btn btn-secondary" id="hide"><i
-                        class="fa fa-circle-left"></i>
-                    Kembali</a>
-            </div>
-        </div>
     </div>
     <!-- /.invoice -->
     </div><!-- /.col -->
