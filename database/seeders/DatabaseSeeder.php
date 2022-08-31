@@ -70,6 +70,11 @@ class DatabaseSeeder extends Seeder
             "slug" => "lainnya"
         ]);
 
+        Category::create([
+            "name" => "Helm Anak",
+            "slug" => "helm-anak"
+        ]);
+
         Merk::create([
             "name" => "KYT",
             "slug" => 'kyt',

@@ -267,9 +267,9 @@
     <script src="/admin/js/sb-admin-2.min.js"></script>
 
     <!-- Chartjs -->
-    <script src="/admin/js/chartjs/chart.min.js"></script>
+    {{-- <script src="/admin/js/chartjs/chart.min.js"></script> --}}
     <!-- charts -->
-    <script src="/admin/js/charts.js"></script>
+    {{-- <script src="/admin/js/charts.js"></script> --}}
 
 </body>
 

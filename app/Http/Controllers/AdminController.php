@@ -11,6 +11,19 @@ use App\Models\Laporan;
 
 class AdminController extends Controller
 {
+
+    public function chartWeeks($category_id) {
+        return DB::table('daily_stocks')
+        ->select(DB::raw('SUM(store+storehouse) as total_stok'))
+        ->where('category_id', $category_id)
+        ->groupBy(DB::raw('YEARWEEK(date, 1)'), 'category_id')
+        ->orderBy(DB::raw('WEEK(date)'), 'asc')
+        ->get()
+        ->pluck('total_stok')
+        ->map(fn($i) => "'$i'")
+        ->implode(',');
+    }
+
     public function index()
     {
         $date = Carbon::now()->isoFormat('D-M-Y');
@@ -22,12 +35,23 @@ class AdminController extends Controller
         $thisMonth = Laporan::whereMonth('created_at', [$month, $year])->sum('profit');
         $thisYear = Laporan::whereYear('created_at', $year)->sum('profit');
         $totalProduct = Product::count();
+
+        $tgl_minggu = DB::table('daily_stocks')->select('date')->groupBy(DB::raw('YEARWEEK(date, 1)'))->orderBy(DB::raw('WEEK(date)'), 'asc')->get();
+
         return view('admin.pages.index', [
             'title' => "Dashboard",
             'totalProduct' => $totalProduct,
             'thisDay' => $thisDay,
             'thisMonth' => $thisMonth,
             'thisYear' => $thisYear,
+
+            'tgl_mingguan' => $tgl_minggu->pluck('date')->map(fn($i) => "'$i'")->implode(','),
+            'full_face' => $this->chartWeeks(1),
+            'half_face' => $this->chartWeeks(2),
+            'helm_anak' => $this->chartWeeks(6),
+            'acc' => $this->chartWeeks(3),
+            'sp_part' => $this->chartWeeks(4),
+            'others' => $this->chartWeeks(5),
         ]);
     }
 

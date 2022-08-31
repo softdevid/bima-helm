@@ -116,6 +116,104 @@
                 </div>
             </div>
         </div>
-
+        <script src="/admin/js/chartjs/chart.min.js"></script>
+        <script>
+            const myChart = new Chart(document.getElementById("myChart"), {
+                type: "line",
+                data: {
+                    labels: [{!! $tgl_mingguan !!}],
+                    datasets: [{
+                            label: "Full Face",
+                            data: [{!! $full_face !!}],
+                            fill: true,
+                            backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+                            borderColor: ["rgb(255, 99, 132)"],
+                            borderWidth: 3,
+                            tension: 0.1,
+                        },
+                        {
+                            label: "Half Face",
+                            data: [{!! $half_face !!}],
+                            fill: true,
+                            backgroundColor: ["rgba(255, 159, 64, 0.2)"],
+                            borderColor: ["rgb(255, 159, 64)"],
+                            borderWidth: 3,
+                            tension: 0.1,
+                        },
+                        {
+                            label: "Helm Anak",
+                            data: [{!! $helm_anak !!}],
+                            fill: true,
+                            backgroundColor: ["rgba(54, 162, 235, 0.2)"],
+                            borderColor: ["rgb(54, 162, 235)"],
+                            borderWidth: 3,
+                            tension: 0.1,
+                        },
+                        {
+                            label: "Aksesoris",
+                            data: [{!! $acc !!}],
+                            fill: true,
+                            backgroundColor: ["rgba(255, 205, 86, 0.2)"],
+                            borderColor: ["rgb(255, 205, 86)"],
+                            borderWidth: 3,
+                            tension: 0.1,
+                        },
+                        {
+                            label: "Spareparts",
+                            data: [{!! $sp_part !!}],
+                            fill: true,
+                            backgroundColor: ["rgba(75, 192, 192, 0.2)"],
+                            borderColor: ["rgb(75, 192, 192)"],
+                            borderWidth: 3,
+                            tension: 0.1,
+                        },
+                        {
+                            label: "Lainnya",
+                            data: [{!! $others !!}],
+                            fill: true,
+                            backgroundColor: ["rgba(153, 102, 255, 0.2)"],
+                            borderColor: ["rgb(153, 102, 255)"],
+                            borderWidth: 3,
+                            tension: 0.1,
+                        },
+                    ],
+                },
+                options: {
+                    plugins: {
+                        filler: {
+                            propagate: false,
+                        },
+                        tooltip: {
+                            mode: "index",
+                        },
+                    },
+                    radius: 5,
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: "nearest",
+                        axis: "x",
+                        intersect: false,
+                    },
+                    scales: {
+                        x: {
+                            display: true,
+                            title: {
+                                display: true,
+                            },
+                        },
+                        y: {
+                            stacked: "single",
+                            display: true,
+                            title: {
+                                display: true,
+                                text: "Stok",
+                            },
+                            beginAtZero: true,
+                        },
+                    },
+                },
+            });
+        </script>
     </div>
 @endsection
