@@ -63,6 +63,8 @@ btnTambah.addEventListener("click", function () {
         cell1.innerHTML = barcodeData.value;
         cell2.innerHTML = productName.value;
         cell4.innerHTML = qty.value;
+
+        //ditambah id sekang tabel sizeName
         if(sizeName.value == 1){
             cell3.innerHTML = "XS";
         } else if(sizeName.value == 2){
@@ -82,6 +84,8 @@ btnTambah.addEventListener("click", function () {
         cell6.className = "d-none";
         cell7.innerHTML = id;
         cell7.className = "d-none";
+        cell8.innerHTML = merk_id;
+        cell8.className = "d-none";
         barcode.value = "";
         qty.value = "";
         sizeName.value = "";
